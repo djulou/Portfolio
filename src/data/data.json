@@ -1,0 +1,40 @@
+{
+  "skills": [
+    { "id": 1, "name": "React", "level": "Avancé" },
+    { "id": 2, "name": "TypeScript", "level": "Intermédiaire" },
+    { "id": 3, "name": "CSS / Tailwind", "level": "Avancé" },
+    { "id": 4, "name": "Node.js", "level": "Débutant" }
+  ],
+  "formations": [
+    {
+      "id": 1,
+      "school": "Université de Rennes",
+      "degree": "Master Informatique",
+      "year": "2023 - 2025"
+    },
+    {
+      "id": 2,
+      "school": "IUT Lannion",
+      "degree": "BUT Informatique",
+      "year": "2020 - 2023"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Mon Portfolio V1",
+      "description": "Création d'un portfolio dynamique avec React et Vite.",
+      "tags": ["React", "Vite", "JSON"],
+      "image": "/images/portfolio-preview.jpg",
+      "link": "https://github.com/dorian/portfolio"
+    },
+    {
+      "id": 2,
+      "title": "App Météo",
+      "description": "Application météo utilisant une API externe en temps réel.",
+      "tags": ["API", "JavaScript", "CSS"],
+      "image": "/images/weather-app.jpg",
+      "link": "#"
+    }
+  ]
+}

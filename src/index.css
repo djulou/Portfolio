@@ -1,0 +1,20 @@
+/* --- Reset global --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Corps de la page --- */
+body {
+  font-family: "Poppins", sans-serif;
+  color: #eaeaea;
+  overflow-x: hidden;
+  background-color: #0f1c24;
+}
+
+h1,
+h2,
+h3 {
+  color: #ffb75e;
+}
