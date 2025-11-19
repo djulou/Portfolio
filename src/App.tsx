@@ -13,8 +13,8 @@ const App = () => {
       <Header />
       <main>
         <Hero />
+        
       </main>
-      <h1>Bonjour</h1>
     </>
   );
 };
