@@ -13,15 +13,14 @@ export default function Hero() {
             Je m'appelle <span>Dorian</span>
           </h2>
           <p>Bienvenue sur mon portfolio !</p>
-          <div>
+        </div>
+        <div>
+            <img className="profil" src={cv} alt="profil" />
             <a className="cv" href="files/cv.pdf" download>
               <button>CV</button>
             </a>
             <a href="https://www.linkedin.com/in/dorian-julou/"><img src="/img/linkedin.png" alt="linkedin" /></a>
-
           </div>
-        </div>
-        <img className="profil" src={cv} alt="profil" />
       </div>
       <div className="scroll-arrow">
         <span>▼</span>
