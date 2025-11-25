@@ -4,6 +4,7 @@
 //import { PortfolioData } from './data/types.ts';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import About from './components/About';
 
 const App = () => {
   //const data: PortfolioData = portfolioData;
@@ -13,6 +14,7 @@ const App = () => {
       <Header />
       <main>
         <Hero />
+        <About />
         
       </main>
     </>
