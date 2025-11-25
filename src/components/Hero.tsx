@@ -1,7 +1,7 @@
 import "../styles/Hero.css";
 import paysage from "../../public/img/paysage.jpg";
 import cv from "../../public/img/64.png";
-
+import linkedin from "../../public/img/linkedin.png";
 export default function Hero() {
   return (
     <section className="hero">
@@ -19,7 +19,7 @@ export default function Hero() {
             <a className="cv" href="files/cv.pdf" download>
               <button>CV</button>
             </a>
-            <a href="https://www.linkedin.com/in/dorian-julou/"><img src="/img/linkedin.png" alt="linkedin" /></a>
+            <a href="https://www.linkedin.com/in/dorian-julou/"><img src={linkedin} alt="linkedin" /></a>
           </div>
       </div>
       <div className="scroll-arrow">
