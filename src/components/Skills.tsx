@@ -11,7 +11,7 @@ export default function Skills({ data }: SkillsProps) {
       <h1 className="title">Compétences</h1>
       <div className="competences">
         {data.map((skill) => (
-          <div key={skill.id} className="lines">
+          <div key={skill.id} className="skill-card">
             {/* Dans ton HTML c'était h3, on garde la même structure */}
             <h3 className="title">{skill.name}</h3>
             
