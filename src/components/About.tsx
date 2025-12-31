@@ -9,14 +9,6 @@ interface AboutProps {
 export default function About({ aboutData, formationsData }: AboutProps) {
   return (
     <section id="apropos" className="about">
-      
-      {/* Partie Titre + Bouton CV */}
-      <div className="cv_div">
-        <h1 className="title">{aboutData.title}</h1>
-        <a className="cv" href={aboutData.cvLink} download>
-          <button>CV</button>
-        </a>
-      </div>
 
       {/* Description dynamique venant du JSON */}
       <p className="about_me">
