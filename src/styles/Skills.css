@@ -1,0 +1,30 @@
+.comp_container {
+  display: flex;
+  flex-direction: column;
+  padding: 60px 50px;
+}
+
+.comp_container .title { margin-bottom: 40px; }
+
+.competences {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.competences .lines {
+  border: 1px solid #ffb75e;
+  border-radius: 20px;
+  padding: 20px; /* Ajouté pour que le texte ne colle pas aux bords */
+  background: rgba(255, 255, 255, 0.05); /* Optionnel */
+}
+
+.competences .title { color: #ffb75e; font-size: 1.2rem; margin-bottom: 10px; }
+
+.competences .description {
+  display: flex;
+  text-align: left;
+  line-height: 1.5em;
+  font-size: 0.9rem;
+}

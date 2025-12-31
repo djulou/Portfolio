@@ -10,9 +10,6 @@ import Projects from './components/Projects';
 import Passions from './components/Passions';
 
 
-// Import du CSS global (pour le body, les couleurs, etc.)
-import './style.css'; 
-
 export default function App() {
   // On caste les données pour être sûr que TS valide la structure
   const data: PortfolioData = portfolioData as PortfolioData;
