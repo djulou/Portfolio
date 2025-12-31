@@ -12,32 +12,33 @@ interface HeroProps {
 export default function Hero({ data }: HeroProps) {
   return (
     <section className="hero">
-      {/* Image de fond dynamique */}
       <img className="paysage" src={paysage} alt="paysage" />
       
       <div className="hero-content">
-        <div className="first_texte">
-          <h1>{data.greeting}</h1>
-          <h2>
-            {data.intro} <span>{data.name}</span>
-          </h2>
-          <p>{data.welcome}</p>
+        {/* BLOC GAUCHE : Texte + Boutons */}
+        <div className="text-container">
+            <div className="first_texte">
+              <h1>{data.greeting}</h1>
+              <h2>
+                {data.intro} <span>{data.name}</span>
+              </h2>
+              <p>{data.welcome}</p>
+            </div>
+
+            {/* Nouveau conteneur pour les boutons en dessous du texte */}
+            <div className="action-buttons">
+                <a className="cv" href={data.cvLink} download>
+                  <button>CV</button>
+                </a>
+                
+                <a href={data.linkedinLink} target="_blank" rel="noreferrer">
+                  <img className="linkedin-icon" src={linkedin} alt="linkedin" />
+                </a>
+            </div>
         </div>
 
-        <div>
-            {/* Photo de profil dynamique */}
-            <img className="profil" src={profil} alt="profil" />
-            
-            {/* Bouton CV dynamique */}
-            <a className="cv" href={data.cvLink} download>
-              <button>CV</button>
-            </a>
-            
-            {/* Lien LinkedIn dynamique */}
-            <a href={data.linkedinLink} target="_blank" rel="noreferrer">
-              <img src={linkedin} alt="linkedin" />
-            </a>
-        </div>
+        {/* BLOC DROITE : Image de profil seule */}
+        <img className="profil" src={profil} alt="profil" />
       </div>
 
       <div className="scroll-arrow">
