@@ -1,40 +1,76 @@
 {
+  "hero": {
+    "greeting": "Bonjour",
+    "intro": "Je m'appelle",
+    "name": "Dorian",
+    "welcome": "Bienvenue sur mon portfolio !",
+    "bgImage": "/img/paysage.jpg",
+    "profileImage": "/img/64.png",
+    "linkedinIcon": "/img/linkedin.png",
+    "cvLink": "/files/cv.pdf",
+    "linkedinLink": "https://www.linkedin.com/in/dorian-julou/"
+  },
+  "about": {
+    "title": "À propos",
+    "description": "Je suis étudiant en BUT Informatique à l'IUT de Lannion. Je suis passionné par le développement d'application front et back. Je suis quelqu'un de sociable qui apprécie travailler en équipe. Je parle français et anglais.",
+    "cvLink": "/files/cv.pdf"
+  },
   "skills": [
-    { "id": 1, "name": "React", "level": "Avancé" },
-    { "id": 2, "name": "TypeScript", "level": "Intermédiaire" },
-    { "id": 3, "name": "CSS / Tailwind", "level": "Avancé" },
-    { "id": 4, "name": "Node.js", "level": "Débutant" }
+    {
+      "id": 1,
+      "name": "Réaliser un développement d'application",
+      "level": "Avancé",
+      "description": "Conception, programmation, test et maintenance de logiciels. Identification des besoins et architecture."
+    },
+    {
+      "id": 2,
+      "name": "Optimiser des applications",
+      "level": "Intermédiaire",
+      "description": "Améliorer les performances et l'efficacité des algorithmes. Refactorisation et identification des goulots d'étranglement."
+    },
+    {
+      "id": 3,
+      "name": "Administrer des systèmes",
+      "level": "Intermédiaire",
+      "description": "Installation et maintenance des systèmes d'exploitation, gestion des serveurs et réseaux."
+    },
+    {
+      "id": 4,
+      "name": "Gestion de projet",
+      "level": "Avancé",
+      "description": "Planification et organisation. Définition des objectifs et gestion des délais."
+    }
   ],
   "formations": [
     {
       "id": 1,
-      "school": "Université de Rennes",
-      "degree": "Master Informatique",
-      "year": "2023 - 2025"
+      "school": "IUT Lannion",
+      "degree": "BUT Informatique",
+      "year": "2023 - 2026",
+      "description": "Apprentissage du développement web, orienté objet, gestion de projet et travail d'équipe."
     },
     {
       "id": 2,
-      "school": "IUT Lannion",
-      "degree": "BUT Informatique",
-      "year": "2020 - 2023"
+      "school": "Lycée Chaptal",
+      "degree": "Baccalauréat Technologique (SIN)",
+      "year": "2020 - 2023",
+      "description": "Option Système Informatique et Numérique. Premiers pas vers le métier de développeur."
     }
   ],
   "projects": [
     {
       "id": 1,
-      "title": "Mon Portfolio V1",
-      "description": "Création d'un portfolio dynamique avec React et Vite.",
-      "tags": ["React", "Vite", "JSON"],
-      "image": "/images/portfolio-preview.jpg",
-      "link": "https://github.com/dorian/portfolio"
-    },
-    {
-      "id": 2,
-      "title": "App Météo",
-      "description": "Application météo utilisant une API externe en temps réel.",
-      "tags": ["API", "JavaScript", "CSS"],
-      "image": "/images/weather-app.jpg",
+      "title": "Plateforme de réservations",
+      "description": "Plateforme complète de gestion d'offres.",
+      "tags": ["FastAPI", "React", "Gestion de projet"],
+      "image": "/images/sudoku.png",
       "link": "#"
     }
+  ],
+  "passions": [
+    "/images/sport.jpg",
+    "/images/hand.jpg",
+    "/images/info.jpg",
+    "/images/voiture.jpg"
   ]
 }

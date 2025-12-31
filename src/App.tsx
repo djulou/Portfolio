@@ -1,24 +1,44 @@
-//import { useState, useEffect, useRef } from 'react';
-//import portfolioData from './data/data.json';
+import portfolioData from './data/data.json';
+import { PortfolioData } from './data/types'; // Pas besoin de .ts dans l'import
 
-//import { PortfolioData } from './data/types.ts';
+// Import des composants
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Passions from './components/Passions';
 
-const App = () => {
-  //const data: PortfolioData = portfolioData;
+
+// Import du CSS global (pour le body, les couleurs, etc.)
+import './style.css'; 
+
+export default function App() {
+  // On caste les données pour être sûr que TS valide la structure
+  const data: PortfolioData = portfolioData as PortfolioData;
 
   return (
     <>
       <Header />
       <main>
-        <Hero />
-        <About />
+        {/* Section Hero */}
+        <Hero data={data.hero} /> 
         
+        <div className="scroll-arrow">
+          <span>▼</span>
+        </div>
+
+        {/* Section À propos (incluant Formations) */}
+        <About 
+          aboutData={data.about} 
+          formationsData={data.formations} 
+        />
+
+        {/* Autres sections */}
+        <Skills data={data.skills} />
+        <Projects data={data.projects} />
+        <Passions data={data.passions} />
       </main>
     </>
   );
-};
-
-export default App;
+}

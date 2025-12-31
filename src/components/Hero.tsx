@@ -1,27 +1,41 @@
+import { HeroData } from '../data/types';
 import "../styles/Hero.css";
-import paysage from "../../public/img/paysage.jpg";
-import cv from "../../public/img/64.png";
-import linkedin from "../../public/img/linkedin.png";
-export default function Hero() {
+
+interface HeroProps {
+  data: HeroData;
+}
+
+export default function Hero({ data }: HeroProps) {
   return (
     <section className="hero">
-      <img className="paysage" src={paysage} alt="paysage" />
+      {/* Image de fond dynamique */}
+      <img className="paysage" src={data.bgImage} alt="paysage" />
+      
       <div className="hero-content">
         <div className="first_texte">
-          <h1>Bonjour</h1>
+          <h1>{data.greeting}</h1>
           <h2>
-            Je m'appelle <span>Dorian</span>
+            {data.intro} <span>{data.name}</span>
           </h2>
-          <p>Bienvenue sur mon portfolio !</p>
+          <p>{data.welcome}</p>
         </div>
+
         <div>
-            <img className="profil" src={cv} alt="profil" />
-            <a className="cv" href="files/cv.pdf" download>
+            {/* Photo de profil dynamique */}
+            <img className="profil" src={data.profileImage} alt="profil" />
+            
+            {/* Bouton CV dynamique */}
+            <a className="cv" href={data.cvLink} download>
               <button>CV</button>
             </a>
-            <a href="https://www.linkedin.com/in/dorian-julou/"><img src={linkedin} alt="linkedin" /></a>
-          </div>
+            
+            {/* Lien LinkedIn dynamique */}
+            <a href={data.linkedinLink} target="_blank" rel="noreferrer">
+              <img src={data.linkedinIcon} alt="linkedin" />
+            </a>
+        </div>
       </div>
+
       <div className="scroll-arrow">
         <span>▼</span>
       </div>
