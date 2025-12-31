@@ -1,6 +1,10 @@
 import { HeroData } from '../data/types';
 import "../styles/Hero.css";
 
+import paysage from "../../public/img/paysage.jpg";
+import profil from "../../public/img/64.png";
+import linkedin from "../../public/img/linkedin.png";
+
 interface HeroProps {
   data: HeroData;
 }
@@ -9,7 +13,7 @@ export default function Hero({ data }: HeroProps) {
   return (
     <section className="hero">
       {/* Image de fond dynamique */}
-      <img className="paysage" src={data.bgImage} alt="paysage" />
+      <img className="paysage" src={paysage} alt="paysage" />
       
       <div className="hero-content">
         <div className="first_texte">
@@ -22,7 +26,7 @@ export default function Hero({ data }: HeroProps) {
 
         <div>
             {/* Photo de profil dynamique */}
-            <img className="profil" src={data.profileImage} alt="profil" />
+            <img className="profil" src={profil} alt="profil" />
             
             {/* Bouton CV dynamique */}
             <a className="cv" href={data.cvLink} download>
@@ -31,7 +35,7 @@ export default function Hero({ data }: HeroProps) {
             
             {/* Lien LinkedIn dynamique */}
             <a href={data.linkedinLink} target="_blank" rel="noreferrer">
-              <img src={data.linkedinIcon} alt="linkedin" />
+              <img src={linkedin} alt="linkedin" />
             </a>
         </div>
       </div>
