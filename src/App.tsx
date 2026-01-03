@@ -10,7 +10,7 @@ import Projects from './components/Projects';
 import Passions from './components/Passions';
 
 // Petit style inline pour les boutons (ou à mettre dans un CSS à part)
-import './styles/style.css';
+import './styles/App.css';
 
 export default function App() {
   const data: PortfolioData = portfolioData as PortfolioData;
