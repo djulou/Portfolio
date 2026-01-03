@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import '../styles/Passions.css';
 
-// 1. IMPORTATION DES IMAGES
-// Assure-toi que les chemins correspondent à l'endroit où sont tes images
-// Si elles sont dans public/img, le chemin relatif depuis src/components est souvent ../../public/img/
+// --- Imports images (Garde tes imports ici) ---
 import sportImg from '../../public/img/sport.jpg'; 
 import handImg from '../../public/img/hand.jpg';
 import infoImg from '../../public/img/info.jpg';
@@ -16,9 +14,7 @@ interface PassionsProps {
 export default function Passions({ data }: PassionsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 2. CRÉATION DU DICTIONNAIRE (MAPPING)
-  // La clé (à gauche) doit être IDENTIQUE à ce qui est écrit dans ton fichier data.json
-  // La valeur (à droite) est la variable importée ci-dessus
+  // --- Ton Dictionnaire d'images ---
   const imagesMap: { [key: string]: string } = {
     "/images/sport.jpg": sportImg,
     "/images/hand.jpg": handImg,
@@ -36,16 +32,14 @@ export default function Passions({ data }: PassionsProps) {
 
   if (!data || data.length === 0) return null;
 
-  // Récupération de la clé (le chemin texte venant du JSON)
   const currentKey = data[currentIndex];
-  
-  // Récupération de la vraie image importée via le dictionnaire
-  // Si on ne trouve pas l'import, on utilise la clé comme fallback
   const imageToDisplay = imagesMap[currentKey] || currentKey;
 
   return (
     <section className="passion">
-      <h1><span>Passions</span></h1>
+      {/* Titre identique à Formation */}
+      <h1>Passions</h1>
+
       <div className="carousel">
         <button className="prev" onClick={prevSlide}>❮</button>
         
@@ -53,16 +47,16 @@ export default function Passions({ data }: PassionsProps) {
             <img 
               src={imageToDisplay} 
               alt={`passion ${currentIndex + 1}`} 
-              style={{ display: 'block', width: '100%' }} 
             />
         </div>
 
         <button className="next" onClick={nextSlide}>❯</button>
+
+        {/* --- NOUVEAU : Compteur intégré dans l'image (Badge) --- */}
+        <div className="counter-badge">
+            {currentIndex + 1} / {data.length}
+        </div>
       </div>
-      
-      <p style={{textAlign: 'center', marginTop: '10px'}}>
-        {currentIndex + 1} / {data.length}
-      </p>
     </section>
   );
 }

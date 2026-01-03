@@ -1,97 +1,69 @@
 /* src/styles/Passions.css */
 
 .passion {
-  text-align: center;
-  margin: 80px auto; /* Plus d'espace vertical */
-  width: 90%;
-  max-width: 900px; /* Limite la largeur pour que ce soit joli sur PC */
+  /* On garde l'espacement global mais on aligne le texte à gauche pour le titre */
+  padding: 0 50px; 
+  margin: 80px auto;
+  max-width: 1000px;
   position: relative;
 }
 
-/* --- Style du Titre Amélioré --- */
+/* --- 1. LE TITRE (Copie conforme de "Formation") --- */
 .passion h1 {
   font-size: 2.5rem;
   color: #ffb75e;
-  text-transform: uppercase; /* Tout en majuscule */
-  letter-spacing: 4px; /* Espace entre les lettres */
   margin-bottom: 40px;
-  position: relative;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
   display: inline-block;
-  padding-bottom: 10px;
+  width: 100%;
+  text-align: left; /* Aligné à gauche comme Formation */
 }
 
-/* Petite ligne décorative sous le titre */
-.passion h1::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background-color: #f9702c;
-  border-radius: 2px;
-}
-
-/* --- Le Cadre du Carrousel --- */
+/* --- 2. LE CAROUSEL --- */
 .carousel {
   position: relative;
   overflow: hidden;
-  margin: auto;
-  
-  /* On définit une taille fixe et joli */
-  height: 500px; 
+  margin: 0 auto; /* Centré */
   width: 100%;
-  
-  border-radius: 20px; /* Bords arrondis pour tout le cadre */
-  border: 1px solid rgba(255, 183, 94, 0.3); /* Bordure subtile */
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); /* Belle ombre portée */
-  background-color: #0f1c24; /* Fond si l'image ne charge pas */
+  height: 500px; /* Hauteur fixe confortable */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  background-color: #16202a; /* Fond sombre si l'image charge mal */
 }
 
 .slides {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-/* --- L'IMAGE (La correction principale) --- */
+/* --- 3. L'IMAGE (Correction étirement) --- */
 .slides img {
   width: 100%;
   height: 100%;
-  
-  /* C'est ICI que la magie opère : */
-  object-fit: cover; /* Remplit le cadre sans déformer l'image */
-  object-position: center; /* Centre l'image */
-  
+  object-fit: cover; /* ESSENTIEL : Coupe l'image pour remplir sans déformer */
+  object-position: center;
   display: block;
-  border-radius: 20px; /* Pour suivre le cadre */
-  transition: transform 0.5s ease; /* Effet fluide si on zoomait */
 }
 
-/* --- Les Boutons --- */
+/* --- 4. LES BOUTONS (Navigation) --- */
 button.prev, button.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  
-  /* Nouveau style plus moderne */
-  background-color: rgba(15, 28, 36, 0.6); /* Sombre et transparent */
-  backdrop-filter: blur(5px); /* Effet flou derrière */
-  color: #ffb75e;
-  border: 1px solid rgba(255, 183, 94, 0.5);
-  
+  background-color: rgba(15, 28, 36, 0.5); /* Sombre transparent */
+  backdrop-filter: blur(4px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   width: 50px;
   height: 50px;
-  border-radius: 50%; /* Parfaitement rond */
-  font-size: 24px;
+  border-radius: 50%;
+  font-size: 20px;
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
-  
-  /* Centrer la flèche dans le rond */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,19 +72,25 @@ button.prev, button.next {
 button.prev { left: 20px; }
 button.next { right: 20px; }
 
-/* Effet au survol des boutons */
-button.prev:hover, button.next:hover { 
+button.prev:hover, button.next:hover {
   background-color: #f9702c;
-  color: white;
   border-color: #f9702c;
-  transform: translateY(-50%) scale(1.1); /* Grossit légèrement */
+  transform: translateY(-50%) scale(1.1);
 }
 
-/* --- Indicateur (1/4) --- */
-.passion p {
-  margin-top: 15px;
-  color: #888;
+/* --- 5. NOUVEAU STYLE DU COMPTEUR (Badge) --- */
+/* Au lieu d'un texte en dessous, on le met DANS le carousel */
+.counter-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  color: #eaeaea;
+  padding: 8px 16px;
+  border-radius: 20px;
   font-family: monospace;
-  font-size: 1.1rem;
-  letter-spacing: 2px;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  pointer-events: none; /* On ne clique pas dessus */
 }

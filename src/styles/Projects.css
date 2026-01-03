@@ -1,12 +1,35 @@
-.projet { padding: 60px 50px; }
+/* src/styles/Projects.css */
 
+/* --- Conteneur global (Ajusté pour s'aligner avec About et Passions) --- */
+.projet {
+  padding: 80px 50px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- LE TITRE (Copie conforme de "Formation" et "Passions") --- */
+.projet h1 {
+  font-size: 2.5rem;
+  color: #ffb75e;
+  margin-bottom: 40px;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+}
+
+/* --- Grille des projets --- */
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  padding: 20px;
+  /* J'ai retiré le padding interne inutile ici car géré par .projet */
+  padding: 0; 
 }
 
+/* --- Carte Projet --- */
 .card {
   display: flex;
   flex-direction: column;
@@ -18,7 +41,9 @@
   height: 400px; /* Hauteur fixe pour uniformiser */
 }
 
-.card:hover { transform: translateY(-5px); }
+.card:hover { 
+  transform: translateY(-5px); 
+}
 
 .card_title {
   padding: 15px;
@@ -56,7 +81,7 @@
   flex-grow: 1;
 }
 
-/* MODALE */
+/* --- MODALE (Overlay) --- */
 .overlay {
   position: fixed;
   top: 0;
@@ -102,3 +127,10 @@
 
 .project-detail h2 { margin-top: 0; color: #222; font-size: 1.6em; }
 .project-detail p { color: #555; line-height: 1.6; margin-bottom: 20px; }
+
+/* Responsive : passage en 1 colonne sur mobile */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
