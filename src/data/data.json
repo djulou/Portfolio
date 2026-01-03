@@ -39,6 +39,18 @@
       "name": "Gestion de projet",
       "level": "Avancé",
       "description": "Planification et organisation. Définition des objectifs et gestion des délais."
+    },
+    {
+      "id": 5,
+      "name": "Conduire un projet",
+      "level": "Avancé",
+      "description": "Pilotage de l'exécution et suivi des étapes. Coordination des ressources et respect du budget."
+    },
+    {
+      "id": 6,
+      "name": "Travailler dans une équipe informatique",
+      "level": "Avancé",
+      "description": "Résolution collective de problèmes. Partage des responsabilités et adaptation aux changements de rôles."
     }
   ],
   "formations": [
