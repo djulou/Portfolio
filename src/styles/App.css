@@ -2,7 +2,7 @@
 .filter-buttons {
   display: flex;
   justify-content: center;
-  gap: 25px; /* J'ai augmenté l'espace entre les boutons (était 15px) */
+  gap: 20px; /* J'ai augmenté l'espace entre les boutons (était 15px) */
   margin-bottom: -40px;
   position: relative;
   z-index: 10;
@@ -15,7 +15,7 @@
   border: 1px solid #ffb75e;
   
   /* --- CHANGEMENTS ICI --- */
-  padding: 15px 35px;  /* Plus large et plus haut (était 12px 20px) */
+  padding: 15px 30px;  /* Plus large et plus haut (était 12px 20px) */
   font-size: 1.1rem;   /* Texte plus grand */
   /* ----------------------- */
   
