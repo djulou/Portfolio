@@ -1,6 +1,6 @@
 import { useState } from 'react'; // 1. Import de useState
 import portfolioData from './data/data.json';
-import { PortfolioData, Project } from './data/types'; // Import de Project pour le typage
+import { PortfolioData } from './data/types'; // Import de Project pour le typageS
 
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -10,7 +10,7 @@ import Projects from './components/Projects';
 import Passions from './components/Passions';
 
 // Petit style inline pour les boutons (ou à mettre dans un CSS à part)
-import './style.css'; 
+import './styles/style.css';
 
 export default function App() {
   const data: PortfolioData = portfolioData as PortfolioData;

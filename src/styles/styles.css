@@ -1,0 +1,44 @@
+/* Container des boutons */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: -40px; /* Astuce pour coller au titre "Projets" qui est dans le composant suivant */
+  position: relative;
+  z-index: 10;
+}
+
+/* Style des boutons par défaut */
+.filter-buttons button {
+  background-color: transparent;
+  color: #eaeaea;
+  border: 1px solid #ffb75e;
+  padding: 8px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Au survol */
+.filter-buttons button:hover {
+  background-color: rgba(255, 183, 94, 0.1);
+}
+
+/* Bouton actif (celui sélectionné) */
+.filter-buttons button.active {
+  background-color: #f9702c;
+  color: #0f1c24;
+  border-color: #f9702c;
+  font-weight: bold;
+  transform: scale(1.05);
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .filter-buttons {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
