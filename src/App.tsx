@@ -44,7 +44,7 @@ export default function App() {
         {/* 4. Interface des filtres juste avant les projets */}
         <section id="projets-filter" style={{ textAlign: 'center', marginTop: '40px' }}>
           <div className="filter-buttons">
-            {['Tous', 'Scolaire', 'Perso', 'Professionel'].map((category) => (
+            {['Tous', 'Scolaire', 'Personnel', 'Professionel'].map((category) => (
               <button
                 key={category}
                 className={activeFilter === category ? 'active' : ''}

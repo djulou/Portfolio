@@ -2,10 +2,8 @@ import { useState } from 'react';
 import { Project } from '../data/types';
 import '../styles/Projects.css';
 
-// --- 1. IMPORTATION DES IMAGES ---
-// Adapte les chemins selon où sont tes fichiers (ex: ../../public/img/...)
+// --- IMPORTATION DES IMAGES ---
 import sudokuImg from '../../public/img/sudoku.png'; 
-// Ajoute ici les images des autres projets (ex: meteoImg, portfolioImg...)
 
 interface ProjectsProps {
   data: Project[];
@@ -14,13 +12,17 @@ interface ProjectsProps {
 export default function Projects({ data }: ProjectsProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  // --- 2. CRÉATION DU DICTIONNAIRE ---
-  // La clé (à gauche) = Le texte exact dans ton data.json
-  // La valeur (à droite) = La variable importée au-dessus
   const projectImages: { [key: string]: string } = {
     "/images/sudoku.png": sudokuImg,
-    // "/images/weather-app.jpg": meteoImg, 
-    // Ajoute les autres ici...
+  };
+
+  // Petite fonction pour définir la classe CSS selon la catégorie
+  const getStickerClass = (category: string) => {
+    switch (category) {
+      case 'Scolaire': return 'sticker-school';
+      case 'Professionnel': return 'sticker-pro';
+      default: return 'sticker-personal';
+    }
   };
 
   return (
@@ -33,8 +35,13 @@ export default function Projects({ data }: ProjectsProps) {
             key={project.id} 
             className="card" 
             onClick={() => setSelectedProject(project)}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: 'pointer' }} // position: relative sera ajouté via le CSS
           >
+            {/* --- LE STICKER --- */}
+            <span className={`sticker ${getStickerClass(project.category)}`}>
+              {project.category}
+            </span>
+
             <h3 className="card_title">{project.title}</h3>
             <ul>
               {project.tags.map((tag, index) => (
@@ -42,8 +49,6 @@ export default function Projects({ data }: ProjectsProps) {
               ))}
             </ul>
 
-            {/* --- 3. UTILISATION DU DICTIONNAIRE --- */}
-            {/* On cherche l'image importée, sinon on garde le lien brut au cas où */}
             <img 
               src={projectImages[project.image] || project.image} 
               alt={project.title} 
@@ -61,6 +66,11 @@ export default function Projects({ data }: ProjectsProps) {
             >
               &times;
             </span>
+            {/* Tu peux aussi rappeler le type ici si tu veux */}
+            <span className={`sticker-detail ${getStickerClass(selectedProject.category)}`}>
+              {selectedProject.category}
+            </span>
+            
             <h2>{selectedProject.title}</h2>
             <p>{selectedProject.description}</p>
             

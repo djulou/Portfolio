@@ -48,7 +48,7 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   height: 420px;
-  position: relative;
+  position: relative; /* Indispensable pour positionner le sticker en absolute */
 }
 
 /* Effet au survol : Légère montée et bordure brillante */
@@ -56,6 +56,35 @@
   transform: translateY(-8px); 
   border-color: rgba(255, 183, 94, 0.3);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* --- STICKERS (NOUVEAU) --- */
+.sticker {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 12px;
+  border-radius: 20px; /* Forme de pilule */
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  letter-spacing: 0.5px;
+}
+
+/* Variantes de couleurs pour les stickers */
+.sticker-school {
+  background-color: #3498db; /* Bleu vif */
+}
+
+.sticker-pro {
+  background-color: #e74c3c; /* Rouge vif */
+}
+
+.sticker-personal {
+  background-color: #2ecc71; /* Vert émeraude */
 }
 
 /* Titre de la carte */
@@ -67,6 +96,7 @@
   color: #eaeaea; /* Texte clair */
   background: transparent;
   margin: 0;
+  margin-top: 15px; /* Petit espace pour ne pas coller au sticker si le titre est long */
 }
 
 /* Liste des tags */
@@ -135,6 +165,18 @@
   animation: slideUp 0.3s ease;
   position: relative;
   color: #eaeaea;
+}
+
+/* Sticker spécifique dans la modale (pas en absolute) */
+.sticker-detail {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
