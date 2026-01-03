@@ -58,13 +58,6 @@
   height: 100%; /* Pour que toutes les cartes aient la même hauteur visuelle */
 }
 
-/* Effet au survol (identique aux Projets) */
-.skill-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(255, 183, 94, 0.3); /* Lueur orange sur le bord */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-}
-
 /* Titre DANS la carte */
 .skill-card .title {
   /* Attention : on écrase le style du grand titre H1 pour celui-ci */
