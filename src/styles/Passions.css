@@ -1,15 +1,52 @@
+/* src/styles/Passions.css */
+
 .passion {
   text-align: center;
-  margin: 40px auto;
-  width: 80%;
+  margin: 80px auto; /* Plus d'espace vertical */
+  width: 90%;
+  max-width: 900px; /* Limite la largeur pour que ce soit joli sur PC */
   position: relative;
 }
 
+/* --- Style du Titre Amélioré --- */
+.passion h1 {
+  font-size: 2.5rem;
+  color: #ffb75e;
+  text-transform: uppercase; /* Tout en majuscule */
+  letter-spacing: 4px; /* Espace entre les lettres */
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+/* Petite ligne décorative sous le titre */
+.passion h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #f9702c;
+  border-radius: 2px;
+}
+
+/* --- Le Cadre du Carrousel --- */
 .carousel {
   position: relative;
   overflow: hidden;
   margin: auto;
-  height: 400px; /* Donne une hauteur fixe */
+  
+  /* On définit une taille fixe et joli */
+  height: 500px; 
+  width: 100%;
+  
+  border-radius: 20px; /* Bords arrondis pour tout le cadre */
+  border: 1px solid rgba(255, 183, 94, 0.3); /* Bordure subtile */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); /* Belle ombre portée */
+  background-color: #0f1c24; /* Fond si l'image ne charge pas */
 }
 
 .slides {
@@ -20,27 +57,62 @@
   align-items: center;
 }
 
+/* --- L'IMAGE (La correction principale) --- */
 .slides img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  
+  /* C'est ICI que la magie opère : */
+  object-fit: cover; /* Remplit le cadre sans déformer l'image */
+  object-position: center; /* Centre l'image */
+  
+  display: block;
+  border-radius: 20px; /* Pour suivre le cadre */
+  transition: transform 0.5s ease; /* Effet fluide si on zoomait */
 }
 
+/* --- Les Boutons --- */
 button.prev, button.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  padding: 10px 15px;
+  
+  /* Nouveau style plus moderne */
+  background-color: rgba(15, 28, 36, 0.6); /* Sombre et transparent */
+  backdrop-filter: blur(5px); /* Effet flou derrière */
+  color: #ffb75e;
+  border: 1px solid rgba(255, 183, 94, 0.5);
+  
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Parfaitement rond */
+  font-size: 24px;
   cursor: pointer;
-  border-radius: 50%;
-  font-size: 20px;
   z-index: 10;
+  transition: all 0.3s ease;
+  
+  /* Centrer la flèche dans le rond */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-button.prev:hover, button.next:hover { background-color: rgba(0,0,0,0.8); }
-button.prev { left: 10px; }
-button.next { right: 10px; }
+button.prev { left: 20px; }
+button.next { right: 20px; }
+
+/* Effet au survol des boutons */
+button.prev:hover, button.next:hover { 
+  background-color: #f9702c;
+  color: white;
+  border-color: #f9702c;
+  transform: translateY(-50%) scale(1.1); /* Grossit légèrement */
+}
+
+/* --- Indicateur (1/4) --- */
+.passion p {
+  margin-top: 15px;
+  color: #888;
+  font-family: monospace;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
