@@ -62,6 +62,7 @@
       "id": 1,
       "title": "Plateforme de réservations",
       "description": "Plateforme complète de gestion d'offres.",
+      "category": "Scolaire",
       "tags": ["FastAPI", "React", "Gestion de projet"],
       "image": "/images/sudoku.png",
       "link": "#"

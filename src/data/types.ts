@@ -38,6 +38,7 @@ export interface Project {
   tags: string[];
   image: string;
   link: string;
+  category: "Scolaire" | "Perso" | "Pro";
 }
 
 // L'interface globale mise à jour
