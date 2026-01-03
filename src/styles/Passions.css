@@ -1,36 +1,46 @@
 /* src/styles/Passions.css */
 
 .passion {
-  /* On garde l'espacement global mais on aligne le texte à gauche pour le titre */
-  padding: 0 50px; 
-  margin: 80px auto;
-  max-width: 1000px;
-  position: relative;
+  padding: 80px 50px;
+  max-width: 1200px; /* Même largeur max que Projets */
+  margin: 0 auto;
 }
 
-/* --- 1. LE TITRE (Copie conforme de "Formation") --- */
+/* --- TITRE (Identique à Projets) --- */
 .passion h1 {
   font-size: 2.5rem;
   color: #ffb75e;
-  margin-bottom: 40px;
-  font-weight: 700;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 15px;
-  display: inline-block;
-  width: 100%;
-  text-align: left; /* Aligné à gauche comme Formation */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 60px;
+  position: relative;
 }
 
-/* --- 2. LE CAROUSEL --- */
+.passion h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #f9702c;
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+/* --- CAROUSEL --- */
 .carousel {
   position: relative;
   overflow: hidden;
-  margin: 0 auto; /* Centré */
+  margin: 0 auto;
   width: 100%;
-  height: 500px; /* Hauteur fixe confortable */
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  background-color: #16202a; /* Fond sombre si l'image charge mal */
+  max-width: 900px; /* On limite un peu la largeur de l'image pour l'esthétique */
+  height: 500px;
+  
+  /* Style cohérent avec les cartes projets */
+  background-color: #16202a;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px; /* Même arrondi que les cartes */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .slides {
@@ -39,28 +49,30 @@
   display: flex;
 }
 
-/* --- 3. L'IMAGE (Correction étirement) --- */
+/* Image parfaite */
 .slides img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* ESSENTIEL : Coupe l'image pour remplir sans déformer */
-  object-position: center;
+  object-fit: cover;
   display: block;
 }
 
-/* --- 4. LES BOUTONS (Navigation) --- */
+/* --- BOUTONS NAVIGATION --- */
 button.prev, button.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(15, 28, 36, 0.5); /* Sombre transparent */
+  
+  /* Boutons discrets et modernes */
+  background-color: rgba(15, 28, 36, 0.4);
   backdrop-filter: blur(4px);
-  color: #fff;
+  color: #eaeaea;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  font-size: 20px;
+  font-size: 22px;
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
@@ -75,22 +87,24 @@ button.next { right: 20px; }
 button.prev:hover, button.next:hover {
   background-color: #f9702c;
   border-color: #f9702c;
+  color: #fff;
   transform: translateY(-50%) scale(1.1);
 }
 
-/* --- 5. NOUVEAU STYLE DU COMPTEUR (Badge) --- */
-/* Au lieu d'un texte en dessous, on le met DANS le carousel */
+/* --- COMPTEUR / BADGE --- */
 .counter-badge {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
-  color: #eaeaea;
-  padding: 8px 16px;
+  bottom: 25px;
+  right: 25px;
+  
+  background-color: rgba(15, 28, 36, 0.8);
+  color: #ffb75e;
+  border: 1px solid rgba(255, 183, 94, 0.2);
+  
+  padding: 6px 14px;
   border-radius: 20px;
   font-family: monospace;
-  font-size: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  pointer-events: none; /* On ne clique pas dessus */
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  pointer-events: none;
 }
