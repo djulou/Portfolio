@@ -11,21 +11,18 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const form = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-  // Si la modale n'est pas ouverte, on ne rend rien (null)
   if (!isOpen) return null;
 
   const sendEmail = (e: FormEvent) => {
     e.preventDefault();
     setStatus('sending');
 
-    // Récupération des clés depuis le fichier .env (Vite)
     const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    // Petite sécurité pour vérifier que les clés existent
     if (!serviceID || !templateID || !publicKey) {
-      console.error("Les clés EmailJS sont manquantes dans le fichier .env !");
+      console.error("Clés EmailJS manquantes.");
       setStatus('error');
       return;
     }
@@ -34,13 +31,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       emailjs.sendForm(serviceID, templateID, form.current, publicKey)
         .then(() => {
           setStatus('success');
-          // On ferme la modale automatiquement après 2.5 secondes de succès
           setTimeout(() => {
-            onClose(); 
-            setStatus('idle'); // On remet le statut à zéro pour la prochaine fois
+            onClose();
+            setStatus('idle');
           }, 2500);
         }, (error) => {
-          console.error("Erreur d'envoi EmailJS :", error);
+          console.error(error);
           setStatus('error');
         });
     }
@@ -51,33 +47,37 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
       <div className="contact-modal" onClick={(e) => e.stopPropagation()}>
         <button className="contact-close" onClick={onClose}>&times;</button>
         
-        <h2>Me contacter</h2>
-        <p>Un projet ? Une question ? Envoyez-moi un message !</p>
+        <div className="modal-header">
+          <h2>Me contacter</h2>
+          <p>À la recherche d'une opportunité de stage ou d'alternance ?<br/>Je serais ravi d'échanger avec vous.</p>
+        </div>
 
         <form ref={form} onSubmit={sendEmail}>
           <div className="form-group">
-            <label>Votre Nom</label>
-            {/* Le 'name' doit correspondre à {{user_name}} dans ton template EmailJS */}
-            <input type="text" name="user_name" required placeholder="Ex: Jean Dupont" />
+            <label>Votre Nom / Entreprise</label>
+            <input type="text" name="user_name" required placeholder="Ex: Jean Dupont - Entreprise X" />
           </div>
 
           <div className="form-group">
-            <label>Votre Email</label>
-            {/* Le 'name' doit correspondre à {{user_email}} */}
-            <input type="email" name="user_email" required placeholder="Ex: jean@mail.com" />
+            <label>Votre Email Professionnel</label>
+            <input type="email" name="user_email" required placeholder="nom@entreprise.com" />
           </div>
 
           <div className="form-group">
             <label>Votre Message</label>
-            {/* Le 'name' doit correspondre à {{message}} */}
-            <textarea name="message" required placeholder="Bonjour, j'aimerais..." rows={5}></textarea>
+            <textarea 
+              name="message" 
+              required 
+              placeholder="Bonjour, votre profil nous intéresse pour un poste de..." 
+              rows={6} // Plus de hauteur pour le confort
+            ></textarea>
           </div>
 
           <button type="submit" className="submit-btn" disabled={status === 'sending' || status === 'success'}>
             {status === 'idle' && 'Envoyer le message'}
             {status === 'sending' && 'Envoi en cours...'}
-            {status === 'success' && 'Message envoyé avec succès !'}
-            {status === 'error' && 'Erreur. Vérifiez la console.'}
+            {status === 'success' && 'Message envoyé !'}
+            {status === 'error' && 'Une erreur est survenue'}
           </button>
         </form>
       </div>

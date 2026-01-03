@@ -1,74 +1,134 @@
+/* Fond flouté derrière la modale */
 .contact-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.7); /* Un peu plus transparent pour la sobriété */
+  backdrop-filter: blur(8px); /* Flou plus prononcé */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 3000;
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.4s ease;
 }
 
+/* La boîte de la modale */
 .contact-modal {
   background: #16202a;
-  padding: 40px;
-  border-radius: 16px;
+  padding: 50px 60px; /* Beaucoup plus d'espace interne */
+  border-radius: 12px; /* Coins un peu moins ronds pour faire plus sérieux */
   width: 90%;
-  max-width: 500px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  max-width: 600px; /* Modale plus large */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
   position: relative;
   color: #eaeaea;
 }
 
+/* Bouton fermer discret */
 .contact-close {
   position: absolute;
-  top: 15px;
-  right: 20px;
+  top: 20px;
+  right: 25px;
   background: none;
   border: none;
-  color: #666;
+  color: #555;
   font-size: 2rem;
+  font-weight: 300;
   cursor: pointer;
+  transition: color 0.3s;
 }
 .contact-close:hover { color: #f9702c; }
 
-.contact-modal h2 { color: #ffb75e; margin-top: 0; }
+/* En-tête de la modale */
+.modal-header {
+  margin-bottom: 40px; /* Espace sous le titre */
+  text-align: center;
+}
 
-.form-group { margin-bottom: 20px; text-align: left; }
-.form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #ccc; }
+.contact-modal h2 {
+  color: #ffb75e;
+  margin: 0 0 15px 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.contact-modal p {
+  color: #a0a0a0;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Les champs du formulaire */
+.form-group {
+  margin-bottom: 30px; /* Plus d'espace entre les questions */
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase; /* Style pro */
+  letter-spacing: 1px;
+  color: #8899a6;
+}
 
 .form-group input, .form-group textarea {
   width: 100%;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 16px; /* Champs plus hauts */
+  border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: #0f1c24;
-  color: white;
+  background: #192734; /* Légèrement plus clair que le fond */
+  color: #fff;
   font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+/* Focus plus doux */
 .form-group input:focus, .form-group textarea:focus {
   outline: none;
   border-color: #f9702c;
+  background: #1c2e3e;
+  box-shadow: 0 0 0 4px rgba(249, 112, 44, 0.1);
 }
 
+/* Bouton */
 .submit-btn {
   width: 100%;
-  padding: 12px;
+  padding: 16px;
   background: #f9702c;
   border: none;
-  border-radius: 8px;
-  color: #0f1c24;
-  font-weight: bold;
-  font-size: 1rem;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
+  margin-top: 10px;
 }
 
-.submit-btn:hover:not(:disabled) { background: #ffb75e; }
-.submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+.submit-btn:hover:not(:disabled) {
+  background: #e6601e;
+  transform: translateY(-2px); /* Petit effet de levée */
+  box-shadow: 0 10px 20px rgba(230, 96, 30, 0.2);
+}
+
+.submit-btn:disabled {
+  background: #555;
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
