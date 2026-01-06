@@ -15,15 +15,6 @@ import './styles/App.css';
 export default function App() {
   const data: PortfolioData = portfolioData as PortfolioData;
 
-  // 2. État pour stocker le filtre actuel ('Tous' par défaut)
-  const [activeFilter, setActiveFilter] = useState<string>('Tous');
-
-  // 3. La variable magique : on filtre les projets AVANT le rendu
-  const filteredProjects = data.projects.filter((project) => {
-    if (activeFilter === 'Tous') return true; // Si 'Tous', on garde tout
-    return project.category === activeFilter; // Sinon, on garde si la catégorie correspond
-  });
-
   return (
     <>
       <Header />
