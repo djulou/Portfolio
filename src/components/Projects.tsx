@@ -10,13 +10,17 @@ interface ProjectsProps {
 }
 
 export default function Projects({ data }: ProjectsProps) {
+  // État pour la Modale
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  
+  // État pour le Filtre (Déplacé ici depuis App.tsx)
+  const [activeFilter, setActiveFilter] = useState<string>('Tous');
 
   const projectImages: { [key: string]: string } = {
     "/images/sudoku.png": sudokuImg,
   };
 
-  // Petite fonction pour définir la classe CSS selon la catégorie
+  // Fonction pour les stickers
   const getStickerClass = (category: string) => {
     switch (category) {
       case 'Scolaire': return 'sticker-school';
@@ -25,19 +29,40 @@ export default function Projects({ data }: ProjectsProps) {
     }
   };
 
+  // --- LOGIQUE DE FILTRAGE ---
+  const filteredProjects = data.filter((project) => {
+    if (activeFilter === 'Tous') return true;
+    return project.category === activeFilter;
+  });
+
   return (
     <section id="projets" className="projet">
+      {/* 1. Le Titre d'abord */}
       <h1 className="title"><span>Projets</span></h1>
       
+      {/* 2. Les Boutons de filtre ensuite (juste sous le titre) */}
+      <div className="filter-buttons" style={{ marginBottom: '40px' }}>
+        {['Tous', 'Scolaire', 'Perso', 'Pro'].map((category) => (
+          <button
+            key={category}
+            className={activeFilter === category ? 'active' : ''}
+            onClick={() => setActiveFilter(category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      {/* 3. La Grille des projets (On utilise la liste FILTRÉE) */}
       <div className="container">
-        {data.map((project) => (
+        {filteredProjects.map((project) => (
           <div 
             key={project.id} 
             className="card" 
             onClick={() => setSelectedProject(project)}
-            style={{ cursor: 'pointer' }} // position: relative sera ajouté via le CSS
+            style={{ cursor: 'pointer' }}
           >
-            {/* --- LE STICKER --- */}
+            {/* Le Sticker */}
             <span className={`sticker ${getStickerClass(project.category)}`}>
               {project.category}
             </span>
@@ -57,6 +82,7 @@ export default function Projects({ data }: ProjectsProps) {
         ))}
       </div>
 
+      {/* La Modale */}
       {selectedProject && (
         <div className="overlay" style={{ display: 'flex' }}>
           <div className="project-detail">
@@ -66,7 +92,7 @@ export default function Projects({ data }: ProjectsProps) {
             >
               &times;
             </span>
-            {/* Tu peux aussi rappeler le type ici si tu veux */}
+            
             <span className={`sticker-detail ${getStickerClass(selectedProject.category)}`}>
               {selectedProject.category}
             </span>

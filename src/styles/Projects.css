@@ -3,103 +3,127 @@
 /* --- Conteneur global --- */
 .projet {
   padding: 80px 50px;
-  max-width: 1200px; /* Un peu plus large pour que les grilles respirent */
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-/* --- TITRE (Style commun avec Passions) --- */
+/* --- TITRE --- */
 .projet h1 {
   font-size: 2.5rem;
   color: #ffb75e;
-  text-align: center; /* Centré */
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
-  margin-bottom: 60px;
+  margin-bottom: 40px; /* Réduit un peu car il y a les boutons après */
   position: relative;
 }
 
-/* Petite décoration sous le titre */
 .projet h1::after {
   content: "";
   display: block;
   width: 60px;
   height: 3px;
   background-color: #f9702c;
-  margin: 15px auto 0; /* Centré sous le texte */
+  margin: 15px auto 0;
   border-radius: 2px;
 }
 
-/* --- Grille des projets --- */
+/* =========================================
+   STYLE DES BOUTONS FILTRE (Ton code intégré)
+   ========================================= */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; 
+  /* IMPORTANT : J'ai changé -40px en 40px pour espacer des cartes */
+  margin-bottom: 40px; 
+  position: relative;
+  z-index: 10;
+}
+
+.filter-buttons button {
+  background-color: transparent;
+  color: #eaeaea;
+  border: 1px solid #ffb75e;
+  padding: 10px 25px;
+  font-size: 1.1rem; 
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.filter-buttons button:hover {
+  background-color: rgba(255, 183, 94, 0.1);
+  transform: translateY(-2px);
+}
+
+.filter-buttons button.active {
+  background-color: #f9702c;
+  color: #0f1c24;
+  border-color: #f9702c;
+  font-weight: bold;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(249, 112, 44, 0.3);
+}
+
+/* Responsive mobile pour les boutons */
+@media (max-width: 768px) {
+  .filter-buttons {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .filter-buttons button {
+    padding: 8px 16px;
+    font-size: 0.95rem;
+  }
+}
+
+/* =========================================
+   GRILLE ET CARTES (Dark UI)
+   ========================================= */
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive auto */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
   padding: 0;
 }
 
-/* --- Carte Projet (Dark UI) --- */
+/* --- Carte Projet --- */
 .card {
   display: flex;
   flex-direction: column;
-  background-color: #16202a; /* Fond sombre élégant */
+  background-color: #16202a;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   height: 420px;
-  position: relative; /* Indispensable pour positionner le sticker en absolute */
+  position: relative;
 }
 
-/* Effet au survol : Légère montée et bordure brillante */
 .card:hover { 
   transform: translateY(-8px); 
   border-color: rgba(255, 183, 94, 0.3);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* --- STICKERS (NOUVEAU) --- */
-.sticker {
-  position: absolute;
-  top: 8px;
-  right: 15px;
-  padding: 5px 12px;
-  border-radius: 20px; /* Forme de pilule */
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #fff;
-  z-index: 10;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  letter-spacing: 0.5px;
-}
-
-/* Variantes de couleurs pour les stickers */
-.sticker-school {
-  background-color: #3498db; /* Bleu vif */
-}
-
-.sticker-pro {
-  background-color: #e74c3c; /* Rouge vif */
-}
-
-.sticker-personal {
-  background-color: #2ecc71; /* Vert émeraude */
-}
-
-/* Titre de la carte */
+/* Titre Carte */
 .card_title {
   padding: 20px 20px 10px;
   font-size: 1.3em;
   font-weight: 600;
   text-align: left;
-  color: #eaeaea; /* Texte clair */
+  color: #eaeaea;
   background: transparent;
   margin: 0;
-  margin-top: 15px; /* Petit espace pour ne pas coller au sticker si le titre est long */
+  /* Marge à droite pour éviter que le texte passe sous le sticker */
+  margin-right: 60px; 
 }
 
-/* Liste des tags */
+/* Tags */
 .card ul {
   display: flex;
   flex-wrap: wrap;
@@ -116,31 +140,47 @@
   border-radius: 6px;
   font-size: 0.75em;
   font-weight: 500;
-  letter-spacing: 0.5px;
 }
 
-/* Image du projet */
+/* Image */
 .card img {
   width: 100%;
-  height: 100%; /* Prend tout l'espace restant */
+  height: 100%;
   object-fit: cover;
   flex-grow: 1;
   opacity: 0.9;
   transition: opacity 0.3s;
 }
 
-.card:hover img {
-  opacity: 1;
+.card:hover img { opacity: 1; }
+
+/* --- STICKERS (Étiquettes cat.) --- */
+.card .sticker {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  color: white;
 }
 
-/* --- MODALE (Overlay) --- */
+.sticker-school { background-color: #6c5ce7; }
+.sticker-personal { background-color: #00b894; }
+.sticker-pro { background-color: #e17055; }
+
+/* --- MODALE --- */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.85); /* Fond très sombre */
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
@@ -151,9 +191,8 @@
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* Contenu de la modale (Style sombre aussi) */
 .project-detail {
-  background: #16202a; /* Fond sombre */
+  background: #16202a;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 50px;
@@ -167,18 +206,6 @@
   color: #eaeaea;
 }
 
-/* Sticker spécifique dans la modale (pas en absolute) */
-.sticker-detail {
-  display: inline-block;
-  margin-bottom: 15px;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #fff;
-}
-
 @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
 .close-btn {
@@ -188,14 +215,23 @@
   font-size: 32px;
   color: #666;
   cursor: pointer;
-  transition: color 0.2s;
 }
 .close-btn:hover { color: #f9702c; }
 
 .project-detail h2 { margin-top: 0; color: #ffb75e; font-size: 2em; margin-bottom: 20px; }
 .project-detail p { color: #ccc; line-height: 1.8; font-size: 1.05rem; margin-bottom: 30px; }
 
-/* Lien dans la modale */
+/* Sticker dans la modale */
+.sticker-detail {
+  display: inline-block;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 15px;
+}
+
 .project-detail a {
   display: inline-block;
   background-color: #f9702c;

@@ -41,23 +41,9 @@ export default function App() {
 
         <Skills data={data.skills} />
 
-        {/* 4. Interface des filtres juste avant les projets */}
-        <section id="projets-filter" style={{ textAlign: 'center', marginTop: '40px' }}>
-          <div className="filter-buttons">
-            {['Tous', 'Scolaire', 'Personnel', 'Professionel'].map((category) => (
-              <button
-                key={category}
-                className={activeFilter === category ? 'active' : ''}
-                onClick={() => setActiveFilter(category)}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </section>
 
         {/* 5. On passe la variable FILTRÉE au lieu de data.projects brut */}
-        <Projects data={filteredProjects} />
+        <Projects data={data.projects} />
         
         <Passions data={data.passions} />
       </main>
