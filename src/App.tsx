@@ -1,4 +1,3 @@
-import { useState } from 'react'; // 1. Import de useState
 import portfolioData from './data/data.json';
 import { PortfolioData } from './data/types'; // Import de Project pour le typageS
 
