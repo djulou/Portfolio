@@ -1,5 +1,5 @@
 import portfolioData from './data/data.json';
-import { PortfolioData } from './data/types'; // Import de Project pour le typageS
+import { PortfolioData } from './data/types';
 
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -8,7 +8,6 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Passions from './components/Passions';
 
-// Petit style inline pour les boutons (ou à mettre dans un CSS à part)
 import './styles/App.css';
 
 export default function App() {
