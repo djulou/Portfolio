@@ -3,6 +3,7 @@ import { Project } from '../data/types';
 import '../styles/Projects.css';
 
 // --- IMPORTATION DES IMAGES ---
+// Ajoute tes autres images ici au fur et à mesure
 import sudokuImg from '../../public/img/sudoku.png'; 
 
 interface ProjectsProps {
@@ -10,38 +11,49 @@ interface ProjectsProps {
 }
 
 export default function Projects({ data }: ProjectsProps) {
-  // État pour la Modale
+  // 1. État pour la Modale (Projet sélectionné ou null)
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   
-  // État pour le Filtre (Déplacé ici depuis App.tsx)
+  // 2. État pour le Filtre
   const [activeFilter, setActiveFilter] = useState<string>('Tous');
 
+  // 3. Mapping des images (Lien entre le chemin JSON et l'import React)
   const projectImages: { [key: string]: string } = {
     "/images/sudoku.png": sudokuImg,
+    // "/images/autre-projet.png": autreImg,
   };
 
-  // Fonction pour les stickers
+  // 4. Fonction utilitaire pour la couleur des stickers (Catégorie)
   const getStickerClass = (category: string) => {
     switch (category) {
       case 'Scolaire': return 'sticker-school';
       case 'Professionnel': return 'sticker-pro';
-      default: return 'sticker-personal';
+      case 'Personnel': return 'sticker-personal';
+      default: return '';
     }
   };
 
-  // --- LOGIQUE DE FILTRAGE ---
+  // 5. Logique de Filtrage
   const filteredProjects = data.filter((project) => {
     if (activeFilter === 'Tous') return true;
     return project.category === activeFilter;
   });
 
+  // Gestion du scroll quand la modale est ouverte (optionnel mais recommandé)
+  if (selectedProject) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'auto';
+  }
+
   return (
     <section id="projets" className="projet">
-      {/* 1. Le Titre d'abord */}
-      <h1 className="title"><span>Projets</span></h1>
       
-      {/* 2. Les Boutons de filtre ensuite (juste sous le titre) */}
-      <div className="filter-buttons" style={{ marginBottom: '40px' }}>
+      {/* --- TITRE --- */}
+      <h1 className="title">Nos Projets</h1>
+      
+      {/* --- FILTRES --- */}
+      <div className="filter-buttons">
         {['Tous', 'Scolaire', 'Personnel', 'Professionnel'].map((category) => (
           <button
             key={category}
@@ -53,39 +65,47 @@ export default function Projects({ data }: ProjectsProps) {
         ))}
       </div>
 
-      {/* 3. La Grille des projets (On utilise la liste FILTRÉE) */}
+      {/* --- GRILLE DES PROJETS --- */}
       <div className="container">
         {filteredProjects.map((project) => (
           <div 
             key={project.id} 
             className="card" 
             onClick={() => setSelectedProject(project)}
-            style={{ cursor: 'pointer' }}
+            title="Cliquez pour voir les détails"
           >
-            {/* Le Sticker */}
+            {/* Sticker Catégorie (Haut Droit) */}
             <span className={`sticker ${getStickerClass(project.category)}`}>
               {project.category}
             </span>
 
+            {/* Titre */}
             <h3 className="card_title">{project.title}</h3>
+
+            {/* Tags (Liste) */}
             <ul>
               {project.tags.map((tag, index) => (
                 <li key={index}>{tag}</li>
               ))}
             </ul>
 
+            {/* Image */}
             <img 
               src={projectImages[project.image] || project.image} 
               alt={project.title} 
+              loading="lazy"
             />
           </div>
         ))}
       </div>
 
-      {/* La Modale */}
+      {/* --- MODALE (OVERLAY) --- */}
       {selectedProject && (
-        <div className="overlay" style={{ display: 'flex' }}>
-          <div className="project-detail">
+        <div className="overlay" onClick={() => setSelectedProject(null)}>
+          {/* onStopPropagation empêche la modale de se fermer si on clique DEDANS */}
+          <div className="project-detail" onClick={(e) => e.stopPropagation()}>
+            
+            {/* Bouton Fermer (Croix) */}
             <span 
               className="close-btn" 
               onClick={() => setSelectedProject(null)}
@@ -93,16 +113,24 @@ export default function Projects({ data }: ProjectsProps) {
               &times;
             </span>
             
-            <span className={`sticker-detail ${getStickerClass(selectedProject.category)}`}>
-              {selectedProject.category}
-            </span>
-            
-            <h2>{selectedProject.title}</h2>
+            {/* Contenu Modale */}
+            <div className="modal-header">
+              <span className={`sticker-detail ${getStickerClass(selectedProject.category)}`}>
+                {selectedProject.category}
+              </span>
+              <h2>{selectedProject.title}</h2>
+            </div>
+
             <p>{selectedProject.description}</p>
             
+            {/* Bouton Lien (s'il existe) */}
             {selectedProject.link && (
-               <a href={selectedProject.link} target="_blank" rel="noreferrer" style={{marginTop: '15px', display: 'inline-block'}}>
-                 Voir le projet
+               <a 
+                 href={selectedProject.link} 
+                 target="_blank" 
+                 rel="noreferrer"
+               >
+                 Voir le projet en direct
                </a>
             )}
           </div>

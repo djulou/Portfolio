@@ -82,8 +82,9 @@
       "title": "Plateforme de réservations",
       "description": "Plateforme complète de gestion d'offres.",
       "category": "Scolaire",
-      "tags": ["FastAPI", "React", "Gestion de projet"],
-      "image": "/images/sudoku.png",
+      "languages": ["PHP", "PostgresSQL", "GIT", "JIRA", "Figma"],
+      "skills": ["Réaliser", "Optimiser", "Administrer", "Gérer" , "Conduire" , "Collaborer"],
+      "image": ["/images/img_1_pact.png", "/images/img_2_pact.png", "/images/img_3_pact.png", "/images/img_4_pact.png"],
       "link": "#"
     }
   ],
