@@ -35,8 +35,7 @@ export interface Project {
   id: number;
   title: string;
   description: string;
-  languages: string[];
-  skills: string[];
+  tags: string[];
   image: string[];
   link: string;
   category: "Scolaire" | "Professionnel" | "Personnel";

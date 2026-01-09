@@ -3,27 +3,25 @@ import { Project } from '../data/types';
 import '../styles/Projects.css';
 
 // --- IMPORTATION DES IMAGES ---
-// Ajoute tes autres images ici au fur et à mesure
 import sudokuImg from '../../public/img/sudoku.png'; 
+// Importe tes autres images ici si nécessaire
 
 interface ProjectsProps {
   data: Project[];
 }
 
 export default function Projects({ data }: ProjectsProps) {
-  // 1. État pour la Modale (Projet sélectionné ou null)
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  
-  // 2. État pour le Filtre
   const [activeFilter, setActiveFilter] = useState<string>('Tous');
 
-  // 3. Mapping des images (Lien entre le chemin JSON et l'import React)
+  // Nombre de tags max à afficher sur la carte avant le "+x"
+  const MAX_TAGS_ON_CARD = 3;
+
   const projectImages: { [key: string]: string } = {
     "/images/sudoku.png": sudokuImg,
-    // "/images/autre-projet.png": autreImg,
+    // Ajoute les autres correspondances ici
   };
 
-  // 4. Fonction utilitaire pour la couleur des stickers (Catégorie)
   const getStickerClass = (category: string) => {
     switch (category) {
       case 'Scolaire': return 'sticker-school';
@@ -33,13 +31,12 @@ export default function Projects({ data }: ProjectsProps) {
     }
   };
 
-  // 5. Logique de Filtrage
   const filteredProjects = data.filter((project) => {
     if (activeFilter === 'Tous') return true;
     return project.category === activeFilter;
   });
 
-  // Gestion du scroll quand la modale est ouverte (optionnel mais recommandé)
+  // Gestion du scroll
   if (selectedProject) {
     document.body.style.overflow = 'hidden';
   } else {
@@ -49,10 +46,8 @@ export default function Projects({ data }: ProjectsProps) {
   return (
     <section id="projets" className="projet">
       
-      {/* --- TITRE --- */}
       <h1 className="title">Nos Projets</h1>
       
-      {/* --- FILTRES --- */}
       <div className="filter-buttons">
         {['Tous', 'Scolaire', 'Personnel', 'Professionnel'].map((category) => (
           <button
@@ -65,47 +60,58 @@ export default function Projects({ data }: ProjectsProps) {
         ))}
       </div>
 
-      {/* --- GRILLE DES PROJETS --- */}
       <div className="container">
-        {filteredProjects.map((project) => (
-          <div 
-            key={project.id} 
-            className="card" 
-            onClick={() => setSelectedProject(project)}
-            title="Cliquez pour voir les détails"
-          >
-            {/* Sticker Catégorie (Haut Droit) */}
-            <span className={`sticker ${getStickerClass(project.category)}`}>
-              {project.category}
-            </span>
+        {filteredProjects.map((project) => {
+          // --- LOGIQUE D'AFFICHAGE (Calculée pour CHAQUE projet) ---
+          
+          // 1. Récupérer la première image du tableau
+          const firstImage = project.image && project.image.length > 0 ? project.image[0] : '';
+          
+          // 2. Calculer les tags à afficher
+          const visibleTags = project.tags.slice(0, MAX_TAGS_ON_CARD);
+          const remainingTags = project.tags.length - MAX_TAGS_ON_CARD;
 
-            {/* Titre */}
-            <h3 className="card_title">{project.title}</h3>
+          return (
+            <div 
+              key={project.id} 
+              className="card" 
+              onClick={() => setSelectedProject(project)}
+              title="Cliquez pour voir les détails"
+            >
+              <span className={`sticker ${getStickerClass(project.category)}`}>
+                {project.category}
+              </span>
 
-            {/* Tags (Liste) */}
-            <ul>
-              {project.tags.map((tag, index) => (
-                <li key={index}>{tag}</li>
-              ))}
-            </ul>
+              <h3 className="card_title">{project.title}</h3>
 
-            {/* Image */}
-            <img 
-              src={projectImages[project.image] || project.image} 
-              alt={project.title} 
-              loading="lazy"
-            />
-          </div>
-        ))}
+              {/* Liste des Tags (Limitée) */}
+              <ul>
+                {visibleTags.map((tag, index) => (
+                  <li key={index}>{tag}</li>
+                ))}
+                
+                {/* Badge +x */}
+                {remainingTags > 0 && (
+                  <li className="tag-more">+{remainingTags}</li>
+                )}
+              </ul>
+
+              {/* Image (La première du tableau) */}
+              <img 
+                src={projectImages[firstImage] || firstImage} 
+                alt={project.title} 
+                loading="lazy"
+              />
+            </div>
+          );
+        })}
       </div>
 
-      {/* --- MODALE (OVERLAY) --- */}
+      {/* --- MODALE --- */}
       {selectedProject && (
         <div className="overlay" onClick={() => setSelectedProject(null)}>
-          {/* onStopPropagation empêche la modale de se fermer si on clique DEDANS */}
           <div className="project-detail" onClick={(e) => e.stopPropagation()}>
             
-            {/* Bouton Fermer (Croix) */}
             <span 
               className="close-btn" 
               onClick={() => setSelectedProject(null)}
@@ -113,7 +119,6 @@ export default function Projects({ data }: ProjectsProps) {
               &times;
             </span>
             
-            {/* Contenu Modale */}
             <div className="modal-header">
               <span className={`sticker-detail ${getStickerClass(selectedProject.category)}`}>
                 {selectedProject.category}
@@ -121,16 +126,32 @@ export default function Projects({ data }: ProjectsProps) {
               <h2>{selectedProject.title}</h2>
             </div>
 
+            {/* Dans la modale, on affiche TOUS les tags */}
+            <div className="modal-tags">
+               {selectedProject.tags.map((tag, i) => (
+                 <span key={i} className="modal-tag-item">{tag}</span>
+               ))}
+            </div>
+
             <p>{selectedProject.description}</p>
             
-            {/* Bouton Lien (s'il existe) */}
+            {/* Image principale dans la modale (ou tu peux faire une galerie plus tard) */}
+            <div className="modal-image-container">
+                <img 
+                    src={projectImages[selectedProject.image[0]] || selectedProject.image[0]} 
+                    alt={selectedProject.title} 
+                    style={{width: '100%', borderRadius: '10px', marginTop: '15px'}}
+                />
+            </div>
+
             {selectedProject.link && (
                <a 
                  href={selectedProject.link} 
                  target="_blank" 
                  rel="noreferrer"
+                 style={{marginTop: '20px', display: 'inline-block'}}
                >
-                 Voir le projet en direct
+                 Voir le projet
                </a>
             )}
           </div>
