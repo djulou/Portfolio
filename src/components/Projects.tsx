@@ -42,7 +42,7 @@ export default function Projects({ data }: ProjectsProps) {
       
       {/* 2. Les Boutons de filtre ensuite (juste sous le titre) */}
       <div className="filter-buttons" style={{ marginBottom: '40px' }}>
-        {['Tous', 'Scolaire', 'Perso', 'Pro'].map((category) => (
+        {['Tous', 'Scolaire', 'Personnel', 'Professionnel'].map((category) => (
           <button
             key={category}
             className={activeFilter === category ? 'active' : ''}
