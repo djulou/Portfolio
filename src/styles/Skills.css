@@ -8,7 +8,7 @@
   margin: 0 auto;
 }
 
-/* --- HEADER DES ONGLETS --- */
+/* --- HEADER DES ONGLETS (Lui reste interactif car on clique dessus) --- */
 .skills-header {
   display: flex;
   justify-content: center;
@@ -19,25 +19,23 @@
 
 .skills-header .title {
   font-size: 2.5rem;
-  color: #666; /* Couleur grise par défaut (inactif) */
+  color: #666;
   text-transform: uppercase;
   letter-spacing: 3px;
-  cursor: pointer; /* Curseur main */
+  cursor: pointer;
   transition: all 0.3s ease;
   margin: 0;
   position: relative;
 }
 
-/* Le titre actif devient Orange et grand */
 .skills-header .title.active {
   color: #ffb75e;
 }
 
-/* La ligne sous le titre actif */
 .skills-header .title::after {
   content: "";
   display: block;
-  width: 0; /* Caché par défaut */
+  width: 0;
   height: 3px;
   background-color: #f9702c;
   margin: 10px auto 0;
@@ -46,11 +44,11 @@
 }
 
 .skills-header .title.active::after {
-  width: 60px; /* Visible quand actif */
+  width: 60px;
 }
 
 .skills-header .title:hover {
-  color: #eaeaea; /* Éclaircit au survol si inactif */
+  color: #eaeaea;
 }
 
 .separator {
@@ -59,7 +57,7 @@
   font-weight: 100;
 }
 
-/* --- GRILLE COMPÉTENCES (Rappel de ton style précédent) --- */
+/* --- GRILLE COMPÉTENCES --- */
 .competences {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -73,12 +71,7 @@
   padding: 30px;
   text-align: center;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.skill-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(255, 183, 94, 0.3);
+  /* J'ai retiré le transition et le :hover */
 }
 
 .skill-card .card-title {
@@ -93,7 +86,7 @@
   line-height: 1.6;
 }
 
-/* --- GRILLE LANGAGES (Nouvelle section) --- */
+/* --- GRILLE LANGAGES --- */
 .languages-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -110,13 +103,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.language-card:hover {
-  transform: translateY(-5px);
-  background-color: #1a2632;
-  border-color: #f9702c;
+  /* J'ai retiré le transition et le :hover ici aussi */
 }
 
 .logo-container {
@@ -137,7 +124,7 @@
   margin: 0;
 }
 
-/* Animation douce au changement d'onglet */
+/* Animation douce à l'apparition */
 .fade-in {
   animation: fadeIn 0.5s ease forwards;
 }
