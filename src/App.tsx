@@ -28,7 +28,10 @@ export default function App() {
           formationsData={data.formations} 
         />
 
-        <Skills data={data.skills} />
+        <Skills 
+          skillsData={data.skills} 
+          languagesData={data.languages} 
+        />
 
 
         {/* 5. On passe la variable FILTRÉE au lieu de data.projects brut */}

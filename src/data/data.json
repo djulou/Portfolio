@@ -36,15 +36,15 @@
     },
     {
       "id": 4,
-      "name": "Gestion de projet",
+      "name": "Conception et mise en place de BDD",
       "level": "Avancé",
-      "description": "Planification et organisation. Définition des objectifs et gestion des délais."
+      "description": "Création et administration de bases de données, gestion de l'intégrité et de la sécurité."
     },
     {
       "id": 5,
-      "name": "Conduire un projet",
+      "name": "Gestion de projet",
       "level": "Avancé",
-      "description": "Pilotage de l'exécution et suivi des étapes. Coordination des ressources et respect du budget."
+      "description": "Planification et organisation. Définition des objectifs et gestion des délais."
     },
     {
       "id": 6,
@@ -52,6 +52,14 @@
       "level": "Avancé",
       "description": "Résolution collective de problèmes. Partage des responsabilités et adaptation aux changements de rôles."
     }
+  ],
+  "languages": [
+    { "id": 1, "name": "HTML5", "image": "/img/html.png" },
+    { "id": 2, "name": "CSS3", "image": "/img/css.png" },
+    { "id": 3, "name": "React", "image": "/img/react.png" },
+    { "id": 4, "name": "TypeScript", "image": "/img/typescript.png" },
+    { "id": 5, "name": "Node.js", "image": "/img/node.png" },
+    { "id": 6, "name": "Git", "image": "/img/git.png" }
   ],
   "formations": [
     {

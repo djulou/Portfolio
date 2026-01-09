@@ -49,4 +49,11 @@ export interface PortfolioData {
   formations: Formation[];
   projects: Project[];
   passions: string[]; // Ajouté
+  languages: Language[];
+}
+
+export interface Language {
+  id: number;
+  name: string; // ex: React
+  image: string; // Chemin vers le logo
 }
