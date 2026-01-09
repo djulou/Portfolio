@@ -8,7 +8,6 @@ import htmlLogo from '../../public/img/html.png';
 import cssLogo from '../../public/img/css.png';
 import reactLogo from '../../public/img/react.png';
 import tsLogo from '../../public/img/typescript.png';
-import nodeLogo from '../../public/img/node.png';
 import gitLogo from '../../public/img/git.png';
 // Importe une image par défaut si besoin
 
@@ -27,7 +26,6 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     "/img/css.png": cssLogo,
     "/img/react.png": reactLogo,
     "/img/typescript.png": tsLogo,
-    "/img/node.png": nodeLogo,
     "/img/git.png": gitLogo,
   };
 
