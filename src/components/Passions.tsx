@@ -36,7 +36,7 @@ export default function Passions({ data }: PassionsProps) {
   const imageToDisplay = imagesMap[currentKey] || currentKey;
 
   return (
-    <section className="passion">
+    <section id="passions" className="passion">
       {/* Titre identique à Formation */}
       <h1>Passions</h1>
 
