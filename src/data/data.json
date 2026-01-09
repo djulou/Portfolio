@@ -58,8 +58,7 @@
     { "id": 2, "name": "CSS3", "image": "/img/css.png" },
     { "id": 3, "name": "React", "image": "/img/react.png" },
     { "id": 4, "name": "TypeScript", "image": "/img/typescript.png" },
-    { "id": 5, "name": "Node.js", "image": "/img/node.png" },
-    { "id": 6, "name": "Git", "image": "/img/git.png" }
+    { "id": 5, "name": "Git", "image": "/img/git.png" }
   ],
   "formations": [
     {
