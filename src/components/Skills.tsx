@@ -3,13 +3,11 @@ import { Skill, Language } from '../data/types';
 import '../styles/Skills.css';
 
 // --- IMPORTATION DES LOGOS ---
-// Assure-toi d'avoir ces images dans ton dossier public/img/ ou assets
 import htmlLogo from '../../public/img/html.png';
 import cssLogo from '../../public/img/css.png';
 import reactLogo from '../../public/img/react.png';
 import tsLogo from '../../public/img/typescript.png';
 import gitLogo from '../../public/img/git.png';
-// Importe une image par défaut si besoin
 
 interface SkillsProps {
   skillsData: Skill[];
@@ -17,10 +15,8 @@ interface SkillsProps {
 }
 
 export default function Skills({ skillsData, languagesData }: SkillsProps) {
-  // État pour gérer l'onglet actif ('competences' par défaut)
-  const [activeTab, setActiveTab] = useState<'competences' | 'languages'>('competences');
+  const [activeTab, setActiveTab] = useState<'but' | 'lang'>('but');
 
-  // Mapping des images pour les langages
   const languageLogos: { [key: string]: string } = {
     "/img/html.png": htmlLogo,
     "/img/css.png": cssLogo,
@@ -29,60 +25,79 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     "/img/git.png": gitLogo,
   };
 
+  // --- NOUVELLE FONCTION ---
+  // Cette fonction prend le titre, isole le premier mot et lui applique le style
+  const formatTitle = (title: string) => {
+    const words = title.split(' '); // Coupe la phrase à chaque espace
+    const firstWord = words[0];     // Le verbe (Gérer, Conduire...)
+    const rest = words.slice(1).join(' '); // Le reste de la phrase
+
+    return (
+      <>
+        <span className="verb-highlight">{firstWord}</span> {rest}
+      </>
+    );
+  };
+
   return (
     <section id="competences" className="comp_container">
       
-      {/* --- EN-TÊTE AVEC LES DEUX TITRES CLIQUABLES --- */}
-      <div className="skills-header">
-        <h1 
-          className={`title clickable ${activeTab === 'competences' ? 'active' : ''}`}
-          onClick={() => setActiveTab('competences')}
-        >
-          Compétences
-        </h1>
-        
-        <span className="separator">|</span>
+      <h1 className="main-title">Compétences</h1>
 
-        <h1 
-          className={`title clickable ${activeTab === 'languages' ? 'active' : ''}`}
-          onClick={() => setActiveTab('languages')}
+      <div className="toggle-buttons">
+        <button 
+          className={activeTab === 'but' ? 'active' : ''} 
+          onClick={() => setActiveTab('but')}
         >
-          Langages
-        </h1>
+          Savoir-faire (BUT)
+        </button>
+        <button 
+          className={activeTab === 'lang' ? 'active' : ''} 
+          onClick={() => setActiveTab('lang')}
+        >
+          Langages & Outils
+        </button>
       </div>
 
-      {/* --- CONTENU CONDITIONNEL --- */}
-      
-      {/* CAS 1 : Affichage des Compétences (Texte) */}
-      {activeTab === 'competences' && (
-        <div className="competences fade-in">
-          {skillsData.map((skill) => (
-            <div key={skill.id} className="skill-card"> 
-              <h3 className="card-title">{skill.name}</h3>
-              {skill.description && (
-                <p className="description">{skill.description}</p>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
+      <div className="content-area fade-in">
+        
+        {/* CAS A : Compétences BUT */}
+        {activeTab === 'but' && (
+          <div className="competences-grid">
+            {skillsData.map((skill) => (
+              <div key={skill.id} className="skill-card"> 
+                
+                {/* --- MODIFICATION ICI : Appel de la fonction formatTitle --- */}
+                <h3 className="card-title">
+                  {formatTitle(skill.name)}
+                </h3>
 
-      {/* CAS 2 : Affichage des Langages (Logos) */}
-      {activeTab === 'languages' && (
-        <div className="languages-grid fade-in">
-          {languagesData.map((lang) => (
-            <div key={lang.id} className="language-card">
-              <div className="logo-container">
-                <img 
-                  src={languageLogos[lang.image] || lang.image} 
-                  alt={lang.name} 
-                />
+                {skill.description && (
+                  <p className="description">{skill.description}</p>
+                )}
               </div>
-              <p>{lang.name}</p>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+
+        {/* CAS B : Langages */}
+        {activeTab === 'lang' && (
+          <div className="languages-grid">
+            {languagesData.map((lang) => (
+              <div key={lang.id} className="language-card">
+                <div className="logo-container">
+                  <img 
+                    src={languageLogos[lang.image] || lang.image} 
+                    alt={lang.name} 
+                  />
+                </div>
+                <p>{lang.name}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+      </div>
 
     </section>
   );

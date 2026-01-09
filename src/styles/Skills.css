@@ -6,59 +6,69 @@
   padding: 80px 50px;
   max-width: 1200px;
   margin: 0 auto;
+  min-height: 600px; /* Évite que le footer remonte trop quand on change d'onglet */
 }
 
-/* --- HEADER DES ONGLETS (Lui reste interactif car on clique dessus) --- */
-.skills-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 60px;
-}
-
-.skills-header .title {
+/* --- TITRE --- */
+.main-title {
   font-size: 2.5rem;
-  color: #666;
+  color: #ffb75e;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin: 0;
+  margin-bottom: 40px;
   position: relative;
+  margin-top: 0;
 }
 
-.skills-header .title.active {
-  color: #ffb75e;
-}
-
-.skills-header .title::after {
+.main-title::after {
   content: "";
   display: block;
-  width: 0;
+  width: 60px;
   height: 3px;
   background-color: #f9702c;
-  margin: 10px auto 0;
+  margin: 15px auto 0;
   border-radius: 2px;
-  transition: width 0.3s ease;
 }
 
-.skills-header .title.active::after {
-  width: 60px;
+/* --- BOUTONS DE NAVIGATION (Style identique à Projets) --- */
+.toggle-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 50px;
 }
 
-.skills-header .title:hover {
+.toggle-buttons button {
+  background-color: transparent;
   color: #eaeaea;
+  border: 1px solid #ffb75e;
+  padding: 10px 30px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-width: 180px; /* Pour qu'ils aient la même taille */
 }
 
-.separator {
-  font-size: 2.5rem;
-  color: #444;
-  font-weight: 100;
+/* Bouton actif (Orange) */
+.toggle-buttons button.active {
+  background-color: #f9702c;
+  color: #0f1c24;
+  border-color: #f9702c;
+  font-weight: bold;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(249, 112, 44, 0.3);
 }
 
-/* --- GRILLE COMPÉTENCES --- */
-.competences {
+.toggle-buttons button:hover {
+  background-color: rgba(255, 183, 94, 0.1);
+}
+
+/* --- GRILLE COMPÉTENCES (BUT) --- */
+.competences-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
@@ -70,14 +80,14 @@
   border-radius: 16px;
   padding: 30px;
   text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  /* J'ai retiré le transition et le :hover */
+  /* Pas de hover effect */
 }
 
 .skill-card .card-title {
-  color: #eaeaea;
-  margin-bottom: 10px;
-  font-size: 1.3rem;
+  color: #ffb75e;
+  margin-bottom: 15px;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .skill-card .description {
@@ -89,8 +99,8 @@
 /* --- GRILLE LANGAGES --- */
 .languages-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Auto responsive */
+  gap: 25px;
   justify-content: center;
 }
 
@@ -98,12 +108,12 @@
   background-color: #16202a;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  padding: 20px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* J'ai retiré le transition et le :hover ici aussi */
+  /* Pas de hover effect */
 }
 
 .logo-container {
@@ -120,13 +130,37 @@
 
 .language-card p {
   color: #eaeaea;
-  font-weight: 600;
+  font-weight: 500;
   margin: 0;
+  font-size: 1rem;
 }
 
-/* Animation douce à l'apparition */
+/* Dans Skills.css */
+
+.verb-highlight {
+  position: relative;
+  font-weight: 800; /* Plus gras que le reste */
+  color: #2c3e50;
+  z-index: 1;
+}
+
+/* L'effet de surlignage couleur pastel */
+.verb-highlight::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 2px; /* Ajuster la hauteur */
+  width: 100%;
+  height: 35%; /* Surligne le tiers bas du mot */
+  background-color: #a29bfe; /* Couleur violet doux (modifiable) */
+  z-index: -1;
+  opacity: 0.6;
+  border-radius: 2px;
+}
+
+/* --- Animation d'apparition --- */
 .fade-in {
-  animation: fadeIn 0.5s ease forwards;
+  animation: fadeIn 0.4s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -134,11 +168,17 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .competences { grid-template-columns: 1fr; }
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .competences-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .competences-grid { grid-template-columns: 1fr; }
   .languages-grid { grid-template-columns: repeat(2, 1fr); }
   
-  .skills-header .title { font-size: 1.5rem; }
-  .separator { font-size: 1.5rem; }
+  .toggle-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
 }

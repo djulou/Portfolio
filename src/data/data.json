@@ -36,19 +36,19 @@
     },
     {
       "id": 4,
-      "name": "Conception et mise en place de BDD",
+      "name": "Gérer des bases de données",
       "level": "Avancé",
       "description": "Création et administration de bases de données, gestion de l'intégrité et de la sécurité."
     },
     {
       "id": 5,
-      "name": "Gestion de projet",
+      "name": "Conduire des projets",
       "level": "Avancé",
       "description": "Planification et organisation. Définition des objectifs et gestion des délais."
     },
     {
       "id": 6,
-      "name": "Travailler dans une équipe informatique",
+      "name": "Collaborer en équipe informatique",
       "level": "Avancé",
       "description": "Résolution collective de problèmes. Partage des responsabilités et adaptation aux changements de rôles."
     }
