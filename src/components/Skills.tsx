@@ -20,6 +20,7 @@ import mongoLogo from '../../public/img/mongo.webp';
 import iosLogo from '../../public/img/ios.webp';
 import windowsLogo from '../../public/img/windows.webp';
 import mysqlLogo from '../../public/img/mysql.webp';
+import jsLogo from '../../public/img/javascript.webp';
 
 interface SkillsProps {
   skillsData: Skill[];
@@ -30,7 +31,6 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
   const [activeTab, setActiveTab] = useState<'but' | 'lang'>('but');
   const [activeLangFilter, setActiveLangFilter] = useState<string>('Tous');
 
-  // Mapping : NOM (json) -> Variable Image (import)
   const languageLogos: { [key: string]: string } = {
     "HTML": htmlLogo,
     "HTML5": htmlLogo,
@@ -51,6 +51,7 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     "MongoDB": mongoLogo,
     "IOS": iosLogo,
     "Windows": windowsLogo,
+    "JavaScript": jsLogo,
   };
 
   const filteredLanguages = languagesData.filter((lang) => {

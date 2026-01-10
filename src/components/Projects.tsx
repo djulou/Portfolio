@@ -31,6 +31,8 @@ import jiraLogo from '../../public/img/jira.webp';
 import mongoLogo from '../../public/img/mongo.webp';
 import iosLogo from '../../public/img/ios.webp';
 import windowsLogo from '../../public/img/windows.webp';
+import jsLogo from '../../public/img/javascript.webp';
+
 
 interface ProjectsProps {
   data: Project[];
@@ -60,6 +62,7 @@ export default function Projects({ data }: ProjectsProps) {
     "CSS3": cssLogo,
     "React": reactLogo,
     "TypeScript": tsLogo,
+    "JavaScript": jsLogo,
     "Git": gitLogo,
     "PHP": phpLogo,
     "PostgreSQL": postgresqlLogo,
