@@ -27,9 +27,8 @@ export default function Projects({ data }: ProjectsProps) {
   const [activeFilter, setActiveFilter] = useState<string>('Tous');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const MAX_TAGS_ON_CARD = 5; // Nombre de tags affichés sur la carte
+  const MAX_TAGS_ON_CARD = 5;
 
-  // Mapping Images Projets
   const projectImages: { [key: string]: string } = {
     "/images/img_1_pact.webp": pact1,
     "/images/img_2_pact.webp": pact2,
@@ -37,8 +36,6 @@ export default function Projects({ data }: ProjectsProps) {
     "/images/img_4_pact.webp": pact4,
   };
 
-  // Mapping Logos Technos
-  // (Note: Les clés doivent correspondre aux noms dans "technologies" du JSON)
   const techLogos: { [key: string]: string } = {
     "PHP": phpLogo,
     "PostgresSQL": sqlLogo,
@@ -109,8 +106,6 @@ export default function Projects({ data }: ProjectsProps) {
 
       <div className="container">
         {filteredProjects.map((project) => {
-          // Sur la carte, on combine tags et technos pour l'aperçu, ou juste tags selon votre choix
-          // Ici je montre un mélange des deux pour la carte
           const allTags = [...project.tags, ...project.technologies];
           const firstImage = project.image && project.image.length > 0 ? project.image[0] : '';
           const visibleTags = allTags.slice(0, MAX_TAGS_ON_CARD);
@@ -136,7 +131,6 @@ export default function Projects({ data }: ProjectsProps) {
         })}
       </div>
 
-      {/* --- VUE PLEINE PAGE --- */}
       {selectedProject && (
         <div className="full-page-overlay">
           <div className="full-page-content">
@@ -149,7 +143,7 @@ export default function Projects({ data }: ProjectsProps) {
 
             <div className="detail-split">
                 
-                {/* GAUCHE : CARROUSEL */}
+                {/* --- GAUCHE : CARROUSEL + BOUTON --- */}
                 <div className="detail-left">
                     <div className="carousel-wrapper-page">
                         {selectedProject.image.length > 0 && (
@@ -179,9 +173,23 @@ export default function Projects({ data }: ProjectsProps) {
                             </>
                         )}
                     </div>
+
+                    {/* --- LE BOUTON EST DÉPLACÉ ICI --- */}
+                    {selectedProject.link && (
+                        <div className="left-action-container">
+                            <a
+                                href={selectedProject.link}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="detail-link-btn"
+                            >
+                                Voir le projet
+                            </a>
+                        </div>
+                    )}
                 </div>
 
-                {/* DROITE : INFOS */}
+                {/* --- DROITE : INFOS --- */}
                 <div className="detail-right">
                     
                     <div className="detail-header">
@@ -191,7 +199,6 @@ export default function Projects({ data }: ProjectsProps) {
                         <h1>{selectedProject.title}</h1>
                     </div>
 
-                    {/* 1. TAGS TEXTE (Directement depuis le JSON) */}
                     <div className="detail-tags">
                         {selectedProject.tags.map((tag, i) => (
                              <span key={i} className="detail-tag-item">{tag}</span>
@@ -202,7 +209,6 @@ export default function Projects({ data }: ProjectsProps) {
                         <p>{selectedProject.description}</p>
                     </div>
 
-                    {/* 2. LOGOS TECHNOS (Directement depuis le JSON) */}
                     {selectedProject.technologies && selectedProject.technologies.length > 0 && (
                         <div className="tech-stack-container">
                             <h3>Technologies utilisées</h3>
@@ -211,7 +217,6 @@ export default function Projects({ data }: ProjectsProps) {
                                     const logoSrc = techLogos[techName];
                                     return (
                                         <div key={i} className="tech-logo-item" title={techName}>
-                                            {/* Si le logo existe on l'affiche, sinon juste le texte */}
                                             {logoSrc ? <img src={logoSrc} alt={techName} /> : null}
                                             <span>{techName}</span>
                                         </div>
@@ -219,17 +224,6 @@ export default function Projects({ data }: ProjectsProps) {
                                 })}
                             </div>
                         </div>
-                    )}
-
-                    {selectedProject.link && (
-                        <a
-                            href={selectedProject.link}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="detail-link-btn"
-                        >
-                            Voir le projet
-                        </a>
                     )}
                 </div>
             </div>
