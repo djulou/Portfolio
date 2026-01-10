@@ -9,15 +9,15 @@ import pact3 from '../../public/img/img_3_pact.webp';
 import pact4 from '../../public/img/img_4_pact.webp';
 
 // --- LOGOS TECHNOS ---
-import phpLogo from '../../public/img/php.png';
-import sqlLogo from '../../public/img/postgresql.png';
-import gitLogo from '../../public/img/git.png';
-import jiraLogo from '../../public/img/jira.png';
-import figmaLogo from '../../public/img/figma.png';
-import reactLogo from '../../public/img/react.png';
-import htmlLogo from '../../public/img/html.png';
-import cssLogo from '../../public/img/css.png';
-import tsLogo from '../../public/img/typescript.png';
+import phpLogo from '../../public/img/php.webp';
+import sqlLogo from '../../public/img/postgresql.webp';
+import gitLogo from '../../public/img/git.webp';
+import jiraLogo from '../../public/img/jira.webp';
+import figmaLogo from '../../public/img/figma.webp';
+import reactLogo from '../../public/img/react.webp';
+import htmlLogo from '../../public/img/html.webp';
+import cssLogo from '../../public/img/css.webp';
+import tsLogo from '../../public/img/typescript.webp';
 
 interface ProjectsProps {
   data: Project[];
