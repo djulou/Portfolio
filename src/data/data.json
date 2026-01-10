@@ -101,9 +101,9 @@
       ],
       "technologies": [
         "PHP", 
-        "PostgresSQL", 
-        "GIT", 
-        "JIRA", 
+        "PostgreSQL", 
+        "Git", 
+        "Jira", 
         "Figma"
       ],
       "image": [

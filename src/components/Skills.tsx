@@ -3,7 +3,6 @@ import { Skill, Language } from '../data/types';
 import '../styles/Skills.css';
 
 // --- IMPORTATION DES LOGOS ---
-// Assure-toi d'avoir ces images dans /public/img/
 import htmlLogo from '../../public/img/html.webp';
 import cssLogo from '../../public/img/css.webp';
 import reactLogo from '../../public/img/react.webp';
@@ -28,7 +27,7 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
   const [activeTab, setActiveTab] = useState<'but' | 'lang'>('but');
   const [activeLangFilter, setActiveLangFilter] = useState<string>('Tous');
 
-  // Mapping des images (Clé = chemin dans le JSON)
+  // Mapping : NOM (json) -> Variable Image (import)
   const languageLogos: { [key: string]: string } = {
     "HTML": htmlLogo,
     "HTML5": htmlLogo,
@@ -39,20 +38,18 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     "Git": gitLogo,
     "PHP": phpLogo,
     "PostgreSQL": postgresqlLogo,
-    "SQL": postgresqlLogo, // Fallback si tu utilises juste "SQL"
+    "SQL": postgresqlLogo, 
     "Figma": figmaLogo,
     "Python": pythonLogo,
     "Java": javaLogo,
-    "C": cLogo,             // <-- C'est ici que ça corrige ton problème
+    "C": cLogo,
     "Linux": linuxLogo,
     "Bash": bashLogo,
     "MySQL": mysqlLogo,
   };
 
-  // --- NOUVEAU SYSTÈME DE FILTRE (Tableaux) ---
   const filteredLanguages = languagesData.filter((lang) => {
     if (activeLangFilter === 'Tous') return true;
-    // On vérifie si le tableau 'category' contient le filtre sélectionné
     return lang.category.includes(activeLangFilter);
   });
 
@@ -72,7 +69,6 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
       
       <h1 className="main-title">Compétences</h1>
 
-      {/* Onglets Principaux */}
       <div className="toggle-buttons">
         <button 
           className={activeTab === 'but' ? 'active' : ''} 
@@ -109,7 +105,6 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
         {/* CAS B : Langages & Outils */}
         {activeTab === 'lang' && (
           <>
-            {/* SOUS-FILTRES : J'ai ajouté Back-end et Système */}
             <div className="sub-filters-container">
               {['Tous', 'Web','Front-end', 'Back-end', 'Logiciel', 'Algorithmique','Data','Bases de données', 'Outils', 'Système'].map((filter) => (
                 <button
@@ -127,7 +122,7 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
                 <div key={lang.id} className="language-card fade-in">
                   <div className="logo-container">
                     <img 
-                      src={languageLogos[lang.image] || lang.image} 
+                      src={languageLogos[lang.name] || lang.image} 
                       alt={lang.name} 
                     />
                   </div>
