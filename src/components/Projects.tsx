@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Project } from '../data/types';
-import '../styles/Projects.css';
+import '../styles/Projects.css'; // <--- VÉRIFIEZ BIEN CET IMPORT
 
 // --- IMPORTATION DES IMAGES ---
 import pact1 from '../../public/img/img_1_pact.webp';
@@ -40,7 +40,7 @@ export default function Projects({ data }: ProjectsProps) {
     return project.category === activeFilter;
   });
 
-  // --- CARROUSEL ---
+  // --- LOGIQUE CARROUSEL ---
   const handleNextImage = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!selectedProject || selectedProject.image.length <= 1) return;
@@ -57,15 +57,17 @@ export default function Projects({ data }: ProjectsProps) {
     );
   };
 
+  // --- OUVERTURE / FERMETURE ---
   const openProject = (project: Project) => {
     setSelectedProject(project);
     setCurrentImageIndex(0);
-    document.body.style.overflow = 'hidden'; // Bloque le scroll de l'arrière-plan
+    // On empêche le scroll de la page principale derrière
+    document.body.style.overflow = 'hidden'; 
   };
 
   const closeProject = () => {
     setSelectedProject(null);
-    document.body.style.overflow = 'auto'; // Réactive le scroll
+    document.body.style.overflow = 'auto'; // On réactive le scroll
   };
 
   return (
@@ -110,19 +112,19 @@ export default function Projects({ data }: ProjectsProps) {
         })}
       </div>
 
-      {/* --- VUE PLEINE PAGE (Simule une nouvelle page) --- */}
+      {/* --- VUE PLEINE PAGE (Overlay) --- */}
       {selectedProject && (
         <div className="full-page-overlay">
           <div className="full-page-content">
             
-            {/* Bouton Retour (Style Header) */}
+            {/* Bouton Retour */}
             <div className="page-header-actions">
                 <button className="back-button" onClick={closeProject}>
                     &larr; Retour aux projets
                 </button>
             </div>
 
-            {/* Structure Split : Gauche / Droite */}
+            {/* Contenu : Gauche (Image) / Droite (Texte) */}
             <div className="detail-split">
                 
                 {/* GAUCHE : CARROUSEL */}
@@ -146,7 +148,7 @@ export default function Projects({ data }: ProjectsProps) {
                                             key={idx}
                                             className={`dot ${idx === currentImageIndex ? 'active' : ''}`}
                                             onClick={(e) => {
-                                                e.stopPropagation(); // Empêche le clic de traverser
+                                                e.stopPropagation();
                                                 setCurrentImageIndex(idx);
                                             }}
                                         ></span>
