@@ -94,7 +94,7 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
           <>
             {/* SOUS-FILTRES : Les noms doivent correspondre exactement au JSON */}
             <div className="sub-filters-container">
-              {['Tous', 'Web', 'Bases de données', 'Outils'].map((filter) => (
+              {['Tous', 'Web', 'Bdd', 'Outils'].map((filter) => (
                 <button
                   key={filter}
                   className={`sub-filter-btn ${activeLangFilter === filter ? 'active' : ''}`}
