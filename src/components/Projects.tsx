@@ -90,7 +90,7 @@ export default function Projects({ data }: ProjectsProps) {
 
   return (
     <section id="projets" className="projet">
-      <h1 className="title">Nos Projets</h1>
+      <h1 className="title">Projets</h1>
 
       <div className="filter-buttons">
         {['Tous', 'Scolaire', 'Personnel', 'Professionnel'].map((category) => (
