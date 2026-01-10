@@ -80,7 +80,7 @@
     {
       "id": 1,
       "title": "Plateforme de réservations",
-      "description": "Plateforme complète de gestion d'offres.",
+      "description": "Plateforme complète de gestion d'offres. Elle comprend une interface utilisateur (front) pour découvrir les offres publiées par les professionnels et consulter les avis. Une interface d'administration (back) permet aux pros de se connecter, de publier leurs offres et de consulter les avis laissés.",
       "category": "Scolaire",
       "tags": [
         "PHP", 
