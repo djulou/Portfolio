@@ -8,6 +8,10 @@ import pact2 from '../../public/img/img_2_pact.webp';
 import pact3 from '../../public/img/img_3_pact.webp';
 import pact4 from '../../public/img/img_4_pact.webp';
 
+import sudoku1 from '../../public/img/sudoku_1.webp';
+import sudoku2 from '../../public/img/sudoku_2.webp';
+import sudoku3 from '../../public/img/sudoku_3.webp';
+
 // --- LOGOS TECHNOS ---
 import phpLogo from '../../public/img/php.webp';
 import sqlLogo from '../../public/img/postgresql.webp';
@@ -34,6 +38,9 @@ export default function Projects({ data }: ProjectsProps) {
     "/images/img_2_pact.webp": pact2,
     "/images/img_3_pact.webp": pact3,
     "/images/img_4_pact.webp": pact4,
+    "/images/sudoku_1.webp": sudoku1,
+    "/images/sudoku_2.webp": sudoku2,
+    "/images/sudoku_3.webp": sudoku3,
   };
 
   const techLogos: { [key: string]: string } = {
