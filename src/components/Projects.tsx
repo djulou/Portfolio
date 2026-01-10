@@ -27,6 +27,7 @@ import cLogo from '../../public/img/c.webp';
 import linuxLogo from '../../public/img/linux.webp';
 import bashLogo from '../../public/img/bash.webp';
 import mysqlLogo from '../../public/img/mysql.webp';
+import jiraLogo from '../../public/img/jira.webp';
 
 interface ProjectsProps {
   data: Project[];
@@ -67,6 +68,7 @@ export default function Projects({ data }: ProjectsProps) {
     "Linux": linuxLogo,
     "Bash": bashLogo,
     "MySQL": mysqlLogo,
+    "Jira": jiraLogo,
   };
 
   const getStickerClass = (category: string) => {
