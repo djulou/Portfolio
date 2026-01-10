@@ -21,6 +21,7 @@ import iosLogo from '../../public/img/ios.webp';
 import windowsLogo from '../../public/img/windows.webp';
 import mysqlLogo from '../../public/img/mysql.webp';
 import jsLogo from '../../public/img/javascript.webp';
+import jiraLogo from '../../public/img/jira.webp';
 
 interface SkillsProps {
   skillsData: Skill[];
@@ -52,6 +53,7 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     "IOS": iosLogo,
     "Windows": windowsLogo,
     "JavaScript": jsLogo,
+    "Jira": jiraLogo,
   };
 
   const filteredLanguages = languagesData.filter((lang) => {
