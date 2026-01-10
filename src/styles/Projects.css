@@ -1,21 +1,23 @@
-/* --- Conteneur global --- */
+/* =========================================
+   1. CONTENEUR GLOBAL & TITRE
+   ========================================= */
 .projet {
-  padding: 80px 20px; /* Ajusté pour mobile */
+  padding: 80px 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* --- TITRE --- */
 .projet h1 {
   font-size: 2.5rem;
   color: #ffb75e;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
   position: relative;
 }
 
+/* La petite barre sous le titre */
 .projet h1::after {
   content: "";
   display: block;
@@ -26,13 +28,15 @@
   border-radius: 2px;
 }
 
-/* --- BOUTONS FILTRE --- */
+/* =========================================
+   2. BOUTONS DE FILTRE
+   ========================================= */
 .filter-buttons {
   display: flex;
   justify-content: center;
-  gap: 15px; 
-  margin-bottom: 50px; 
-  flex-wrap: wrap; /* Important pour mobile */
+  gap: 15px;
+  margin-bottom: 50px;
+  flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur mobile */
 }
 
 .filter-buttons button {
@@ -40,7 +44,7 @@
   color: #eaeaea;
   border: 1px solid #ffb75e;
   padding: 8px 20px;
-  font-size: 1rem; 
+  font-size: 1rem;
   border-radius: 50px;
   cursor: pointer;
   font-family: inherit;
@@ -61,7 +65,9 @@
   box-shadow: 0 4px 15px rgba(249, 112, 44, 0.3);
 }
 
-/* --- GRILLE ET CARTES --- */
+/* =========================================
+   3. LA GRILLE (GRID)
+   ========================================= */
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -69,37 +75,56 @@
   padding: 10px;
 }
 
+/* =========================================
+   4. LES CARTES (CARDS)
+   ========================================= */
 .card {
   display: flex;
   flex-direction: column;
-  background-color: #16202a; /* Fond carte sombre */
+  background-color: #16202a; /* Fond de carte sombre */
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  height: 400px; /* Hauteur fixe pour uniformité */
+  height: 400px; /* Hauteur fixe pour alignement parfait */
   position: relative;
   cursor: pointer;
 }
 
-.card:hover { 
-  transform: translateY(-8px); 
+.card:hover {
+  transform: translateY(-8px);
   border-color: rgba(255, 183, 94, 0.3);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Titre Carte */
 .card_title {
   padding: 20px 20px 10px;
   font-size: 1.3em;
   font-weight: 600;
   color: #eaeaea;
   margin: 0;
-  margin-right: 60px; /* Évite le sticker */
+  margin-right: 60px; /* Espace pour ne pas toucher le sticker */
 }
 
-/* Tags */
+/* Image dans la carte */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Remplit tout l'espace restant */
+  flex-grow: 1;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+
+.card:hover img {
+  opacity: 1;
+}
+
+/* =========================================
+   5. TAGS & STICKERS
+   ========================================= */
+/* Liste des tags sur la carte */
 .card ul {
   display: flex;
   flex-wrap: wrap;
@@ -109,6 +134,7 @@
   list-style: none;
 }
 
+/* Un tag individuel */
 .card li {
   background-color: rgba(255, 255, 255, 0.08);
   color: #aaa;
@@ -118,19 +144,14 @@
   font-weight: 500;
 }
 
-/* Image Carte */
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Remplit l'espace restant */
-  flex-grow: 1;
-  opacity: 0.85;
-  transition: opacity 0.3s;
+/* Le badge "+3" (Tag More) */
+.tag-more {
+  background-color: #f9702c !important; /* Orange vif */
+  color: white !important;
+  font-weight: bold;
 }
 
-.card:hover img { opacity: 1; }
-
-/* --- STICKERS --- */
+/* Sticker de catégorie (Haut Droite) */
 .sticker {
   position: absolute;
   top: 15px;
@@ -141,17 +162,18 @@
   font-weight: bold;
   text-transform: uppercase;
   z-index: 2;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   color: white;
   letter-spacing: 0.5px;
 }
 
-/* Couleurs des catégories */
 .sticker-school { background-color: #6c5ce7; }
 .sticker-personal { background-color: #00b894; }
 .sticker-pro { background-color: #e17055; }
 
-/* --- MODALE --- */
+/* =========================================
+   6. MODALE (OVERLAY & FENÊTRE)
+   ========================================= */
 .overlay {
   position: fixed;
   top: 0;
@@ -159,7 +181,7 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.85); /* Fond très sombre */
-  backdrop-filter: blur(8px); /* Flou d'arrière plan */
+  backdrop-filter: blur(8px); /* Flou d'arrière-plan */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,47 +197,63 @@
   border-radius: 20px;
   padding: 40px;
   width: 90%;
-  max-width: 700px;
-  max-height: 90vh;
-  overflow-y: auto;
+  max-width: 1000px; /* Plus large pour le layout 2 colonnes */
+  max-height: 90vh; /* Max 90% de la hauteur de l'écran */
+  overflow-y: auto; /* Scroll si le contenu dépasse */
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
-  animation: slideUp 0.3s ease;
   position: relative;
   color: #eaeaea;
+  animation: slideUp 0.3s ease;
 }
 
 @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 30px;
-  color: #888;
-  cursor: pointer;
-  transition: color 0.2s;
-  z-index: 10;
+/* =========================================
+   7. MODALE : LAYOUT SPLIT (2 COLONNES)
+   ========================================= */
+.modal-content-split {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
 }
-.close-btn:hover { color: #f9702c; }
 
+/* Colonne GAUCHE : Images */
+.modal-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-img-item {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Colonne DROITE : Informations */
+.modal-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* En-tête de la modale (Sticker + Titre) */
 .modal-header {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
 }
 
-.project-detail h2 { 
-    margin: 10px 0 0 0; 
-    color: #ffb75e; 
-    font-size: 2em; 
+.project-detail h2 {
+  margin: 10px 0 0 0;
+  color: #ffb75e;
+  font-size: 2.2em;
+  line-height: 1.2;
 }
 
-.project-detail p { 
-    color: #cbd5e0; 
-    line-height: 1.6; 
-    font-size: 1.1rem; 
-    margin-bottom: 30px; 
-}
-
-/* Sticker dans la modale */
 .sticker-detail {
   display: inline-block;
   padding: 6px 15px;
@@ -226,8 +264,36 @@
   text-transform: uppercase;
 }
 
-.project-detail a {
-  display: inline-block;
+/* Tags dans la modale */
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.modal-tag-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffb75e; /* Texte coloré pour la modale */
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 500;
+  border: 1px solid rgba(255, 183, 94, 0.2);
+}
+
+/* Description */
+.modal-description p {
+  color: #cbd5e0;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 30px;
+  white-space: pre-line; /* Respecte les retours à la ligne */
+}
+
+/* Bouton Lien */
+.modal-link-btn {
+  align-self: flex-start;
   background-color: #f9702c;
   color: #fff;
   padding: 12px 30px;
@@ -237,7 +303,59 @@
   transition: all 0.2s;
   box-shadow: 0 4px 10px rgba(249, 112, 44, 0.4);
 }
-.project-detail a:hover { 
-    background-color: #ffb75e; 
-    transform: translateY(-2px); 
+
+.modal-link-btn:hover {
+  background-color: #ffb75e;
+  transform: translateY(-2px);
+}
+
+/* Bouton Fermer (Croix) */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 32px;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 10;
+  background: rgba(30, 39, 46, 0.8); /* Petit fond pour lisibilité */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  color: #f9702c;
+}
+
+/* =========================================
+   8. RESPONSIVE (MOBILE)
+   ========================================= */
+@media (max-width: 900px) {
+  /* On passe la modale en une seule colonne */
+  .modal-content-split {
+    flex-direction: column;
+  }
+  
+  .modal-left, .modal-right {
+    width: 100%;
+  }
+
+  /* Sur mobile, on met les images APRES le texte pour lire d'abord */
+  .modal-left {
+    order: 2; 
+    margin-top: 30px;
+  }
+  
+  .modal-right {
+    order: 1;
+  }
+  
+  .project-detail {
+    padding: 30px 20px;
+  }
 }

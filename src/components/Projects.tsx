@@ -3,8 +3,11 @@ import { Project } from '../data/types';
 import '../styles/Projects.css';
 
 // --- IMPORTATION DES IMAGES ---
-import sudokuImg from '../../public/img/sudoku.png'; 
-// Importe tes autres images ici si nécessaire
+import pact1 from '../../public/img/img_1_pact.png'; 
+import pact2 from '../../public/img/img_2_pact.png'; 
+import pact3 from '../../public/img/img_3_pact.png'; 
+import pact4 from '../../public/img/img_4_pact.png'; 
+// Importe tes autres images ici
 
 interface ProjectsProps {
   data: Project[];
@@ -13,13 +16,14 @@ interface ProjectsProps {
 export default function Projects({ data }: ProjectsProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeFilter, setActiveFilter] = useState<string>('Tous');
-
-  // Nombre de tags max à afficher sur la carte avant le "+x"
-  const MAX_TAGS_ON_CARD = 3;
+  const MAX_TAGS_ON_CARD = 5;
 
   const projectImages: { [key: string]: string } = {
-    "/images/sudoku.png": sudokuImg,
-    // Ajoute les autres correspondances ici
+    "/images/img_1_pact.png": pact1,
+    "/images/img_2_pact.png": pact2,
+    "/images/img_3_pact.png": pact3,
+    "/images/img_4_pact.png": pact4,
+    // Tes autres correspondances
   };
 
   const getStickerClass = (category: string) => {
@@ -36,7 +40,6 @@ export default function Projects({ data }: ProjectsProps) {
     return project.category === activeFilter;
   });
 
-  // Gestion du scroll
   if (selectedProject) {
     document.body.style.overflow = 'hidden';
   } else {
@@ -45,7 +48,6 @@ export default function Projects({ data }: ProjectsProps) {
 
   return (
     <section id="projets" className="projet">
-      
       <h1 className="title">Nos Projets</h1>
       
       <div className="filter-buttons">
@@ -62,12 +64,7 @@ export default function Projects({ data }: ProjectsProps) {
 
       <div className="container">
         {filteredProjects.map((project) => {
-          // --- LOGIQUE D'AFFICHAGE (Calculée pour CHAQUE projet) ---
-          
-          // 1. Récupérer la première image du tableau
           const firstImage = project.image && project.image.length > 0 ? project.image[0] : '';
-          
-          // 2. Calculer les tags à afficher
           const visibleTags = project.tags.slice(0, MAX_TAGS_ON_CARD);
           const remainingTags = project.tags.length - MAX_TAGS_ON_CARD;
 
@@ -76,27 +73,15 @@ export default function Projects({ data }: ProjectsProps) {
               key={project.id} 
               className="card" 
               onClick={() => setSelectedProject(project)}
-              title="Cliquez pour voir les détails"
             >
               <span className={`sticker ${getStickerClass(project.category)}`}>
                 {project.category}
               </span>
-
               <h3 className="card_title">{project.title}</h3>
-
-              {/* Liste des Tags (Limitée) */}
               <ul>
-                {visibleTags.map((tag, index) => (
-                  <li key={index}>{tag}</li>
-                ))}
-                
-                {/* Badge +x */}
-                {remainingTags > 0 && (
-                  <li className="tag-more">+{remainingTags}</li>
-                )}
+                {visibleTags.map((tag, index) => <li key={index}>{tag}</li>)}
+                {remainingTags > 0 && <li className="tag-more">+{remainingTags}</li>}
               </ul>
-
-              {/* Image (La première du tableau) */}
               <img 
                 src={projectImages[firstImage] || firstImage} 
                 alt={project.title} 
@@ -107,53 +92,60 @@ export default function Projects({ data }: ProjectsProps) {
         })}
       </div>
 
-      {/* --- MODALE --- */}
+      {/* --- NOUVELLE STRUCTURE DE LA MODALE --- */}
       {selectedProject && (
         <div className="overlay" onClick={() => setSelectedProject(null)}>
           <div className="project-detail" onClick={(e) => e.stopPropagation()}>
             
-            <span 
-              className="close-btn" 
-              onClick={() => setSelectedProject(null)}
-            >
-              &times;
-            </span>
+            <span className="close-btn" onClick={() => setSelectedProject(null)}>&times;</span>
             
-            <div className="modal-header">
-              <span className={`sticker-detail ${getStickerClass(selectedProject.category)}`}>
-                {selectedProject.category}
-              </span>
-              <h2>{selectedProject.title}</h2>
+            {/* Conteneur Flex pour diviser en deux colonnes */}
+            <div className="modal-content-split">
+                
+                {/* 1. COLONNE GAUCHE : LES IMAGES */}
+                <div className="modal-left">
+                    {selectedProject.image.map((imgStr, index) => (
+                        <img 
+                            key={index}
+                            src={projectImages[imgStr] || imgStr} 
+                            alt={`${selectedProject.title} ${index + 1}`} 
+                            className="modal-img-item"
+                        />
+                    ))}
+                </div>
+
+                {/* 2. COLONNE DROITE : LES INFOS */}
+                <div className="modal-right">
+                    <div className="modal-header">
+                        <span className={`sticker-detail ${getStickerClass(selectedProject.category)}`}>
+                            {selectedProject.category}
+                        </span>
+                        <h2>{selectedProject.title}</h2>
+                    </div>
+
+                    <div className="modal-tags">
+                        {selectedProject.tags.map((tag, i) => (
+                            <span key={i} className="modal-tag-item">{tag}</span>
+                        ))}
+                    </div>
+
+                    <div className="modal-description">
+                        <p>{selectedProject.description}</p>
+                    </div>
+
+                    {selectedProject.link && (
+                        <a 
+                            href={selectedProject.link} 
+                            target="_blank" 
+                            rel="noreferrer"
+                            className="modal-link-btn"
+                        >
+                            Voir le projet
+                        </a>
+                    )}
+                </div>
             </div>
 
-            {/* Dans la modale, on affiche TOUS les tags */}
-            <div className="modal-tags">
-               {selectedProject.tags.map((tag, i) => (
-                 <span key={i} className="modal-tag-item">{tag}</span>
-               ))}
-            </div>
-
-            <p>{selectedProject.description}</p>
-            
-            {/* Image principale dans la modale (ou tu peux faire une galerie plus tard) */}
-            <div className="modal-image-container">
-                <img 
-                    src={projectImages[selectedProject.image[0]] || selectedProject.image[0]} 
-                    alt={selectedProject.title} 
-                    style={{width: '100%', borderRadius: '10px', marginTop: '15px'}}
-                />
-            </div>
-
-            {selectedProject.link && (
-               <a 
-                 href={selectedProject.link} 
-                 target="_blank" 
-                 rel="noreferrer"
-                 style={{marginTop: '20px', display: 'inline-block'}}
-               >
-                 Voir le projet
-               </a>
-            )}
           </div>
         </div>
       )}
