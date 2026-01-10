@@ -237,23 +237,22 @@
   position: relative;
 }
 
+/* MODIFICATION ICI : Hauteur fixe et suppression du centrage Flex */
 .carousel-wrapper {
   position: relative;
   width: 100%;
+  height: 450px; /* HAUTEUR FIXE POUR QUE L'IMAGE REMPLISSE */
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
+/* MODIFICATION ICI : Cover et 100% height */
 .carousel-img {
   width: 100%;
-  height: auto;
-  max-height: 550px;
-  object-fit: contain;
+  height: 100%; /* Prend toute la hauteur du wrapper */
+  object-fit: cover; /* Remplit l'espace sans déformation */
   display: block;
 }
 
@@ -385,11 +384,15 @@
     flex: auto;
   }
 
+  /* MODIFICATION ICI : Hauteur plus petite sur mobile */
+  .carousel-wrapper {
+    height: 300px;
+  }
+
   /* Ordre : Image en haut, Texte en bas */
   .modal-left { order: 1; }
   .modal-right { order: 2; }
   
-  .carousel-img { max-height: 350px; }
   .project-detail { padding: 30px 20px; }
   .modal-right h2 { font-size: 1.8em; }
 }
