@@ -27,7 +27,7 @@ export default function Projects({ data }: ProjectsProps) {
   const [activeFilter, setActiveFilter] = useState<string>('Tous');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const MAX_TAGS_ON_CARD = 5;
+  const MAX_TAGS_ON_CARD = 8;
 
   const projectImages: { [key: string]: string } = {
     "/images/img_1_pact.webp": pact1,

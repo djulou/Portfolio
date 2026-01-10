@@ -19,6 +19,7 @@ interface SkillsProps {
 
 export default function Skills({ skillsData, languagesData }: SkillsProps) {
   const [activeTab, setActiveTab] = useState<'but' | 'lang'>('but');
+  const [activeLangFilter, setActiveLangFilter] = useState<string>('Tous');
 
   const languageLogos: { [key: string]: string } = {
     "/img/html.webp": htmlLogo,
@@ -31,13 +32,17 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     "/img/postgresql.webp": postgresqlLogo,
   };
 
-  // --- NOUVELLE FONCTION ---
-  // Cette fonction prend le titre, isole le premier mot et lui applique le style
-  const formatTitle = (title: string) => {
-    const words = title.split(' '); // Coupe la phrase à chaque espace
-    const firstWord = words[0];     // Le verbe (Gérer, Conduire...)
-    const rest = words.slice(1).join(' '); // Le reste de la phrase
+  // --- FILTRAGE SIMPLIFIÉ GRÂCE AU JSON ---
+  const filteredLanguages = languagesData.filter((lang) => {
+    if (activeLangFilter === 'Tous') return true;
+    // On compare directement avec la catégorie écrite dans le JSON
+    return lang.category === activeLangFilter;
+  });
 
+  const formatTitle = (title: string) => {
+    const words = title.split(' ');
+    const firstWord = words[0];
+    const rest = words.slice(1).join(' ');
     return (
       <>
         <span className="verb-highlight">{firstWord}</span> {rest}
@@ -50,6 +55,7 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
       
       <h1 className="main-title">Compétences</h1>
 
+      {/* Onglets Principaux */}
       <div className="toggle-buttons">
         <button 
           className={activeTab === 'but' ? 'active' : ''} 
@@ -72,12 +78,9 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
           <div className="competences-grid">
             {skillsData.map((skill) => (
               <div key={skill.id} className="skill-card"> 
-                
-                {/* --- MODIFICATION ICI : Appel de la fonction formatTitle --- */}
                 <h3 className="card-title">
                   {formatTitle(skill.name)}
                 </h3>
-
                 {skill.description && (
                   <p className="description">{skill.description}</p>
                 )}
@@ -86,25 +89,43 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
           </div>
         )}
 
-        {/* CAS B : Langages */}
+        {/* CAS B : Langages & Outils */}
         {activeTab === 'lang' && (
-          <div className="languages-grid">
-            {languagesData.map((lang) => (
-              <div key={lang.id} className="language-card">
-                <div className="logo-container">
-                  <img 
-                    src={languageLogos[lang.image] || lang.image} 
-                    alt={lang.name} 
-                  />
+          <>
+            {/* SOUS-FILTRES : Les noms doivent correspondre exactement au JSON */}
+            <div className="sub-filters-container">
+              {['Tous', 'Web', 'Bases de données', 'Outils'].map((filter) => (
+                <button
+                  key={filter}
+                  className={`sub-filter-btn ${activeLangFilter === filter ? 'active' : ''}`}
+                  onClick={() => setActiveLangFilter(filter)}
+                >
+                  {filter}
+                </button>
+              ))}
+            </div>
+
+            <div className="languages-grid">
+              {filteredLanguages.map((lang) => (
+                <div key={lang.id} className="language-card fade-in">
+                  <div className="logo-container">
+                    <img 
+                      src={languageLogos[lang.image] || lang.image} 
+                      alt={lang.name} 
+                    />
+                  </div>
+                  <p>{lang.name}</p>
                 </div>
-                <p>{lang.name}</p>
-              </div>
-            ))}
-          </div>
+              ))}
+              
+              {filteredLanguages.length === 0 && (
+                <p className="empty-msg">Aucun élément trouvé.</p>
+              )}
+            </div>
+          </>
         )}
 
       </div>
-
     </section>
   );
 }

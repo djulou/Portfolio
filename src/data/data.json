@@ -54,15 +54,14 @@
     }
   ],
   "languages": [
-    { "id": 1, "name": "HTML5", "image": "/img/html.webp" },
-    { "id": 2, "name": "CSS3", "image": "/img/css.webp" },
-    { "id": 3, "name": "React", "image": "/img/react.webp" },
-    { "id": 4, "name": "TypeScript", "image": "/img/typescript.webp" },
-    { "id": 5, "name": "Git", "image": "/img/git.webp" },
-    { "id": 6, "name": "PHP", "image": "/img/php.webp" },
-    { "id": 7, "name": "Figma", "image": "/img/figma.webp" },
-    { "id": 8, "name": "PostgreSQL", "image": "/img/postgresql.webp" }
-    
+    { "id": 1, "name": "HTML5", "image": "/img/html.webp", "category": "Web" },
+    { "id": 2, "name": "CSS3", "image": "/img/css.webp", "category": "Web" },
+    { "id": 3, "name": "React", "image": "/img/react.webp", "category": "Web" },
+    { "id": 4, "name": "TypeScript", "image": "/img/typescript.webp", "category": "Web" },
+    { "id": 6, "name": "PHP", "image": "/img/php.webp", "category": "Web" },
+    { "id": 8, "name": "PostgreSQL", "image": "/img/postgresql.webp", "category": "Bdd" },
+    { "id": 5, "name": "Git", "image": "/img/git.webp", "category": "Outils" },
+    { "id": 7, "name": "Figma", "image": "/img/figma.webp", "category": "Outils" }
   ],
   "formations": [
     {

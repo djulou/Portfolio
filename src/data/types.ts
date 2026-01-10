@@ -21,6 +21,7 @@ export interface Skill {
   name: string;
   level: string;
   description?: string; // J'ai ajouté ça car ton HTML avait des descriptions
+
 }
 
 export interface Formation {
@@ -57,4 +58,5 @@ export interface Language {
   id: number;
   name: string; // ex: React
   image: string; // Chemin vers le logo
+  category: string;
 }
