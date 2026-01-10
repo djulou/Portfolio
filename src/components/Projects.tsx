@@ -5,9 +5,7 @@ import '../styles/Projects.css';
 // --- IMPORTATION DES IMAGES ---
 import pact1 from '../../public/img/img_1_pact.png'; 
 import pact2 from '../../public/img/img_2_pact.png'; 
-import pact3 from '../../public/img/img_3_pact.png'; 
-import pact4 from '../../public/img/img_4_pact.png'; 
-// Importe tes autres images ici
+// ... autres imports
 
 interface ProjectsProps {
   data: Project[];
@@ -16,14 +14,16 @@ interface ProjectsProps {
 export default function Projects({ data }: ProjectsProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeFilter, setActiveFilter] = useState<string>('Tous');
+  
+  // --- NOUVEAU STATE POUR LE CARROUSEL ---
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   const MAX_TAGS_ON_CARD = 5;
 
   const projectImages: { [key: string]: string } = {
     "/images/img_1_pact.png": pact1,
     "/images/img_2_pact.png": pact2,
-    "/images/img_3_pact.png": pact3,
-    "/images/img_4_pact.png": pact4,
-    // Tes autres correspondances
+    // ...
   };
 
   const getStickerClass = (category: string) => {
@@ -40,11 +40,36 @@ export default function Projects({ data }: ProjectsProps) {
     return project.category === activeFilter;
   });
 
-  if (selectedProject) {
+  // --- FONCTIONS DU CARROUSEL ---
+  const handleNextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!selectedProject) return;
+    // Si on est à la fin, on revient au début (boucle)
+    setCurrentImageIndex((prev) => 
+      prev === selectedProject.image.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const handlePrevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!selectedProject) return;
+    // Si on est au début, on va à la fin
+    setCurrentImageIndex((prev) => 
+      prev === 0 ? selectedProject.image.length - 1 : prev - 1
+    );
+  };
+
+  // Ouverture de la modale : on remet l'index à 0
+  const openModal = (project: Project) => {
+    setSelectedProject(project);
+    setCurrentImageIndex(0);
     document.body.style.overflow = 'hidden';
-  } else {
+  };
+
+  const closeModal = () => {
+    setSelectedProject(null);
     document.body.style.overflow = 'auto';
-  }
+  };
 
   return (
     <section id="projets" className="projet">
@@ -72,7 +97,7 @@ export default function Projects({ data }: ProjectsProps) {
             <div 
               key={project.id} 
               className="card" 
-              onClick={() => setSelectedProject(project)}
+              onClick={() => openModal(project)} // Utilise la nouvelle fonction openModal
             >
               <span className={`sticker ${getStickerClass(project.category)}`}>
                 {project.category}
@@ -92,29 +117,51 @@ export default function Projects({ data }: ProjectsProps) {
         })}
       </div>
 
-      {/* --- NOUVELLE STRUCTURE DE LA MODALE --- */}
+      {/* --- MODALE --- */}
       {selectedProject && (
-        <div className="overlay" onClick={() => setSelectedProject(null)}>
+        <div className="overlay" onClick={closeModal}>
           <div className="project-detail" onClick={(e) => e.stopPropagation()}>
             
-            <span className="close-btn" onClick={() => setSelectedProject(null)}>&times;</span>
+            <span className="close-btn" onClick={closeModal}>&times;</span>
             
-            {/* Conteneur Flex pour diviser en deux colonnes */}
             <div className="modal-content-split">
                 
-                {/* 1. COLONNE GAUCHE : LES IMAGES */}
+                {/* 1. COLONNE GAUCHE : CARROUSEL */}
                 <div className="modal-left">
-                    {selectedProject.image.map((imgStr, index) => (
+                    <div className="carousel-wrapper">
+                        
+                        {/* Image courante */}
                         <img 
-                            key={index}
-                            src={projectImages[imgStr] || imgStr} 
-                            alt={`${selectedProject.title} ${index + 1}`} 
-                            className="modal-img-item"
+                            src={projectImages[selectedProject.image[currentImageIndex]] || selectedProject.image[currentImageIndex]} 
+                            alt={`Vue ${currentImageIndex + 1}`} 
+                            className="carousel-img"
                         />
-                    ))}
+
+                        {/* Flèches de navigation (Seulement si + d'1 image) */}
+                        {selectedProject.image.length > 1 && (
+                            <>
+                                <button className="carousel-btn prev" onClick={handlePrevImage}>&#10094;</button>
+                                <button className="carousel-btn next" onClick={handleNextImage}>&#10095;</button>
+                            
+                                {/* Indicateurs (Points en bas) */}
+                                <div className="carousel-dots">
+                                    {selectedProject.image.map((_, idx) => (
+                                        <span 
+                                            key={idx} 
+                                            className={`dot ${idx === currentImageIndex ? 'active' : ''}`}
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setCurrentImageIndex(idx);
+                                            }}
+                                        ></span>
+                                    ))}
+                                </div>
+                            </>
+                        )}
+                    </div>
                 </div>
 
-                {/* 2. COLONNE DROITE : LES INFOS */}
+                {/* 2. COLONNE DROITE : INFOS */}
                 <div className="modal-right">
                     <div className="modal-header">
                         <span className={`sticker-detail ${getStickerClass(selectedProject.category)}`}>
