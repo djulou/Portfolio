@@ -12,7 +12,6 @@ import pact4 from '../../public/img/img_4_pact.webp';
 import phpLogo from '../../public/img/php.webp';
 import sqlLogo from '../../public/img/postgresql.webp';
 import gitLogo from '../../public/img/git.webp';
-import jiraLogo from '../../public/img/jira.webp';
 import figmaLogo from '../../public/img/figma.webp';
 import reactLogo from '../../public/img/react.webp';
 import htmlLogo from '../../public/img/html.webp';
@@ -44,7 +43,6 @@ export default function Projects({ data }: ProjectsProps) {
     "PHP": phpLogo,
     "PostgresSQL": sqlLogo,
     "GIT": gitLogo,
-    "JIRA": jiraLogo,
     "Figma": figmaLogo,
     "React": reactLogo,
     "HTML": htmlLogo,
