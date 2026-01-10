@@ -460,3 +460,42 @@
     flex: auto;
   }
 }
+
+/* Modification du conteneur pour accepter plusieurs boutons */
+.left-action-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column; /* Empile les boutons */
+  gap: 15px;              /* Espace entre les boutons */
+  justify-content: center;
+  width: 100%;
+}
+
+/* Style de base (déjà existant, je le rappelle juste) */
+.detail-link-btn {
+  /* ... ton style existant ... */
+  display: inline-block;
+  background-color: #f9702c; /* Orange par défaut */
+  /* ... */
+}
+
+/* Style spécifique pour le bouton DOWNLOAD (Bleu ou Vert par exemple) */
+.detail-link-btn.download {
+  background-color: #27ae60; /* Vert sympa pour dire "Télécharger" */
+  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+}
+
+.detail-link-btn.download:hover {
+  background-color: #2ecc71;
+  box-shadow: 0 10px 20px rgba(39, 174, 96, 0.5);
+}
+
+/* Style spécifique pour le bouton GITHUB (Gris sombre ou Violet) */
+.detail-link-btn.github {
+  background-color: #333; /* Couleur GitHub */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.detail-link-btn.github:hover {
+  background-color: #555;
+}

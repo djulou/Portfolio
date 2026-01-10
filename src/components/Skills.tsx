@@ -22,6 +22,7 @@ import windowsLogo from '../../public/img/windows.webp';
 import mysqlLogo from '../../public/img/mysql.webp';
 import jsLogo from '../../public/img/javascript.webp';
 import jiraLogo from '../../public/img/jira.webp';
+import umlLogo from '../../public/img/uml.webp';
 
 interface SkillsProps {
   skillsData: Skill[];
@@ -54,6 +55,7 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     "Windows": windowsLogo,
     "JavaScript": jsLogo,
     "Jira": jiraLogo,
+    "UML": umlLogo,
   };
 
   const filteredLanguages = languagesData.filter((lang) => {

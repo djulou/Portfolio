@@ -39,6 +39,7 @@ export interface Project {
   description: string;
   image: string[];
   link?: string;
+  download?: string;
   tags: string[];         // Pour les actions (Réaliser, Gérer...)
   technologies: string[]; // Pour les outils (PHP, Git...) <-- AJOUTER CETTE LIGNE
 }

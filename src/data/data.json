@@ -72,7 +72,8 @@
     { "id": 16, "name": "MongoDB", "image": "/img/mongo.webp", "category": ["Bases de données"] },
     { "id": 17, "name": "JavaScript", "image": "/img/javascript.webp", "category": ["Web", "Front-end"] },
     { "id": 18, "name": "IOS", "image": "/img/ios.webp", "category": ["Outils"] },
-    { "id": 19, "name": "Windows", "image": "/img/windows.webp", "category": ["Outils"] }
+    { "id": 19, "name": "Windows", "image": "/img/windows.webp", "category": ["Outils"] },
+    { "id": 20, "name": "UML", "image": "/img/uml.webp", "category": ["Outils"] }
   ],
   "formations": [
     {
@@ -117,7 +118,8 @@
         "/images/img_3_pact.webp", 
         "/images/img_4_pact.webp"
       ],
-      "link": "#"
+      "link": "#",
+      "download": ""
     },
     {
       "id": 2,
@@ -139,6 +141,27 @@
         "/images/sudoku_3.webp"
       ],
       "link": "#"
+    },
+    {
+      "id": 3,
+      "title": "Le Patio",
+      "description": "Développement complet d'un jeu de Sudoku en ligne de commande. Le projet a suivi un cycle de développement rigoureux : maquettage de l'interface, conception des algorithmes en pseudo-code, implémentation en langage C, et validation via un cahier de tests et des traces d'exécution. Une documentation technique a été générée via Doxygen.",
+      "category": "Scolaire",
+      "tags": [
+        "Concevoir", 
+        "Réaliser", 
+        "Tester"
+      ],
+      "technologies": [
+        "Java"
+      ],
+      "image": [
+        "/images/patio_1.webp",
+        "/images/patio_2.webp",
+        "/images/patio_3.webp"
+      ],
+      "link": "",
+      "download": ""
     }
   ],
   "passions": [
