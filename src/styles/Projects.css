@@ -227,7 +227,7 @@
   align-items: flex-start;
 }
 
-/* --- COLONNE GAUCHE (CARROUSEL) --- */
+/* --- COLONNE CARROUSEL (Maintenant à droite visuellement) --- */
 .detail-left {
   flex: 1.5;
   position: relative;
@@ -292,7 +292,7 @@
 .dot.active { background: #f9702c; transform: scale(1.3); }
 
 
-/* --- COLONNE DROITE (INFOS) --- */
+/* --- COLONNE INFOS (Maintenant à gauche visuellement) --- */
 .detail-right {
   flex: 1;
   display: flex;
@@ -375,7 +375,7 @@
   align-items: center;
 }
 
-/* --- MODIFICATION ICI : Suppression du hover --- */
+/* LOGOS SANS HOVER */
 .tech-logo-item {
   display: flex;
   flex-direction: column;
@@ -387,7 +387,6 @@
   width: 80px;
   height: 80px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  /* Suppression de la ligne "transition" et du bloc :hover */
 }
 
 .tech-logo-item img {
@@ -439,7 +438,8 @@
    ========================================= */
 @media (max-width: 1024px) {
   .detail-split {
-    flex-direction: column;
+    /* Sur mobile, on inverse la colonne pour que l'image soit en haut */
+    flex-direction: column-reverse; 
     gap: 40px;
   }
   

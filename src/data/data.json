@@ -125,7 +125,9 @@
         "Algorithme"
       ],
       "image": [
-        "/images/sudoku_c.webp"
+        "/images/sudoku_1.webp",
+        "/images/sudoku_2.webp",
+        "/images/sudoku_3.webp"
       ],
       "link": "#"
     }

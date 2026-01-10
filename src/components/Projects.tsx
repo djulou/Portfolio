@@ -150,53 +150,7 @@ export default function Projects({ data }: ProjectsProps) {
 
             <div className="detail-split">
                 
-                {/* --- GAUCHE : CARROUSEL + BOUTON --- */}
-                <div className="detail-left">
-                    <div className="carousel-wrapper-page">
-                        {selectedProject.image.length > 0 && (
-                          <img
-                              src={projectImages[selectedProject.image[currentImageIndex]] || selectedProject.image[currentImageIndex]}
-                              alt={`Vue ${currentImageIndex + 1}`}
-                              className="carousel-img-page"
-                          />
-                        )}
-
-                        {selectedProject.image.length > 1 && (
-                            <>
-                                <button className="carousel-btn prev" onClick={handlePrevImage}>&#10094;</button>
-                                <button className="carousel-btn next" onClick={handleNextImage}>&#10095;</button>
-                                <div className="carousel-dots">
-                                    {selectedProject.image.map((_, idx) => (
-                                        <span
-                                            key={idx}
-                                            className={`dot ${idx === currentImageIndex ? 'active' : ''}`}
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                setCurrentImageIndex(idx);
-                                            }}
-                                        ></span>
-                                    ))}
-                                </div>
-                            </>
-                        )}
-                    </div>
-
-                    {/* --- LE BOUTON EST DÉPLACÉ ICI --- */}
-                    {selectedProject.link && (
-                        <div className="left-action-container">
-                            <a
-                                href={selectedProject.link}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="detail-link-btn"
-                            >
-                                Voir le projet
-                            </a>
-                        </div>
-                    )}
-                </div>
-
-                {/* --- DROITE : INFOS --- */}
+                {/* --- 1. PARTIE TEXTE (Maintenant à GAUCHE) --- */}
                 <div className="detail-right">
                     
                     <div className="detail-header">
@@ -233,6 +187,53 @@ export default function Projects({ data }: ProjectsProps) {
                         </div>
                     )}
                 </div>
+
+                {/* --- 2. PARTIE IMAGE (Maintenant à DROITE) --- */}
+                <div className="detail-left">
+                    <div className="carousel-wrapper-page">
+                        {selectedProject.image.length > 0 && (
+                          <img
+                              src={projectImages[selectedProject.image[currentImageIndex]] || selectedProject.image[currentImageIndex]}
+                              alt={`Vue ${currentImageIndex + 1}`}
+                              className="carousel-img-page"
+                          />
+                        )}
+
+                        {selectedProject.image.length > 1 && (
+                            <>
+                                <button className="carousel-btn prev" onClick={handlePrevImage}>&#10094;</button>
+                                <button className="carousel-btn next" onClick={handleNextImage}>&#10095;</button>
+                                <div className="carousel-dots">
+                                    {selectedProject.image.map((_, idx) => (
+                                        <span
+                                            key={idx}
+                                            className={`dot ${idx === currentImageIndex ? 'active' : ''}`}
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setCurrentImageIndex(idx);
+                                            }}
+                                        ></span>
+                                    ))}
+                                </div>
+                            </>
+                        )}
+                    </div>
+
+                    {/* BOUTON SOUS L'IMAGE */}
+                    {selectedProject.link && (
+                        <div className="left-action-container">
+                            <a
+                                href={selectedProject.link}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="detail-link-btn"
+                            >
+                                Voir le projet
+                            </a>
+                        </div>
+                    )}
+                </div>
+
             </div>
           </div>
         </div>
