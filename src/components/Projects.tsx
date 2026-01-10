@@ -13,14 +13,20 @@ import sudoku2 from '../../public/img/sudoku_2.webp';
 import sudoku3 from '../../public/img/sudoku_3.webp';
 
 // --- LOGOS TECHNOS ---
-import phpLogo from '../../public/img/php.webp';
-import sqlLogo from '../../public/img/postgresql.webp';
-import gitLogo from '../../public/img/git.webp';
-import figmaLogo from '../../public/img/figma.webp';
-import reactLogo from '../../public/img/react.webp';
 import htmlLogo from '../../public/img/html.webp';
 import cssLogo from '../../public/img/css.webp';
+import reactLogo from '../../public/img/react.webp';
 import tsLogo from '../../public/img/typescript.webp';
+import gitLogo from '../../public/img/git.webp';
+import phpLogo from '../../public/img/php.webp';
+import postgresqlLogo from '../../public/img/postgresql.webp';
+import figmaLogo from '../../public/img/figma.webp';
+import pythonLogo from '../../public/img/python.webp';
+import javaLogo from '../../public/img/java.webp';
+import cLogo from '../../public/img/c.webp';
+import linuxLogo from '../../public/img/linux.webp';
+import bashLogo from '../../public/img/bash.webp';
+import mysqlLogo from '../../public/img/mysql.webp';
 
 interface ProjectsProps {
   data: Project[];
@@ -43,15 +49,21 @@ export default function Projects({ data }: ProjectsProps) {
     "/images/sudoku_3.webp": sudoku3,
   };
 
-  const techLogos: { [key: string]: string } = {
-    "PHP": phpLogo,
-    "PostgresSQL": sqlLogo,
-    "GIT": gitLogo,
-    "Figma": figmaLogo,
-    "React": reactLogo,
-    "HTML": htmlLogo,
-    "CSS": cssLogo,
-    "TypeScript": tsLogo,
+  const languageLogos: { [key: string]: string } = {
+    "/img/html.webp": htmlLogo,
+    "/img/css.webp": cssLogo,
+    "/img/react.webp": reactLogo,
+    "/img/typescript.webp": tsLogo,
+    "/img/git.webp": gitLogo,
+    "/img/php.webp": phpLogo,
+    "/img/figma.webp": figmaLogo,
+    "/img/postgresql.webp": postgresqlLogo,
+    "/img/python.webp": pythonLogo,
+    "/img/java.webp": javaLogo,
+    "/img/c.webp": cLogo,
+    "/img/linux.webp": linuxLogo,
+    "/img/bash.webp": bashLogo,
+    "/img/mysql.webp": mysqlLogo,
   };
 
   const getStickerClass = (category: string) => {
@@ -175,7 +187,7 @@ export default function Projects({ data }: ProjectsProps) {
                             <h3>Technologies utilisées</h3>
                             <div className="tech-logos-grid">
                                 {selectedProject.technologies.map((techName, i) => {
-                                    const logoSrc = techLogos[techName];
+                                    const logoSrc = languageLogos[techName];
                                     return (
                                         <div key={i} className="tech-logo-item" title={techName}>
                                             {logoSrc ? <img src={logoSrc} alt={techName} /> : null}
