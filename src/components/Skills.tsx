@@ -3,6 +3,7 @@ import { Skill, Language } from '../data/types';
 import '../styles/Skills.css';
 
 // --- IMPORTATION DES LOGOS ---
+// Assure-toi d'avoir ces images dans /public/img/
 import htmlLogo from '../../public/img/html.webp';
 import cssLogo from '../../public/img/css.webp';
 import reactLogo from '../../public/img/react.webp';
@@ -11,6 +12,12 @@ import gitLogo from '../../public/img/git.webp';
 import phpLogo from '../../public/img/php.webp';
 import postgresqlLogo from '../../public/img/postgresql.webp';
 import figmaLogo from '../../public/img/figma.webp';
+import pythonLogo from '../../public/img/python.webp';
+import javaLogo from '../../public/img/java.webp';
+import cLogo from '../../public/img/c.webp';
+import linuxLogo from '../../public/img/linux.webp';
+import bashLogo from '../../public/img/bash.webp';
+import mysqlLogo from '../../public/img/mysql.webp';
 
 interface SkillsProps {
   skillsData: Skill[];
@@ -21,6 +28,7 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
   const [activeTab, setActiveTab] = useState<'but' | 'lang'>('but');
   const [activeLangFilter, setActiveLangFilter] = useState<string>('Tous');
 
+  // Mapping des images (Clé = chemin dans le JSON)
   const languageLogos: { [key: string]: string } = {
     "/img/html.webp": htmlLogo,
     "/img/css.webp": cssLogo,
@@ -30,13 +38,19 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     "/img/php.webp": phpLogo,
     "/img/figma.webp": figmaLogo,
     "/img/postgresql.webp": postgresqlLogo,
+    "/img/python.webp": pythonLogo,
+    "/img/java.webp": javaLogo,
+    "/img/c.webp": cLogo,
+    "/img/linux.webp": linuxLogo,
+    "/img/bash.webp": bashLogo,
+    "/img/mysql.webp": mysqlLogo,
   };
 
-  // --- FILTRAGE SIMPLIFIÉ GRÂCE AU JSON ---
+  // --- NOUVEAU SYSTÈME DE FILTRE (Tableaux) ---
   const filteredLanguages = languagesData.filter((lang) => {
     if (activeLangFilter === 'Tous') return true;
-    // On compare directement avec la catégorie écrite dans le JSON
-    return lang.category === activeLangFilter;
+    // On vérifie si le tableau 'category' contient le filtre sélectionné
+    return lang.category.includes(activeLangFilter);
   });
 
   const formatTitle = (title: string) => {
@@ -92,9 +106,9 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
         {/* CAS B : Langages & Outils */}
         {activeTab === 'lang' && (
           <>
-            {/* SOUS-FILTRES : Les noms doivent correspondre exactement au JSON */}
+            {/* SOUS-FILTRES : J'ai ajouté Back-end et Système */}
             <div className="sub-filters-container">
-              {['Tous', 'Web', 'Bdd', 'Outils'].map((filter) => (
+              {['Tous', 'Web', 'Back-end', 'Bases de données', 'Outils', 'Système'].map((filter) => (
                 <button
                   key={filter}
                   className={`sub-filter-btn ${activeLangFilter === filter ? 'active' : ''}`}

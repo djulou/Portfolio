@@ -54,14 +54,20 @@
     }
   ],
   "languages": [
-    { "id": 1, "name": "HTML5", "image": "/img/html.webp", "category": "Web" },
-    { "id": 2, "name": "CSS3", "image": "/img/css.webp", "category": "Web" },
-    { "id": 3, "name": "React", "image": "/img/react.webp", "category": "Web" },
-    { "id": 4, "name": "TypeScript", "image": "/img/typescript.webp", "category": "Web" },
-    { "id": 6, "name": "PHP", "image": "/img/php.webp", "category": "Web" },
-    { "id": 8, "name": "PostgreSQL", "image": "/img/postgresql.webp", "category": "Bdd" },
-    { "id": 5, "name": "Git", "image": "/img/git.webp", "category": "Outils" },
-    { "id": 7, "name": "Figma", "image": "/img/figma.webp", "category": "Outils" }
+    { "id": 1, "name": "HTML5", "image": "/img/html.webp", "category": ["Web", "Front-end"] },
+    { "id": 2, "name": "CSS3", "image": "/img/css.webp", "category": ["Web", "Front-end"] },
+    { "id": 3, "name": "React", "image": "/img/react.webp", "category": ["Web", "Front-end"] },
+    { "id": 4, "name": "TypeScript", "image": "/img/typescript.webp", "category": ["Web", "Front-end"] },
+    { "id": 5, "name": "PHP", "image": "/img/php.webp", "category": ["Web", "Back-end"] },
+    { "id": 6, "name": "PostgreSQL", "image": "/img/postgresql.webp", "category": ["Bases de données", "Back-end"] },
+    { "id": 7, "name": "MySQL", "image": "/img/mysql.webp", "category": ["Bases de données", "Back-end"] },
+    { "id": 8, "name": "Git", "image": "/img/git.webp", "category": ["Outils", "DevOps"] },
+    { "id": 9, "name": "Figma", "image": "/img/figma.webp", "category": ["Outils", "Design"] },
+    { "id": 10, "name": "Python", "image": "/img/python.webp", "category": ["Outils", "Back-end", "Web"] },
+    { "id": 11, "name": "Java", "image": "/img/java.webp", "category": ["Back-end", "Outils"] },
+    { "id": 12, "name": "C", "image": "/img/c.webp", "category": ["Back-end", "Outils"] },
+    { "id": 13, "name": "Linux", "image": "/img/linux.webp", "category": ["Outils", "Système"] },
+    { "id": 14, "name": "Bash", "image": "/img/bash.webp", "category": ["Outils", "Système"] }
   ],
   "formations": [
     {
@@ -120,9 +126,7 @@
         "Tester"
       ],
       "technologies": [
-        "C", 
-        "Doxygen", 
-        "Algorithme"
+        "C"
       ],
       "image": [
         "/images/sudoku_1.webp",

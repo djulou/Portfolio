@@ -58,5 +58,5 @@ export interface Language {
   id: number;
   name: string; // ex: React
   image: string; // Chemin vers le logo
-  category: string;
+  category: string[];
 }
