@@ -50,20 +50,23 @@ export default function Projects({ data }: ProjectsProps) {
   };
 
   const languageLogos: { [key: string]: string } = {
-    "/img/html.webp": htmlLogo,
-    "/img/css.webp": cssLogo,
-    "/img/react.webp": reactLogo,
-    "/img/typescript.webp": tsLogo,
-    "/img/git.webp": gitLogo,
-    "/img/php.webp": phpLogo,
-    "/img/figma.webp": figmaLogo,
-    "/img/postgresql.webp": postgresqlLogo,
-    "/img/python.webp": pythonLogo,
-    "/img/java.webp": javaLogo,
-    "/img/c.webp": cLogo,
-    "/img/linux.webp": linuxLogo,
-    "/img/bash.webp": bashLogo,
-    "/img/mysql.webp": mysqlLogo,
+    "HTML": htmlLogo,
+    "HTML5": htmlLogo,
+    "CSS": cssLogo,
+    "CSS3": cssLogo,
+    "React": reactLogo,
+    "TypeScript": tsLogo,
+    "Git": gitLogo,
+    "PHP": phpLogo,
+    "PostgreSQL": postgresqlLogo,
+    "SQL": postgresqlLogo, // Fallback si tu utilises juste "SQL"
+    "Figma": figmaLogo,
+    "Python": pythonLogo,
+    "Java": javaLogo,
+    "C": cLogo,             // <-- C'est ici que ça corrige ton problème
+    "Linux": linuxLogo,
+    "Bash": bashLogo,
+    "MySQL": mysqlLogo,
   };
 
   const getStickerClass = (category: string) => {
@@ -200,7 +203,6 @@ export default function Projects({ data }: ProjectsProps) {
                     )}
                 </div>
 
-                {/* --- 2. PARTIE IMAGE (Maintenant à DROITE) --- */}
                 <div className="detail-left">
                     <div className="carousel-wrapper-page">
                         {selectedProject.image.length > 0 && (
