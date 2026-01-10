@@ -65,7 +65,7 @@
 }
 
 /* =========================================
-   3. GRILLE (GRID)
+   3. GRILLE (GRID) - PAGE PRINCIPALE
    ========================================= */
 .container {
   display: grid;
@@ -144,7 +144,7 @@
   font-weight: bold;
 }
 
-/* STICKERS */
+/* STICKERS (Scolaire, Perso, etc.) */
 .sticker {
   position: absolute;
   top: 15px;
@@ -166,7 +166,7 @@
 
 
 /* =========================================
-   VUE PLEINE PAGE (REMPLACE LA MODALE)
+   5. VUE PLEINE PAGE (DÉTAIL DU PROJET)
    ========================================= */
 
 .full-page-overlay {
@@ -175,11 +175,11 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  /* Mettez ici la couleur de fond de votre site pour cacher ce qu'il y a derrière */
+  /* Fond opaque pour cacher la page derrière */
   background-color: #0f1c24; 
-  z-index: 1000; /* Assez haut pour passer au-dessus du reste */
-  overflow-y: auto; /* Permet de scroller dans cette nouvelle "page" */
-  padding-top: 100px; /* Laisse la place au HEADER fixe */
+  z-index: 1000;
+  overflow-y: auto; /* Scroll vertical activé */
+  padding-top: 100px; /* Espace pour le Header fixe */
   padding-bottom: 50px;
   animation: slideUp 0.4s ease-in-out;
 }
@@ -190,12 +190,12 @@
 }
 
 .full-page-content {
-  max-width: 1400px; /* Prend plus de largeur qu'une simple modale */
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
 }
 
-/* Bouton Retour */
+/* BOUTON RETOUR */
 .page-header-actions {
   margin-bottom: 30px;
 }
@@ -228,7 +228,7 @@
   align-items: flex-start;
 }
 
-/* COLONNE GAUCHE (CARROUSEL) */
+/* --- COLONNE GAUCHE (CARROUSEL) --- */
 .detail-left {
   flex: 1.5; /* Prend 60% de la largeur */
   position: relative;
@@ -236,7 +236,7 @@
 
 .carousel-wrapper-page {
   width: 100%;
-  height: 600px; /* Grande hauteur pour effet cinéma */
+  height: 600px; /* Grande hauteur fixe */
   border-radius: 12px;
   overflow: hidden;
   background: #000;
@@ -251,81 +251,7 @@
   display: block;
 }
 
-/* COLONNE DROITE (INFOS) */
-.detail-right {
-  flex: 1; /* Prend 40% de la largeur */
-  display: flex;
-  flex-direction: column;
-  padding-top: 10px;
-}
-
-.detail-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 25px;
-  margin-bottom: 25px;
-}
-
-.detail-header h1 {
-  font-size: 3.5rem; /* Titre très grand */
-  color: #ffb75e;
-  margin: 15px 0 0 0;
-  line-height: 1.1;
-}
-
-.sticker-detail {
-  display: inline-block;
-  padding: 6px 15px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: white;
-  text-transform: uppercase;
-}
-
-/* Tags Détail */
-.detail-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 40px;
-}
-
-.detail-tag-item {
-  background-color: rgba(255, 183, 94, 0.1);
-  color: #ffb75e;
-  padding: 8px 18px;
-  border-radius: 30px;
-  font-size: 1rem;
-  font-weight: 500;
-  border: 1px solid rgba(255, 183, 94, 0.3);
-}
-
-.detail-description p {
-  color: #cbd5e0;
-  line-height: 1.8;
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-  white-space: pre-line;
-}
-
-.detail-link-btn {
-  align-self: flex-start;
-  background-color: #f9702c;
-  color: #fff;
-  padding: 15px 40px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: all 0.2s;
-  box-shadow: 0 5px 15px rgba(249, 112, 44, 0.4);
-}
-.detail-link-btn:hover {
-  background-color: #ffb75e;
-  transform: translateY(-3px);
-}
-
-/* FLÈCHES CARROUSEL */
+/* Flèches Navigation Carrousel */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -348,6 +274,7 @@
 .carousel-btn.prev { left: 20px; }
 .carousel-btn.next { right: 20px; }
 
+/* Points Navigation Carrousel */
 .carousel-dots {
   position: absolute;
   bottom: 25px;
@@ -365,7 +292,146 @@
 }
 .dot.active { background: #f9702c; transform: scale(1.3); }
 
-/* --- RESPONSIVE MOBILE --- */
+
+/* --- COLONNE DROITE (INFOS) --- */
+.detail-right {
+  flex: 1; /* Prend 40% de la largeur */
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+/* Header Détail */
+.detail-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+
+.detail-header h1 {
+  font-size: 3.5rem;
+  color: #ffb75e;
+  margin: 15px 0 0 0;
+  line-height: 1.1;
+}
+
+.sticker-detail {
+  display: inline-block;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+/* TAGS (Partie Haute - Verbes) */
+.detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.detail-tag-item {
+  background-color: rgba(255, 183, 94, 0.1);
+  color: #ffb75e;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 183, 94, 0.3);
+}
+
+/* DESCRIPTION */
+.detail-description p {
+  color: #cbd5e0;
+  line-height: 1.8;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  white-space: pre-line; /* Respecte les sauts de ligne */
+}
+
+/* SECTION TECHNOLOGIES (LOGOS - Partie Basse) */
+.tech-stack-container {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tech-stack-container h3 {
+  color: #eaeaea;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+.tech-logos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.tech-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: 12px;
+  width: 80px;
+  height: 80px;
+  transition: transform 0.3s, background 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tech-logo-item:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ffb75e;
+}
+
+.tech-logo-item img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  margin-bottom: 5px;
+  filter: drop-shadow(0 0 2px rgba(255,255,255,0.2));
+}
+
+.tech-logo-item span {
+  font-size: 0.75rem;
+  color: #ccc;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* BOUTON LIEN */
+.detail-link-btn {
+  align-self: flex-start;
+  background-color: #f9702c;
+  color: #fff;
+  padding: 15px 40px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+  box-shadow: 0 5px 15px rgba(249, 112, 44, 0.4);
+}
+.detail-link-btn:hover {
+  background-color: #ffb75e;
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   6. RESPONSIVE MOBILE
+   ========================================= */
 @media (max-width: 1024px) {
   .detail-split {
     flex-direction: column;
@@ -373,7 +439,7 @@
   }
   
   .carousel-wrapper-page {
-    height: 400px;
+    height: 400px; /* Moins haut sur mobile */
   }
 
   .detail-header h1 {
@@ -382,5 +448,10 @@
   
   .full-page-content {
     padding: 0 20px;
+  }
+  
+  .detail-left, .detail-right {
+    width: 100%;
+    flex: auto;
   }
 }

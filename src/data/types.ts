@@ -34,11 +34,12 @@ export interface Formation {
 export interface Project {
   id: number;
   title: string;
+  category: string;
   description: string;
-  tags: string[];
   image: string[];
-  link: string;
-  category: "Scolaire" | "Professionnel" | "Personnel";
+  link?: string;
+  tags: string[];         // Pour les actions (Réaliser, Gérer...)
+  technologies: string[]; // Pour les outils (PHP, Git...) <-- AJOUTER CETTE LIGNE
 }
 
 // L'interface globale mise à jour

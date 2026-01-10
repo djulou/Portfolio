@@ -2,22 +2,22 @@ import { useState } from 'react';
 import { Project } from '../data/types';
 import '../styles/Projects.css';
 
-// --- 1. IMPORTATION DES IMAGES PROJETS ---
+// --- IMAGES PROJETS ---
 import pact1 from '../../public/img/img_1_pact.webp';
 import pact2 from '../../public/img/img_2_pact.webp';
 import pact3 from '../../public/img/img_3_pact.webp';
 import pact4 from '../../public/img/img_4_pact.webp';
 
-// --- 2. IMPORTATION DES LOGOS TECHNOS ---
-// (Adaptez les chemins si vos logos sont ailleurs)
-import phpLogo from '../../public/img/php.webp'; // Exemple (ajoutez vos fichiers)
-import postgresqlLogo from '../../public/img/postgresql.webp';
-import gitLogo from '../../public/img/git.webp';
-import figmaLogo from '../../public/img/figma.webp';
-import reactLogo from '../../public/img/react.webp';
-import htmlLogo from '../../public/img/html.webp';
-import cssLogo from '../../public/img/css.webp';
-import tsLogo from '../../public/img/typescript.webp';
+// --- LOGOS TECHNOS ---
+import phpLogo from '../../public/img/php.png';
+import sqlLogo from '../../public/img/postgresql.png';
+import gitLogo from '../../public/img/git.png';
+import jiraLogo from '../../public/img/jira.png';
+import figmaLogo from '../../public/img/figma.png';
+import reactLogo from '../../public/img/react.png';
+import htmlLogo from '../../public/img/html.png';
+import cssLogo from '../../public/img/css.png';
+import tsLogo from '../../public/img/typescript.png';
 
 interface ProjectsProps {
   data: Project[];
@@ -28,9 +28,9 @@ export default function Projects({ data }: ProjectsProps) {
   const [activeFilter, setActiveFilter] = useState<string>('Tous');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const MAX_TAGS_ON_CARD = 8;
+  const MAX_TAGS_ON_CARD = 5; // Nombre de tags affichés sur la carte
 
-  // Mapping des images de projets
+  // Mapping Images Projets
   const projectImages: { [key: string]: string } = {
     "/images/img_1_pact.webp": pact1,
     "/images/img_2_pact.webp": pact2,
@@ -38,18 +38,18 @@ export default function Projects({ data }: ProjectsProps) {
     "/images/img_4_pact.webp": pact4,
   };
 
-  // --- 3. MAPPING DES LOGOS TECHNOS ---
-  // La clé doit correspondre EXACTEMENT au texte dans votre fichier JSON
+  // Mapping Logos Technos
+  // (Note: Les clés doivent correspondre aux noms dans "technologies" du JSON)
   const techLogos: { [key: string]: string } = {
     "PHP": phpLogo,
-    "PostgresSQL": postgresqlLogo,
+    "PostgresSQL": sqlLogo,
     "GIT": gitLogo,
+    "JIRA": jiraLogo,
     "Figma": figmaLogo,
     "React": reactLogo,
     "HTML": htmlLogo,
     "CSS": cssLogo,
     "TypeScript": tsLogo,
-    // Ajoutez d'autres correspondances ici...
   };
 
   const getStickerClass = (category: string) => {
@@ -111,9 +111,12 @@ export default function Projects({ data }: ProjectsProps) {
 
       <div className="container">
         {filteredProjects.map((project) => {
+          // Sur la carte, on combine tags et technos pour l'aperçu, ou juste tags selon votre choix
+          // Ici je montre un mélange des deux pour la carte
+          const allTags = [...project.tags, ...project.technologies];
           const firstImage = project.image && project.image.length > 0 ? project.image[0] : '';
-          const visibleTags = project.tags.slice(0, MAX_TAGS_ON_CARD);
-          const remainingTags = project.tags.length - MAX_TAGS_ON_CARD;
+          const visibleTags = allTags.slice(0, MAX_TAGS_ON_CARD);
+          const remainingTags = allTags.length - MAX_TAGS_ON_CARD;
 
           return (
             <div key={project.id} className="card" onClick={() => openProject(project)}>
@@ -148,6 +151,7 @@ export default function Projects({ data }: ProjectsProps) {
 
             <div className="detail-split">
                 
+                {/* GAUCHE : CARROUSEL */}
                 <div className="detail-left">
                     <div className="carousel-wrapper-page">
                         {selectedProject.image.length > 0 && (
@@ -179,7 +183,9 @@ export default function Projects({ data }: ProjectsProps) {
                     </div>
                 </div>
 
+                {/* DROITE : INFOS */}
                 <div className="detail-right">
+                    
                     <div className="detail-header">
                         <span className={`sticker-detail ${getStickerClass(selectedProject.category)}`}>
                             {selectedProject.category}
@@ -187,35 +193,35 @@ export default function Projects({ data }: ProjectsProps) {
                         <h1>{selectedProject.title}</h1>
                     </div>
 
+                    {/* 1. TAGS TEXTE (Directement depuis le JSON) */}
+                    <div className="detail-tags">
+                        {selectedProject.tags.map((tag, i) => (
+                             <span key={i} className="detail-tag-item">{tag}</span>
+                        ))}
+                    </div>
+
                     <div className="detail-description">
                         <p>{selectedProject.description}</p>
                     </div>
 
-                    {/* --- 4. AFFICHAGE DES LOGOS ICI (SOUS LA DESCRIPTION) --- */}
-                    <div className="tech-stack-container">
-                        <h3>Technologies & Compétences</h3>
-                        <div className="tech-logos-grid">
-                            {selectedProject.tags.map((tag, i) => {
-                                // On vérifie si on a un logo pour ce tag
-                                const logoSrc = techLogos[tag];
-
-                                if (logoSrc) {
-                                    // SI OUI : On affiche l'image
+                    {/* 2. LOGOS TECHNOS (Directement depuis le JSON) */}
+                    {selectedProject.technologies && selectedProject.technologies.length > 0 && (
+                        <div className="tech-stack-container">
+                            <h3>Technologies utilisées</h3>
+                            <div className="tech-logos-grid">
+                                {selectedProject.technologies.map((techName, i) => {
+                                    const logoSrc = techLogos[techName];
                                     return (
-                                        <div key={i} className="tech-logo-item" title={tag}>
-                                            <img src={logoSrc} alt={tag} />
-                                            <span>{tag}</span>
+                                        <div key={i} className="tech-logo-item" title={techName}>
+                                            {/* Si le logo existe on l'affiche, sinon juste le texte */}
+                                            {logoSrc ? <img src={logoSrc} alt={techName} /> : null}
+                                            <span>{techName}</span>
                                         </div>
                                     );
-                                } else {
-                                    // SI NON (ex: "Réaliser", "Gérer") : On affiche le tag texte classique
-                                    return (
-                                        <span key={i} className="detail-tag-item">{tag}</span>
-                                    );
-                                }
-                            })}
+                                })}
+                            </div>
                         </div>
-                    </div>
+                    )}
 
                     {selectedProject.link && (
                         <a
