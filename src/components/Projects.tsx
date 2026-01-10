@@ -1,4 +1,4 @@
-import { useState } from 'react'; // Ajout de useEffect
+import { useState } from 'react';
 import { Project } from '../data/types';
 import '../styles/Projects.css';
 
@@ -41,14 +41,16 @@ export default function Projects({ data }: ProjectsProps) {
   });
 
   // --- CARROUSEL ---
-  const handleNextImage = () => {
+  const handleNextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
     if (!selectedProject || selectedProject.image.length <= 1) return;
     setCurrentImageIndex((prev) =>
       prev === selectedProject.image.length - 1 ? 0 : prev + 1
     );
   };
 
-  const handlePrevImage = () => {
+  const handlePrevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
     if (!selectedProject || selectedProject.image.length <= 1) return;
     setCurrentImageIndex((prev) =>
       prev === 0 ? selectedProject.image.length - 1 : prev - 1
@@ -58,100 +60,16 @@ export default function Projects({ data }: ProjectsProps) {
   const openProject = (project: Project) => {
     setSelectedProject(project);
     setCurrentImageIndex(0);
-    // On remonte en haut de page quand on ouvre un projet
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.body.style.overflow = 'hidden'; // Bloque le scroll de l'arrière-plan
   };
 
   const closeProject = () => {
     setSelectedProject(null);
-    // On remonte en haut de page quand on revient à la liste
-    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+    document.body.style.overflow = 'auto'; // Réactive le scroll
   };
 
-  // --- RENDU CONDITIONNEL : PAGE DÉTAIL OU GRILLE ---
-
-  // CAS 1 : VUE DÉTAIL (PAGE COMPLÈTE)
-  if (selectedProject) {
-    return (
-      <section className="project-page-view fade-in">
-        <div className="page-container">
-          
-          {/* Bouton Retour */}
-          <button className="back-btn" onClick={closeProject}>
-            &larr; Retour aux projets
-          </button>
-
-          {/* Contenu divisé (Image / Texte) */}
-          <div className="detail-split">
-            
-            {/* Colonne Gauche : Carrousel */}
-            <div className="detail-left">
-              <div className="carousel-wrapper-page">
-                {selectedProject.image.length > 0 && (
-                  <img
-                    src={projectImages[selectedProject.image[currentImageIndex]] || selectedProject.image[currentImageIndex]}
-                    alt={`Vue ${currentImageIndex + 1}`}
-                    className="carousel-img-page"
-                  />
-                )}
-                
-                {selectedProject.image.length > 1 && (
-                  <>
-                    <button className="carousel-btn prev" onClick={handlePrevImage}>&#10094;</button>
-                    <button className="carousel-btn next" onClick={handleNextImage}>&#10095;</button>
-                    <div className="carousel-dots">
-                      {selectedProject.image.map((_, idx) => (
-                        <span
-                          key={idx}
-                          className={`dot ${idx === currentImageIndex ? 'active' : ''}`}
-                          onClick={() => setCurrentImageIndex(idx)}
-                        ></span>
-                      ))}
-                    </div>
-                  </>
-                )}
-              </div>
-            </div>
-
-            {/* Colonne Droite : Infos */}
-            <div className="detail-right">
-              <div className="detail-header">
-                <span className={`sticker-detail ${getStickerClass(selectedProject.category)}`}>
-                  {selectedProject.category}
-                </span>
-                <h1>{selectedProject.title}</h1>
-              </div>
-
-              <div className="detail-tags">
-                {selectedProject.tags.map((tag, i) => (
-                  <span key={i} className="detail-tag-item">{tag}</span>
-                ))}
-              </div>
-
-              <div className="detail-description">
-                <p>{selectedProject.description}</p>
-              </div>
-
-              {selectedProject.link && (
-                <a
-                  href={selectedProject.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="detail-link-btn"
-                >
-                  Voir le projet en direct
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // CAS 2 : VUE GRILLE (LISTE DES PROJETS)
   return (
-    <section id="projets" className="projet fade-in">
+    <section id="projets" className="projet">
       <h1 className="title">Nos Projets</h1>
 
       <div className="filter-buttons">
@@ -173,11 +91,7 @@ export default function Projects({ data }: ProjectsProps) {
           const remainingTags = project.tags.length - MAX_TAGS_ON_CARD;
 
           return (
-            <div
-              key={project.id}
-              className="card"
-              onClick={() => openProject(project)}
-            >
+            <div key={project.id} className="card" onClick={() => openProject(project)}>
               <span className={`sticker ${getStickerClass(project.category)}`}>
                 {project.category}
               </span>
@@ -195,6 +109,88 @@ export default function Projects({ data }: ProjectsProps) {
           );
         })}
       </div>
+
+      {/* --- VUE PLEINE PAGE (Simule une nouvelle page) --- */}
+      {selectedProject && (
+        <div className="full-page-overlay">
+          <div className="full-page-content">
+            
+            {/* Bouton Retour (Style Header) */}
+            <div className="page-header-actions">
+                <button className="back-button" onClick={closeProject}>
+                    &larr; Retour aux projets
+                </button>
+            </div>
+
+            {/* Structure Split : Gauche / Droite */}
+            <div className="detail-split">
+                
+                {/* GAUCHE : CARROUSEL */}
+                <div className="detail-left">
+                    <div className="carousel-wrapper-page">
+                        {selectedProject.image.length > 0 && (
+                          <img
+                              src={projectImages[selectedProject.image[currentImageIndex]] || selectedProject.image[currentImageIndex]}
+                              alt={`Vue ${currentImageIndex + 1}`}
+                              className="carousel-img-page"
+                          />
+                        )}
+
+                        {selectedProject.image.length > 1 && (
+                            <>
+                                <button className="carousel-btn prev" onClick={handlePrevImage}>&#10094;</button>
+                                <button className="carousel-btn next" onClick={handleNextImage}>&#10095;</button>
+                                <div className="carousel-dots">
+                                    {selectedProject.image.map((_, idx) => (
+                                        <span
+                                            key={idx}
+                                            className={`dot ${idx === currentImageIndex ? 'active' : ''}`}
+                                            onClick={(e) => {
+                                                e.stopPropagation(); // Empêche le clic de traverser
+                                                setCurrentImageIndex(idx);
+                                            }}
+                                        ></span>
+                                    ))}
+                                </div>
+                            </>
+                        )}
+                    </div>
+                </div>
+
+                {/* DROITE : INFOS */}
+                <div className="detail-right">
+                    <div className="detail-header">
+                        <span className={`sticker-detail ${getStickerClass(selectedProject.category)}`}>
+                            {selectedProject.category}
+                        </span>
+                        <h1>{selectedProject.title}</h1>
+                    </div>
+
+                    <div className="detail-tags">
+                        {selectedProject.tags.map((tag, i) => (
+                            <span key={i} className="detail-tag-item">{tag}</span>
+                        ))}
+                    </div>
+
+                    <div className="detail-description">
+                        <p>{selectedProject.description}</p>
+                    </div>
+
+                    {selectedProject.link && (
+                        <a
+                            href={selectedProject.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="detail-link-btn"
+                        >
+                            Voir le projet
+                        </a>
+                    )}
+                </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
