@@ -6,7 +6,8 @@ import '../styles/Projects.css';
 // Assurez-vous que vos imports sont corrects ici
 import pact1 from '../../public/img/img_1_pact.png';
 import pact2 from '../../public/img/img_2_pact.png';
-
+import pact3 from '../../public/img/img_3_pact.png';
+import pact4 from '../../public/img/img_4_pact.png';
 interface ProjectsProps {
   data: Project[];
 }
@@ -16,12 +17,14 @@ export default function Projects({ data }: ProjectsProps) {
   const [activeFilter, setActiveFilter] = useState<string>('Tous');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const MAX_TAGS_ON_CARD = 5;
+  const MAX_TAGS_ON_CARD = 8;
 
   // Mapping des images
   const projectImages: { [key: string]: string } = {
     "/images/img_1_pact.png": pact1,
     "/images/img_2_pact.png": pact2,
+    "/images/img_3_pact.png": pact3,
+    "/images/img_4_pact.png": pact4,
     // ... ajoutez les autres
   };
 
