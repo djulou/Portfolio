@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'; // Ajout de useEffect
+import { useState } from 'react'; // Ajout de useEffect
 import { Project } from '../data/types';
 import '../styles/Projects.css';
 
