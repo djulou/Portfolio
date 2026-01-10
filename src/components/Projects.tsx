@@ -12,6 +12,10 @@ import sudoku1 from "../../public/img/sudoku_1.webp";
 import sudoku2 from "../../public/img/sudoku_2.webp";
 import sudoku3 from "../../public/img/sudoku_3.webp";
 
+import patio1 from "../../public/img/patio1.webp";
+import patio2 from "../../public/img/patio2.webp";
+import patio3 from "../../public/img/patio3.webp";
+
 // --- LOGOS TECHNOS ---
 import htmlLogo from "../../public/img/html.webp";
 import cssLogo from "../../public/img/css.webp";
@@ -53,6 +57,9 @@ export default function Projects({ data }: ProjectsProps) {
     "/images/sudoku_1.webp": sudoku1,
     "/images/sudoku_2.webp": sudoku2,
     "/images/sudoku_3.webp": sudoku3,
+    "/images/patio_1.webp": patio1,
+    "/images/patio_2.webp": patio2,
+    "/images/patio_3.webp": patio3,
   };
 
   const languageLogos: { [key: string]: string } = {

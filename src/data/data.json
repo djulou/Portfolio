@@ -118,7 +118,7 @@
         "/images/img_3_pact.webp", 
         "/images/img_4_pact.webp"
       ],
-      "link": "#",
+      "link": "",
       "download": ""
     },
     {
@@ -140,12 +140,13 @@
         "/images/sudoku_2.webp",
         "/images/sudoku_3.webp"
       ],
-      "link": "#"
+      "link": "",
+      "download": "/files/SAE_1.01.zip"
     },
     {
       "id": 3,
       "title": "Le Patio",
-      "description": "Développement complet d'un jeu de Sudoku en ligne de commande. Le projet a suivi un cycle de développement rigoureux : maquettage de l'interface, conception des algorithmes en pseudo-code, implémentation en langage C, et validation via un cahier de tests et des traces d'exécution. Une documentation technique a été générée via Doxygen.",
+      "description": "Développement d'une application interactive en suivant le paradigme Orienté Objet. Implémentation de la structure logicielle par la traduction stricte d'un diagramme de classes UML en Java. Conception des Interfaces Homme-Machine (IHM) et programmation des contrôleurs pour gérer les événements utilisateurs et lier la vue au modèle.",
       "category": "Scolaire",
       "tags": [
         "Concevoir", 
@@ -153,7 +154,8 @@
         "Tester"
       ],
       "technologies": [
-        "Java"
+        "Java",
+        "UML"
       ],
       "image": [
         "/images/patio_1.webp",
