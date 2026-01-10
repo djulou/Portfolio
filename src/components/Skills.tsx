@@ -108,7 +108,7 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
           <>
             {/* SOUS-FILTRES : J'ai ajouté Back-end et Système */}
             <div className="sub-filters-container">
-              {['Tous', 'Web', 'Back-end', 'Bases de données', 'Outils', 'Système'].map((filter) => (
+              {['Tous', 'Web','Front-end', 'Back-end', 'Logiciel', 'Algorithmique','Data','Bases de données', 'Outils', 'Système'].map((filter) => (
                 <button
                   key={filter}
                   className={`sub-filter-btn ${activeLangFilter === filter ? 'active' : ''}`}
