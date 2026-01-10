@@ -59,7 +59,7 @@
     { "id": 3, "name": "React", "image": "/img/react.webp", "category": "Web" },
     { "id": 4, "name": "TypeScript", "image": "/img/typescript.webp", "category": "Web" },
     { "id": 6, "name": "PHP", "image": "/img/php.webp", "category": "Web" },
-    { "id": 8, "name": "PostgreSQL", "image": "/img/postgresql.webp", "category": "Bdd" },
+    { "id": 8, "name": "PostgreSQL", "image": "/img/postgresql.webp", "category": "Bases de données" },
     { "id": 5, "name": "Git", "image": "/img/git.webp", "category": "Outils" },
     { "id": 7, "name": "Figma", "image": "/img/figma.webp", "category": "Outils" }
   ],
@@ -83,30 +83,132 @@
     {
       "id": 1,
       "title": "Plateforme de réservations",
-      "description": "Plateforme complète de gestion d'offres. Elle comprend une interface utilisateur (front) pour découvrir les offres publiées par les professionnels et consulter les avis. Une interface d'administration (back) permet aux pros de se connecter, de publier leurs offres et de consulter les avis laissés.",
+      "description": "Développement complet d'une plateforme Web (Type Airbnb/Booking). Création de l'interface utilisateur (Front) pour découvrir les offres et consulter les avis. Une interface d'administration (Back) permet aux pros de publier leurs offres.",
       "category": "Scolaire",
-      "tags": [
-        "Réaliser", 
-        "Optimiser", 
-        "Administrer", 
-        "Gérer", 
-        "Conduire", 
-        "Collaborer"
-      ],
-      "technologies": [
-        "PHP", 
-        "PostgresSQL", 
-        "GIT", 
-        "JIRA", 
-        "Figma"
-      ],
-      "image": [
-        "/images/img_1_pact.webp", 
-        "/images/img_2_pact.webp", 
-        "/images/img_3_pact.webp", 
-        "/images/img_4_pact.webp"
-      ],
+      "tags": ["Réaliser", "Coder", "Concevoir"],
+      "technologies": ["PHP", "HTML", "CSS", "PostgreSQL"],
+      "image": ["/images/img_1_pact.webp", "/images/img_2_pact.webp"],
       "link": "#"
+    },
+    {
+      "id": 2,
+      "title": "Développement Jeu/Algo",
+      "description": "Création d'un logiciel applicatif (jeu ou utilitaire) en utilisant les concepts de la programmation orientée objet. Gestion des événements utilisateurs et de la logique métier complexe.",
+      "category": "Scolaire",
+      "tags": ["Réaliser", "Programmer", "Tester"],
+      "technologies": ["Java", "Python"],
+      "image": ["/images/img_3_pact.webp"],
+      "link": "#"
+    },
+    {
+      "id": 3,
+      "title": "Comparaison d'Algorithmes",
+      "description": "Étude et implémentation de différents algorithmes de tri (tri à bulles, tri fusion, quicksort). Mesure des temps d'exécution pour comparer leur complexité et choisir le plus adapté aux grands volumes de données.",
+      "category": "Scolaire",
+      "tags": ["Optimiser", "Analyser", "Mesurer"],
+      "technologies": ["Python", "C"],
+      "image": ["/images/img_4_pact.webp"],
+      "link": "#"
+    },
+    {
+      "id": 4,
+      "title": "Chemins et Graphes",
+      "description": "Résolution de problèmes complexes à l'aide de la théorie des graphes (ex: trouver le chemin le plus court, Dijkstra, A*). Optimisation des structures de données pour réduire l'empreinte mémoire.",
+      "category": "Scolaire",
+      "tags": ["Optimiser", "Modéliser", "Structurer"],
+      "technologies": ["Java", "Python"],
+      "image": ["/images/img_1_pact.webp"],
+      "link": "#"
+    },
+    {
+      "id": 5,
+      "title": "Installation Poste de Travail",
+      "description": "Installation et configuration complète d'un système d'exploitation Linux. Partitionnement du disque, gestion des utilisateurs et installation des logiciels essentiels via le terminal.",
+      "category": "Scolaire",
+      "tags": ["Administrer", "Installer", "Configurer"],
+      "technologies": ["Linux", "Bash"],
+      "image": ["/images/img_2_pact.webp"],
+      "link": "#"
+    },
+    {
+      "id": 6,
+      "title": "Services Réseaux",
+      "description": "Déploiement de services réseaux dans un environnement virtuel. Configuration d'un serveur Web (Apache/Nginx), d'un serveur DNS et gestion des adresses IP via DHCP.",
+      "category": "Scolaire",
+      "tags": ["Administrer", "Déployer", "Réseau"],
+      "technologies": ["Linux", "VirtualBox", "Apache"],
+      "image": ["/images/img_3_pact.webp"],
+      "link": "#"
+    },
+    {
+      "id": 7,
+      "title": "Modélisation BDD",
+      "description": "Analyse des besoins et création du modèle conceptuel (MCD) et logique (MLD) pour une base de données. Normalisation des tables pour éviter la redondance des données.",
+      "category": "Scolaire",
+      "tags": ["Gérer", "Modéliser", "Concevoir"],
+      "technologies": ["SQL", "Merise"],
+      "image": ["/images/img_4_pact.webp"],
+      "link": "#"
+    },
+    {
+      "id": 8,
+      "title": "Exploitation de Données",
+      "description": "Création de requêtes SQL complexes pour extraire des statistiques et des informations pertinentes d'une base de données existante. Connexion de la base à une application (via JDBC ou PDO).",
+      "category": "Scolaire",
+      "tags": ["Gérer", "Requêter", "Connecter"],
+      "technologies": ["PostgreSQL", "PHP", "Java"],
+      "image": ["/images/img_1_pact.webp"],
+      "link": "#"
+    },
+    {
+      "id": 9,
+      "title": "Gestion de Projet",
+      "description": "Planification d'un projet informatique. Définition des tâches, estimation des délais, création d'un diagramme de Gantt et attribution des ressources.",
+      "category": "Scolaire",
+      "tags": ["Conduire", "Planifier", "Estimer"],
+      "technologies": ["GanttProject", "Excel"],
+      "image": ["/images/img_2_pact.webp"],
+      "link": "#"
+    },
+    {
+      "id": 10,
+      "title": "Méthodes Agiles",
+      "description": "Application de la méthode Scrum sur un projet de développement. Organisation des sprints, rédaction des User Stories et tenue des réunions (Daily, Review) pour assurer un suivi dynamique.",
+      "category": "Scolaire",
+      "tags": ["Conduire", "Organiser", "Agile"],
+      "technologies": ["Jira", "Trello"],
+      "image": ["/images/img_3_pact.webp"],
+      "link": "#"
+    },
+    {
+      "id": 11,
+      "title": "Communication Technique",
+      "description": "Rédaction de documentation technique et utilisateur. Présentation orale des résultats d'un projet devant un public, en anglais et en français.",
+      "category": "Scolaire",
+      "tags": ["Collaborer", "Communiquer", "Présenter"],
+      "technologies": ["PowerPoint", "Word"],
+      "image": ["/images/img_4_pact.webp"],
+      "link": "#"
+    },
+    {
+      "id": 12,
+      "title": "Projet de Groupe (Git)",
+      "description": "Réalisation d'un projet technique en équipe. Mise en place d'un dépôt Git partagé, gestion des branches et résolution des conflits de fusion (Merge conflicts).",
+      "category": "Scolaire",
+      "tags": ["Collaborer", "Versionner", "Coordonner"],
+      "technologies": ["Git", "GitHub", "GitLab"],
+      "image": ["/images/img_1_pact.webp"],
+      "link": "#"
+    },
+    {
+      "id": 13,
+      "title": "Portfolio Personnel",
+      "description": "Conception et développement de ce portfolio. L'objectif était de créer une interface moderne et responsive pour présenter mes compétences et mes projets. J'ai d'abord réalisé une maquette sur Figma avant de développer le site en React.",
+      "category": "Personnel",
+      "tags": ["Développer", "Designer", "Optimiser"],
+      "technologies": ["React", "TypeScript", "CSS3", "Figma"],
+      "image": ["/images/img_3_pact.webp"],
+      "link": "https://github.com/votre-pseudo/portfolio"
     }
   ],
   "passions": [
