@@ -4,10 +4,10 @@ import '../styles/Projects.css';
 
 // --- IMPORTATION DES IMAGES ---
 // Assurez-vous que vos imports sont corrects ici
-import pact1 from '../../public/img/img_1_pact.png';
-import pact2 from '../../public/img/img_2_pact.png';
-import pact3 from '../../public/img/img_3_pact.png';
-import pact4 from '../../public/img/img_4_pact.png';
+import pact1 from '../../public/img/img_1_pact.webp';
+import pact2 from '../../public/img/img_2_pact.webp';
+import pact3 from '../../public/img/img_3_pact.webp';
+import pact4 from '../../public/img/img_4_pact.webp';
 interface ProjectsProps {
   data: Project[];
 }
@@ -21,10 +21,10 @@ export default function Projects({ data }: ProjectsProps) {
 
   // Mapping des images
   const projectImages: { [key: string]: string } = {
-    "/images/img_1_pact.png": pact1,
-    "/images/img_2_pact.png": pact2,
-    "/images/img_3_pact.png": pact3,
-    "/images/img_4_pact.png": pact4,
+    "/images/img_1_pact.webp": pact1,
+    "/images/img_2_pact.webp": pact2,
+    "/images/img_3_pact.webp": pact3,
+    "/images/img_4_pact.webp": pact4,
     // ... ajoutez les autres
   };
 

@@ -2,10 +2,10 @@ import { useState } from 'react';
 import '../styles/Passions.css';
 
 // --- Imports images (Garde tes imports ici) ---
-import sportImg from '../../public/img/sport.jpg'; 
-import handImg from '../../public/img/hand.jpg';
-import infoImg from '../../public/img/info.jpg';
-import voitureImg from '../../public/img/voiture.jpg';
+import sportImg from '../../public/img/sport.webp'; 
+import handImg from '../../public/img/hand.webp';
+import infoImg from '../../public/img/info.webp';
+import voitureImg from '../../public/img/voiture.webp';
 
 interface PassionsProps {
   data: string[]; 
@@ -16,10 +16,10 @@ export default function Passions({ data }: PassionsProps) {
 
   // --- Ton Dictionnaire d'images ---
   const imagesMap: { [key: string]: string } = {
-    "/images/sport.jpg": sportImg,
-    "/images/hand.jpg": handImg,
-    "/images/info.jpg": infoImg,
-    "/images/voiture.jpg": voitureImg,
+    "/images/sport.webp": sportImg,
+    "/images/hand.webp": handImg,
+    "/images/info.webp": infoImg,
+    "/images/voiture.webp": voitureImg,
   };
 
   const nextSlide = () => {

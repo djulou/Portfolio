@@ -3,11 +3,11 @@ import { Skill, Language } from '../data/types';
 import '../styles/Skills.css';
 
 // --- IMPORTATION DES LOGOS ---
-import htmlLogo from '../../public/img/html.png';
-import cssLogo from '../../public/img/css.png';
-import reactLogo from '../../public/img/react.png';
-import tsLogo from '../../public/img/typescript.png';
-import gitLogo from '../../public/img/git.png';
+import htmlLogo from '../../public/img/html.webp';
+import cssLogo from '../../public/img/css.webp';
+import reactLogo from '../../public/img/react.webp';
+import tsLogo from '../../public/img/typescript.webp';
+import gitLogo from '../../public/img/git.webp';
 
 interface SkillsProps {
   skillsData: Skill[];
@@ -18,11 +18,11 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
   const [activeTab, setActiveTab] = useState<'but' | 'lang'>('but');
 
   const languageLogos: { [key: string]: string } = {
-    "/img/html.png": htmlLogo,
-    "/img/css.png": cssLogo,
-    "/img/react.png": reactLogo,
-    "/img/typescript.png": tsLogo,
-    "/img/git.png": gitLogo,
+    "/img/html.webp": htmlLogo,
+    "/img/css.webp": cssLogo,
+    "/img/react.webp": reactLogo,
+    "/img/typescript.webp": tsLogo,
+    "/img/git.webp": gitLogo,
   };
 
   // --- NOUVELLE FONCTION ---

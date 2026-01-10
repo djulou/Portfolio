@@ -4,9 +4,9 @@
     "intro": "Je m'appelle",
     "name": "Dorian",
     "welcome": "Bienvenue sur mon portfolio !",
-    "bgImage": "/img/paysage.jpg",
-    "profileImage": "/img/64.png",
-    "linkedinIcon": "/img/linkedin.png",
+    "bgImage": "/img/paysage.webp",
+    "profileImage": "/img/64.webp",
+    "linkedinIcon": "/img/linkedin.webp",
     "cvLink": "/files/cv.pdf",
     "linkedinLink": "https://www.linkedin.com/in/dorian-julou/"
   },
@@ -54,11 +54,11 @@
     }
   ],
   "languages": [
-    { "id": 1, "name": "HTML5", "image": "/img/html.png" },
-    { "id": 2, "name": "CSS3", "image": "/img/css.png" },
-    { "id": 3, "name": "React", "image": "/img/react.png" },
-    { "id": 4, "name": "TypeScript", "image": "/img/typescript.png" },
-    { "id": 5, "name": "Git", "image": "/img/git.png" }
+    { "id": 1, "name": "HTML5", "image": "/img/html.webp" },
+    { "id": 2, "name": "CSS3", "image": "/img/css.webp" },
+    { "id": 3, "name": "React", "image": "/img/react.webp" },
+    { "id": 4, "name": "TypeScript", "image": "/img/typescript.webp" },
+    { "id": 5, "name": "Git", "image": "/img/git.webp" }
   ],
   "formations": [
     {
@@ -96,18 +96,18 @@
         "Collaborer"
       ],
       "image": [
-        "/images/img_1_pact.png", 
-        "/images/img_2_pact.png", 
-        "/images/img_3_pact.png", 
-        "/images/img_4_pact.png"
+        "/images/img_1_pact.webp", 
+        "/images/img_2_pact.webp", 
+        "/images/img_3_pact.webp", 
+        "/images/img_4_pact.webp"
       ],
       "link": "#"
     }
   ],
   "passions": [
-    "/images/sport.jpg",
-    "/images/hand.jpg",
-    "/images/info.jpg",
-    "/images/voiture.jpg"
+    "/images/sport.webp",
+    "/images/hand.webp",
+    "/images/info.webp",
+    "/images/voiture.webp"
   ]
 }

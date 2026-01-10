@@ -1,9 +1,9 @@
 import { HeroData } from '../data/types';
 import "../styles/Hero.css";
 
-import paysage from "../../public/img/paysage.jpg";
-import profil from "../../public/img/64.png";
-import linkedin from "../../public/img/linkedin.png";
+import paysage from "../../public/img/paysage.webp";
+import profil from "../../public/img/64.webp";
+import linkedin from "../../public/img/linkedin.webp";
 
 interface HeroProps {
   data: HeroData;
