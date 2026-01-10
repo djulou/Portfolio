@@ -8,6 +8,7 @@ import cssLogo from '../../public/img/css.webp';
 import reactLogo from '../../public/img/react.webp';
 import tsLogo from '../../public/img/typescript.webp';
 import gitLogo from '../../public/img/git.webp';
+import phpLogo from '../../public/img/php.webp';
 
 interface SkillsProps {
   skillsData: Skill[];
@@ -23,6 +24,7 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     "/img/react.webp": reactLogo,
     "/img/typescript.webp": tsLogo,
     "/img/git.webp": gitLogo,
+    "/img/php.webp": phpLogo,
   };
 
   // --- NOUVELLE FONCTION ---
