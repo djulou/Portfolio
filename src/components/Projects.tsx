@@ -3,9 +3,9 @@ import { Project } from '../data/types';
 import '../styles/Projects.css';
 
 // --- IMPORTATION DES IMAGES ---
-import pact1 from '../../public/img/img_1_pact.png'; 
-import pact2 from '../../public/img/img_2_pact.png'; 
-// ... autres imports
+// Assurez-vous que vos imports sont corrects ici
+import pact1 from '../../public/img/img_1_pact.png';
+import pact2 from '../../public/img/img_2_pact.png';
 
 interface ProjectsProps {
   data: Project[];
@@ -14,16 +14,15 @@ interface ProjectsProps {
 export default function Projects({ data }: ProjectsProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeFilter, setActiveFilter] = useState<string>('Tous');
-  
-  // --- NOUVEAU STATE POUR LE CARROUSEL ---
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const MAX_TAGS_ON_CARD = 5;
 
+  // Mapping des images
   const projectImages: { [key: string]: string } = {
     "/images/img_1_pact.png": pact1,
     "/images/img_2_pact.png": pact2,
-    // ...
+    // ... ajoutez les autres
   };
 
   const getStickerClass = (category: string) => {
@@ -43,23 +42,20 @@ export default function Projects({ data }: ProjectsProps) {
   // --- FONCTIONS DU CARROUSEL ---
   const handleNextImage = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (!selectedProject) return;
-    // Si on est à la fin, on revient au début (boucle)
-    setCurrentImageIndex((prev) => 
+    if (!selectedProject || selectedProject.image.length <= 1) return;
+    setCurrentImageIndex((prev) =>
       prev === selectedProject.image.length - 1 ? 0 : prev + 1
     );
   };
 
   const handlePrevImage = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (!selectedProject) return;
-    // Si on est au début, on va à la fin
-    setCurrentImageIndex((prev) => 
+    if (!selectedProject || selectedProject.image.length <= 1) return;
+    setCurrentImageIndex((prev) =>
       prev === 0 ? selectedProject.image.length - 1 : prev - 1
     );
   };
 
-  // Ouverture de la modale : on remet l'index à 0
   const openModal = (project: Project) => {
     setSelectedProject(project);
     setCurrentImageIndex(0);
@@ -74,7 +70,7 @@ export default function Projects({ data }: ProjectsProps) {
   return (
     <section id="projets" className="projet">
       <h1 className="title">Nos Projets</h1>
-      
+
       <div className="filter-buttons">
         {['Tous', 'Scolaire', 'Personnel', 'Professionnel'].map((category) => (
           <button
@@ -94,10 +90,10 @@ export default function Projects({ data }: ProjectsProps) {
           const remainingTags = project.tags.length - MAX_TAGS_ON_CARD;
 
           return (
-            <div 
-              key={project.id} 
-              className="card" 
-              onClick={() => openModal(project)} // Utilise la nouvelle fonction openModal
+            <div
+              key={project.id}
+              className="card"
+              onClick={() => openModal(project)}
             >
               <span className={`sticker ${getStickerClass(project.category)}`}>
                 {project.category}
@@ -107,9 +103,9 @@ export default function Projects({ data }: ProjectsProps) {
                 {visibleTags.map((tag, index) => <li key={index}>{tag}</li>)}
                 {remainingTags > 0 && <li className="tag-more">+{remainingTags}</li>}
               </ul>
-              <img 
-                src={projectImages[firstImage] || firstImage} 
-                alt={project.title} 
+              <img
+                src={projectImages[firstImage] || firstImage}
+                alt={project.title}
                 loading="lazy"
               />
             </div>
@@ -117,37 +113,35 @@ export default function Projects({ data }: ProjectsProps) {
         })}
       </div>
 
-      {/* --- MODALE --- */}
+      {/* --- MODALE CORRIGÉE --- */}
       {selectedProject && (
         <div className="overlay" onClick={closeModal}>
           <div className="project-detail" onClick={(e) => e.stopPropagation()}>
-            
+
             <span className="close-btn" onClick={closeModal}>&times;</span>
-            
+
+            {/* STRUCTURE FLEX : GAUCHE PUIS DROITE */}
             <div className="modal-content-split">
-                
-                {/* 1. COLONNE GAUCHE : CARROUSEL */}
+
+                {/* 1. COLONNE GAUCHE : LE CARROUSEL D'IMAGES */}
                 <div className="modal-left">
                     <div className="carousel-wrapper">
-                        
-                        {/* Image courante */}
-                        <img 
-                            src={projectImages[selectedProject.image[currentImageIndex]] || selectedProject.image[currentImageIndex]} 
-                            alt={`Vue ${currentImageIndex + 1}`} 
-                            className="carousel-img"
-                        />
+                        {selectedProject.image.length > 0 && (
+                          <img
+                              src={projectImages[selectedProject.image[currentImageIndex]] || selectedProject.image[currentImageIndex]}
+                              alt={`Vue ${currentImageIndex + 1}`}
+                              className="carousel-img"
+                          />
+                        )}
 
-                        {/* Flèches de navigation (Seulement si + d'1 image) */}
                         {selectedProject.image.length > 1 && (
                             <>
                                 <button className="carousel-btn prev" onClick={handlePrevImage}>&#10094;</button>
                                 <button className="carousel-btn next" onClick={handleNextImage}>&#10095;</button>
-                            
-                                {/* Indicateurs (Points en bas) */}
                                 <div className="carousel-dots">
                                     {selectedProject.image.map((_, idx) => (
-                                        <span 
-                                            key={idx} 
+                                        <span
+                                            key={idx}
                                             className={`dot ${idx === currentImageIndex ? 'active' : ''}`}
                                             onClick={(e) => {
                                                 e.stopPropagation();
@@ -161,7 +155,7 @@ export default function Projects({ data }: ProjectsProps) {
                     </div>
                 </div>
 
-                {/* 2. COLONNE DROITE : INFOS */}
+                {/* 2. COLONNE DROITE : LES INFOS (Titre, tags, desc...) */}
                 <div className="modal-right">
                     <div className="modal-header">
                         <span className={`sticker-detail ${getStickerClass(selectedProject.category)}`}>
@@ -170,6 +164,7 @@ export default function Projects({ data }: ProjectsProps) {
                         <h2>{selectedProject.title}</h2>
                     </div>
 
+                    {/* Tags bien séparés */}
                     <div className="modal-tags">
                         {selectedProject.tags.map((tag, i) => (
                             <span key={i} className="modal-tag-item">{tag}</span>
@@ -181,9 +176,9 @@ export default function Projects({ data }: ProjectsProps) {
                     </div>
 
                     {selectedProject.link && (
-                        <a 
-                            href={selectedProject.link} 
-                            target="_blank" 
+                        <a
+                            href={selectedProject.link}
+                            target="_blank"
                             rel="noreferrer"
                             className="modal-link-btn"
                         >
