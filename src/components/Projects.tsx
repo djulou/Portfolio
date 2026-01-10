@@ -1,12 +1,24 @@
 import { useState } from 'react';
 import { Project } from '../data/types';
-import '../styles/Projects.css'; // <--- VÉRIFIEZ BIEN CET IMPORT
+import '../styles/Projects.css';
 
-// --- IMPORTATION DES IMAGES ---
+// --- 1. IMPORTATION DES IMAGES PROJETS ---
 import pact1 from '../../public/img/img_1_pact.webp';
 import pact2 from '../../public/img/img_2_pact.webp';
 import pact3 from '../../public/img/img_3_pact.webp';
 import pact4 from '../../public/img/img_4_pact.webp';
+
+// --- 2. IMPORTATION DES LOGOS TECHNOS ---
+// (Adaptez les chemins si vos logos sont ailleurs)
+import phpLogo from '../../public/img/php.png'; // Exemple (ajoutez vos fichiers)
+import sqlLogo from '../../public/img/postgresql.png';
+import gitLogo from '../../public/img/git.png';
+import jiraLogo from '../../public/img/jira.png';
+import figmaLogo from '../../public/img/figma.png';
+import reactLogo from '../../public/img/react.png';
+import htmlLogo from '../../public/img/html.png';
+import cssLogo from '../../public/img/css.png';
+import tsLogo from '../../public/img/typescript.png';
 
 interface ProjectsProps {
   data: Project[];
@@ -19,11 +31,27 @@ export default function Projects({ data }: ProjectsProps) {
 
   const MAX_TAGS_ON_CARD = 8;
 
+  // Mapping des images de projets
   const projectImages: { [key: string]: string } = {
     "/images/img_1_pact.webp": pact1,
     "/images/img_2_pact.webp": pact2,
     "/images/img_3_pact.webp": pact3,
     "/images/img_4_pact.webp": pact4,
+  };
+
+  // --- 3. MAPPING DES LOGOS TECHNOS ---
+  // La clé doit correspondre EXACTEMENT au texte dans votre fichier JSON
+  const techLogos: { [key: string]: string } = {
+    "PHP": phpLogo,
+    "PostgresSQL": sqlLogo,
+    "GIT": gitLogo,
+    "JIRA": jiraLogo,
+    "Figma": figmaLogo,
+    "React": reactLogo,
+    "HTML": htmlLogo,
+    "CSS": cssLogo,
+    "TypeScript": tsLogo,
+    // Ajoutez d'autres correspondances ici...
   };
 
   const getStickerClass = (category: string) => {
@@ -40,7 +68,6 @@ export default function Projects({ data }: ProjectsProps) {
     return project.category === activeFilter;
   });
 
-  // --- LOGIQUE CARROUSEL ---
   const handleNextImage = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!selectedProject || selectedProject.image.length <= 1) return;
@@ -57,17 +84,15 @@ export default function Projects({ data }: ProjectsProps) {
     );
   };
 
-  // --- OUVERTURE / FERMETURE ---
   const openProject = (project: Project) => {
     setSelectedProject(project);
     setCurrentImageIndex(0);
-    // On empêche le scroll de la page principale derrière
-    document.body.style.overflow = 'hidden'; 
+    document.body.style.overflow = 'hidden';
   };
 
   const closeProject = () => {
     setSelectedProject(null);
-    document.body.style.overflow = 'auto'; // On réactive le scroll
+    document.body.style.overflow = 'auto';
   };
 
   return (
@@ -112,22 +137,19 @@ export default function Projects({ data }: ProjectsProps) {
         })}
       </div>
 
-      {/* --- VUE PLEINE PAGE (Overlay) --- */}
+      {/* --- VUE PLEINE PAGE --- */}
       {selectedProject && (
         <div className="full-page-overlay">
           <div className="full-page-content">
             
-            {/* Bouton Retour */}
             <div className="page-header-actions">
                 <button className="back-button" onClick={closeProject}>
                     &larr; Retour aux projets
                 </button>
             </div>
 
-            {/* Contenu : Gauche (Image) / Droite (Texte) */}
             <div className="detail-split">
                 
-                {/* GAUCHE : CARROUSEL */}
                 <div className="detail-left">
                     <div className="carousel-wrapper-page">
                         {selectedProject.image.length > 0 && (
@@ -159,7 +181,6 @@ export default function Projects({ data }: ProjectsProps) {
                     </div>
                 </div>
 
-                {/* DROITE : INFOS */}
                 <div className="detail-right">
                     <div className="detail-header">
                         <span className={`sticker-detail ${getStickerClass(selectedProject.category)}`}>
@@ -168,14 +189,34 @@ export default function Projects({ data }: ProjectsProps) {
                         <h1>{selectedProject.title}</h1>
                     </div>
 
-                    <div className="detail-tags">
-                        {selectedProject.tags.map((tag, i) => (
-                            <span key={i} className="detail-tag-item">{tag}</span>
-                        ))}
-                    </div>
-
                     <div className="detail-description">
                         <p>{selectedProject.description}</p>
+                    </div>
+
+                    {/* --- 4. AFFICHAGE DES LOGOS ICI (SOUS LA DESCRIPTION) --- */}
+                    <div className="tech-stack-container">
+                        <h3>Technologies & Compétences</h3>
+                        <div className="tech-logos-grid">
+                            {selectedProject.tags.map((tag, i) => {
+                                // On vérifie si on a un logo pour ce tag
+                                const logoSrc = techLogos[tag];
+
+                                if (logoSrc) {
+                                    // SI OUI : On affiche l'image
+                                    return (
+                                        <div key={i} className="tech-logo-item" title={tag}>
+                                            <img src={logoSrc} alt={tag} />
+                                            <span>{tag}</span>
+                                        </div>
+                                    );
+                                } else {
+                                    // SI NON (ex: "Réaliser", "Gérer") : On affiche le tag texte classique
+                                    return (
+                                        <span key={i} className="detail-tag-item">{tag}</span>
+                                    );
+                                }
+                            })}
+                        </div>
                     </div>
 
                     {selectedProject.link && (
