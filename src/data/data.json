@@ -67,7 +67,12 @@
     { "id": 11, "name": "Java", "image": "/img/java.webp", "category": ["Logiciel", "Back-end"] },
     { "id": 12, "name": "C", "image": "/img/c.webp", "category": ["Algorithmique", "Système", "Logiciel"] },
     { "id": 13, "name": "Linux", "image": "/img/linux.webp", "category": ["Outils", "Système"] },
-    { "id": 14, "name": "Bash", "image": "/img/bash.webp", "category": ["Outils", "Système"] }
+    { "id": 14, "name": "Bash", "image": "/img/bash.webp", "category": ["Outils", "Système"] },
+    { "id": 15, "name": "Jira", "image": "/img/jira.webp", "category": ["Outils"] },
+    { "id": 16, "name": "MongoDB", "image": "/img/mongo.webp", "category": ["Bases de données"] },
+    { "id": 17, "name": "JavaScript", "image": "/img/javascript.webp", "category": ["Web", "Front-end"] },
+    { "id": 18, "name": "IOS", "image": "/img/ios.webp", "category": ["Outils"] },
+    { "id": 19, "name": "Windows", "image": "/img/windows.webp", "category": ["Outils"] }
   ],
   "formations": [
     {

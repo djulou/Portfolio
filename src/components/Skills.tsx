@@ -16,6 +16,9 @@ import javaLogo from '../../public/img/java.webp';
 import cLogo from '../../public/img/c.webp';
 import linuxLogo from '../../public/img/linux.webp';
 import bashLogo from '../../public/img/bash.webp';
+import mongoLogo from '../../public/img/mongo.webp';
+import iosLogo from '../../public/img/ios.webp';
+import windowsLogo from '../../public/img/windows.webp';
 import mysqlLogo from '../../public/img/mysql.webp';
 
 interface SkillsProps {
@@ -38,7 +41,6 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     "Git": gitLogo,
     "PHP": phpLogo,
     "PostgreSQL": postgresqlLogo,
-    "SQL": postgresqlLogo, 
     "Figma": figmaLogo,
     "Python": pythonLogo,
     "Java": javaLogo,
@@ -46,6 +48,9 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     "Linux": linuxLogo,
     "Bash": bashLogo,
     "MySQL": mysqlLogo,
+    "MongoDB": mongoLogo,
+    "IOS": iosLogo,
+    "Windows": windowsLogo,
   };
 
   const filteredLanguages = languagesData.filter((lang) => {

@@ -28,6 +28,9 @@ import linuxLogo from '../../public/img/linux.webp';
 import bashLogo from '../../public/img/bash.webp';
 import mysqlLogo from '../../public/img/mysql.webp';
 import jiraLogo from '../../public/img/jira.webp';
+import mongoLogo from '../../public/img/mongo.webp';
+import iosLogo from '../../public/img/ios.webp';
+import windowsLogo from '../../public/img/windows.webp';
 
 interface ProjectsProps {
   data: Project[];
@@ -60,15 +63,18 @@ export default function Projects({ data }: ProjectsProps) {
     "Git": gitLogo,
     "PHP": phpLogo,
     "PostgreSQL": postgresqlLogo,
-    "SQL": postgresqlLogo, // Fallback si tu utilises juste "SQL"
+    "SQL": mysqlLogo,
     "Figma": figmaLogo,
     "Python": pythonLogo,
     "Java": javaLogo,
-    "C": cLogo,             // <-- C'est ici que ça corrige ton problème
+    "C": cLogo,
     "Linux": linuxLogo,
     "Bash": bashLogo,
     "MySQL": mysqlLogo,
     "Jira": jiraLogo,
+    "MongoDB": mongoLogo,
+    "IOS": iosLogo,
+    "Windows": windowsLogo,
   };
 
   const getStickerClass = (category: string) => {
