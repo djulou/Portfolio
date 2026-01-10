@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // Ajout de useEffect
 import { Project } from '../data/types';
 import '../styles/Projects.css';
 
 // --- IMPORTATION DES IMAGES ---
-// Assurez-vous que vos imports sont corrects ici
 import pact1 from '../../public/img/img_1_pact.webp';
 import pact2 from '../../public/img/img_2_pact.webp';
 import pact3 from '../../public/img/img_3_pact.webp';
 import pact4 from '../../public/img/img_4_pact.webp';
+
 interface ProjectsProps {
   data: Project[];
 }
@@ -19,13 +19,11 @@ export default function Projects({ data }: ProjectsProps) {
 
   const MAX_TAGS_ON_CARD = 8;
 
-  // Mapping des images
   const projectImages: { [key: string]: string } = {
     "/images/img_1_pact.webp": pact1,
     "/images/img_2_pact.webp": pact2,
     "/images/img_3_pact.webp": pact3,
     "/images/img_4_pact.webp": pact4,
-    // ... ajoutez les autres
   };
 
   const getStickerClass = (category: string) => {
@@ -42,36 +40,118 @@ export default function Projects({ data }: ProjectsProps) {
     return project.category === activeFilter;
   });
 
-  // --- FONCTIONS DU CARROUSEL ---
-  const handleNextImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  // --- CARROUSEL ---
+  const handleNextImage = () => {
     if (!selectedProject || selectedProject.image.length <= 1) return;
     setCurrentImageIndex((prev) =>
       prev === selectedProject.image.length - 1 ? 0 : prev + 1
     );
   };
 
-  const handlePrevImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handlePrevImage = () => {
     if (!selectedProject || selectedProject.image.length <= 1) return;
     setCurrentImageIndex((prev) =>
       prev === 0 ? selectedProject.image.length - 1 : prev - 1
     );
   };
 
-  const openModal = (project: Project) => {
+  const openProject = (project: Project) => {
     setSelectedProject(project);
     setCurrentImageIndex(0);
-    document.body.style.overflow = 'hidden';
+    // On remonte en haut de page quand on ouvre un projet
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const closeModal = () => {
+  const closeProject = () => {
     setSelectedProject(null);
-    document.body.style.overflow = 'auto';
+    // On remonte en haut de page quand on revient à la liste
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
   };
 
+  // --- RENDU CONDITIONNEL : PAGE DÉTAIL OU GRILLE ---
+
+  // CAS 1 : VUE DÉTAIL (PAGE COMPLÈTE)
+  if (selectedProject) {
+    return (
+      <section className="project-page-view fade-in">
+        <div className="page-container">
+          
+          {/* Bouton Retour */}
+          <button className="back-btn" onClick={closeProject}>
+            &larr; Retour aux projets
+          </button>
+
+          {/* Contenu divisé (Image / Texte) */}
+          <div className="detail-split">
+            
+            {/* Colonne Gauche : Carrousel */}
+            <div className="detail-left">
+              <div className="carousel-wrapper-page">
+                {selectedProject.image.length > 0 && (
+                  <img
+                    src={projectImages[selectedProject.image[currentImageIndex]] || selectedProject.image[currentImageIndex]}
+                    alt={`Vue ${currentImageIndex + 1}`}
+                    className="carousel-img-page"
+                  />
+                )}
+                
+                {selectedProject.image.length > 1 && (
+                  <>
+                    <button className="carousel-btn prev" onClick={handlePrevImage}>&#10094;</button>
+                    <button className="carousel-btn next" onClick={handleNextImage}>&#10095;</button>
+                    <div className="carousel-dots">
+                      {selectedProject.image.map((_, idx) => (
+                        <span
+                          key={idx}
+                          className={`dot ${idx === currentImageIndex ? 'active' : ''}`}
+                          onClick={() => setCurrentImageIndex(idx)}
+                        ></span>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* Colonne Droite : Infos */}
+            <div className="detail-right">
+              <div className="detail-header">
+                <span className={`sticker-detail ${getStickerClass(selectedProject.category)}`}>
+                  {selectedProject.category}
+                </span>
+                <h1>{selectedProject.title}</h1>
+              </div>
+
+              <div className="detail-tags">
+                {selectedProject.tags.map((tag, i) => (
+                  <span key={i} className="detail-tag-item">{tag}</span>
+                ))}
+              </div>
+
+              <div className="detail-description">
+                <p>{selectedProject.description}</p>
+              </div>
+
+              {selectedProject.link && (
+                <a
+                  href={selectedProject.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="detail-link-btn"
+                >
+                  Voir le projet en direct
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // CAS 2 : VUE GRILLE (LISTE DES PROJETS)
   return (
-    <section id="projets" className="projet">
+    <section id="projets" className="projet fade-in">
       <h1 className="title">Nos Projets</h1>
 
       <div className="filter-buttons">
@@ -96,7 +176,7 @@ export default function Projects({ data }: ProjectsProps) {
             <div
               key={project.id}
               className="card"
-              onClick={() => openModal(project)}
+              onClick={() => openProject(project)}
             >
               <span className={`sticker ${getStickerClass(project.category)}`}>
                 {project.category}
@@ -115,85 +195,6 @@ export default function Projects({ data }: ProjectsProps) {
           );
         })}
       </div>
-
-      {/* --- MODALE CORRIGÉE --- */}
-      {selectedProject && (
-        <div className="overlay" onClick={closeModal}>
-          <div className="project-detail" onClick={(e) => e.stopPropagation()}>
-
-            <span className="close-btn" onClick={closeModal}>&times;</span>
-
-            {/* STRUCTURE FLEX : GAUCHE PUIS DROITE */}
-            <div className="modal-content-split">
-
-                {/* 1. COLONNE GAUCHE : LE CARROUSEL D'IMAGES */}
-                <div className="modal-left">
-                    <div className="carousel-wrapper">
-                        {selectedProject.image.length > 0 && (
-                          <img
-                              src={projectImages[selectedProject.image[currentImageIndex]] || selectedProject.image[currentImageIndex]}
-                              alt={`Vue ${currentImageIndex + 1}`}
-                              className="carousel-img"
-                          />
-                        )}
-
-                        {selectedProject.image.length > 1 && (
-                            <>
-                                <button className="carousel-btn prev" onClick={handlePrevImage}>&#10094;</button>
-                                <button className="carousel-btn next" onClick={handleNextImage}>&#10095;</button>
-                                <div className="carousel-dots">
-                                    {selectedProject.image.map((_, idx) => (
-                                        <span
-                                            key={idx}
-                                            className={`dot ${idx === currentImageIndex ? 'active' : ''}`}
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                setCurrentImageIndex(idx);
-                                            }}
-                                        ></span>
-                                    ))}
-                                </div>
-                            </>
-                        )}
-                    </div>
-                </div>
-
-                {/* 2. COLONNE DROITE : LES INFOS (Titre, tags, desc...) */}
-                <div className="modal-right">
-                    <div className="modal-header">
-                        <span className={`sticker-detail ${getStickerClass(selectedProject.category)}`}>
-                            {selectedProject.category}
-                        </span>
-                        <h2>{selectedProject.title}</h2>
-                    </div>
-
-                    {/* Tags bien séparés */}
-                    <div className="modal-tags">
-                        {selectedProject.tags.map((tag, i) => (
-                            <span key={i} className="modal-tag-item">{tag}</span>
-                        ))}
-                    </div>
-
-                    <div className="modal-description">
-                        <p>{selectedProject.description}</p>
-                    </div>
-
-                    {selectedProject.link && (
-                        <a
-                            href={selectedProject.link}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="modal-link-btn"
-                        >
-                            Voir le projet
-                        </a>
-                    )}
-                </div>
-            </div>
-
-          </div>
-        </div>
-      )}
     </section>
   );
 }
