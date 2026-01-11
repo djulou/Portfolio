@@ -24,6 +24,14 @@ import reine1 from "../../public/img/reine1.webp";
 import reine2 from "../../public/img/reine2.webp";
 import reine3 from "../../public/img/reine3.webp";
 
+import doc1 from "../../public/img/doc1.webp";
+import doc2 from "../../public/img/doc2.webp";
+import doc3 from "../../public/img/doc3.webp";
+
+import apache1 from "../../public/img/apache1.webp";
+import apache2 from "../../public/img/apache2.webp";
+import apache3 from "../../public/img/apache3.webp";
+
 // --- LOGOS TECHNOS ---
 import htmlLogo from "../../public/img/html.webp";
 import cssLogo from "../../public/img/css.webp";
@@ -45,6 +53,7 @@ import iosLogo from "../../public/img/ios.webp";
 import windowsLogo from "../../public/img/windows.webp";
 import jsLogo from "../../public/img/javascript.webp";
 import umlLogo from "../../public/img/uml.webp";
+import apacheLogo from "../../public/img/apache.webp";
 
 interface ProjectsProps {
   data: Project[];
@@ -74,6 +83,12 @@ export default function Projects({ data }: ProjectsProps) {
     "/images/reine1.webp": reine1,
     "/images/reine2.webp": reine2,
     "/images/reine3.webp": reine3,
+    "/images/doc1.webp": doc1,
+    "/images/doc2.webp": doc2,
+    "/images/doc3.webp": doc3,
+    "/images/apache1.webp": apache1,
+    "/images/apache2.webp": apache2,
+    "/images/apache3.webp": apache3,
   };
 
   const languageLogos: { [key: string]: string } = {
@@ -100,6 +115,7 @@ export default function Projects({ data }: ProjectsProps) {
     IOS: iosLogo,
     Windows: windowsLogo,
     UML: umlLogo,
+    Apache: apacheLogo,
   };
 
   const getStickerClass = (category: string) => {

@@ -23,6 +23,7 @@ import mysqlLogo from '../../public/img/mysql.webp';
 import jsLogo from '../../public/img/javascript.webp';
 import jiraLogo from '../../public/img/jira.webp';
 import umlLogo from '../../public/img/uml.webp';
+import apacheLogo from "../../public/img/apache.webp";
 
 interface SkillsProps {
   skillsData: Skill[];
@@ -56,6 +57,7 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     "JavaScript": jsLogo,
     "Jira": jiraLogo,
     "UML": umlLogo,
+    "Apache": apacheLogo,
   };
 
   const filteredLanguages = languagesData.filter((lang) => {

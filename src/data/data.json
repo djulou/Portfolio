@@ -173,6 +173,12 @@
       "name": "UML",
       "image": "/img/uml.webp",
       "category": ["Outils"]
+    },
+    {
+      "id": 21,
+      "name": "Apache",
+      "image": "/img/apache.webp",
+      "category": ["Outils"]
     }
   ],
   "formations": [
@@ -267,10 +273,49 @@
       "category": "Scolaire",
       "tags": ["Optimiser", "Analyser", "Algorithmique"],
       "technologies": ["Python"],
-      "image": ["/images/reine1.webp", "/images/reine2.webp", "/images/reine3.webp"],
+      "image": [
+        "/images/reine1.webp",
+        "/images/reine2.webp",
+        "/images/reine3.webp"
+      ],
       "link": "",
       "download": "/files/SAE_2.02.zip"
-    }
+    },
+    {
+      "id": 8,
+      "title": "Générateur de Documentation Automatisé",
+      "description": "Mise en place d'une chaîne de production de documentation technique (SAÉ 1.03). Le projet combine des scripts PHP (pour extraire les commentaires du code C et convertir du Markdown en HTML) et un environnement Docker pour isoler l'exécution. Un script Bash pilote l'ensemble pour livrer une archive finale (.tgz) prête à l'emploi.",
+      "category": "Scolaire",
+      "tags": ["Automatiser", "Virtualiser", "Scripting"],
+      "technologies": ["Docker", "Bash", "PHP"],
+      "image": ["/images/doc1.webp", "/images/doc2.webp", "/images/doc3.webp", "/images/doc4.webp"],
+      "link": "",
+      "download": "/files/SAE_1.03.zip"
+    },
+    {
+  "id": 9,
+  "title": "Déploiement Serveur Web & Authentification",
+  "description": "Configuration complète d'un serveur web Apache2 pour héberger une application dynamique. Le projet visait à maîtriser les interactions entre le serveur, le moteur PHP et la base de données SQL. L'aboutissement est un site web fonctionnel intégrant un système de gestion d'utilisateurs (inscription, connexion et espace membre sécurisé).",
+  "category": "Scolaire",
+  "tags": [
+    "Administrer",
+    "Configurer",
+    "Développer",
+    "Sécuriser"
+  ],
+  "technologies": [
+    "Apache",
+    "PHP",
+    "SQL"
+  ],
+  "image": [
+    "/images/apache1.webp",
+    "/images/apache2.webp",
+    "/images/apache3.webp"
+  ],
+  "link": "",
+  "download": "/files/SAE_2.03.zip"
+}
   ],
   "passions": [
     "/images/sport.webp",
