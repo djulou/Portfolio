@@ -27,7 +27,13 @@ export default function Hero({ data }: HeroProps) {
 
             {/* Nouveau conteneur pour les boutons en dessous du texte */}
             <div className="action-buttons">
-                <a className="cv" href={data.cvLink} download>
+                {/* MODIFICATION ICI : retrait de 'download' et ajout de 'target="_blank"' */}
+                <a 
+                  className="cv" 
+                  href={data.cvLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
                   <button>CV</button>
                 </a>
                 
