@@ -147,8 +147,11 @@
 
 /* CONDUIRE : Dégradé Orange/Or (Action, Leader) - Accordé à votre thème */
 .verb-conduire {
-  background-image: linear-gradient(135deg, #f9702c 0%, #ffb75e 100%);
-  filter: drop-shadow(0 0 15px rgba(249, 112, 44, 0.2));
+  /* Dégradé du rouge vif vers le rose magenta */
+  background-image: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%); 
+  
+  /* Lueur adaptée au rouge */
+  filter: drop-shadow(0 0 15px rgba(255, 65, 108, 0.4)); 
 }
 
 /* COLLABORER : Dégradé Vert/Turquoise (Humain, Équipe) */
