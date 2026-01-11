@@ -235,10 +235,10 @@
     },
     {
       "id": 3,
-      "title": "Portfolio",
+      "title": "Portfolio Personnel",
       "description": "Conception et développement d'une Single Page Application (SPA) moderne pour présenter mon parcours. Réalisé avec l'écosystème React/TypeScript, ce projet met l'accent sur la performance et l'expérience utilisateur (UX). Il intègre un système de filtrage dynamique des projets, des animations CSS fluides, une architecture de composants réutilisables et un design responsive adaptatif (Mobile First).",
       "category": "Personnel",
-      "tags": ["Développer", "React", "TypeScript", "UI/UX"],
+      "tags": ["Réaliser", "Optimiser", "UI/UX"],
       "technologies": ["React", "TypeScript", "CSS", "Git"],
       "image": ["/images/portfolio.webp"],
       "link": "https://github.com/djulou/Portfolio",
@@ -249,7 +249,7 @@
       "title": "Jeu de Sudoku",
       "description": "Développement complet d'un jeu de Sudoku en ligne de commande. Le projet a suivi un cycle de développement rigoureux : maquettage de l'interface, conception des algorithmes en pseudo-code, implémentation en langage C, et validation via un cahier de tests et des traces d'exécution. Une documentation technique a été générée via Doxygen.",
       "category": "Scolaire",
-      "tags": ["Concevoir", "Réaliser", "Documenter", "Tester"],
+      "tags": ["Réaliser", "Tester", "Documenter"],
       "technologies": ["C"],
       "image": [
         "/images/sudoku_1.webp",
@@ -264,7 +264,7 @@
       "title": "Le Patio",
       "description": "Développement d'une application interactive en suivant le paradigme Orienté Objet. Implémentation de la structure logicielle par la traduction stricte d'un diagramme de classes UML en Java. Conception des Interfaces Homme-Machine (IHM) et programmation des contrôleurs pour gérer les événements utilisateurs et lier la vue au modèle.",
       "category": "Scolaire",
-      "tags": ["Concevoir", "Réaliser", "Tester"],
+      "tags": ["Réaliser", "Concevoir", "Tester"],
       "technologies": ["Java", "UML"],
       "image": [
         "/images/patio_1.webp",
@@ -279,7 +279,7 @@
       "title": "Résolveur Sudoku & Algorithmes",
       "description": "Développement d'un résolveur de Sudoku en langage C (SAE 1.02). L'objectif était de comparer l'efficacité de diverses techniques : approches heuristiques (règles logiques, singletons) contre Backtracking (force brute récursive). Le projet inclut une analyse de complexité, des tests de performance, ainsi qu'une documentation technique générée via Doxygen.",
       "category": "Scolaire",
-      "tags": ["Concevoir", "Réaliser", "Optimiser", "Tester"],
+      "tags": ["Réaliser", "Optimiser", "Tester"],
       "technologies": ["C", "Doxygen"],
       "image": [
         "/images/sudoku2_1.webp",
@@ -294,7 +294,7 @@
       "title": "Problème des 8 Reines",
       "description": "Exploration algorithmique autour du problème des N-Reines (SAÉ 2.02). Le projet visait à dépasser la simple résolution par Backtracking en implémentant des techniques d'optimisation avancées en Python (gestion des contraintes par opérations binaires/bitwise, rupture de symétries) pour réduire la complexité temporelle et résoudre des instances de grande taille.",
       "category": "Scolaire",
-      "tags": ["Optimiser", "Analyser", "Algorithmique"],
+      "tags": ["Optimiser", "Réaliser", "Algorithmique"],
       "technologies": ["Python"],
       "image": [
         "/images/reine1.webp",
@@ -309,7 +309,7 @@
       "title": "Générateur de Documentation Automatisé",
       "description": "Mise en place d'une chaîne de production de documentation technique (SAÉ 1.03). Le projet combine des scripts PHP (pour extraire les commentaires du code C et convertir du Markdown en HTML) et un environnement Docker pour isoler l'exécution. Un script Bash pilote l'ensemble pour livrer une archive finale (.tgz) prête à l'emploi.",
       "category": "Scolaire",
-      "tags": ["Automatiser", "Virtualiser", "Scripting"],
+      "tags": ["Administrer", "Réaliser", "Automatiser"],
       "technologies": ["Docker", "Bash", "PHP"],
       "image": [
         "/images/doc1.webp",
@@ -325,7 +325,7 @@
       "title": "Déploiement Serveur Web & Authentification",
       "description": "Configuration complète d'un serveur web Apache2 pour héberger une application dynamique. Le projet visait à maîtriser les interactions entre le serveur, le moteur PHP et la base de données SQL. L'aboutissement est un site web fonctionnel intégrant un système de gestion d'utilisateurs (inscription, connexion et espace membre sécurisé).",
       "category": "Scolaire",
-      "tags": ["Administrer", "Configurer", "Développer", "Sécuriser"],
+      "tags": ["Administrer", "Réaliser", "Sécuriser"],
       "technologies": ["Apache", "PHP", "SQL"],
       "image": [
         "/images/apache1.webp",
@@ -340,7 +340,7 @@
       "title": "Programme du BUT",
       "description": "Conception et implémentation d'une base de données relationnelle structurant le Programme National (PN) du BUT Informatique. Le projet a suivi le cycle complet de modélisation : analyse du cahier des charges, élaboration du diagramme de classes (UML) pour la structure conceptuelle, et traduction vers le modèle relationnel pour la création des tables en SQL.",
       "category": "Scolaire",
-      "tags": ["Modéliser", "Concevoir", "Gérer"],
+      "tags": ["Gérer", "Réaliser", "Concevoir"],
       "technologies": ["SQL", "UML"],
       "image": ["/images/bdd1_1.webp", "/images/bdd1_2.webp"],
       "link": "",
@@ -351,7 +351,7 @@
       "title": "Collèges de France",
       "description": "Mise en œuvre d'une chaîne complète de traitement de données (SAÉ 2.04). Le projet a consisté à implémenter une base de données SQL à partir d'un modèle UML, à automatiser l'importation de données réelles (fichiers CSV) concernant les collèges français, et à développer des scripts Python pour interroger la base et générer des statistiques.",
       "category": "Scolaire",
-      "tags": ["Exploiter", "Analyser", "Gérer"],
+      "tags": ["Gérer", "Réaliser", "Exploiter"],
       "technologies": ["SQL", "Python", "CSV"],
       "image": ["/images/bdd2_1.webp", "/images/bdd2_2.webp"],
       "link": "",
@@ -360,9 +360,9 @@
     {
       "id": 12,
       "title": "Tabas'Kho",
-      "description": "Réalisation complète d'un site vitrine, de la phase de conception à l'intégration. Le projet s'est articulé autour d'une démarche professionnelle : recueil des besoins clients, définition de l'arborescence et de la charte graphique. Le prototypage de l'interface a été réalisé sur Figma avant le développement final en HTML/CSS, avec une gestion de versions sous Git.",
+      "description": "Réalisation complète d'un site vitrine, de la phase de conception à l'intégration. Le projet s'est articulé autour d'une démarche professionnelle : recueil des besoins clients (interview), définition de l'arborescence et de la charte graphique. Le prototypage de l'interface a été réalisé sur Figma avant le développement final en HTML/CSS, avec une gestion de versions sous Git.",
       "category": "Scolaire",
-      "tags": ["Maquetter", "Réaliser"],
+      "tags": ["Réaliser", "Maquetter"],
       "technologies": ["HTML", "CSS", "Figma", "Git"],
       "image": [
         "/images/site1.webp",
@@ -378,7 +378,7 @@
       "title": "Application Guichet",
       "description": "Gestion complète du cycle de vie d'un projet de développement logiciel (application de billetterie). Ce module s'est concentré sur la méthodologie et l'organisation : définition du périmètre (Note de Cadrage), planification temporelle (Diagrammes de Gantt prévisionnels et réels), répartition des rôles (Matrice RACI) et estimation des coûts. L'analyse des écarts entre le planifié et le réalisé a fait l'objet d'une soutenance.",
       "category": "Scolaire",
-      "tags": ["Planifier", "Conduire", "Estimer", "Communiquer", "Collaborer"],
+      "tags": ["Conduire", "Collaborer", "Planifier"],
       "technologies": ["Gantt", "RACI"],
       "image": [
         "/images/gantt1.webp",
@@ -394,7 +394,7 @@
       "title": "Analyse Économique & RSE : IKEA",
       "description": "Étude stratégique approfondie du géant de l'ameublement IKEA. Ce projet d'analyse a nécessité la mise en place d'une veille informationnelle pour décrypter le modèle économique de l'entreprise. Un focus majeur a été porté sur sa politique de Responsabilité Sociétale des Entreprises (RSE) et son impact écologique, synthétisé dans un rapport détaillé et défendu lors d'une présentation orale.",
       "category": "Scolaire",
-      "tags": ["Analyser", "Veiller", "RSE", "Communiquer", "Collaborer"],
+      "tags": ["Collaborer", "Analyser", "Communiquer"],
       "technologies": ["SWOT", "PESTEL", "RSE"],
       "image": [
         "/images/ikea1.webp",
@@ -409,13 +409,7 @@
       "title": "Team Building",
       "description": "Conception d'une stratégie de communication pour un événement de cohésion d'équipe (Team Building) lié au Festival de Guipavas. Au-delà de l'organisation, ce projet a mis l'accent sur la production de contenus multimédias : élaboration d'un dossier de sponsoring, design de flyers promotionnels et réalisation d'un teaser vidéo, le tout défendu lors d'une soutenance orale.",
       "category": "Scolaire",
-      "tags": [
-        "Communiquer",
-        "Organiser",
-        "Collaborer",
-        "Designer",
-        "Montage Vidéo"
-      ],
+      "tags": ["Conduire", "Collaborer", "Communiquer", "Designer"],
       "technologies": ["Canva", "Premiere Pro"],
       "image": [
         "/images/hype1.webp",

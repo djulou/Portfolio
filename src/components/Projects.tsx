@@ -432,7 +432,7 @@ export default function Projects({ data }: ProjectsProps) {
                         rel="noreferrer"
                         className="detail-link-btn github"
                       >
-                        Voir le code / Site
+                        Voir le code
                       </a>
                     )}
 
