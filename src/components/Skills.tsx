@@ -69,30 +69,39 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     return lang.category.includes(activeLangFilter);
   });
 
-  // --- NOUVELLE LOGIQUE DE FORMATAGE ---
+  // --- LOGIQUE DE FORMATAGE CORRIGÉE ---
   const formatTitle = (title: string) => {
-    // Sépare le premier mot (le verbe) du reste
     const words = title.split(' ');
     const firstWord = words[0]; 
     const rest = words.slice(1).join(' ');
 
-    // Normalisation pour la détection (enlève accents et met en minuscule)
-    // Ex: "Gérer" -> "gerer"
+    // Normalisation (minuscule sans accent)
     const lowerWord = firstWord.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
     // Classe de base
     let verbClass = "verb-highlight";
 
-    // Attribution des couleurs spécifiques
-    if (lowerWord.includes("gerer")) {
+    // --- ATTRIBUTION INTELLIGENTE DES COULEURS ---
+    
+    // CAS 1 : BLEU (Style "Gérer")
+    // On l'utilise pour : Gérer, Réaliser, Administrer
+    if (lowerWord.includes("gerer") || lowerWord.includes("realiser") || lowerWord.includes("administrer")) {
       verbClass += " verb-gerer";
-    } else if (lowerWord.includes("conduire")) {
+    } 
+    // CAS 2 : ROUGE (Style "Conduire")
+    // On l'utilise pour : Conduire, Optimiser (car c'est de l'action/performance)
+    else if (lowerWord.includes("conduire") || lowerWord.includes("optimiser")) {
       verbClass += " verb-conduire";
-    } else if (lowerWord.includes("collaborer")) {
+    } 
+    // CAS 3 : VERT (Style "Collaborer")
+    // On l'utilise pour : Collaborer
+    else if (lowerWord.includes("collaborer")) {
       verbClass += " verb-collaborer";
-    } else {
-        // Fallback couleur par défaut (orange/conduire) si autre verbe
-        verbClass += " verb-conduire"; 
+    } 
+    // CAS PAR DÉFAUT (Si le verbe est inconnu)
+    else {
+        // On met du Bleu par défaut (plus neutre que le rouge)
+        verbClass += " verb-gerer"; 
     }
 
     return (
@@ -130,7 +139,6 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
           <div className="competences-grid">
             {skillsData.map((skill) => (
               <div key={skill.id} className="skill-card"> 
-                {/* On appelle la nouvelle fonction qui génère le HTML du titre */}
                 {formatTitle(skill.name)}
                 
                 {skill.description && (
