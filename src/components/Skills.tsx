@@ -69,14 +69,39 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     return lang.category.includes(activeLangFilter);
   });
 
+  // --- LOGIQUE DE FORMATAGE SÉLECTIVE ---
   const formatTitle = (title: string) => {
     const words = title.split(' ');
-    const firstWord = words[0];
+    const firstWord = words[0]; 
     const rest = words.slice(1).join(' ');
+
+    // On nettoie le mot pour comparer facilement (ex: "Gérer" -> "gerer")
+    const lowerWord = firstWord.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    // 1. Liste des compétences à mettre en avant
+    const highlightMap: { [key: string]: string } = {
+      "gerer": "verb-gerer",
+      "conduire": "verb-conduire",
+      "collaborer": "verb-collaborer"
+    };
+
+    // 2. Si le mot est dans notre liste, on applique le style "Star"
+    if (highlightMap[lowerWord]) {
+      return (
+        <div className="card-title-highlight">
+          <span className={`verb-big ${highlightMap[lowerWord]}`}>
+            {firstWord}
+          </span>
+          <span className="title-rest">{rest}</span>
+        </div>
+      );
+    }
+
+    // 3. Sinon, style standard (sobre)
     return (
-      <>
-        <span className="verb-highlight">{firstWord}</span> {rest}
-      </>
+      <h3 className="card-title-standard">
+        {title}
+      </h3>
     );
   };
 
@@ -107,9 +132,8 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
           <div className="competences-grid">
             {skillsData.map((skill) => (
               <div key={skill.id} className="skill-card"> 
-                <h3 className="card-title">
-                  {formatTitle(skill.name)}
-                </h3>
+                {formatTitle(skill.name)}
+                
                 {skill.description && (
                   <p className="description">{skill.description}</p>
                 )}
