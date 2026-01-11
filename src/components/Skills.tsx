@@ -24,6 +24,7 @@ import jsLogo from '../../public/img/javascript.webp';
 import jiraLogo from '../../public/img/jira.webp';
 import umlLogo from '../../public/img/uml.webp';
 import apacheLogo from "../../public/img/apache.webp";
+import ganttLogo from "../../public/img/gantt.webp";
 
 interface SkillsProps {
   skillsData: Skill[];
@@ -58,6 +59,7 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     "Jira": jiraLogo,
     "UML": umlLogo,
     "Apache": apacheLogo,
+    "Gantt": ganttLogo,
   };
 
   const filteredLanguages = languagesData.filter((lang) => {

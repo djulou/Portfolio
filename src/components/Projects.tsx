@@ -38,6 +38,11 @@ import bdd1_2 from "../../public/img/bdd1_2.webp";
 import bdd2_1 from "../../public/img/bdd2_1.webp";
 import bdd2_2 from "../../public/img/bdd2_2.webp";
 
+import gantt1 from "../../public/img/gantt1.webp";
+import gantt2 from "../../public/img/gantt2.webp";
+import gantt3 from "../../public/img/gantt3.webp";
+import gantt4 from "../../public/img/gantt4.webp";
+
 // --- LOGOS TECHNOS ---
 import htmlLogo from "../../public/img/html.webp";
 import cssLogo from "../../public/img/css.webp";
@@ -61,7 +66,7 @@ import jsLogo from "../../public/img/javascript.webp";
 import umlLogo from "../../public/img/uml.webp";
 import apacheLogo from "../../public/img/apache.webp";
 import csvLogo from "../../public/img/csv.webp";
-
+import ganttLogo from "../../public/img/gantt.webp";
 
 interface ProjectsProps {
   data: Project[];
@@ -97,10 +102,14 @@ export default function Projects({ data }: ProjectsProps) {
     "/images/apache1.webp": apache1,
     "/images/apache2.webp": apache2,
     "/images/apache3.webp": apache3,
-     "/images/bdd1_1.webp": bdd1_1,
-     "/images/bdd1_2.webp": bdd1_2,
-     "/images/bdd2_1.webp": bdd2_1,
-     "/images/bdd2_2.webp": bdd2_2,
+    "/images/bdd1_1.webp": bdd1_1,
+    "/images/bdd1_2.webp": bdd1_2,
+    "/images/bdd2_1.webp": bdd2_1,
+    "/images/bdd2_2.webp": bdd2_2,
+    "/images/gantt1.webp": gantt1,
+    "/images/gantt2.webp": gantt2,
+    "/images/gantt3.webp": gantt3,
+    "/images/gantt4.webp": gantt4,
   };
 
   const languageLogos: { [key: string]: string } = {
@@ -129,6 +138,7 @@ export default function Projects({ data }: ProjectsProps) {
     UML: umlLogo,
     Apache: apacheLogo,
     CSV: csvLogo,
+    Gantt: ganttLogo,
   };
 
   const getStickerClass = (category: string) => {

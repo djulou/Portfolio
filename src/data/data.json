@@ -179,6 +179,12 @@
       "name": "Apache",
       "image": "/img/apache.webp",
       "category": ["Outils"]
+    },
+    {
+      "id": 22,
+      "name": "Gantt",
+      "image": "/img/gantt.webp",
+      "category": ["Outils"]
     }
   ],
   "formations": [
@@ -234,7 +240,7 @@
         "/images/sudoku_3.webp"
       ],
       "link": "",
-      "download": "/files/SAE_1.01.zip"
+      "download": "/files/SAE_101.zip"
     },
     {
       "id": 5,
@@ -264,7 +270,7 @@
         "/images/sudoku2_3.webp"
       ],
       "link": "",
-      "download": "/files/SAE_1.02.zip"
+      "download": "/files/SAE_102.zip"
     },
     {
       "id": 7,
@@ -279,7 +285,7 @@
         "/images/reine3.webp"
       ],
       "link": "",
-      "download": "/files/SAE_2.02.zip"
+      "download": "/files/SAE_202.zip"
     },
     {
       "id": 8,
@@ -290,7 +296,7 @@
       "technologies": ["Docker", "Bash", "PHP"],
       "image": ["/images/doc1.webp", "/images/doc2.webp", "/images/doc3.webp", "/images/doc4.webp"],
       "link": "",
-      "download": "/files/SAE_1.03.zip"
+      "download": "/files/SAE_103.zip"
     },
     {
   "id": 9,
@@ -314,11 +320,11 @@
     "/images/apache3.webp"
   ],
   "link": "",
-  "download": "/files/SAE_2.03.zip"
+  "download": "/files/SAE_203.zip"
 },
 {
   "id": 10,
-  "title": "Modélisation BDD : Programme du BUT",
+  "title": "Programme du BUT",
   "description": "Conception et implémentation d'une base de données relationnelle structurant le Programme National (PN) du BUT Informatique. Le projet a suivi le cycle complet de modélisation : analyse du cahier des charges, élaboration du diagramme de classes (UML) pour la structure conceptuelle, et traduction vers le modèle relationnel pour la création des tables en SQL.",
   "category": "Scolaire",
   "tags": [
@@ -335,11 +341,11 @@
     "/images/bdd1_2.webp"
   ],
   "link": "",
-  "download": "/files/SAE_1.04.sql"
+  "download": "/files/SAE_104.sql"
 },
 {
   "id": 11,
-  "title": "Exploitation BDD & Analyse : Collèges de France",
+  "title": "Collèges de France",
   "description": "Mise en œuvre d'une chaîne complète de traitement de données (SAÉ 2.04). Le projet a consisté à implémenter une base de données SQL à partir d'un modèle UML, à automatiser l'importation de données réelles (fichiers CSV) concernant les collèges français, et à développer des scripts Python pour interroger la base et générer des statistiques.",
   "category": "Scolaire",
   "tags": [
@@ -357,7 +363,56 @@
     "/images/bdd2_2.webp"
   ],
   "link": "",
-  "download": "/files/SAE_2.04.zip"
+  "download": "/files/SAE_204.zip"
+},
+{
+  "id": 12,
+  "title": "Tabas'Kho",
+  "description": "Réalisation complète d'un site vitrine, de la phase de conception à l'intégration. Le projet s'est articulé autour d'une démarche professionnelle : recueil des besoins clients, définition de l'arborescence et de la charte graphique. Le prototypage de l'interface a été réalisé sur Figma avant le développement final en HTML/CSS, avec une gestion de versions sous Git.",
+  "category": "Scolaire",
+  "tags": [
+    "Maquetter",
+    "Réaliser"
+  ],
+  "technologies": [
+    "HTML",
+    "CSS",
+    "Figma",
+    "Git"
+  ],
+  "image": [
+    "/images/site1.webp",
+    "/images/site2.webp",
+    "/images/site3.webp",
+    "/images/site4.webp"
+  ],
+  "link": "",
+  "download": "/files/SAE_105.zip"
+},
+{
+  "id": 13,
+  "title": "Application Guichet",
+  "description": "Gestion complète du cycle de vie d'un projet de développement logiciel (application de billetterie). Ce module s'est concentré sur la méthodologie et l'organisation : définition du périmètre (Note de Cadrage), planification temporelle (Diagrammes de Gantt prévisionnels et réels), répartition des rôles (Matrice RACI) et estimation des coûts. L'analyse des écarts entre le planifié et le réalisé a fait l'objet d'une soutenance.",
+  "category": "Scolaire",
+  "tags": [
+    "Planifier",
+    "Conduire",
+    "Estimer",
+    "Communiquer",
+    "Collaborer"
+  ],
+  "technologies": [
+    "Gantt",
+    "RACI"
+  ],
+  "image": [
+    "/images/gantt1.webp",
+    "/images/gantt2.webp",
+    "/images/gantt3.webp",
+    "/images/gantt4.webp"
+  ],
+  "link": "",
+  "download": "/files/SAE_205.zip"
 }
   ],
   "passions": [
