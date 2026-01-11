@@ -20,6 +20,10 @@ import sudoku2_1 from "../../public/img/sudoku2_1.webp";
 import sudoku2_2 from "../../public/img/sudoku2_2.webp";
 import sudoku2_3 from "../../public/img/sudoku2_3.webp";
 
+import reine1 from "../../public/img/reine1.webp";
+import reine2 from "../../public/img/reine2.webp";
+import reine3 from "../../public/img/reine3.webp";
+
 // --- LOGOS TECHNOS ---
 import htmlLogo from "../../public/img/html.webp";
 import cssLogo from "../../public/img/css.webp";
@@ -67,6 +71,9 @@ export default function Projects({ data }: ProjectsProps) {
     "/images/sudoku2_1.webp": sudoku2_1,
     "/images/sudoku2_2.webp": sudoku2_2,
     "/images/sudoku2_3.webp": sudoku2_3,
+    "/images/reine1.webp": reine1,
+    "/images/reine2.webp": reine2,
+    "/images/reine3.webp": reine3,
   };
 
   const languageLogos: { [key: string]: string } = {

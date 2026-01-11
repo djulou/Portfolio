@@ -259,6 +259,17 @@
       ],
       "link": "",
       "download": "/files/SAE_1.02.zip"
+    },
+    {
+      "id": 7,
+      "title": "Problème des 8 Reines",
+      "description": "Exploration algorithmique autour du problème des N-Reines (SAÉ 2.02). Le projet visait à dépasser la simple résolution par Backtracking en implémentant des techniques d'optimisation avancées en Python (gestion des contraintes par opérations binaires/bitwise, rupture de symétries) pour réduire la complexité temporelle et résoudre des instances de grande taille.",
+      "category": "Scolaire",
+      "tags": ["Optimiser", "Analyser", "Algorithmique"],
+      "technologies": ["Python"],
+      "image": ["/images/reine1.webp", "/images/reine2.webp", "/images/reine3.webp"],
+      "link": "",
+      "download": "/files/SAE_2.02.zip"
     }
   ],
   "passions": [
