@@ -43,6 +43,15 @@ import gantt2 from "../../public/img/gantt2.webp";
 import gantt3 from "../../public/img/gantt3.webp";
 import gantt4 from "../../public/img/gantt4.webp";
 
+import site1 from "../../public/img/site1.webp";
+import site2 from "../../public/img/site2.webp";
+import site3 from "../../public/img/site3.webp";
+import site4 from "../../public/img/site4.webp";
+
+import ikea1 from "../../public/img/ikea1.webp";
+import ikea2 from "../../public/img/ikea2.webp";
+import ikea3 from "../../public/img/ikea3.webp";
+
 // --- LOGOS TECHNOS ---
 import htmlLogo from "../../public/img/html.webp";
 import cssLogo from "../../public/img/css.webp";
@@ -110,6 +119,13 @@ export default function Projects({ data }: ProjectsProps) {
     "/images/gantt2.webp": gantt2,
     "/images/gantt3.webp": gantt3,
     "/images/gantt4.webp": gantt4,
+    "/images/site1.webp": site1,
+    "/images/site2.webp": site2,
+    "/images/site3.webp": site3,
+    "/images/site4.webp": site4,
+    "/images/ikea1.webp": ikea1,
+    "/images/ikea2.webp": ikea2,
+    "/images/ikea3.webp": ikea3,
   };
 
   const languageLogos: { [key: string]: string } = {
