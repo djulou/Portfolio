@@ -7,6 +7,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Passions from './components/Passions';
+import Footer from './components/Footer';
 
 import './styles/App.css';
 
@@ -39,6 +40,7 @@ export default function App() {
         
         <Passions data={data.passions} />
       </main>
+      <Footer />
     </>
   );
 }
