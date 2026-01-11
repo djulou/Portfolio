@@ -7,7 +7,7 @@
     "bgImage": "/img/paysage.webp",
     "profileImage": "/img/64.webp",
     "linkedinIcon": "/img/linkedin.webp",
-    "cvLink": "https://djulou.github.io/files/cv.pdf",
+    "cvLink": "/cv.pdf",
     "linkedinLink": "https://www.linkedin.com/in/dorian-julou/"
   },
   "about": {
