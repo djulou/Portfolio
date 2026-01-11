@@ -90,7 +90,7 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
           className={activeTab === 'but' ? 'active' : ''} 
           onClick={() => setActiveTab('but')}
         >
-          Savoir-faire (BUT)
+          Compétences (BUT)
         </button>
         <button 
           className={activeTab === 'lang' ? 'active' : ''} 
