@@ -281,7 +281,7 @@
         "/images/sudoku_3.webp"
       ],
       "link": "",
-      "download": "/files/SAE_101.zip"
+      "download": "./files/SAE_101.zip"
     },
     {
       "id": 5,
@@ -296,7 +296,7 @@
         "/images/patio_3.webp"
       ],
       "link": "",
-      "download": "/files/SAE_201.zip"
+      "download": "./files/SAE_201.zip"
     },
     {
       "id": 6,
@@ -311,7 +311,7 @@
         "/images/sudoku2_3.webp"
       ],
       "link": "",
-      "download": "/files/SAE_102.zip"
+      "download": "./files/SAE_102.zip"
     },
     {
       "id": 7,
