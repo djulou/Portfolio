@@ -69,14 +69,37 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     return lang.category.includes(activeLangFilter);
   });
 
+  // --- NOUVELLE LOGIQUE DE FORMATAGE ---
   const formatTitle = (title: string) => {
+    // Sépare le premier mot (le verbe) du reste
     const words = title.split(' ');
-    const firstWord = words[0];
+    const firstWord = words[0]; 
     const rest = words.slice(1).join(' ');
+
+    // Normalisation pour la détection (enlève accents et met en minuscule)
+    // Ex: "Gérer" -> "gerer"
+    const lowerWord = firstWord.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    // Classe de base
+    let verbClass = "verb-highlight";
+
+    // Attribution des couleurs spécifiques
+    if (lowerWord.includes("gerer")) {
+      verbClass += " verb-gerer";
+    } else if (lowerWord.includes("conduire")) {
+      verbClass += " verb-conduire";
+    } else if (lowerWord.includes("collaborer")) {
+      verbClass += " verb-collaborer";
+    } else {
+        // Fallback couleur par défaut (orange/conduire) si autre verbe
+        verbClass += " verb-conduire"; 
+    }
+
     return (
-      <>
-        <span className="verb-highlight">{firstWord}</span> {rest}
-      </>
+      <div className="card-title">
+        <span className={verbClass}>{firstWord}</span>
+        <span className="title-rest">{rest}</span>
+      </div>
     );
   };
 
@@ -107,9 +130,9 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
           <div className="competences-grid">
             {skillsData.map((skill) => (
               <div key={skill.id} className="skill-card"> 
-                <h3 className="card-title">
-                  {formatTitle(skill.name)}
-                </h3>
+                {/* On appelle la nouvelle fonction qui génère le HTML du titre */}
+                {formatTitle(skill.name)}
+                
                 {skill.description && (
                   <p className="description">{skill.description}</p>
                 )}
