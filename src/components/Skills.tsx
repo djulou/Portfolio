@@ -69,46 +69,14 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     return lang.category.includes(activeLangFilter);
   });
 
-  // --- LOGIQUE DE FORMATAGE CORRIGÉE ---
   const formatTitle = (title: string) => {
     const words = title.split(' ');
-    const firstWord = words[0]; 
+    const firstWord = words[0];
     const rest = words.slice(1).join(' ');
-
-    // Normalisation (minuscule sans accent)
-    const lowerWord = firstWord.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-    // Classe de base
-    let verbClass = "verb-highlight";
-
-    // --- ATTRIBUTION INTELLIGENTE DES COULEURS ---
-    
-    // CAS 1 : BLEU (Style "Gérer")
-    // On l'utilise pour : Gérer, Réaliser, Administrer
-    if (lowerWord.includes("gerer") || lowerWord.includes("realiser") || lowerWord.includes("administrer")) {
-      verbClass += " verb-gerer";
-    } 
-    // CAS 2 : ROUGE (Style "Conduire")
-    // On l'utilise pour : Conduire, Optimiser (car c'est de l'action/performance)
-    else if (lowerWord.includes("conduire") || lowerWord.includes("optimiser")) {
-      verbClass += " verb-conduire";
-    } 
-    // CAS 3 : VERT (Style "Collaborer")
-    // On l'utilise pour : Collaborer
-    else if (lowerWord.includes("collaborer")) {
-      verbClass += " verb-collaborer";
-    } 
-    // CAS PAR DÉFAUT (Si le verbe est inconnu)
-    else {
-        // On met du Bleu par défaut (plus neutre que le rouge)
-        verbClass += " verb-gerer"; 
-    }
-
     return (
-      <div className="card-title">
-        <span className={verbClass}>{firstWord}</span>
-        <span className="title-rest">{rest}</span>
-      </div>
+      <>
+        <span className="verb-highlight">{firstWord}</span> {rest}
+      </>
     );
   };
 
@@ -139,8 +107,9 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
           <div className="competences-grid">
             {skillsData.map((skill) => (
               <div key={skill.id} className="skill-card"> 
-                {formatTitle(skill.name)}
-                
+                <h3 className="card-title">
+                  {formatTitle(skill.name)}
+                </h3>
                 {skill.description && (
                   <p className="description">{skill.description}</p>
                 )}

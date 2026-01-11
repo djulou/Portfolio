@@ -83,17 +83,14 @@
   background-color: #16202a;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  padding: 40px 30px; /* Un peu plus de padding pour aérer */
+  padding: 30px;
   text-align: center;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centre tout le contenu */
-  justify-content: flex-start;
-  min-height: 250px;
-  position: relative;
-  overflow: hidden;
+  justify-content: center;
+  min-height: 200px;
 }
 
 .skill-card:hover {
@@ -102,76 +99,42 @@
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Conteneur du titre dans la carte */
 .skill-card .card-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  width: 100%;
+  color: #eaeaea;
+  margin-bottom: 15px;
+  font-size: 1.35rem;
+  font-weight: 600;
 }
 
 .skill-card .description {
   color: #cbd5e0;
   font-size: 1rem;
   line-height: 1.6;
-  margin-top: auto; /* Pousse le texte vers le bas si besoin */
 }
 
 /* =========================================
-   4. HIGHLIGHT DES VERBES (Style Premium)
+   4. HIGHLIGHT DES VERBES (Style Néon)
    ========================================= */
-
-/* Style de base pour les gros verbes */
 .verb-highlight {
-  font-size: 2.2rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  line-height: 1.1;
-  
-  /* Magie du dégradé sur le texte */
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  
-  transition: transform 0.3s ease;
+  position: relative;
+  font-weight: 800;
+  color: #ffffff; 
+  z-index: 1;
+  padding: 0 4px; 
 }
 
-/* GÉRER : Dégradé Bleu/Cyan (Sagesse, Organisation) */
-.verb-gerer {
-  background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  filter: drop-shadow(0 0 15px rgba(79, 172, 254, 0.2));
-}
-
-/* CONDUIRE : Dégradé Orange/Or (Action, Leader) - Accordé à votre thème */
-.verb-conduire {
-  /* Dégradé du rouge vif vers le rose magenta */
-  background-image: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%); 
-  
-  /* Lueur adaptée au rouge */
-  filter: drop-shadow(0 0 15px rgba(255, 65, 108, 0.4)); 
-}
-
-/* COLLABORER : Dégradé Vert/Turquoise (Humain, Équipe) */
-.verb-collaborer {
-  background-image: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-  filter: drop-shadow(0 0 15px rgba(67, 233, 123, 0.2));
-}
-
-/* La suite de la phrase sous le verbe */
-.title-rest {
-  font-size: 1.1rem;
-  color: #eaeaea;
-  font-weight: 400;
-  opacity: 0.8;
-  letter-spacing: 0.5px;
-}
-
-/* Effet au survol de la carte entière */
-.skill-card:hover .verb-highlight {
-  transform: scale(1.1);
+.verb-highlight::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 5px;      
+  width: 100%;
+  height: 70%;      
+  background-color: #6c5ce7; /* Violet électrique */
+  opacity: 0.7;     
+  z-index: -1;
+  border-radius: 2px;
+  transform: skewX(-10deg); 
 }
 
 /* =========================================
@@ -227,7 +190,7 @@
 }
 
 /* =========================================
-   6. SOUS-FILTRES
+   6. SOUS-FILTRES (NOUVEAU - C'est ce qu'il manquait)
    ========================================= */
 .sub-filters-container {
   display: flex;
