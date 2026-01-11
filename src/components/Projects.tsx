@@ -59,6 +59,12 @@ import hype4 from "../../public/img/hype4.webp";
 
 import portfolio from "../../public/img/portfolio.webp";
 
+import muse1 from "../../public/img/muse1.webp";
+import muse2 from "../../public/img/muse2.webp";
+import muse3 from "../../public/img/muse3.webp";
+import muse4 from "../../public/img/muse4.webp";
+import muse5 from "../../public/img/muse5.webp";
+
 // --- LOGOS TECHNOS ---
 import htmlLogo from "../../public/img/html.webp";
 import cssLogo from "../../public/img/css.webp";
@@ -143,6 +149,11 @@ export default function Projects({ data }: ProjectsProps) {
     "/images/hype3.webp": hype3,
     "/images/hype4.webp": hype4,
     "/images/portfolio.webp": portfolio,
+    "/images/muse1.webp": muse1,
+    "/images/muse2.webp": muse2,
+    "/images/muse3.webp": muse3,
+    "/images/muse4.webp": muse4,
+    "/images/muse5.webp": muse5,
   };
 
   const languageLogos: { [key: string]: string } = {

@@ -211,6 +211,30 @@
   ],
   "projects": [
     {
+      "id": 1,
+      "title": "Système de Recommandation : MuSE",
+      "description": "Développement d'une solution complète d'intelligence artificielle pour l'industrie musicale. L'objectif est de créer un système de recommandation de musiques performant et une application décisionnelle. Le projet couvre l'intégralité du cycle de la donnée : capture et stockage de données volumineuses, analyse statistique, développement d'algorithmes d'IA, et exposition via une API et un site web sécurisé.",
+      "category": "Scolaire",
+      "tags": [
+        "Réaliser",
+        "Optimiser",
+        "Administrer",
+        "Gérer",
+        "Conduire",
+        "Collaborer"
+      ],
+      "technologies": ["Python", "IA", "Big Data", "PostgreSQL", "API", "HTML", "CSS", "JavaScript"],
+      "image": [
+        "/images/muse1.webp",
+        "/images/muse2.webp",
+        "/images/muse3.webp",
+        "/images/muse4.webp",
+        "/images/muse5.webp"
+      ],
+      "link": "https://github.com/mariuschartier/Code_Sae",
+      "download": ""
+    },
+    {
       "id": 2,
       "title": "Plateforme de réservations",
       "description": "Plateforme complète de gestion d'offres. Elle comprend une interface utilisateur (front) pour découvrir les offres publiées par les professionnels et consulter les avis. Une interface d'administration (back) permet aux pros de se connecter, de publier leurs offres et de consulter les avis laissés.",
