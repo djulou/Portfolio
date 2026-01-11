@@ -52,6 +52,11 @@ import ikea1 from "../../public/img/ikea1.webp";
 import ikea2 from "../../public/img/ikea2.webp";
 import ikea3 from "../../public/img/ikea3.webp";
 
+import hype1 from "../../public/img/hype1.webp";
+import hype2 from "../../public/img/hype2.webp";
+import hype3 from "../../public/img/hype3.webp";
+import hype4 from "../../public/img/hype4.webp";
+
 // --- LOGOS TECHNOS ---
 import htmlLogo from "../../public/img/html.webp";
 import cssLogo from "../../public/img/css.webp";
@@ -76,6 +81,7 @@ import umlLogo from "../../public/img/uml.webp";
 import apacheLogo from "../../public/img/apache.webp";
 import csvLogo from "../../public/img/csv.webp";
 import ganttLogo from "../../public/img/gantt.webp";
+import canvaLogo from "../../public/img/canva.webp";
 
 interface ProjectsProps {
   data: Project[];
@@ -130,6 +136,10 @@ export default function Projects({ data }: ProjectsProps) {
     "/images/ikea1.webp": ikea1,
     "/images/ikea2.webp": ikea2,
     "/images/ikea3.webp": ikea3,
+    "/images/hype1.webp": hype1,
+    "/images/hype2.webp": hype2,
+    "/images/hype3.webp": hype3,
+    "/images/hype4.webp": hype4,
   };
 
   const languageLogos: { [key: string]: string } = {
@@ -159,6 +169,7 @@ export default function Projects({ data }: ProjectsProps) {
     Apache: apacheLogo,
     CSV: csvLogo,
     Gantt: ganttLogo,
+    Canva: canvaLogo,
   };
 
   const getStickerClass = (category: string) => {

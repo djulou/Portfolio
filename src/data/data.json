@@ -185,6 +185,12 @@
       "name": "Gantt",
       "image": "/img/gantt.webp",
       "category": ["Outils"]
+    },
+    {
+      "id": 23,
+      "name": "Canva",
+      "image": "/img/canva.webp",
+      "category": ["Outils"]
     }
   ],
   "formations": [
@@ -438,6 +444,31 @@
   ],
   "link": "",
   "download": "/files/SAE_106.zip"
+},
+{
+  "id": 15,
+  "title": "Team Building",
+  "description": "Conception d'une stratégie de communication pour un événement de cohésion d'équipe (Team Building) lié au Festival de Guipavas. Au-delà de l'organisation, ce projet a mis l'accent sur la production de contenus multimédias : élaboration d'un dossier de sponsoring, design de flyers promotionnels et réalisation d'un teaser vidéo, le tout défendu lors d'une soutenance orale.",
+  "category": "Scolaire",
+  "tags": [
+    "Communiquer",
+    "Organiser",
+    "Collaborer",
+    "Designer",
+    "Montage Vidéo"
+  ],
+  "technologies": [
+    "Canva",
+    "Premiere Pro"
+  ],
+  "image": [
+    "/images/hype1.webp",
+    "/images/hype2.webp",
+    "/images/hype3.webp",
+    "/images/hype4.webp"
+  ],
+  "link": "",
+  "download": "/files/SAE_2.06_TeamBuilding.zip"
 }
   ],
   "passions": [
