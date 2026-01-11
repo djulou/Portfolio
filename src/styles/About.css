@@ -1,14 +1,125 @@
+/* src/styles/About.css */
+
+/* --- Conteneur global de la section --- */
 .about {
   display: flex;
   flex-direction: column;
-  padding: 60px 50px;
+  padding: 80px 50px;
   background-color: #0f1c24;
-  gap: 20px;
+  color: #eaeaea;
+  /* On centre le contenu et on limite la largeur pour la lisibilité */
+  max-width: 1000px;
+  margin: 0 auto; 
 }
 
-.title {
-  background-color: transparent;
+/* --- Titre "À propos" (optionnel si tu le remets) --- */
+.about .title {
+  font-size: 2.5rem;
   color: #ffb75e;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* --- Paragraphe de description --- */
+.about_me {
+  font-size: 1.1rem;
+  line-height: 1.8; /* Plus d'espace entre les lignes pour le confort */
+  color: #dcdcdc;
+  margin-bottom: 60px;
+  padding-left: 20px;
+  border-left: 3px solid #f9702c; /* Petite touche de design à gauche */
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px;
+  border-radius: 0 10px 10px 0;
+}
+
+/* --- Section Formation --- */
+.formation h1 {
   font-size: 2rem;
-  margin-bottom: 20px;
+  color: #ffb75e;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+/* --- Création de l'effet "Timeline" --- */
+.lines {
+  position: relative;
+  padding-left: 40px; /* Espace pour la ligne verticale */
+  margin-bottom: 40px;
+}
+
+/* La ligne verticale */
+.lines::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: rgba(255, 183, 94, 0.3); /* Ligne subtile */
+}
+
+/* Le point (dot) sur la timeline */
+.lines::after {
+  content: "";
+  position: absolute;
+  left: -4px; /* Pour centrer le point sur la ligne de 2px */
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #f9702c; /* Couleur orange */
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(249, 112, 44, 0.2); /* Petit halo */
+  transition: background-color 0.3s ease;
+}
+
+/* Effet au survol d'une formation */
+.lines:hover::after {
+  background-color: #ffb75e;
+  box-shadow: 0 0 0 6px rgba(255, 183, 94, 0.2);
+}
+
+/* --- Détails de la formation (Lieu, Date, Diplôme) --- */
+.lieu {
+  margin-bottom: 15px;
+}
+
+/* 1er p : L'année (ex: 2023 - 2026) */
+.lieu p:nth-child(1) {
+  color: #f9702c;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 2ème p : Le diplôme (ex: BUT Informatique) */
+.lieu p:nth-child(2) {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+/* 3ème p : L'école / Ville (ex: IUT Lannion) */
+.lieu p:nth-child(3) {
+  color: #aaa;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* --- Description de la formation --- */
+.lines > p { 
+  /* Le '>' cible le p qui est enfant direct de .lines, pas ceux dans .lieu */
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
 }

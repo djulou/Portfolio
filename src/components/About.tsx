@@ -1,16 +1,35 @@
-import '../styles/About.css';
+import { AboutData, Formation } from '../data/types';
+import '../styles/About.css'; // Ton fichier de style dédié
 
-export default function About() {
+interface AboutProps {
+  aboutData: AboutData;
+  formationsData: Formation[];
+}
+
+export default function About({ aboutData, formationsData }: AboutProps) {
   return (
     <section id="apropos" className="about">
-        <h1 className="title">À propos</h1>
-        <p className="about_me">
-          Je suis étudiant en BUT Informatique à l'IUT de Lannion. Je suis
-          passionné par le développement d'application front et back. Je suis
-          quelqu'un de sociable qui apprécie travailler en équipe. Je parle
-          français et anglais. Je suis à la recherche d'une alternance dans l'un
-          de ces deux domaines.
-        </p>
-      </section>
+
+      {/* Description dynamique venant du JSON */}
+      <p className="about_me">
+        {aboutData.description}
+      </p>
+
+      {/* Partie Formations (incluse dans la section About sur ton site) */}
+      <div className="formation">
+        <h1>Formation</h1>
+        {formationsData.map((formation) => (
+          <div key={formation.id} className="lines">
+            <div className="lieu">
+              <p>{formation.year}</p>
+              <p>{formation.degree}</p>
+              <p>{formation.school}</p>
+            </div>
+            {formation.description && <p>{formation.description}</p>}
+          </div>
+        ))}
+      </div>
+
+    </section>
   );
 };

@@ -1,0 +1,524 @@
+/* =========================================
+   1. CONTENEUR GLOBAL & TITRE
+   ========================================= */
+.projet {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projet h1.title {
+  font-size: 2.5rem;
+  color: #ffb75e;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.projet h1.title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #f9702c;
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+/* =========================================
+   2. BOUTONS DE FILTRE & VOIR PLUS
+   ========================================= */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.filter-buttons button {
+  background-color: transparent;
+  color: #eaeaea;
+  border: 1px solid #ffb75e;
+  padding: 8px 20px;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.filter-buttons button:hover {
+  background-color: rgba(255, 183, 94, 0.1);
+  transform: translateY(-2px);
+}
+
+.filter-buttons button.active {
+  background-color: #f9702c;
+  color: #0f1c24;
+  border-color: #f9702c;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(249, 112, 44, 0.3);
+}
+
+/* Conteneur pour le bouton Voir Plus / Voir Moins */
+.view-more-container {
+  text-align: center;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.view-more-btn {
+  padding: 10px 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: #f9702c;
+  color: #0f1c24;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.view-more-btn:hover {
+  transform: translateY(-2px);
+  background-color: #ffb75e;
+}
+
+.view-less-btn {
+  padding: 10px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: transparent;
+  color: #eaeaea;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.view-less-btn:hover {
+  opacity: 1;
+}
+
+/* =========================================
+   3. GRILLE (GRID) - PAGE PRINCIPALE
+   ========================================= */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 10px;
+}
+
+/* =========================================
+   4. CARTES (CARDS)
+   ========================================= */
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #16202a;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  height: 400px;
+  position: relative;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 183, 94, 0.3);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card_title {
+  padding: 20px 20px 10px;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #eaeaea;
+  margin: 0;
+  margin-right: 60px;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-grow: 1;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+
+.card:hover img {
+  opacity: 1;
+}
+
+/* TAGS SUR LA CARTE */
+.card ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 20px 15px;
+  margin: 0;
+  list-style: none;
+}
+
+.card li {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #aaa;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75em;
+  font-weight: 500;
+}
+
+.tag-more {
+  background-color: #f9702c !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+/* STICKERS (Scolaire, Perso, etc.) */
+.sticker {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.sticker-school { background-color: #6c5ce7; }
+.sticker-personal { background-color: #00b894; }
+.sticker-pro { background-color: #e17055; }
+
+
+/* =========================================
+   5. VUE PLEINE PAGE (DÉTAIL DU PROJET)
+   ========================================= */
+
+.full-page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0f1c24; 
+  z-index: 1000;
+  overflow-y: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  animation: slideUp 0.4s ease-in-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.full-page-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* BOUTON RETOUR */
+.page-header-actions {
+  margin-bottom: 30px;
+}
+
+.back-button {
+  background: transparent;
+  border: 1px solid #f9702c;
+  color: #f9702c;
+  padding: 10px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-button:hover {
+  background: #f9702c;
+  color: white;
+  transform: translateX(-5px);
+}
+
+/* --- STRUCTURE SPLIT : GAUCHE / DROITE --- */
+.detail-split {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* --- COLONNE CARROUSEL (Visuellement à droite dans le code, gauche dans le design) --- */
+.detail-left {
+  flex: 1.5;
+  position: relative;
+}
+
+.carousel-wrapper-page {
+  width: 100%;
+  height: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.carousel-img-page {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Flèches Navigation Carrousel */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 5;
+}
+.carousel-btn:hover { background: #f9702c; }
+.carousel-btn.prev { left: 20px; }
+.carousel-btn.next { right: 20px; }
+
+/* Points Navigation Carrousel */
+.carousel-dots {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 5;
+}
+.dot {
+  width: 12px; height: 12px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%; cursor: pointer;
+  transition: all 0.3s;
+}
+.dot.active { background: #f9702c; transform: scale(1.3); }
+
+
+/* --- COLONNE INFOS (Texte) --- */
+.detail-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+/* Header Détail */
+.detail-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+
+.detail-header h1 {
+  font-size: 3.5rem;
+  color: #ffb75e;
+  margin: 15px 0 0 0;
+  line-height: 1.1;
+}
+
+.sticker-detail {
+  display: inline-block;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+/* TAGS */
+.detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.detail-tag-item {
+  background-color: rgba(255, 183, 94, 0.1);
+  color: #ffb75e;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 183, 94, 0.3);
+}
+
+/* DESCRIPTION */
+.detail-description p {
+  color: #cbd5e0;
+  line-height: 1.8;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  white-space: pre-line;
+}
+
+/* SECTION TECHNOLOGIES (LOGOS) */
+.tech-stack-container {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tech-stack-container h3 {
+  color: #eaeaea;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+.tech-logos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.tech-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: 12px;
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tech-logo-item img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  margin-bottom: 5px;
+  filter: drop-shadow(0 0 2px rgba(255,255,255,0.2));
+}
+
+.tech-logo-item span {
+  font-size: 0.75rem;
+  color: #ccc;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* =========================================
+   6. BOUTONS D'ACTION (Lien / Download)
+   ========================================= */
+
+/* Conteneur qui empile les boutons */
+.left-action-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column; /* Empile les boutons */
+  gap: 15px;              /* Espace entre les boutons */
+  justify-content: center;
+  width: 100%;
+}
+
+/* Style de base des boutons */
+.detail-link-btn {
+  display: inline-block;
+  padding: 15px 0;
+  width: 100%;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  transition: all 0.2s;
+  color: #fff;
+}
+
+.detail-link-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* Style spécifique : DOWNLOAD (Vert) */
+.detail-link-btn.download {
+  background-color: #27ae60; 
+  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+}
+
+.detail-link-btn.download:hover {
+  background-color: #2ecc71;
+  box-shadow: 0 10px 20px rgba(39, 174, 96, 0.5);
+}
+
+/* Style spécifique : GITHUB / SITE (Gris foncé ou défaut) */
+.detail-link-btn.github {
+  background-color: #333; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.detail-link-btn.github:hover {
+  background-color: #555;
+}
+
+/* =========================================
+   7. RESPONSIVE MOBILE
+   ========================================= */
+@media (max-width: 1024px) {
+  .detail-split {
+    flex-direction: column-reverse; /* Image en haut sur mobile */
+    gap: 40px;
+  }
+  
+  .carousel-wrapper-page {
+    height: 400px;
+  }
+
+  .detail-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .full-page-content {
+    padding: 0 20px;
+  }
+  
+  .detail-left, .detail-right {
+    width: 100%;
+    flex: auto;
+  }
+}

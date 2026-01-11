@@ -1,3 +1,4 @@
+/* --- Header caché au début, puis visible au scroll --- */
 header {
   position: fixed;
   top: 0;
@@ -7,14 +8,18 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 60px 50px;
+  padding: 0 50px; /* J'ai ajusté le padding vertical car 60px avec height 80px cassait le centrage */
   z-index: 20;
   opacity: 0;
   transition: opacity 0.5s ease;
+  pointer-events: none; /* Important : empêche de cliquer sur le menu quand il est invisible */
 }
 
 header.visible {
   opacity: 1;
+  pointer-events: auto; /* Réactive les clics quand visible */
+  background-color: #0f1c24; /* Ajouté pour la lisibilité (couleur de ton body) */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Petit ombrage pour le détacher du fond */
 }
 
 header h1 {

@@ -1,40 +1,454 @@
 {
+  "hero": {
+    "greeting": "Bonjour",
+    "intro": "Je m'appelle",
+    "name": "Dorian",
+    "welcome": "Bienvenue sur mon portfolio !",
+    "bgImage": "/img/paysage.webp",
+    "profileImage": "/img/64.webp",
+    "linkedinIcon": "/img/linkedin.webp",
+    "cvLink": "/files/cv.pdf",
+    "linkedinLink": "https://www.linkedin.com/in/dorian-julou/"
+  },
+  "about": {
+    "title": "À propos",
+    "description": "Je suis étudiant en BUT Informatique à l'IUT de Lannion. Je suis passionné par le développement d'application front et back. Je suis quelqu'un de sociable qui apprécie travailler en équipe. Je parle français et anglais.",
+    "cvLink": "/files/cv.pdf"
+  },
   "skills": [
-    { "id": 1, "name": "React", "level": "Avancé" },
-    { "id": 2, "name": "TypeScript", "level": "Intermédiaire" },
-    { "id": 3, "name": "CSS / Tailwind", "level": "Avancé" },
-    { "id": 4, "name": "Node.js", "level": "Débutant" }
+    {
+      "id": 1,
+      "name": "Réaliser un développement d'application",
+      "level": "Avancé",
+      "description": "Conception, programmation, test et maintenance de logiciels. Identification des besoins et architecture."
+    },
+    {
+      "id": 2,
+      "name": "Optimiser des applications",
+      "level": "Intermédiaire",
+      "description": "Améliorer les performances et l'efficacité des algorithmes. Refactorisation et identification des goulots d'étranglement."
+    },
+    {
+      "id": 3,
+      "name": "Administrer des systèmes",
+      "level": "Intermédiaire",
+      "description": "Installation et maintenance des systèmes d'exploitation, gestion des serveurs et réseaux."
+    },
+    {
+      "id": 4,
+      "name": "Gérer des bases de données",
+      "level": "Avancé",
+      "description": "Création et administration de bases de données, gestion de l'intégrité et de la sécurité."
+    },
+    {
+      "id": 5,
+      "name": "Conduire des projets",
+      "level": "Avancé",
+      "description": "Planification et organisation. Définition des objectifs et gestion des délais."
+    },
+    {
+      "id": 6,
+      "name": "Collaborer en équipe informatique",
+      "level": "Avancé",
+      "description": "Résolution collective de problèmes. Partage des responsabilités et adaptation aux changements de rôles."
+    }
+  ],
+  "languages": [
+    {
+      "id": 1,
+      "name": "HTML5",
+      "image": "/img/html.webp",
+      "category": ["Web", "Front-end"]
+    },
+    {
+      "id": 2,
+      "name": "CSS3",
+      "image": "/img/css.webp",
+      "category": ["Web", "Front-end"]
+    },
+    {
+      "id": 3,
+      "name": "React",
+      "image": "/img/react.webp",
+      "category": ["Web", "Front-end"]
+    },
+    {
+      "id": 4,
+      "name": "TypeScript",
+      "image": "/img/typescript.webp",
+      "category": ["Web", "Front-end"]
+    },
+    {
+      "id": 5,
+      "name": "PHP",
+      "image": "/img/php.webp",
+      "category": ["Web", "Back-end", "Front-end"]
+    },
+    {
+      "id": 6,
+      "name": "PostgreSQL",
+      "image": "/img/postgresql.webp",
+      "category": ["Bases de données"]
+    },
+    {
+      "id": 7,
+      "name": "MySQL",
+      "image": "/img/mysql.webp",
+      "category": ["Bases de données"]
+    },
+    {
+      "id": 8,
+      "name": "Git",
+      "image": "/img/git.webp",
+      "category": ["Outils"]
+    },
+    {
+      "id": 9,
+      "name": "Figma",
+      "image": "/img/figma.webp",
+      "category": ["Outils", "Design"]
+    },
+    {
+      "id": 10,
+      "name": "Python",
+      "image": "/img/python.webp",
+      "category": ["Back-end", "Web", "Data", "Algorithmique"]
+    },
+    {
+      "id": 11,
+      "name": "Java",
+      "image": "/img/java.webp",
+      "category": ["Logiciel", "Back-end"]
+    },
+    {
+      "id": 12,
+      "name": "C",
+      "image": "/img/c.webp",
+      "category": ["Algorithmique", "Système", "Logiciel"]
+    },
+    {
+      "id": 13,
+      "name": "Linux",
+      "image": "/img/linux.webp",
+      "category": ["Outils", "Système"]
+    },
+    {
+      "id": 14,
+      "name": "Bash",
+      "image": "/img/bash.webp",
+      "category": ["Outils", "Système"]
+    },
+    {
+      "id": 15,
+      "name": "Jira",
+      "image": "/img/jira.webp",
+      "category": ["Outils"]
+    },
+    {
+      "id": 16,
+      "name": "MongoDB",
+      "image": "/img/mongo.webp",
+      "category": ["Bases de données"]
+    },
+    {
+      "id": 17,
+      "name": "JavaScript",
+      "image": "/img/javascript.webp",
+      "category": ["Web", "Front-end"]
+    },
+    {
+      "id": 18,
+      "name": "IOS",
+      "image": "/img/ios.webp",
+      "category": ["Outils"]
+    },
+    {
+      "id": 19,
+      "name": "Windows",
+      "image": "/img/windows.webp",
+      "category": ["Outils"]
+    },
+    {
+      "id": 20,
+      "name": "UML",
+      "image": "/img/uml.webp",
+      "category": ["Outils"]
+    },
+    {
+      "id": 21,
+      "name": "Apache",
+      "image": "/img/apache.webp",
+      "category": ["Outils"]
+    },
+    {
+      "id": 22,
+      "name": "Gantt",
+      "image": "/img/gantt.webp",
+      "category": ["Outils"]
+    },
+    {
+      "id": 23,
+      "name": "Canva",
+      "image": "/img/canva.webp",
+      "category": ["Outils"]
+    }
   ],
   "formations": [
     {
       "id": 1,
-      "school": "Université de Rennes",
-      "degree": "Master Informatique",
-      "year": "2023 - 2025"
+      "school": "IUT Lannion",
+      "degree": "BUT Informatique",
+      "year": "2023 - 2026",
+      "description": "Apprentissage du développement web, orienté objet, gestion de projet et travail d'équipe."
     },
     {
       "id": 2,
-      "school": "IUT Lannion",
-      "degree": "BUT Informatique",
-      "year": "2020 - 2023"
+      "school": "Lycée Chaptal",
+      "degree": "Baccalauréat Technologique (SIN)",
+      "year": "2020 - 2023",
+      "description": "Option Système Informatique et Numérique. Premiers pas vers le métier de développeur."
     }
   ],
   "projects": [
     {
       "id": 1,
-      "title": "Mon Portfolio V1",
-      "description": "Création d'un portfolio dynamique avec React et Vite.",
-      "tags": ["React", "Vite", "JSON"],
-      "image": "/images/portfolio-preview.jpg",
-      "link": "https://github.com/dorian/portfolio"
+      "title": "Système de Recommandation : MuSE",
+      "description": "Développement d'une solution complète d'intelligence artificielle pour l'industrie musicale. L'objectif est de créer un système de recommandation de musiques performant et une application décisionnelle. Le projet couvre l'intégralité du cycle de la donnée : capture et stockage de données volumineuses, analyse statistique, développement d'algorithmes d'IA, et exposition via une API et un site web sécurisé.",
+      "category": "Scolaire",
+      "tags": [
+        "Réaliser",
+        "Optimiser",
+        "Administrer",
+        "Gérer",
+        "Conduire",
+        "Collaborer"
+      ],
+      "technologies": ["Python", "IA", "Big Data", "PostgreSQL", "API", "HTML", "CSS", "JavaScript"],
+      "image": [
+        "/images/muse1.webp",
+        "/images/muse2.webp",
+        "/images/muse3.webp",
+        "/images/muse4.webp",
+        "/images/muse5.webp"
+      ],
+      "link": "https://github.com/mariuschartier/Code_Sae",
+      "download": ""
     },
     {
       "id": 2,
-      "title": "App Météo",
-      "description": "Application météo utilisant une API externe en temps réel.",
-      "tags": ["API", "JavaScript", "CSS"],
-      "image": "/images/weather-app.jpg",
-      "link": "#"
+      "title": "Plateforme de réservations",
+      "description": "Plateforme complète de gestion d'offres. Elle comprend une interface utilisateur (front) pour découvrir les offres publiées par les professionnels et consulter les avis. Une interface d'administration (back) permet aux pros de se connecter, de publier leurs offres et de consulter les avis laissés.",
+      "category": "Scolaire",
+      "tags": [
+        "Réaliser",
+        "Optimiser",
+        "Administrer",
+        "Gérer",
+        "Conduire",
+        "Collaborer"
+      ],
+      "technologies": ["PHP", "PostgreSQL", "Git", "Jira", "Figma"],
+      "image": [
+        "/images/img_1_pact.webp",
+        "/images/img_2_pact.webp",
+        "/images/img_3_pact.webp",
+        "/images/img_4_pact.webp"
+      ],
+      "link": "",
+      "download": ""
+    },
+    {
+      "id": 3,
+      "title": "Portfolio Personnel",
+      "description": "Conception et développement d'une Single Page Application (SPA) moderne pour présenter mon parcours. Réalisé avec l'écosystème React/TypeScript, ce projet met l'accent sur la performance et l'expérience utilisateur (UX). Il intègre un système de filtrage dynamique des projets, des animations CSS fluides, une architecture de composants réutilisables et un design responsive adaptatif (Mobile First).",
+      "category": "Personnel",
+      "tags": ["Réaliser", "Optimiser", "UI/UX"],
+      "technologies": ["React", "TypeScript", "CSS", "Git"],
+      "image": ["/images/portfolio.webp"],
+      "link": "https://github.com/djulou/Portfolio",
+      "download": ""
+    },
+    {
+      "id": 4,
+      "title": "Jeu de Sudoku",
+      "description": "Développement complet d'un jeu de Sudoku en ligne de commande. Le projet a suivi un cycle de développement rigoureux : maquettage de l'interface, conception des algorithmes en pseudo-code, implémentation en langage C, et validation via un cahier de tests et des traces d'exécution. Une documentation technique a été générée via Doxygen.",
+      "category": "Scolaire",
+      "tags": ["Réaliser", "Tester", "Documenter"],
+      "technologies": ["C"],
+      "image": [
+        "/images/sudoku_1.webp",
+        "/images/sudoku_2.webp",
+        "/images/sudoku_3.webp"
+      ],
+      "link": "",
+      "download": "/files/SAE_101.zip"
+    },
+    {
+      "id": 5,
+      "title": "Le Patio",
+      "description": "Développement d'une application interactive en suivant le paradigme Orienté Objet. Implémentation de la structure logicielle par la traduction stricte d'un diagramme de classes UML en Java. Conception des Interfaces Homme-Machine (IHM) et programmation des contrôleurs pour gérer les événements utilisateurs et lier la vue au modèle.",
+      "category": "Scolaire",
+      "tags": ["Réaliser", "Concevoir", "Tester"],
+      "technologies": ["Java", "UML"],
+      "image": [
+        "/images/patio_1.webp",
+        "/images/patio_2.webp",
+        "/images/patio_3.webp"
+      ],
+      "link": "",
+      "download": ""
+    },
+    {
+      "id": 6,
+      "title": "Résolveur Sudoku & Algorithmes",
+      "description": "Développement d'un résolveur de Sudoku en langage C (SAE 1.02). L'objectif était de comparer l'efficacité de diverses techniques : approches heuristiques (règles logiques, singletons) contre Backtracking (force brute récursive). Le projet inclut une analyse de complexité, des tests de performance, ainsi qu'une documentation technique générée via Doxygen.",
+      "category": "Scolaire",
+      "tags": ["Réaliser", "Optimiser", "Tester"],
+      "technologies": ["C", "Doxygen"],
+      "image": [
+        "/images/sudoku2_1.webp",
+        "/images/sudoku2_2.webp",
+        "/images/sudoku2_3.webp"
+      ],
+      "link": "",
+      "download": "/files/SAE_102.zip"
+    },
+    {
+      "id": 7,
+      "title": "Problème des 8 Reines",
+      "description": "Exploration algorithmique autour du problème des N-Reines (SAÉ 2.02). Le projet visait à dépasser la simple résolution par Backtracking en implémentant des techniques d'optimisation avancées en Python (gestion des contraintes par opérations binaires/bitwise, rupture de symétries) pour réduire la complexité temporelle et résoudre des instances de grande taille.",
+      "category": "Scolaire",
+      "tags": ["Optimiser", "Réaliser", "Algorithmique"],
+      "technologies": ["Python"],
+      "image": [
+        "/images/reine1.webp",
+        "/images/reine2.webp",
+        "/images/reine3.webp"
+      ],
+      "link": "",
+      "download": "/files/SAE_202.zip"
+    },
+    {
+      "id": 8,
+      "title": "Générateur de Documentation Automatisé",
+      "description": "Mise en place d'une chaîne de production de documentation technique (SAÉ 1.03). Le projet combine des scripts PHP (pour extraire les commentaires du code C et convertir du Markdown en HTML) et un environnement Docker pour isoler l'exécution. Un script Bash pilote l'ensemble pour livrer une archive finale (.tgz) prête à l'emploi.",
+      "category": "Scolaire",
+      "tags": ["Administrer", "Réaliser", "Automatiser"],
+      "technologies": ["Docker", "Bash", "PHP"],
+      "image": [
+        "/images/doc1.webp",
+        "/images/doc2.webp",
+        "/images/doc3.webp",
+        "/images/doc4.webp"
+      ],
+      "link": "",
+      "download": "/files/SAE_103.zip"
+    },
+    {
+      "id": 9,
+      "title": "Déploiement Serveur Web & Authentification",
+      "description": "Configuration complète d'un serveur web Apache2 pour héberger une application dynamique. Le projet visait à maîtriser les interactions entre le serveur, le moteur PHP et la base de données SQL. L'aboutissement est un site web fonctionnel intégrant un système de gestion d'utilisateurs (inscription, connexion et espace membre sécurisé).",
+      "category": "Scolaire",
+      "tags": ["Administrer", "Réaliser", "Sécuriser"],
+      "technologies": ["Apache", "PHP", "SQL"],
+      "image": [
+        "/images/apache1.webp",
+        "/images/apache2.webp",
+        "/images/apache3.webp"
+      ],
+      "link": "",
+      "download": "/files/SAE_203.zip"
+    },
+    {
+      "id": 10,
+      "title": "Programme du BUT",
+      "description": "Conception et implémentation d'une base de données relationnelle structurant le Programme National (PN) du BUT Informatique. Le projet a suivi le cycle complet de modélisation : analyse du cahier des charges, élaboration du diagramme de classes (UML) pour la structure conceptuelle, et traduction vers le modèle relationnel pour la création des tables en SQL.",
+      "category": "Scolaire",
+      "tags": ["Gérer", "Réaliser", "Concevoir"],
+      "technologies": ["SQL", "UML"],
+      "image": ["/images/bdd1_1.webp", "/images/bdd1_2.webp"],
+      "link": "",
+      "download": "/files/SAE_104.sql"
+    },
+    {
+      "id": 11,
+      "title": "Collèges de France",
+      "description": "Mise en œuvre d'une chaîne complète de traitement de données (SAÉ 2.04). Le projet a consisté à implémenter une base de données SQL à partir d'un modèle UML, à automatiser l'importation de données réelles (fichiers CSV) concernant les collèges français, et à développer des scripts Python pour interroger la base et générer des statistiques.",
+      "category": "Scolaire",
+      "tags": ["Gérer", "Réaliser", "Exploiter"],
+      "technologies": ["SQL", "Python", "CSV"],
+      "image": ["/images/bdd2_1.webp", "/images/bdd2_2.webp"],
+      "link": "",
+      "download": "/files/SAE_204.zip"
+    },
+    {
+      "id": 12,
+      "title": "Tabas'Kho",
+      "description": "Réalisation complète d'un site vitrine, de la phase de conception à l'intégration. Le projet s'est articulé autour d'une démarche professionnelle : recueil des besoins clients (interview), définition de l'arborescence et de la charte graphique. Le prototypage de l'interface a été réalisé sur Figma avant le développement final en HTML/CSS, avec une gestion de versions sous Git.",
+      "category": "Scolaire",
+      "tags": ["Réaliser", "Maquetter"],
+      "technologies": ["HTML", "CSS", "Figma", "Git"],
+      "image": [
+        "/images/site1.webp",
+        "/images/site2.webp",
+        "/images/site3.webp",
+        "/images/site4.webp"
+      ],
+      "link": "",
+      "download": "/files/SAE_105.zip"
+    },
+    {
+      "id": 13,
+      "title": "Application Guichet",
+      "description": "Gestion complète du cycle de vie d'un projet de développement logiciel (application de billetterie). Ce module s'est concentré sur la méthodologie et l'organisation : définition du périmètre (Note de Cadrage), planification temporelle (Diagrammes de Gantt prévisionnels et réels), répartition des rôles (Matrice RACI) et estimation des coûts. L'analyse des écarts entre le planifié et le réalisé a fait l'objet d'une soutenance.",
+      "category": "Scolaire",
+      "tags": ["Conduire", "Collaborer", "Planifier"],
+      "technologies": ["Gantt", "RACI"],
+      "image": [
+        "/images/gantt1.webp",
+        "/images/gantt2.webp",
+        "/images/gantt3.webp",
+        "/images/gantt4.webp"
+      ],
+      "link": "",
+      "download": "/files/SAE_205.zip"
+    },
+    {
+      "id": 14,
+      "title": "Analyse Économique & RSE : IKEA",
+      "description": "Étude stratégique approfondie du géant de l'ameublement IKEA. Ce projet d'analyse a nécessité la mise en place d'une veille informationnelle pour décrypter le modèle économique de l'entreprise. Un focus majeur a été porté sur sa politique de Responsabilité Sociétale des Entreprises (RSE) et son impact écologique, synthétisé dans un rapport détaillé et défendu lors d'une présentation orale.",
+      "category": "Scolaire",
+      "tags": ["Collaborer", "Analyser", "Communiquer"],
+      "technologies": ["SWOT", "PESTEL", "RSE"],
+      "image": [
+        "/images/ikea1.webp",
+        "/images/ikea2.webp",
+        "/images/ikea3.webp"
+      ],
+      "link": "",
+      "download": "/files/SAE_106.zip"
+    },
+    {
+      "id": 15,
+      "title": "Team Building",
+      "description": "Conception d'une stratégie de communication pour un événement de cohésion d'équipe (Team Building) lié au Festival de Guipavas. Au-delà de l'organisation, ce projet a mis l'accent sur la production de contenus multimédias : élaboration d'un dossier de sponsoring, design de flyers promotionnels et réalisation d'un teaser vidéo, le tout défendu lors d'une soutenance orale.",
+      "category": "Scolaire",
+      "tags": ["Conduire", "Collaborer", "Communiquer", "Designer"],
+      "technologies": ["Canva", "Premiere Pro"],
+      "image": [
+        "/images/hype1.webp",
+        "/images/hype2.webp",
+        "/images/hype3.webp",
+        "/images/hype4.webp"
+      ],
+      "link": "",
+      "download": "/files/SAE_2.06.zip"
     }
+  ],
+  "passions": [
+    "/images/sport.webp",
+    "/images/hand.webp",
+    "/images/info.webp",
+    "/images/voiture.webp"
   ]
 }

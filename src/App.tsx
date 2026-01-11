@@ -1,24 +1,44 @@
-//import { useState, useEffect, useRef } from 'react';
-//import portfolioData from './data/data.json';
+import portfolioData from './data/data.json';
+import { PortfolioData } from './data/types';
 
-//import { PortfolioData } from './data/types.ts';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Passions from './components/Passions';
 
-const App = () => {
-  //const data: PortfolioData = portfolioData;
+import './styles/App.css';
+
+export default function App() {
+  const data: PortfolioData = portfolioData as PortfolioData;
 
   return (
     <>
       <Header />
       <main>
-        <Hero />
-        <About />
+        <Hero data={data.hero} /> 
         
+        <div className="scroll-arrow">
+          <span>▼</span>
+        </div>
+
+        <About 
+          aboutData={data.about} 
+          formationsData={data.formations} 
+        />
+
+        <Skills 
+          skillsData={data.skills} 
+          languagesData={data.languages} 
+        />
+
+
+        {/* 5. On passe la variable FILTRÉE au lieu de data.projects brut */}
+        <Projects data={data.projects} />
+        
+        <Passions data={data.passions} />
       </main>
     </>
   );
-};
-
-export default App;
+}

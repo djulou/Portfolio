@@ -1,3 +1,4 @@
+/* --- Structure de la section (Ton code original) --- */
 .hero {
   position: relative;
   height: 100vh;
@@ -8,7 +9,7 @@
   align-items: center;
 }
 
-/* --- Image de fond avec dégradé intégré --- */
+/* --- Image de fond (Ton code original) --- */
 .paysage {
   position: absolute;
   top: 0;
@@ -20,7 +21,6 @@
   filter: brightness(70%) saturate(120%);
 }
 
-/* --- Dégradé progressif de la photo vers le fond du site --- */
 .hero::after {
   content: "";
   position: absolute;
@@ -31,18 +31,18 @@
   background: linear-gradient(
     to bottom,
     rgba(15, 28, 36, 0) 0%,
-    /* transparent - fusion avec la photo */ rgba(15, 28, 36, 0.6) 40%,
-    /* fondu doux */ rgba(15, 28, 36, 0.9) 70%,
-    /* presque opaque */ #0f1c24 100% /* couleur du fond principal */
+    rgba(15, 28, 36, 0.6) 40%,
+    rgba(15, 28, 36, 0.9) 70%,
+    #0f1c24 100%
   );
   z-index: -1;
 }
 
-/* --- Contenu principal (carte glassmorphism) --- */
+/* --- Contenu principal (Ton code original + ajustement layout) --- */
 .hero-content {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 60px; /* Augmenté un peu pour espacer le texte de la photo */
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -50,9 +50,17 @@
   padding: 40px 60px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   transform: translateY(30px);
+  max-width: 1100px; /* Pour éviter que ça soit trop large sur grand écran */
 }
 
-/* --- Texte d’intro --- */
+/* --- NOUVEAU : Conteneur pour empiler Texte au-dessus des Boutons --- */
+.text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Espace entre le paragraphe et les boutons */
+}
+
+/* --- Typographie (Ton code original) --- */
 .first_texte h1 {
   font-size: 4rem;
   margin-bottom: 10px;
@@ -74,7 +82,44 @@
   margin-top: 10px;
 }
 
-/* --- Portrait --- */
+/* --- NOUVEAU : Zone des boutons (CV + LinkedIn) --- */
+.action-buttons {
+  display: flex;
+  align-items: center; /* Centre verticalement */
+  gap: 20px; /* Espace entre le bouton CV et le logo LinkedIn */
+}
+
+/* Style du bouton CV */
+.action-buttons button {
+  background-color: #f9702c;
+  color: #0f1c24;
+  border: none;
+  padding: 12px 30px; /* Un peu plus grand pour l'équilibre */
+  font-size: 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.action-buttons button:hover {
+  background-color: #ffb75e;
+  transform: translateY(-2px);
+}
+
+/* Style du logo LinkedIn (Plus petit comme demandé) */
+.linkedin-icon {
+  width: 45px; /* Taille réduite */
+  height: 45px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.linkedin-icon:hover {
+  transform: scale(1.1);
+}
+
+/* --- Portrait (Ton code original) --- */
 .profil {
   width: 250px;
   height: 250px;
@@ -89,6 +134,7 @@
   transform: scale(1.05);
 }
 
+/* --- Flèche de scroll (Ton code original) --- */
 .scroll-arrow {
   position: absolute;
   bottom: 30px;
@@ -101,17 +147,7 @@
 }
 
 @keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translate(-50%, 0);
-  }
-  40% {
-    transform: translate(-50%, 10px);
-  }
-  60% {
-    transform: translate(-50%, 5px);
-  }
+  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+  40% { transform: translate(-50%, 10px); }
+  60% { transform: translate(-50%, 5px); }
 }
