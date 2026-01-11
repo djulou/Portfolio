@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <p>
-          &copy; {currentYear} <span className="highlight">Mon Nom</span>. Tous droits réservés.
+          &copy; {currentYear} <span className="highlight">Julou Dorian</span>. Tous droits réservés.
         </p>
         
         <div className="footer-links">
