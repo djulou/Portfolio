@@ -413,6 +413,31 @@
   ],
   "link": "",
   "download": "/files/SAE_205.zip"
+},
+{
+  "id": 14,
+  "title": "Analyse Économique & RSE : IKEA",
+  "description": "Étude stratégique approfondie du géant de l'ameublement IKEA. Ce projet d'analyse a nécessité la mise en place d'une veille informationnelle pour décrypter le modèle économique de l'entreprise. Un focus majeur a été porté sur sa politique de Responsabilité Sociétale des Entreprises (RSE) et son impact écologique, synthétisé dans un rapport détaillé et défendu lors d'une présentation orale.",
+  "category": "Scolaire",
+  "tags": [
+    "Analyser", 
+    "Veiller", 
+    "RSE",
+    "Communiquer",
+    "Collaborer"
+  ],
+  "technologies": [
+    "SWOT",
+    "PESTEL",
+    "RSE"
+  ],
+  "image": [
+    "/images/ikea1.webp",
+    "/images/ikea2.webp",
+    "/images/ikea3.webp"
+  ],
+  "link": "",
+  "download": "/files/SAE_106.zip"
 }
   ],
   "passions": [
