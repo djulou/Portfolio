@@ -69,23 +69,22 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     return lang.category.includes(activeLangFilter);
   });
 
-  // --- LOGIQUE DE FORMATAGE SÉLECTIVE ---
+  // --- LOGIQUE DE FORMATAGE HYBRIDE ---
   const formatTitle = (title: string) => {
     const words = title.split(' ');
     const firstWord = words[0]; 
     const rest = words.slice(1).join(' ');
 
-    // On nettoie le mot pour comparer facilement (ex: "Gérer" -> "gerer")
     const lowerWord = firstWord.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-    // 1. Liste des compétences à mettre en avant
+    // 1. Liste des compétences STARS (Gros titres)
     const highlightMap: { [key: string]: string } = {
       "gerer": "verb-gerer",
       "conduire": "verb-conduire",
       "collaborer": "verb-collaborer"
     };
 
-    // 2. Si le mot est dans notre liste, on applique le style "Star"
+    // CAS A : C'est une compétence STAR -> Style Gros + Dégradé
     if (highlightMap[lowerWord]) {
       return (
         <div className="card-title-highlight">
@@ -97,10 +96,11 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
       );
     }
 
-    // 3. Sinon, style standard (sobre)
+    // CAS B : C'est une autre compétence (Réaliser, etc.) -> Style Standard + Surlignage Violet
     return (
       <h3 className="card-title-standard">
-        {title}
+        {/* On applique la classe violette sur le premier mot */}
+        <span className="verb-purple-highlight">{firstWord}</span> {rest}
       </h3>
     );
   };
