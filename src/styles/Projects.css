@@ -9,22 +9,31 @@
 
 .projet h1.title {
   font-size: 2.5rem;
-  color: #ffb75e;
+  color: #ffffff; /* Texte blanc pour ressortir sur le surlignage */
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   position: relative;
+  display: inline-block; /* Nécessaire pour l'effet marqueur centré */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
 }
 
+/* EFFET SURLIGNAGE VIOLET (STYLE MARQUEUR) */
 .projet h1.title::after {
   content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  background-color: #f9702c;
-  margin: 15px auto 0;
+  position: absolute;
+  left: -10px;
+  bottom: 5px;
+  width: calc(100% + 20px);
+  height: 40%; /* Hauteur du trait */
+  background-color: #6c5ce7; /* Le violet électrique */
+  opacity: 0.8;
+  z-index: -1;
   border-radius: 2px;
+  transform: skewX(-10deg);
 }
 
 /* =========================================
@@ -41,7 +50,8 @@
 .filter-buttons button {
   background-color: transparent;
   color: #eaeaea;
-  border: 1px solid #ffb75e;
+  /* Bordure Violet Clair */
+  border: 1px solid #a29bfe; 
   padding: 8px 20px;
   font-size: 1rem;
   border-radius: 50px;
@@ -52,16 +62,17 @@
 }
 
 .filter-buttons button:hover {
-  background-color: rgba(255, 183, 94, 0.1);
+  background-color: rgba(108, 92, 231, 0.1);
   transform: translateY(-2px);
 }
 
 .filter-buttons button.active {
-  background-color: #f9702c;
-  color: #0f1c24;
-  border-color: #f9702c;
+  /* Violet Électrique au clic */
+  background-color: #6c5ce7; 
+  color: #ffffff;
+  border-color: #6c5ce7;
   font-weight: bold;
-  box-shadow: 0 4px 15px rgba(249, 112, 44, 0.3);
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
 }
 
 /* Conteneur pour le bouton Voir Plus / Voir Moins */
@@ -75,17 +86,18 @@
   padding: 10px 30px;
   font-size: 1.1rem;
   cursor: pointer;
-  background: #f9702c;
-  color: #0f1c24;
+  background: #6c5ce7; /* Violet */
+  color: #ffffff;
   border: none;
   border-radius: 4px;
   font-weight: bold;
   transition: transform 0.2s ease, background-color 0.2s;
+  box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
 }
 
 .view-more-btn:hover {
   transform: translateY(-2px);
-  background-color: #ffb75e;
+  background-color: #a29bfe; /* Violet plus clair au survol */
 }
 
 .view-less-btn {
@@ -133,7 +145,8 @@
 
 .card:hover {
   transform: translateY(-8px);
-  border-color: rgba(255, 183, 94, 0.3);
+  /* Bordure Violette au survol */
+  border-color: rgba(162, 155, 254, 0.5); 
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
@@ -144,6 +157,11 @@
   color: #eaeaea;
   margin: 0;
   margin-right: 60px;
+  transition: color 0.3s;
+}
+
+.card:hover .card_title {
+  color: #a29bfe; /* Le titre devient violet clair au survol de la carte */
 }
 
 .card img {
@@ -179,7 +197,8 @@
 }
 
 .tag-more {
-  background-color: #f9702c !important;
+  /* Pastille "+2" en violet */
+  background-color: #6c5ce7 !important; 
   color: white !important;
   font-weight: bold;
 }
@@ -200,9 +219,9 @@
   letter-spacing: 0.5px;
 }
 
-.sticker-school { background-color: #6c5ce7; }
-.sticker-personal { background-color: #00b894; }
-.sticker-pro { background-color: #e17055; }
+.sticker-school { background-color: #6c5ce7; } /* Violet */
+.sticker-personal { background-color: #00b894; } /* Vert (Gardé pour la variété) */
+.sticker-pro { background-color: #e17055; } /* Orange (Gardé pour la variété) */
 
 
 /* =========================================
@@ -241,8 +260,8 @@
 
 .back-button {
   background: transparent;
-  border: 1px solid #f9702c;
-  color: #f9702c;
+  border: 1px solid #6c5ce7; /* Bordure violette */
+  color: #a29bfe; /* Texte violet clair */
   padding: 10px 25px;
   border-radius: 50px;
   cursor: pointer;
@@ -255,7 +274,7 @@
 }
 
 .back-button:hover {
-  background: #f9702c;
+  background: #6c5ce7;
   color: white;
   transform: translateX(-5px);
 }
@@ -267,7 +286,7 @@
   align-items: flex-start;
 }
 
-/* --- COLONNE CARROUSEL (Visuellement à droite dans le code, gauche dans le design) --- */
+/* --- COLONNE CARROUSEL --- */
 .detail-left {
   flex: 1.5;
   position: relative;
@@ -309,7 +328,7 @@
   transition: all 0.2s;
   z-index: 5;
 }
-.carousel-btn:hover { background: #f9702c; }
+.carousel-btn:hover { background: #6c5ce7; } /* Violet au survol */
 .carousel-btn.prev { left: 20px; }
 .carousel-btn.next { right: 20px; }
 
@@ -329,7 +348,7 @@
   border-radius: 50%; cursor: pointer;
   transition: all 0.3s;
 }
-.dot.active { background: #f9702c; transform: scale(1.3); }
+.dot.active { background: #6c5ce7; transform: scale(1.3); }
 
 
 /* --- COLONNE INFOS (Texte) --- */
@@ -349,7 +368,7 @@
 
 .detail-header h1 {
   font-size: 3.5rem;
-  color: #ffb75e;
+  color: #a29bfe; /* Titre en violet clair */
   margin: 15px 0 0 0;
   line-height: 1.1;
 }
@@ -373,13 +392,14 @@
 }
 
 .detail-tag-item {
-  background-color: rgba(255, 183, 94, 0.1);
-  color: #ffb75e;
+  /* Fond violet très léger */
+  background-color: rgba(108, 92, 231, 0.1); 
+  color: #a29bfe;
   padding: 8px 18px;
   border-radius: 30px;
   font-size: 1rem;
   font-weight: 500;
-  border: 1px solid rgba(255, 183, 94, 0.3);
+  border: 1px solid rgba(108, 92, 231, 0.3);
 }
 
 /* DESCRIPTION */
@@ -447,17 +467,15 @@
    6. BOUTONS D'ACTION (Lien / Download)
    ========================================= */
 
-/* Conteneur qui empile les boutons */
 .left-action-container {
   margin-top: 30px;
   display: flex;
-  flex-direction: column; /* Empile les boutons */
-  gap: 15px;              /* Espace entre les boutons */
+  flex-direction: column; 
+  gap: 15px;              
   justify-content: center;
   width: 100%;
 }
 
-/* Style de base des boutons */
 .detail-link-btn {
   display: inline-block;
   padding: 15px 0;
@@ -475,18 +493,18 @@
   transform: translateY(-3px);
 }
 
-/* Style spécifique : DOWNLOAD (Vert) */
+/* Style spécifique : DOWNLOAD (Violet) */
 .detail-link-btn.download {
-  background-color: #27ae60; 
-  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+  background-color: #6c5ce7; 
+  box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
 }
 
 .detail-link-btn.download:hover {
-  background-color: #2ecc71;
-  box-shadow: 0 10px 20px rgba(39, 174, 96, 0.5);
+  background-color: #a29bfe;
+  box-shadow: 0 10px 20px rgba(108, 92, 231, 0.5);
 }
 
-/* Style spécifique : GITHUB / SITE (Gris foncé ou défaut) */
+/* Style spécifique : GITHUB / SITE (Gris foncé) */
 .detail-link-btn.github {
   background-color: #333; 
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
@@ -501,7 +519,7 @@
    ========================================= */
 @media (max-width: 1024px) {
   .detail-split {
-    flex-direction: column-reverse; /* Image en haut sur mobile */
+    flex-direction: column-reverse; 
     gap: 40px;
   }
   

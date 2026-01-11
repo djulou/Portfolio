@@ -326,7 +326,7 @@
         "/images/reine3.webp"
       ],
       "link": "",
-      "download": "/files/SAE_202.zip"
+      "download": "./files/SAE_202.zip"
     },
     {
       "id": 8,
@@ -342,7 +342,7 @@
         "/images/doc4.webp"
       ],
       "link": "",
-      "download": "/files/SAE_103.zip"
+      "download": "./files/SAE_103.zip"
     },
     {
       "id": 9,
@@ -357,7 +357,7 @@
         "/images/apache3.webp"
       ],
       "link": "",
-      "download": "/files/SAE_203.zip"
+      "download": "./files/SAE_203.zip"
     },
     {
       "id": 10,
@@ -368,7 +368,7 @@
       "technologies": ["SQL", "UML"],
       "image": ["/images/bdd1_1.webp", "/images/bdd1_2.webp"],
       "link": "",
-      "download": "/files/SAE_104.sql"
+      "download": "./files/SAE_104.sql"
     },
     {
       "id": 11,
@@ -379,7 +379,7 @@
       "technologies": ["SQL", "Python", "CSV"],
       "image": ["/images/bdd2_1.webp", "/images/bdd2_2.webp"],
       "link": "",
-      "download": "/files/SAE_204.zip"
+      "download": "./files/SAE_204.zip"
     },
     {
       "id": 12,
@@ -395,7 +395,7 @@
         "/images/site4.webp"
       ],
       "link": "",
-      "download": "/files/SAE_105.zip"
+      "download": "./files/SAE_105.zip"
     },
     {
       "id": 13,
@@ -411,7 +411,7 @@
         "/images/gantt4.webp"
       ],
       "link": "",
-      "download": "/files/SAE_205.zip"
+      "download": "./files/SAE_205.zip"
     },
     {
       "id": 14,
@@ -426,7 +426,7 @@
         "/images/ikea3.webp"
       ],
       "link": "",
-      "download": "/files/SAE_106.zip"
+      "download": "./files/SAE_106.zip"
     },
     {
       "id": 15,
@@ -442,7 +442,7 @@
         "/images/hype4.webp"
       ],
       "link": "",
-      "download": "/files/SAE_2.06.zip"
+      "download": "./files/SAE_2.06.zip"
     }
   ],
   "passions": [
