@@ -28,7 +28,7 @@
 }
 
 /* =========================================
-   2. BOUTONS DE FILTRE
+   2. BOUTONS DE FILTRE & VOIR PLUS
    ========================================= */
 .filter-buttons {
   display: flex;
@@ -62,6 +62,46 @@
   border-color: #f9702c;
   font-weight: bold;
   box-shadow: 0 4px 15px rgba(249, 112, 44, 0.3);
+}
+
+/* Conteneur pour le bouton Voir Plus / Voir Moins */
+.view-more-container {
+  text-align: center;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.view-more-btn {
+  padding: 10px 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: #f9702c;
+  color: #0f1c24;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.view-more-btn:hover {
+  transform: translateY(-2px);
+  background-color: #ffb75e;
+}
+
+.view-less-btn {
+  padding: 10px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: transparent;
+  color: #eaeaea;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.view-less-btn:hover {
+  opacity: 1;
 }
 
 /* =========================================
@@ -227,7 +267,7 @@
   align-items: flex-start;
 }
 
-/* --- COLONNE CARROUSEL (Maintenant à droite visuellement) --- */
+/* --- COLONNE CARROUSEL (Visuellement à droite dans le code, gauche dans le design) --- */
 .detail-left {
   flex: 1.5;
   position: relative;
@@ -292,7 +332,7 @@
 .dot.active { background: #f9702c; transform: scale(1.3); }
 
 
-/* --- COLONNE INFOS (Maintenant à gauche visuellement) --- */
+/* --- COLONNE INFOS (Texte) --- */
 .detail-right {
   flex: 1;
   display: flex;
@@ -324,7 +364,7 @@
   text-transform: uppercase;
 }
 
-/* TAGS (Partie Haute - Verbes) */
+/* TAGS */
 .detail-tags {
   display: flex;
   flex-wrap: wrap;
@@ -351,7 +391,7 @@
   white-space: pre-line;
 }
 
-/* SECTION TECHNOLOGIES (LOGOS - Partie Basse) */
+/* SECTION TECHNOLOGIES (LOGOS) */
 .tech-stack-container {
   margin-top: 10px;
   margin-bottom: 40px;
@@ -375,7 +415,6 @@
   align-items: center;
 }
 
-/* LOGOS SANS HOVER */
 .tech-logo-item {
   display: flex;
   flex-direction: column;
@@ -404,18 +443,23 @@
   text-align: center;
 }
 
-/* BOUTON LIEN (SOUS IMAGE) */
+/* =========================================
+   6. BOUTONS D'ACTION (Lien / Download)
+   ========================================= */
+
+/* Conteneur qui empile les boutons */
 .left-action-container {
   margin-top: 30px;
   display: flex;
+  flex-direction: column; /* Empile les boutons */
+  gap: 15px;              /* Espace entre les boutons */
   justify-content: center;
   width: 100%;
 }
 
+/* Style de base des boutons */
 .detail-link-btn {
   display: inline-block;
-  background-color: #f9702c;
-  color: #fff;
   padding: 15px 0;
   width: 100%;
   border-radius: 12px;
@@ -424,22 +468,40 @@
   font-size: 1.2rem;
   text-align: center;
   transition: all 0.2s;
-  box-shadow: 0 5px 15px rgba(249, 112, 44, 0.4);
+  color: #fff;
 }
 
 .detail-link-btn:hover {
-  background-color: #ffb75e;
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(249, 112, 44, 0.5);
+}
+
+/* Style spécifique : DOWNLOAD (Vert) */
+.detail-link-btn.download {
+  background-color: #27ae60; 
+  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+}
+
+.detail-link-btn.download:hover {
+  background-color: #2ecc71;
+  box-shadow: 0 10px 20px rgba(39, 174, 96, 0.5);
+}
+
+/* Style spécifique : GITHUB / SITE (Gris foncé ou défaut) */
+.detail-link-btn.github {
+  background-color: #333; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.detail-link-btn.github:hover {
+  background-color: #555;
 }
 
 /* =========================================
-   6. RESPONSIVE MOBILE
+   7. RESPONSIVE MOBILE
    ========================================= */
 @media (max-width: 1024px) {
   .detail-split {
-    /* Sur mobile, on inverse la colonne pour que l'image soit en haut */
-    flex-direction: column-reverse; 
+    flex-direction: column-reverse; /* Image en haut sur mobile */
     gap: 40px;
   }
   
@@ -459,43 +521,4 @@
     width: 100%;
     flex: auto;
   }
-}
-
-/* Modification du conteneur pour accepter plusieurs boutons */
-.left-action-container {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column; /* Empile les boutons */
-  gap: 15px;              /* Espace entre les boutons */
-  justify-content: center;
-  width: 100%;
-}
-
-/* Style de base (déjà existant, je le rappelle juste) */
-.detail-link-btn {
-  /* ... ton style existant ... */
-  display: inline-block;
-  background-color: #f9702c; /* Orange par défaut */
-  /* ... */
-}
-
-/* Style spécifique pour le bouton DOWNLOAD (Bleu ou Vert par exemple) */
-.detail-link-btn.download {
-  background-color: #27ae60; /* Vert sympa pour dire "Télécharger" */
-  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
-}
-
-.detail-link-btn.download:hover {
-  background-color: #2ecc71;
-  box-shadow: 0 10px 20px rgba(39, 174, 96, 0.5);
-}
-
-/* Style spécifique pour le bouton GITHUB (Gris sombre ou Violet) */
-.detail-link-btn.github {
-  background-color: #333; /* Couleur GitHub */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-}
-
-.detail-link-btn.github:hover {
-  background-color: #555;
 }

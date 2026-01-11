@@ -86,8 +86,12 @@ export default function Projects({ data }: ProjectsProps) {
   const [activeFilter, setActiveFilter] = useState<string>("Tous");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // --- GESTION DE L'AFFICHAGE (LIMITÉ vs TOUT) ---
+  const [showAll, setShowAll] = useState(false);
+  const PROJECTS_PER_PAGE = 9; 
   const MAX_TAGS_ON_CARD = 8;
 
+  // Mapping des chemins d'images (JSON) vers les imports WebP
   const projectImages: { [key: string]: string } = {
     "/images/img_1_pact.webp": pact1,
     "/images/img_2_pact.webp": pact2,
@@ -170,10 +174,22 @@ export default function Projects({ data }: ProjectsProps) {
     }
   };
 
+  // 1. Filtrage par catégorie
   const filteredProjects = data.filter((project) => {
     if (activeFilter === "Tous") return true;
     return project.category === activeFilter;
   });
+
+  // 2. Découpage pour l'affichage (9 premiers ou tout)
+  const displayedProjects = showAll 
+    ? filteredProjects 
+    : filteredProjects.slice(0, PROJECTS_PER_PAGE);
+
+  // Réinitialiser "Voir plus" quand on change de filtre
+  const handleFilterClick = (category: string) => {
+    setActiveFilter(category);
+    setShowAll(false); 
+  };
 
   const handleNextImage = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -206,20 +222,22 @@ export default function Projects({ data }: ProjectsProps) {
     <section id="projets" className="projet">
       <h1 className="title">Projets</h1>
 
+      {/* BOUTONS FILTRES */}
       <div className="filter-buttons">
         {["Tous", "Scolaire", "Personnel", "Professionnel"].map((category) => (
           <button
             key={category}
             className={activeFilter === category ? "active" : ""}
-            onClick={() => setActiveFilter(category)}
+            onClick={() => handleFilterClick(category)}
           >
             {category}
           </button>
         ))}
       </div>
 
+      {/* GRILLE DES PROJETS */}
       <div className="container">
-        {filteredProjects.map((project) => {
+        {displayedProjects.map((project) => {
           const allTags = [...project.tags, ...project.technologies];
           const firstImage =
             project.image && project.image.length > 0 ? project.image[0] : "";
@@ -254,6 +272,32 @@ export default function Projects({ data }: ProjectsProps) {
         })}
       </div>
 
+      {/* BOUTON VOIR PLUS / VOIR MOINS */}
+      {/* S'il reste des projets cachés, on affiche "Voir plus" */}
+      {!showAll && filteredProjects.length > PROJECTS_PER_PAGE && (
+        <div className="view-more-container">
+          <button 
+            className="view-more-btn"
+            onClick={() => setShowAll(true)}
+          >
+            Voir plus
+          </button>
+        </div>
+      )}
+
+      {/* Si tout est affiché et qu'il y en a beaucoup, on affiche "Voir moins" */}
+      {showAll && filteredProjects.length > PROJECTS_PER_PAGE && (
+         <div className="view-more-container">
+         <button 
+           className="view-less-btn"
+           onClick={() => setShowAll(false)}
+         >
+           Voir moins
+         </button>
+       </div>
+      )}
+
+      {/* MODAL / PAGE DÉTAIL */}
       {selectedProject && (
         <div className="full-page-overlay">
           <div className="full-page-content">
@@ -264,7 +308,8 @@ export default function Projects({ data }: ProjectsProps) {
             </div>
 
             <div className="detail-split">
-              {/* --- 1. PARTIE TEXTE (Maintenant à GAUCHE) --- */}
+              
+              {/* --- COLONNE DROITE : TEXTE --- */}
               <div className="detail-right">
                 <div className="detail-header">
                   <span
@@ -314,6 +359,7 @@ export default function Projects({ data }: ProjectsProps) {
                   )}
               </div>
 
+              {/* --- COLONNE GAUCHE : CARROUSEL & BOUTONS --- */}
               <div className="detail-left">
                 <div className="carousel-wrapper-page">
                   {selectedProject.image.length > 0 && (
@@ -360,10 +406,11 @@ export default function Projects({ data }: ProjectsProps) {
                   )}
                 </div>
 
-                {/* BOUTON SOUS L'IMAGE */}
+                {/* ZONE BOUTONS (LIEN / DOWNLOAD) */}
                 {(selectedProject.link || selectedProject.download) && (
                   <div className="left-action-container">
-                    {/* 1. Bouton Lien (GitHub / Web) */}
+                    
+                    {/* Bouton GitHub / Site */}
                     {selectedProject.link && (
                       <a
                         href={selectedProject.link}
@@ -375,7 +422,7 @@ export default function Projects({ data }: ProjectsProps) {
                       </a>
                     )}
 
-                    {/* 2. Bouton Téléchargement (Zip) */}
+                    {/* Bouton Téléchargement */}
                     {selectedProject.download && (
                       <a
                         href={selectedProject.download}
@@ -388,6 +435,7 @@ export default function Projects({ data }: ProjectsProps) {
                   </div>
                 )}
               </div>
+
             </div>
           </div>
         </div>
