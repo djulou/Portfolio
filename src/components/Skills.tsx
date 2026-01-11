@@ -69,17 +69,31 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     return lang.category.includes(activeLangFilter);
   });
 
-  // Fonction pour déterminer le style de la carte (Bordure violette ou standard)
+  // 1. Fonction pour la BORDURE de la carte (Conteneur)
   const getCardClass = (title: string) => {
     const firstWord = title.split(' ')[0].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     
-    // Les 3 compétences clés à mettre en valeur
+    // Top 3 à mettre en avant avec la bordure
     const highlightWords = ["gerer", "conduire", "collaborer"];
 
     if (highlightWords.includes(firstWord)) {
       return "highlight-card"; // Bordure violette + Glow
     }
     return "standard-card";    // Bordure fine grise
+  };
+
+  // 2. Fonction pour le TEXTE (Le premier mot toujours surligné)
+  const formatTitle = (title: string) => {
+    const words = title.split(' ');
+    const firstWord = words[0];
+    const rest = words.slice(1).join(' ');
+
+    return (
+      <h3 className="card-title">
+        {/* On applique le style marqueur à TOUS les premiers mots */}
+        <span className="verb-purple-highlight">{firstWord}</span> {rest}
+      </h3>
+    );
   };
 
   return (
@@ -110,10 +124,11 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
             {skillsData.map((skill) => (
               <div 
                 key={skill.id} 
-                // On applique ici la classe dynamique
+                // On applique la classe de bordure
                 className={`skill-card ${getCardClass(skill.name)}`}
               > 
-                <h3 className="card-title">{skill.name}</h3>
+                {/* On applique le formatage du texte */}
+                {formatTitle(skill.name)}
                 
                 {skill.description && (
                   <p className="description">{skill.description}</p>

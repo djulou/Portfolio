@@ -79,7 +79,7 @@
   gap: 30px;
 }
 
-/* --- STYLE DE BASE DE LA CARTE --- */
+/* --- STYLE GÉNÉRAL DE LA CARTE --- */
 .skill-card {
   background-color: #16202a;
   border-radius: 12px;
@@ -101,48 +101,63 @@
   margin-top: auto; 
 }
 
-/* --- A. CARTES "STANDARD" (Réaliser, Optimiser...) --- */
+/* --- LOGIQUE DES BORDURES (HIÉRARCHIE) --- */
+
+/* A. CARTES "STANDARD" (Réaliser, Optimiser...) */
 .skill-card.standard-card {
-  /* Bordure très fine et discrète */
   border: 1px solid rgba(255, 255, 255, 0.08); 
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
-
 .skill-card.standard-card:hover {
   border-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-3px);
 }
 
-.skill-card.standard-card .card-title {
+/* B. CARTES "HIGHLIGHT" (Gérer, Conduire...) */
+.skill-card.highlight-card {
+  border: 2px solid #6c5ce7; /* Bordure Violette */
+  box-shadow: 0 0 20px rgba(108, 92, 231, 0.15); /* Glow */
+  background-color: rgba(108, 92, 231, 0.03); 
+}
+.skill-card.highlight-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(108, 92, 231, 0.3);
+  border-color: #8e78ff; 
+}
+
+/* --- LE TEXTE AVEC SURLIGNAGE (POUR TOUS) --- */
+.card-title {
   color: #eaeaea;
   font-size: 1.4rem;
   font-weight: 600;
-  margin-bottom: 15px;
-}
-
-/* --- B. CARTES "HIGHLIGHT" (Gérer, Conduire...) --- */
-.skill-card.highlight-card {
-  /* Bordure VIOLETTE plus épaisse */
-  border: 2px solid #6c5ce7; 
-  /* Ombre portée violette (effet Glow) */
-  box-shadow: 0 0 20px rgba(108, 92, 231, 0.15);
-  background-color: rgba(108, 92, 231, 0.03); /* Fond très légèrement teinté */
-}
-
-.skill-card.highlight-card:hover {
-  transform: translateY(-5px) scale(1.02); /* Légèrement plus gros au survol */
-  box-shadow: 0 10px 30px rgba(108, 92, 231, 0.3);
-  border-color: #8e78ff; /* Violet plus clair au survol */
-}
-
-.skill-card.highlight-card .card-title {
-  color: #a29bfe; /* Titre en violet clair */
-  font-size: 1.6rem; /* Un peu plus gros */
-  font-weight: 800;
-  text-transform: uppercase; /* En majuscule pour l'importance */
   margin-bottom: 20px;
-  letter-spacing: 1px;
+  line-height: 1.4;
 }
+
+/* L'EFFET MARQUEUR VIOLET SUR LE MOT IMPORTANT */
+.verb-purple-highlight {
+  position: relative;
+  font-weight: 800;
+  color: #ffffff; 
+  z-index: 1;
+  padding: 0 4px; 
+  margin-right: 4px;
+}
+
+.verb-purple-highlight::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 3px;      
+  width: 100%;
+  height: 60%;      
+  background-color: #6c5ce7; /* Le violet électrique */
+  opacity: 0.8;     
+  z-index: -1;
+  border-radius: 2px;
+  transform: skewX(-10deg); 
+}
+
 
 /* =========================================
    4. GRILLE LANGAGES
