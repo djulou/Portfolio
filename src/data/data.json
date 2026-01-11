@@ -54,26 +54,126 @@
     }
   ],
   "languages": [
-    { "id": 1, "name": "HTML5", "image": "/img/html.webp", "category": ["Web", "Front-end"] },
-    { "id": 2, "name": "CSS3", "image": "/img/css.webp", "category": ["Web", "Front-end"] },
-    { "id": 3, "name": "React", "image": "/img/react.webp", "category": ["Web", "Front-end"] },
-    { "id": 4, "name": "TypeScript", "image": "/img/typescript.webp", "category": ["Web", "Front-end"] },
-    { "id": 5, "name": "PHP", "image": "/img/php.webp", "category": ["Web", "Back-end", "Front-end"] },
-    { "id": 6, "name": "PostgreSQL", "image": "/img/postgresql.webp", "category": ["Bases de données"] },
-    { "id": 7, "name": "MySQL", "image": "/img/mysql.webp", "category": ["Bases de données"] },
-    { "id": 8, "name": "Git", "image": "/img/git.webp", "category": ["Outils"] },
-    { "id": 9, "name": "Figma", "image": "/img/figma.webp", "category": ["Outils", "Design"] },
-    { "id": 10, "name": "Python", "image": "/img/python.webp", "category": ["Back-end", "Web", "Data", "Algorithmique"] },
-    { "id": 11, "name": "Java", "image": "/img/java.webp", "category": ["Logiciel", "Back-end"] },
-    { "id": 12, "name": "C", "image": "/img/c.webp", "category": ["Algorithmique", "Système", "Logiciel"] },
-    { "id": 13, "name": "Linux", "image": "/img/linux.webp", "category": ["Outils", "Système"] },
-    { "id": 14, "name": "Bash", "image": "/img/bash.webp", "category": ["Outils", "Système"] },
-    { "id": 15, "name": "Jira", "image": "/img/jira.webp", "category": ["Outils"] },
-    { "id": 16, "name": "MongoDB", "image": "/img/mongo.webp", "category": ["Bases de données"] },
-    { "id": 17, "name": "JavaScript", "image": "/img/javascript.webp", "category": ["Web", "Front-end"] },
-    { "id": 18, "name": "IOS", "image": "/img/ios.webp", "category": ["Outils"] },
-    { "id": 19, "name": "Windows", "image": "/img/windows.webp", "category": ["Outils"] },
-    { "id": 20, "name": "UML", "image": "/img/uml.webp", "category": ["Outils"] }
+    {
+      "id": 1,
+      "name": "HTML5",
+      "image": "/img/html.webp",
+      "category": ["Web", "Front-end"]
+    },
+    {
+      "id": 2,
+      "name": "CSS3",
+      "image": "/img/css.webp",
+      "category": ["Web", "Front-end"]
+    },
+    {
+      "id": 3,
+      "name": "React",
+      "image": "/img/react.webp",
+      "category": ["Web", "Front-end"]
+    },
+    {
+      "id": 4,
+      "name": "TypeScript",
+      "image": "/img/typescript.webp",
+      "category": ["Web", "Front-end"]
+    },
+    {
+      "id": 5,
+      "name": "PHP",
+      "image": "/img/php.webp",
+      "category": ["Web", "Back-end", "Front-end"]
+    },
+    {
+      "id": 6,
+      "name": "PostgreSQL",
+      "image": "/img/postgresql.webp",
+      "category": ["Bases de données"]
+    },
+    {
+      "id": 7,
+      "name": "MySQL",
+      "image": "/img/mysql.webp",
+      "category": ["Bases de données"]
+    },
+    {
+      "id": 8,
+      "name": "Git",
+      "image": "/img/git.webp",
+      "category": ["Outils"]
+    },
+    {
+      "id": 9,
+      "name": "Figma",
+      "image": "/img/figma.webp",
+      "category": ["Outils", "Design"]
+    },
+    {
+      "id": 10,
+      "name": "Python",
+      "image": "/img/python.webp",
+      "category": ["Back-end", "Web", "Data", "Algorithmique"]
+    },
+    {
+      "id": 11,
+      "name": "Java",
+      "image": "/img/java.webp",
+      "category": ["Logiciel", "Back-end"]
+    },
+    {
+      "id": 12,
+      "name": "C",
+      "image": "/img/c.webp",
+      "category": ["Algorithmique", "Système", "Logiciel"]
+    },
+    {
+      "id": 13,
+      "name": "Linux",
+      "image": "/img/linux.webp",
+      "category": ["Outils", "Système"]
+    },
+    {
+      "id": 14,
+      "name": "Bash",
+      "image": "/img/bash.webp",
+      "category": ["Outils", "Système"]
+    },
+    {
+      "id": 15,
+      "name": "Jira",
+      "image": "/img/jira.webp",
+      "category": ["Outils"]
+    },
+    {
+      "id": 16,
+      "name": "MongoDB",
+      "image": "/img/mongo.webp",
+      "category": ["Bases de données"]
+    },
+    {
+      "id": 17,
+      "name": "JavaScript",
+      "image": "/img/javascript.webp",
+      "category": ["Web", "Front-end"]
+    },
+    {
+      "id": 18,
+      "name": "IOS",
+      "image": "/img/ios.webp",
+      "category": ["Outils"]
+    },
+    {
+      "id": 19,
+      "name": "Windows",
+      "image": "/img/windows.webp",
+      "category": ["Outils"]
+    },
+    {
+      "id": 20,
+      "name": "UML",
+      "image": "/img/uml.webp",
+      "category": ["Outils"]
+    }
   ],
   "formations": [
     {
@@ -93,48 +193,35 @@
   ],
   "projects": [
     {
-      "id": 1,
+      "id": 2,
       "title": "Plateforme de réservations",
       "description": "Plateforme complète de gestion d'offres. Elle comprend une interface utilisateur (front) pour découvrir les offres publiées par les professionnels et consulter les avis. Une interface d'administration (back) permet aux pros de se connecter, de publier leurs offres et de consulter les avis laissés.",
       "category": "Scolaire",
       "tags": [
-        "Réaliser", 
-        "Optimiser", 
-        "Administrer", 
-        "Gérer", 
-        "Conduire", 
+        "Réaliser",
+        "Optimiser",
+        "Administrer",
+        "Gérer",
+        "Conduire",
         "Collaborer"
       ],
-      "technologies": [
-        "PHP", 
-        "PostgreSQL", 
-        "Git", 
-        "Jira", 
-        "Figma"
-      ],
+      "technologies": ["PHP", "PostgreSQL", "Git", "Jira", "Figma"],
       "image": [
-        "/images/img_1_pact.webp", 
-        "/images/img_2_pact.webp", 
-        "/images/img_3_pact.webp", 
+        "/images/img_1_pact.webp",
+        "/images/img_2_pact.webp",
+        "/images/img_3_pact.webp",
         "/images/img_4_pact.webp"
       ],
       "link": "",
       "download": ""
     },
     {
-      "id": 2,
+      "id": 4,
       "title": "Jeu de Sudoku",
       "description": "Développement complet d'un jeu de Sudoku en ligne de commande. Le projet a suivi un cycle de développement rigoureux : maquettage de l'interface, conception des algorithmes en pseudo-code, implémentation en langage C, et validation via un cahier de tests et des traces d'exécution. Une documentation technique a été générée via Doxygen.",
       "category": "Scolaire",
-      "tags": [
-        "Concevoir", 
-        "Réaliser", 
-        "Documenter",
-        "Tester"
-      ],
-      "technologies": [
-        "C"
-      ],
+      "tags": ["Concevoir", "Réaliser", "Documenter", "Tester"],
+      "technologies": ["C"],
       "image": [
         "/images/sudoku_1.webp",
         "/images/sudoku_2.webp",
@@ -144,19 +231,12 @@
       "download": "/files/SAE_1.01.zip"
     },
     {
-      "id": 3,
+      "id": 5,
       "title": "Le Patio",
       "description": "Développement d'une application interactive en suivant le paradigme Orienté Objet. Implémentation de la structure logicielle par la traduction stricte d'un diagramme de classes UML en Java. Conception des Interfaces Homme-Machine (IHM) et programmation des contrôleurs pour gérer les événements utilisateurs et lier la vue au modèle.",
       "category": "Scolaire",
-      "tags": [
-        "Concevoir", 
-        "Réaliser", 
-        "Tester"
-      ],
-      "technologies": [
-        "Java",
-        "UML"
-      ],
+      "tags": ["Concevoir", "Réaliser", "Tester"],
+      "technologies": ["Java", "UML"],
       "image": [
         "/images/patio_1.webp",
         "/images/patio_2.webp",
@@ -164,6 +244,21 @@
       ],
       "link": "",
       "download": ""
+    },
+    {
+      "id": 6,
+      "title": "Résolveur Sudoku & Algorithmes",
+      "description": "Développement d'un résolveur de Sudoku en langage C (SAE 1.02). L'objectif était de comparer l'efficacité de diverses techniques : approches heuristiques (règles logiques, singletons) contre Backtracking (force brute récursive). Le projet inclut une analyse de complexité, des tests de performance, ainsi qu'une documentation technique générée via Doxygen.",
+      "category": "Scolaire",
+      "tags": ["Concevoir", "Réaliser", "Optimiser", "Tester"],
+      "technologies": ["C", "Doxygen"],
+      "image": [
+        "/images/sudoku2_1.webp",
+        "/images/sudoku2_2.webp",
+        "/images/sudoku2_3.webp"
+      ],
+      "link": "",
+      "download": "/files/SAE_1.02.zip"
     }
   ],
   "passions": [
