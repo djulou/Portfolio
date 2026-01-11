@@ -47,3 +47,22 @@
 }
 
 /* Version mobile : garde tout centré, c'est déjà géré par le flex-column ci-dessus */
+
+.footer-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: 0.9rem; /* Même taille que vos liens */
+  color: #f1f1f1;    /* Même couleur que vos liens */
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.footer-link-btn:hover {
+  opacity: 1;
+  color: #646cff; /* Votre couleur de survol */
+  text-decoration: underline;
+}
