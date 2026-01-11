@@ -69,40 +69,17 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     return lang.category.includes(activeLangFilter);
   });
 
-  // --- LOGIQUE DE FORMATAGE HYBRIDE ---
-  const formatTitle = (title: string) => {
-    const words = title.split(' ');
-    const firstWord = words[0]; 
-    const rest = words.slice(1).join(' ');
+  // Fonction pour déterminer le style de la carte (Bordure violette ou standard)
+  const getCardClass = (title: string) => {
+    const firstWord = title.split(' ')[0].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    
+    // Les 3 compétences clés à mettre en valeur
+    const highlightWords = ["gerer", "conduire", "collaborer"];
 
-    const lowerWord = firstWord.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-    // 1. Liste des compétences STARS (Gros titres)
-    const highlightMap: { [key: string]: string } = {
-      "gerer": "verb-gerer",
-      "conduire": "verb-conduire",
-      "collaborer": "verb-collaborer"
-    };
-
-    // CAS A : C'est une compétence STAR -> Style Gros + Dégradé
-    if (highlightMap[lowerWord]) {
-      return (
-        <div className="card-title-highlight">
-          <span className={`verb-big ${highlightMap[lowerWord]}`}>
-            {firstWord}
-          </span>
-          <span className="title-rest">{rest}</span>
-        </div>
-      );
+    if (highlightWords.includes(firstWord)) {
+      return "highlight-card"; // Bordure violette + Glow
     }
-
-    // CAS B : C'est une autre compétence (Réaliser, etc.) -> Style Standard + Surlignage Violet
-    return (
-      <h3 className="card-title-standard">
-        {/* On applique la classe violette sur le premier mot */}
-        <span className="verb-purple-highlight">{firstWord}</span> {rest}
-      </h3>
-    );
+    return "standard-card";    // Bordure fine grise
   };
 
   return (
@@ -131,8 +108,12 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
         {activeTab === 'but' && (
           <div className="competences-grid">
             {skillsData.map((skill) => (
-              <div key={skill.id} className="skill-card"> 
-                {formatTitle(skill.name)}
+              <div 
+                key={skill.id} 
+                // On applique ici la classe dynamique
+                className={`skill-card ${getCardClass(skill.name)}`}
+              > 
+                <h3 className="card-title">{skill.name}</h3>
                 
                 {skill.description && (
                   <p className="description">{skill.description}</p>
