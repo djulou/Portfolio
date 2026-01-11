@@ -71,7 +71,7 @@
 }
 
 /* =========================================
-   3. GRILLE COMPÉTENCES (BUT)
+   3. GRILLE COMPÉTENCES (BUT) - LE STYLE BORDURE
    ========================================= */
 .competences-grid {
   display: grid;
@@ -81,95 +81,77 @@
 
 .skill-card {
   background-color: #16202a;
+  /* Bordure de base, transparente ou très fine */
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 40px 30px; /* Un peu plus de padding pour aérer */
-  text-align: center;
+  /* On ajoute une bordure gauche plus épaisse pour le style "Card/Dossier" */
+  border-left: 5px solid #444; 
+  border-radius: 8px; /* Moins arrondi pour faire plus sérieux */
+  padding: 30px;
+  text-align: left; /* Retour à l'alignement gauche, souvent plus lisible */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centre tout le contenu */
-  justify-content: flex-start;
-  min-height: 250px;
-  position: relative;
-  overflow: hidden;
+  justify-content: center;
+  min-height: 200px;
 }
 
 .skill-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(255, 183, 94, 0.3);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  background-color: #1b2631; /* Légèrement plus clair au survol */
 }
 
-/* Conteneur du titre dans la carte */
-.skill-card .card-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  width: 100%;
+/* --- COULEURS DES BORDURES PAR TYPE --- */
+
+/* GÉRER : Bleu (Sagesse/Orga) */
+.skill-card.border-gerer {
+  border-left-color: #4facfe;
 }
+.skill-card.border-gerer:hover {
+  box-shadow: 0 10px 30px rgba(79, 172, 254, 0.15); /* Lueur bleue */
+  border-color: rgba(79, 172, 254, 0.3); /* La bordure fine autour s'allume aussi */
+}
+
+/* CONDUIRE : Orange (Action/Leader) */
+.skill-card.border-conduire {
+  border-left-color: #f9702c;
+}
+.skill-card.border-conduire:hover {
+  box-shadow: 0 10px 30px rgba(249, 112, 44, 0.15); /* Lueur orange */
+  border-color: rgba(249, 112, 44, 0.3);
+}
+
+/* COLLABORER : Vert (Humain) */
+.skill-card.border-collaborer {
+  border-left-color: #43e97b;
+}
+.skill-card.border-collaborer:hover {
+  box-shadow: 0 10px 30px rgba(67, 233, 123, 0.15); /* Lueur verte */
+  border-color: rgba(67, 233, 123, 0.3);
+}
+
+
+/* --- LE TITRE DANS LA CARTE --- */
+.skill-card .card-title {
+  color: #eaeaea;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  /* On remet l'affichage normal */
+  display: block; 
+}
+
+/* On met juste le premier mot (le verbe) en couleur accordée à la bordure */
+.skill-card.border-gerer .first-word { color: #4facfe; }
+.skill-card.border-conduire .first-word { color: #f9702c; }
+.skill-card.border-collaborer .first-word { color: #43e97b; }
 
 .skill-card .description {
   color: #cbd5e0;
   font-size: 1rem;
   line-height: 1.6;
-  margin-top: auto; /* Pousse le texte vers le bas si besoin */
 }
 
-/* =========================================
-   4. HIGHLIGHT DES VERBES (Style Premium)
-   ========================================= */
-
-/* Style de base pour les gros verbes */
-.verb-highlight {
-  font-size: 2.2rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  line-height: 1.1;
-  
-  /* Magie du dégradé sur le texte */
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  
-  transition: transform 0.3s ease;
-}
-
-/* GÉRER : Dégradé Bleu/Cyan (Sagesse, Organisation) */
-.verb-gerer {
-  background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  filter: drop-shadow(0 0 15px rgba(79, 172, 254, 0.2));
-}
-
-/* CONDUIRE : Dégradé Orange/Or (Action, Leader) - Accordé à votre thème */
-.verb-conduire {
-  background-image: linear-gradient(135deg, #f9702c 0%, #ffb75e 100%);
-  filter: drop-shadow(0 0 15px rgba(249, 112, 44, 0.2));
-}
-
-/* COLLABORER : Dégradé Vert/Turquoise (Humain, Équipe) */
-.verb-collaborer {
-  background-image: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-  filter: drop-shadow(0 0 15px rgba(67, 233, 123, 0.2));
-}
-
-/* La suite de la phrase sous le verbe */
-.title-rest {
-  font-size: 1.1rem;
-  color: #eaeaea;
-  font-weight: 400;
-  opacity: 0.8;
-  letter-spacing: 0.5px;
-}
-
-/* Effet au survol de la carte entière */
-.skill-card:hover .verb-highlight {
-  transform: scale(1.1);
-}
 
 /* =========================================
    5. GRILLE LANGAGES
@@ -254,9 +236,8 @@
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Bouton actif (Sous-filtre) */
 .sub-filter-btn.active {
-  background-color: rgba(249, 112, 44, 0.15); /* Orange très léger */
+  background-color: rgba(249, 112, 44, 0.15); 
   color: #f9702c;
   border-color: #f9702c;
   font-weight: 600;
