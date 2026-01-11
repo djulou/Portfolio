@@ -1,0 +1,146 @@
+
+
+
+CREATE TABLE Competences(
+	lib_competence VARCHAR(100),
+CONSTRAINT Competences_pk PRIMARY KEY (lib_competences)
+);
+
+
+CREATE TABLE Activites(
+	lib_activite VARCHAR(100),
+CONSTRAINT activite_pk PRIMARY KEY (lib_activite)
+);
+
+
+CREATE TABLE Activites(
+	numero_n INTEGER,
+CONSTRAINT activite_pk PRIMARY KEY (numero_N)
+);
+
+CREATE TABLE Semestre(
+	numero_sem INTEGER,
+CONSTRAINT semestre_pk PRIMARY KEY (numero_sem)
+);
+
+CREATE TABLE UE(
+	code_UE CHAR(5),
+CONSTRAINT ue_pk PRIMARY KEY (code_UE)
+);
+
+CREATE TABLE Parcours(
+	code_P CHAR(3),
+	libelle_parcours VARCHAR(100),
+	nbre_gpe_TD_P INTEGER,
+	nbre_gpe_TP_P INTEGER,
+CONSTRAINT parcours_pk PRIMARY KEY (code_P)
+);
+
+
+
+
+
+
+
+
+
+CREATE TABLE Ressources(
+	code_R CHAR(5),
+	lib_R VARCHAR(100),
+	nb_h_CM_PN INTEGER,
+	nb_h_TD_PN INTEGER,
+	nb_h_TP_PN INTEGER,
+CONSTRAINT ressources_pk PRIMARY KEY (code_R)
+);
+
+CREATE TABLE _SAE(
+	code_SAE CHAR(5),
+	lib_SAE VARCHAR(100),
+	nb_h_TD_enc INTEGER,
+	nb_h_TD_projet_autonomie INTEGER,
+CONSTRAINT sae_pk PRIMARY KEY (code_SAE)
+);
+
+
+
+
+
+
+
+CREATE TABLE _releve_de(
+	lib_competence VARCHAR(100),
+	lib_activite VARCHAR(100),
+CONSTRAINT releve_de_pk PRIMARY KEY (lib_competence),
+CONSTRAINT releve_de_fk1 FOREIGN KEY (lib_activite)
+REFERENCES Activites(lib_activite)
+CONSTRAINT releve_de_fk2 FOREIGN KEY(lib_competence)
+REFERENCE Competences(lib_competence));
+
+CREATE TABLE _est_realisee_dans(
+	lib_activite VARCHAR(100),
+	code_UE CHAR(5),
+CONSTRAINT est_realisee_dans_pk PRIMARY KEY (lib_activite),
+CONSTRAINT est_realisee_dans_fk1 FOREIGN KEY (code_ue)
+REFERENCES ue(code_ue),
+CONSTRAINT est_realisee_dans_fk2 FOREIGN KEY (lib_activite),
+REFERENCES activite(lib_activite));
+
+
+CREATE TABLE _dans(
+	numero_sem CHAR(5),
+	code_UE CHAR(5),
+CONSTRAINT dans_pk PRIMARY KEY (code_ue),
+CONSTRAINT dans_fk1 FOREIGN KEY (numero_sem),
+REFERENCES semestre(numero_sem),
+CONSTRAINT dans_fk2 FOREIGN KEY (code_ue),
+REFERENCES ue(code_ue));
+CREATE TABLE _fait_partie(
+	numero_sem CHAR(5),
+	numero_n CHAR(5),
+CONSTRAINT _fait_partie_pk PRIMARY KEY (numero_n),
+CONSTRAINT _fait_partie_fk1 FOREIGN KEY (numero_sem),
+REFERENCES _semestre(numero_sem),
+CONSTRAINT fait_partie_fk2 FOREIGN KEY (numero_n),
+REFERENCES niveau(numero_n));
+
+CREATE TABLE _correspond(
+	lib_activite VARCHAR(100),
+	numero_n INTEGER
+	code_p CHAR(3),
+CONSTRAINT correspond_pk PRIMARY KEY (lib_activite),
+CONSTRAINT correspond_fk1 FOREIGN KEY(numero_n)
+REFERENCES niveau(numero_n),
+CONSTRAINT correspond _fk2 FOREIGN KEY (code_p)
+REFERENCES parcours(code_p),
+CONSTRAINT correspond_fk3 FOREIGN KEY(lib_activite)
+REFERENCES activites(lib_activite));
+
+CREATE TABLE _est_enseigne(
+	code_p CHAR(3),
+	code_r CHAR(5),
+CONSTRAINT est_enseigne_pk PRIMARY KEY (code_r),
+CONSTRAINT est_enseigne_fk1 FOREIGN KEY (code_p)
+REFERENCES parcours(code_p),
+CONSTRAINT est_enseigne_fk2 FOREIGN KEY (code_r)
+REFERENCES ressources(code_r));
+
+CREATE TABLE _quand(
+	numero_sem CHAR(5),
+	code_r CHAR(5),
+CONSTRAINT quand_pk PRIMARY KEY (code_r),
+CONSTRAINT quand_fk1 FOREIGN KEY (numero_sem)
+REFERENCES semestre(numero_sem),
+CONSTRAINT est_enseigne_fk2 FOREIGN KEY (code_r)
+REFERENCES ressources(code_r));
+
+CREATE TABLE comprend_r(
+	code_r CHAR(5),
+	code_sae CHAR(5),
+	nb_h_tp_c INTEGER,
+	nb_h_td_c INTEGER,
+CONSTRAINT comprend_r_pk PRIMARY KEY (code_r, code_sae),
+CONSTRAINT comprend_r_fk1 FOREIGN KEY (code_r)
+REFERENCES ressources(code_r),
+CONSTRAINT comprend_r_fk2 FOREIGN KEY (code_sae)
+REFERENCES sae(code_sae);
+	

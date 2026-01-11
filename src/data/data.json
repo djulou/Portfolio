@@ -315,6 +315,49 @@
   ],
   "link": "",
   "download": "/files/SAE_2.03.zip"
+},
+{
+  "id": 10,
+  "title": "Modélisation BDD : Programme du BUT",
+  "description": "Conception et implémentation d'une base de données relationnelle structurant le Programme National (PN) du BUT Informatique. Le projet a suivi le cycle complet de modélisation : analyse du cahier des charges, élaboration du diagramme de classes (UML) pour la structure conceptuelle, et traduction vers le modèle relationnel pour la création des tables en SQL.",
+  "category": "Scolaire",
+  "tags": [
+    "Modéliser",
+    "Concevoir",
+    "Gérer"
+  ],
+  "technologies": [
+    "SQL",
+    "UML"
+  ],
+  "image": [
+    "/images/bdd1_1.webp",
+    "/images/bdd1_2.webp"
+  ],
+  "link": "",
+  "download": "/files/SAE_1.04.sql"
+},
+{
+  "id": 11,
+  "title": "Exploitation BDD & Analyse : Collèges de France",
+  "description": "Mise en œuvre d'une chaîne complète de traitement de données (SAÉ 2.04). Le projet a consisté à implémenter une base de données SQL à partir d'un modèle UML, à automatiser l'importation de données réelles (fichiers CSV) concernant les collèges français, et à développer des scripts Python pour interroger la base et générer des statistiques.",
+  "category": "Scolaire",
+  "tags": [
+    "Exploiter",
+    "Analyser",
+    "Gérer"
+  ],
+  "technologies": [
+    "SQL",
+    "Python",
+    "CSV"
+  ],
+  "image": [
+    "/images/bdd2_1.webp",
+    "/images/bdd2_2.webp"
+  ],
+  "link": "",
+  "download": "/files/SAE_2.04.zip"
 }
   ],
   "passions": [
