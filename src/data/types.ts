@@ -66,9 +66,9 @@ export interface PortfolioData {
   skills: Skill[];
   formations: Formation[];
   projects: Project[];
-  passions: string[]; // Ajouté
   languages: Language[];
   experiences: Experience[];
+  passions: PassionItem[];
 }
 
 export interface Language {
