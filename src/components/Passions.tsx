@@ -1,20 +1,21 @@
 import { useState } from 'react';
 import '../styles/Passions.css';
+import { PassionItem } from '../data/types';
 
-// --- Imports images (Garde tes imports ici) ---
+// --- Imports images ---
 import sportImg from '../../public/img/sport.webp'; 
 import handImg from '../../public/img/hand.webp';
 import infoImg from '../../public/img/info.webp';
 import voitureImg from '../../public/img/voiture.webp';
 
+
 interface PassionsProps {
-  data: string[]; 
+  data: PassionItem[]; // On attend maintenant un tableau d'objets
 }
 
 export default function Passions({ data }: PassionsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // --- Ton Dictionnaire d'images ---
   const imagesMap: { [key: string]: string } = {
     "/images/sport.webp": sportImg,
     "/images/hand.webp": handImg,
@@ -32,12 +33,12 @@ export default function Passions({ data }: PassionsProps) {
 
   if (!data || data.length === 0) return null;
 
-  const currentKey = data[currentIndex];
-  const imageToDisplay = imagesMap[currentKey] || currentKey;
+  // On récupère l'objet complet (image + textes)
+  const currentItem = data[currentIndex];
+  const imageToDisplay = imagesMap[currentItem.image] || currentItem.image;
 
   return (
     <section id="passions" className="passion">
-      {/* Titre identique à Formation */}
       <h1>Passions</h1>
 
       <div className="carousel">
@@ -46,13 +47,18 @@ export default function Passions({ data }: PassionsProps) {
         <div className="slides">
             <img 
               src={imageToDisplay} 
-              alt={`passion ${currentIndex + 1}`} 
+              alt={currentItem.title} 
             />
+            
+            {/* --- NOUVEAU : Bloc de texte --- */}
+            <div className="passion-caption">
+              <h3>{currentItem.title}</h3>
+              <p>{currentItem.description}</p>
+            </div>
         </div>
 
         <button className="next" onClick={nextSlide}>❯</button>
 
-        {/* --- NOUVEAU : Compteur intégré dans l'image (Badge) --- */}
         <div className="counter-badge">
             {currentIndex + 1} / {data.length}
         </div>

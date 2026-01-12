@@ -77,3 +77,10 @@ export interface Language {
   image: string; // Chemin vers le logo
   category: string[];
 }
+
+// Nouvelle structure pour une passion
+export interface PassionItem {
+  image: string;
+  title: string;
+  description: string;
+}

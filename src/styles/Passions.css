@@ -2,7 +2,7 @@
 
 .passion {
   padding: 80px 50px;
-  max-width: 1200px; /* Même largeur max que Projets */
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -33,20 +33,20 @@
   overflow: hidden;
   margin: 0 auto;
   width: 100%;
-  max-width: 900px; /* On limite un peu la largeur de l'image pour l'esthétique */
+  max-width: 900px;
   height: 500px;
   
-  /* Style cohérent avec les cartes projets */
   background-color: #16202a;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 16px; /* Même arrondi que les cartes */
+  border-radius: 16px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .slides {
   width: 100%;
   height: 100%;
-  display: flex;
+  /* Important : position relative pour que la légende (absolute) se cale par rapport à l'image */
+  position: relative; 
 }
 
 /* Image parfaite */
@@ -57,14 +57,55 @@
   display: block;
 }
 
+/* --- LÉGENDE (TEXTE SUR L'IMAGE) --- */
+.passion-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  
+  /* Fond sombre semi-transparent pour la lisibilité */
+  background: linear-gradient(to top, rgba(15, 28, 36, 0.95), rgba(15, 28, 36, 0.6));
+  backdrop-filter: blur(4px); /* Effet de flou moderne */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  
+  padding: 20px 30px;
+  color: #eaeaea;
+  text-align: center;
+  
+  /* Animation d'apparition */
+  animation: slideUp 0.4s ease-out;
+}
+
+.passion-caption h3 {
+  color: #ffb75e; /* Ton jaune/orange */
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.passion-caption p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #dcdcdc;
+  max-width: 800px;
+  margin: 0 auto; /* Centre le texte si lignes courtes */
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
 /* --- BOUTONS NAVIGATION --- */
 button.prev, button.next {
   position: absolute;
-  top: 50%;
+  top: 50%; /* Centré verticalement */
   transform: translateY(-50%);
   
-  /* Boutons discrets et modernes */
-  background-color: rgba(15, 28, 36, 0.4);
+  background-color: rgba(15, 28, 36, 0.5);
   backdrop-filter: blur(4px);
   color: #eaeaea;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -74,7 +115,7 @@ button.prev, button.next {
   border-radius: 50%;
   font-size: 22px;
   cursor: pointer;
-  z-index: 10;
+  z-index: 10; /* Au-dessus de l'image et du texte */
   transition: all 0.3s ease;
   display: flex;
   justify-content: center;
@@ -94,8 +135,9 @@ button.prev:hover, button.next:hover {
 /* --- COMPTEUR / BADGE --- */
 .counter-badge {
   position: absolute;
-  bottom: 25px;
-  right: 25px;
+  /* DÉPLACÉ EN HAUT À DROITE (pour ne pas gêner le texte en bas) */
+  top: 20px; 
+  right: 20px;
   
   background-color: rgba(15, 28, 36, 0.8);
   color: #ffb75e;
@@ -107,4 +149,30 @@ button.prev:hover, button.next:hover {
   font-size: 0.9rem;
   letter-spacing: 1px;
   pointer-events: none;
+  z-index: 5;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .carousel {
+    height: 400px; /* Un peu moins haut sur mobile */
+  }
+  
+  .passion-caption {
+    padding: 15px;
+  }
+  
+  .passion-caption h3 {
+    font-size: 1.2rem;
+  }
+  
+  .passion-caption p {
+    font-size: 0.9rem;
+  }
+  
+  button.prev, button.next {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
 }

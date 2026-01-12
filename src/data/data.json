@@ -564,9 +564,25 @@
     }
   ],
   "passions": [
-    "/images/sport.webp",
-    "/images/hand.webp",
-    "/images/info.webp",
-    "/images/voiture.webp"
-  ]
+  {
+    "image": "/images/sport.webp",
+    "title": "Le Sport",
+    "description": "Passionné de sport en général, j'ai pratiqué de nombreux sport collectif comme individuel, du football pendant 8ans en club, de la voile en section sportive au lycée"
+  },
+  {
+    "image": "/images/hand.webp",
+    "title": "Handball",
+    "description": "J'ai joué en compétition pendant plusieurs années. J'aime l'esprit d'équipe et la stratégie de ce sport."
+  },
+  {
+    "image": "/images/info.webp",
+    "title": "Veille Technologique",
+    "description": "Curieux de nature, je passe beaucoup de temps à tester de nouveaux frameworks et suivre l'actualité IT."
+  },
+  {
+    "image": "/images/voiture.webp",
+    "title": "Automobile",
+    "description": "Passionné par la mécanique et les belles carrosseries, je suis l'actualité automobile avec grand intérêt."
+  }
+]
 }
