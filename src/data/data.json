@@ -12,7 +12,7 @@
   },
   "about": {
     "title": "À propos",
-    "description": "Je suis Dorian Julou, étudiant en <a href='https://www.enseignementsup-recherche.gouv.fr/sites/default/files/annexe-2-licence-professionnelle-bachelor-universitaire-de-technologie-informatique-29016.pdf'>BUT informatique</a> à Lannion. À l'IUT, je me spécialise mais suis surtout passionné par le développement d'applications (front et back). Sociable et agréable, j'aime travailler en équipe. Le français est ma langue maternelle mais je parle aussi anglais.",
+    "description": "Je suis Dorian Julou, étudiant en <a href='https://www.enseignementsup-recherche.gouv.fr/sites/default/files/annexe-2-licence-professionnelle-bachelor-universitaire-de-technologie-informatique-29016.pdf' target='_blank' rel='noopener noreferrer'>BUT informatique</a> à Lannion. À l'IUT, je me spécialise mais suis surtout passionné par le développement d'applications (front et back). Sociable et agréable, j'aime travailler en équipe. Le français est ma langue maternelle mais je parle aussi anglais.",
     "cvLink": "/files/cv.pdf"
   },
   "experiences": [
@@ -285,7 +285,12 @@
     {
       "id": 2,
       "title": "Plateforme de réservations",
-      "description": "Plateforme complète de gestion d'offres. Elle comprend une interface utilisateur (front) pour découvrir les offres publiées par les professionnels et consulter les avis. Une interface d'administration (back) permet aux pros de se connecter, de publier leurs offres et de consulter les avis laissés.",
+      "star": {
+        "situation": "Nécessité de créer un espace centralisé permettant de connecter les professionnels offrant des services et les clients cherchant à les réserver.",
+        "task": "Développer une plateforme web complète (Front & Back) permettant la publication d'offres par les pros et leur consultation par les visiteurs.",
+        "action": "Conception d'une interface utilisateur pour la découverte des offres et les avis. Développement d'une interface d'administration sécurisée pour la gestion (CRUD) des annonces. Utilisation de PHP/PostgreSQL et gestion du travail collaboratif via Jira.",
+        "result": "Mise en ligne d'une plateforme fonctionnelle facilitant la mise en relation, avec une gestion efficace des contenus et des retours utilisateurs."
+      },
       "category": "Universitaire",
       "tags": [
         "Réaliser",
@@ -308,7 +313,12 @@
     {
       "id": 3,
       "title": "Portfolio Personnel",
-      "description": "Conception et développement d'une Single Page Application (SPA) moderne pour présenter mon parcours. Réalisé avec l'écosystème React/TypeScript, ce projet met l'accent sur la performance et l'expérience utilisateur (UX). Il intègre un système de filtrage dynamique des projets, des animations CSS fluides, une architecture de composants réutilisables et un design responsive adaptatif (Mobile First).",
+      "star": {
+        "situation": "Besoin d'un support professionnel et moderne pour présenter mon parcours, mes compétences et mes projets aux recruteurs.",
+        "task": "Concevoir et développer une Single Page Application (SPA) performante, responsive et offrant une excellente expérience utilisateur (UX).",
+        "action": "Utilisation de l'écosystème React/TypeScript pour assurer la maintenabilité. Implémentation d'un système de filtrage dynamique, d'animations CSS fluides et d'un design 'Mobile First'.",
+        "result": "Un site vitrine rapide et interactif qui met en valeur mes réalisations et facilite la prise de contact professionnelle."
+      },
       "category": "Personnel",
       "tags": ["Réaliser", "Optimiser", "UI/UX"],
       "technologies": ["React", "TypeScript", "CSS", "Git"],
@@ -319,7 +329,12 @@
     {
       "id": 4,
       "title": "Jeu de Sudoku",
-      "description": "Développement complet d'un jeu de Sudoku en ligne de commande. Le projet a suivi un cycle de développement rigoureux : maquettage de l'interface, conception des algorithmes en pseudo-code, implémentation en langage C, et validation via un cahier de tests et des traces d'exécution. Une documentation technique a été générée via Doxygen.",
+      "star": {
+        "situation": "Apprentissage des fondamentaux de la programmation structurée et du cycle de développement logiciel.",
+        "task": "Développer un jeu de Sudoku complet jouable en ligne de commande, en respectant des normes strictes de qualité.",
+        "action": "Réalisation du maquettage, écriture des algorithmes en pseudo-code, implémentation en langage C, et validation via un cahier de tests rigoureux.",
+        "result": "Livraison d'un programme stable, validé par des traces d'exécution et accompagné d'une documentation technique Doxygen."
+      },
       "category": "Universitaire",
       "tags": ["Réaliser", "Tester", "Documenter"],
       "technologies": ["C"],
@@ -334,7 +349,12 @@
     {
       "id": 5,
       "title": "Le Patio",
-      "description": "Développement d'une application interactive en suivant le paradigme Orienté Objet. Implémentation de la structure logicielle par la traduction stricte d'un diagramme de classes UML en Java. Conception des Interfaces Homme-Machine (IHM) et programmation des contrôleurs pour gérer les événements utilisateurs et lier la vue au modèle.",
+      "star": {
+        "situation": "Passage de la programmation impérative à la programmation orientée objet (POO) pour gérer des interactions complexes.",
+        "task": "Implémenter une application interactive en traduisant fidèlement un diagramme de classes UML en code Java.",
+        "action": "Conception des Interfaces Homme-Machine (IHM), programmation des contrôleurs événementiels et liaison stricte entre la Vue et le Modèle.",
+        "result": "Une application Java fonctionnelle respectant scrupuleusement la conception UML initiale et la séparation des responsabilités."
+      },
       "category": "Universitaire",
       "tags": ["Réaliser", "Concevoir", "Tester"],
       "technologies": ["Java", "UML"],
@@ -349,7 +369,12 @@
     {
       "id": 6,
       "title": "Résolveur Sudoku & Algorithmes",
-      "description": "Développement d'un résolveur de Sudoku en langage C (SAE 1.02). L'objectif était de comparer l'efficacité de diverses techniques : approches heuristiques (règles logiques, singletons) contre Backtracking (force brute récursive). Le projet inclut une analyse de complexité, des tests de performance, ainsi qu'une documentation technique générée via Doxygen.",
+      "star": {
+        "situation": "Nécessité de comprendre et de comparer différentes approches algorithmiques pour résoudre un problème logique complexe.",
+        "task": "Développer un résolveur automatique de Sudoku et mesurer l'efficacité de plusieurs méthodes de résolution.",
+        "action": "Implémentation d'algorithmes de force brute (Backtracking) et d'heuristiques logiques en C. Réalisation de tests de performance comparatifs.",
+        "result": "Une analyse technique détaillée démontrant la supériorité des approches hybrides sur la force brute pure, documentée via Doxygen."
+      },
       "category": "Universitaire",
       "tags": ["Réaliser", "Optimiser", "Tester"],
       "technologies": ["C", "Doxygen"],
@@ -364,7 +389,12 @@
     {
       "id": 7,
       "title": "Problème des 8 Reines",
-      "description": "Exploration algorithmique autour du problème des N-Reines (SAÉ 2.02). Le projet visait à dépasser la simple résolution par Backtracking en implémentant des techniques d'optimisation avancées en Python (gestion des contraintes par opérations binaires/bitwise, rupture de symétries) pour réduire la complexité temporelle et résoudre des instances de grande taille.",
+      "star": {
+        "situation": "Les méthodes classiques de résolution (Backtracking) atteignent leurs limites sur des problèmes combinatoires de grande taille (N-Reines).",
+        "task": "Optimiser l'algorithme de résolution pour réduire drastiquement le temps de calcul sur de grandes instances.",
+        "action": "Développement d'une solution en Python exploitant les opérations binaires (bitwise) et la rupture de symétries pour élaguer l'arbre de recherche.",
+        "result": "Réduction significative de la complexité temporelle, permettant de résoudre le problème pour un nombre de reines bien supérieur à la méthode naïve."
+      },
       "category": "Universitaire",
       "tags": ["Optimiser", "Réaliser", "Algorithmique"],
       "technologies": ["Python"],
@@ -379,7 +409,12 @@
     {
       "id": 8,
       "title": "Générateur de Documentation Automatisé",
-      "description": "Mise en place d'une chaîne de production de documentation technique (SAÉ 1.03). Le projet combine des scripts PHP (pour extraire les commentaires du code C et convertir du Markdown en HTML) et un environnement Docker pour isoler l'exécution. Un script Bash pilote l'ensemble pour livrer une archive finale (.tgz) prête à l'emploi.",
+      "star": {
+        "situation": "La documentation manuelle du code est fastidieuse et sujette à l'obsolescence. Il fallait automatiser ce processus.",
+        "task": "Mettre en place une chaîne de production automatisée capable de générer un site de documentation à partir du code source.",
+        "action": "Création d'un environnement Docker piloté par Bash, utilisant PHP pour extraire les commentaires et convertir les fichiers Markdown en HTML.",
+        "result": "Un outil en ligne de commande livrant instantanément une archive (.tgz) contenant la documentation web complète du projet."
+      },
       "category": "Universitaire",
       "tags": ["Administrer", "Réaliser", "Automatiser"],
       "technologies": ["Docker", "Bash", "PHP"],
@@ -395,7 +430,12 @@
     {
       "id": 9,
       "title": "Déploiement Serveur Web & Authentification",
-      "description": "Configuration complète d'un serveur web Apache2 pour héberger une application dynamique. Le projet visait à maîtriser les interactions entre le serveur, le moteur PHP et la base de données SQL. L'aboutissement est un site web fonctionnel intégrant un système de gestion d'utilisateurs (inscription, connexion et espace membre sécurisé).",
+      "star": {
+        "situation": "Besoin d'héberger une application dynamique sécurisée avec gestion des utilisateurs.",
+        "task": "Configurer un serveur web complet et développer les fonctionnalités d'authentification et d'espace membre.",
+        "action": "Installation et configuration d'Apache2. Création de la base SQL et développement des scripts PHP pour l'inscription et la connexion sécurisée.",
+        "result": "Un site web fonctionnel, hébergé sur serveur dédié, avec une gestion persistante et sécurisée des sessions utilisateurs."
+      },
       "category": "Universitaire",
       "tags": ["Administrer", "Réaliser", "Sécuriser"],
       "technologies": ["Apache", "PHP", "SQL"],
@@ -410,7 +450,12 @@
     {
       "id": 10,
       "title": "Programme du BUT",
-      "description": "Conception et implémentation d'une base de données relationnelle structurant le Programme National (PN) du BUT Informatique. Le projet a suivi le cycle complet de modélisation : analyse du cahier des charges, élaboration du diagramme de classes (UML) pour la structure conceptuelle, et traduction vers le modèle relationnel pour la création des tables en SQL.",
+      "star": {
+        "situation": "Le Programme National du BUT contient une grande quantité d'informations complexes qu'il fallait structurer informatiquement.",
+        "task": "Concevoir et implémenter une base de données relationnelle reflétant fidèlement le programme pédagogique.",
+        "action": "Analyse du cahier des charges, élaboration du diagramme de classes UML conceptuel, et traduction vers le modèle relationnel SQL.",
+        "result": "Une base de données SQL optimisée et prête à l'emploi, respectant l'ensemble des règles métier et contraintes du programme."
+      },
       "category": "Universitaire",
       "tags": ["Gérer", "Réaliser", "Concevoir"],
       "technologies": ["SQL", "UML"],
@@ -421,7 +466,12 @@
     {
       "id": 11,
       "title": "Collèges de France",
-      "description": "Mise en œuvre d'une chaîne complète de traitement de données (SAÉ 2.04). Le projet a consisté à implémenter une base de données SQL à partir d'un modèle UML, à automatiser l'importation de données réelles (fichiers CSV) concernant les collèges français, et à développer des scripts Python pour interroger la base et générer des statistiques.",
+      "star": {
+        "situation": "Disposer de données brutes (Open Data) sur les collèges français ne suffit pas ; il faut les rendre exploitables.",
+        "task": "Automatiser l'importation de ces données dans une base structurée et développer des outils d'analyse.",
+        "action": "Modélisation UML, création de la base SQL, automatisation de l'import CSV et développement de scripts Python pour l'analyse statistique.",
+        "result": "Un système complet permettant d'interroger la base de données et de générer automatiquement des statistiques fiables sur les établissements."
+      },
       "category": "Universitaire",
       "tags": ["Gérer", "Réaliser", "Exploiter"],
       "technologies": ["SQL", "Python", "CSV"],
@@ -432,7 +482,12 @@
     {
       "id": 12,
       "title": "Tabas'Kho",
-      "description": "Réalisation complète d'un site vitrine, de la phase de conception à l'intégration. Le projet s'est articulé autour d'une démarche professionnelle : recueil des besoins clients (interview), définition de l'arborescence et de la charte graphique. Le prototypage de l'interface a été réalisé sur Figma avant le développement final en HTML/CSS, avec une gestion de versions sous Git.",
+      "star": {
+        "situation": "Un client (fictif) souhaitait une présence en ligne pour présenter son activité et ses produits.",
+        "task": "Réaliser un site vitrine complet, de la définition des besoins jusqu'au déploiement.",
+        "action": "Interview client pour le recueil des besoins, prototypage UI sur Figma, définition de la charte graphique et développement HTML/CSS sous Git.",
+        "result": "Un site web esthétique, responsive et conforme aux attentes du client, prêt pour la mise en production."
+      },
       "category": "Universitaire",
       "tags": ["Réaliser", "Maquetter"],
       "technologies": ["HTML", "CSS", "Figma", "Git"],
@@ -448,7 +503,12 @@
     {
       "id": 13,
       "title": "Application Guichet",
-      "description": "Gestion complète du cycle de vie d'un projet de développement logiciel (application de billetterie). Ce module s'est concentré sur la méthodologie et l'organisation : définition du périmètre (Note de Cadrage), planification temporelle (Diagrammes de Gantt prévisionnels et réels), répartition des rôles (Matrice RACI) et estimation des coûts. L'analyse des écarts entre le planifié et le réalisé a fait l'objet d'une soutenance.",
+      "star": {
+        "situation": "Le développement logiciel nécessite une organisation rigoureuse pour respecter les délais et le budget.",
+        "task": "Gérer intégralement le cycle de vie d'un projet de billetterie (planification, rôles, suivi).",
+        "action": "Rédaction de la note de cadrage, élaboration des diagrammes de Gantt (prévisionnel vs réel) et de la matrice RACI pour la répartition des tâches.",
+        "result": "Une maîtrise totale du déroulement du projet, avec une analyse précise des écarts présentée lors de la soutenance finale."
+      },
       "category": "Universitaire",
       "tags": ["Conduire", "Collaborer", "Planifier"],
       "technologies": ["Gantt", "RACI"],
@@ -464,7 +524,12 @@
     {
       "id": 14,
       "title": "Analyse Économique & RSE : IKEA",
-      "description": "Étude stratégique approfondie du géant de l'ameublement IKEA. Ce projet d'analyse a nécessité la mise en place d'une veille informationnelle pour décrypter le modèle économique de l'entreprise. Un focus majeur a été porté sur sa politique de Responsabilité Sociétale des Entreprises (RSE) et son impact écologique, synthétisé dans un rapport détaillé et défendu lors d'une présentation orale.",
+      "star": {
+        "situation": "Comprendre comment une multinationale intègre les enjeux écologiques et sociétaux dans sa stratégie.",
+        "task": "Réaliser une étude stratégique approfondie du modèle économique et de la politique RSE d'IKEA.",
+        "action": "Mise en place d'une veille informationnelle, application des matrices d'analyse (SWOT/PESTEL) et synthèse des rapports RSE.",
+        "result": "Production d'un rapport détaillé et d'une présentation orale décryptant l'impact et la stratégie globale de l'entreprise."
+      },
       "category": "Universitaire",
       "tags": ["Collaborer", "Analyser", "Communiquer"],
       "technologies": ["SWOT", "PESTEL", "RSE"],
@@ -479,7 +544,12 @@
     {
       "id": 15,
       "title": "Team Building",
-      "description": "Conception d'une stratégie de communication pour un événement de cohésion d'équipe (Team Building) lié au Festival de Guipavas. Au-delà de l'organisation, ce projet a mis l'accent sur la production de contenus multimédias : élaboration d'un dossier de sponsoring, design de flyers promotionnels et réalisation d'un teaser vidéo, le tout défendu lors d'une soutenance orale.",
+      "star": {
+        "situation": "Organisation d'un événement de cohésion d'équipe nécessitant une identité visuelle et des financements.",
+        "task": "Concevoir la stratégie de communication globale et convaincre des sponsors.",
+        "action": "Création des supports visuels (flyers, teaser vidéo sur Premiere Pro) et élaboration d'un dossier de sponsoring argumenté.",
+        "result": "Une communication professionnelle et attrayante ayant permis de valoriser l'événement auprès des partenaires et participants."
+      },
       "category": "Universitaire",
       "tags": ["Conduire", "Collaborer", "Communiquer", "Designer"],
       "technologies": ["Canva", "Premiere Pro"],
