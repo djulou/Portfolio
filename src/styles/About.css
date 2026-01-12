@@ -260,10 +260,9 @@
 
 /* On cible TOUS les états du lien (link, visited, active) pour forcer l'orange */
 .about-description p a,
-.about-description p a:link,
-.about-description p a:visited,
-.about-description p a:active {
-  color: #f9702c !important; /* Force l'orange et empêche le violet */
+.lieu p a,
+.details p a {
+  color: #f9702c !important; /* Force l'orange */
   text-decoration: underline;
   text-decoration-color: #f9702c;
   text-underline-offset: 4px;
@@ -271,9 +270,18 @@
   transition: all 0.3s ease;
 }
 
-/* Au survol uniquement */
-.about-description p a:hover {
-  color: #ffb75e !important; /* Jaune/Orange clair au survol */
+/* On force la couleur même si le lien est visité (anti-violet) */
+.about-description p a:visited,
+.lieu p a:visited,
+.details p a:visited {
+  color: #f9702c !important;
+}
+
+/* Au survol : jaune/orange clair */
+.about-description p a:hover,
+.lieu p a:hover,
+.details p a:hover {
+  color: #ffb75e !important;
   text-decoration-color: #ffb75e;
   cursor: pointer;
 }
