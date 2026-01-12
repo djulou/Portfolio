@@ -12,7 +12,7 @@
   },
   "about": {
     "title": "À propos",
-    "description": "Je suis Dorian Julou, étudiant en <a href='https://www.enseignementsup-recherche.gouv.fr/sites/default/files/annexe-2-licence-professionnelle-bachelor-universitaire-de-technologie-informatique-29016.pdf' target='_blank' rel='noopener noreferrer'>BUT informatique</a> à Lannion. À l'IUT, je me spécialise mais suis surtout passionné par le développement d'applications (front et back). Sociable et agréable, j'aime travailler en équipe. Le français est ma langue maternelle mais je parle aussi anglais.",
+    "description": "Je suis Dorian Julou, étudiant en BUT informatique à Lannion. À l'IUT, je me spécialise mais suis surtout passionné par le développement d'applications (front et back). Sociable et agréable, j'aime travailler en équipe. Le français est ma langue maternelle mais je parle aussi anglais.",
     "cvLink": "/files/cv.pdf"
   },
   "experiences": [
@@ -229,15 +229,15 @@
   "formations": [
     {
       "id": 1,
-      "school": "IUT Lannion",
-      "degree": "BUT Informatique",
+      "school": "<a href='https://iut-lannion.univ-rennes.fr' target='_blank' rel='noopener noreferrer'>IUT Lannion </a>",
+      "degree": "<a href='https://www.enseignementsup-recherche.gouv.fr/sites/default/files/annexe-2-licence-professionnelle-bachelor-universitaire-de-technologie-informatique-29016.pdf' target='_blank' rel='noopener noreferrer'>BUT Informatique </a>",
       "year": "2023 - 2026",
       "description": "Apprentissage du développement web, orienté objet, gestion de projet et travail d'équipe."
     },
     {
       "id": 2,
-      "school": "Lycée Chaptal",
-      "degree": "Baccalauréat Technologique (SIN)",
+      "school": "<a href='http://lycee-chaptal-saintbrieuc.fr' target='_blank' rel='noopener noreferrer'>Lycée Chaptal </a>",
+      "degree": "<a href='https://eduscol.education.fr/1736/programmes-et-ressources-en-serie-sti2d' target='_blank' rel='noopener noreferrer'>Baccalauréat Technologique (SIN) </a>",
       "year": "2020 - 2023",
       "description": "Option Système Informatique et Numérique. Premiers pas vers le métier de développeur."
     }

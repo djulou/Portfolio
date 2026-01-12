@@ -82,7 +82,7 @@ export default function About({
         {aboutData.title && <h1>{aboutData.title}</h1>}
         
         {/* MODIFICATION ICI : Pour que le lien HTML fonctionne */}
-        <p dangerouslySetInnerHTML={{ __html: aboutData.description }}></p>
+        <p>{aboutData.description }</p>
       </div>
 
       {/* 2. BOUTONS DE NAVIGATION (TABS) */}
@@ -112,8 +112,8 @@ export default function About({
               <div key={formation.id} className="lines">
                 <div className="lieu">
                   <p className="year">{formation.year}</p>
-                  <p className="degree">{formation.degree}</p>
-                  <p className="school">{formation.school}</p>
+                  <p className="degree" dangerouslySetInnerHTML={{ __html: formation.degree }}></p>
+                  <p className="school" dangerouslySetInnerHTML={{ __html: formation.school }}></p>
                 </div>
                 {formation.description && (
                   <div className="details">
