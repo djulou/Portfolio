@@ -269,3 +269,19 @@
   color: #ffb75e !important; /* Jaune/Orange clair au survol */
   text-decoration-color: #ffb75e;
 }
+
+.about-description p a,
+.about-description p a:visited {
+  color: #f9702c !important; /* Force l'orange */
+  text-decoration: underline; /* Soulignement simple */
+  text-decoration-color: #f9702c; /* Couleur du trait */
+  text-underline-offset: 4px; /* Espace entre le texte et le trait */
+  transition: all 0.3s ease;
+}
+
+/* Au survol */
+.about-description p a:hover {
+  color: #ffb75e !important; /* Jaune/Orange clair */
+  text-decoration-color: #ffb75e;
+  cursor: pointer;
+}
