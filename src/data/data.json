@@ -21,7 +21,7 @@
       "year": "Mars 2025 - Août 2025",
       "role": "Stage Développeur Full-Stack",
       "company": "Groupement de la Cyberdéfense des Armées Comcyber CALID Rennes",
-      "technologies": ["React", "TypeScript", "Linux", "Docker", "Python", "Web", "FastAPI", "Git", "API", "PostgreSQL", "MongoDB", ""]
+      "technologies": ["React", "TypeScript", "Linux", "Docker", "Python", "Web", "FastAPI", "Git", "API", "PostgreSQL", "MongoDB"]
     }
   ],
   "skills": [
@@ -206,6 +206,12 @@
       "name": "FastAPI",
       "image": "/img/fastapi.webp",
       "category": ["Outils", "Back-end", "Web"]
+    },
+    {
+      "id": 25,
+      "name": "Docker",
+      "image": "/img/docker.webp",
+      "category": ["Outils", "Système"]
     }
   ],
   "formations": [
@@ -246,7 +252,8 @@
         "API",
         "HTML",
         "CSS",
-        "JavaScript"
+        "JavaScript",
+        "Docker"
       ],
       "image": [
         "/images/muse1.webp",
