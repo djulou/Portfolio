@@ -1,227 +1,257 @@
+/* src/styles/About.css */
+
 /* =========================================
-   SECTION ABOUT (GÉNÉRAL)
+   1. CONTENEUR GLOBAL
    ========================================= */
 .about {
-  padding: 4rem 2rem;
-  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 50px;
+  background-color: #0f1c24; /* Ton fond sombre */
+  color: #eaeaea;
+  max-width: 1000px;
   margin: 0 auto;
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color: #333;
 }
 
-/* --- Description & Titres --- */
+/* =========================================
+   2. DESCRIPTION (À PROPOS)
+   ========================================= */
+/* J'ai renommé .about_me en .about-description pour correspondre au React */
 .about-description {
-  text-align: center;
-  margin-bottom: 3rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #dcdcdc;
+  margin-bottom: 40px;
+  padding-left: 20px;
+  border-left: 3px solid #f9702c; /* Ton orange */
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px;
+  border-radius: 0 10px 10px 0;
 }
 
 .about-description h1 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #2c3e50; /* Couleur sombre */
-}
-
-.about-description p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #555;
+  color: #ffb75e; /* Ton jaune/orange clair */
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 0;
 }
 
 /* =========================================
-   NAVIGATION (TABS / ONGLETS)
+   3. NAVIGATION (TABS / ONGLETS)
    ========================================= */
+/* Style adapté à ta charte graphique */
 .tabs-container {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 40px;
+  justify-content: center; /* Centré comme demandé */
+  gap: 40px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
 }
 
 .tab-btn {
-  background-color: transparent;
-  border: 2px solid #e0e0e0;
-  border-radius: 30px;
-  padding: 10px 30px;
-  font-size: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
   font-weight: 600;
   cursor: pointer;
-  color: #777;
+  color: #aaa; /* Couleur inactive */
   transition: all 0.3s ease;
-  outline: none;
+  padding: 10px 20px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .tab-btn:hover {
-  border-color: #646cff; /* Changez cette couleur selon votre charte */
-  color: #646cff;
+  color: #ffb75e; /* Couleur au survol */
 }
 
+/* L'onglet actif reprend ton orange vif */
 .tab-btn.active {
-  background-color: #646cff; /* Couleur active */
-  color: white;
-  border-color: #646cff;
-  box-shadow: 0 4px 15px rgba(100, 108, 255, 0.3);
-  transform: translateY(-2px);
+  color: #f9702c; 
+}
+
+/* Petite ligne sous l'onglet actif */
+.tab-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -16px; /* Pour se coller à la ligne du container */
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #f9702c;
+  border-radius: 3px 3px 0 0;
 }
 
 /* =========================================
-   CONTENU (LISTES FORMATIONS / EXP)
+   4. TIMELINE (LIGNES & POINTS)
    ========================================= */
 .formation-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
+  position: relative;
 }
 
+/* Animation d'apparition douce */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Masquer les titres h2 car les boutons font office de titre */
 .formation-list h2,
 .experience-list h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 1.8rem;
-  color: #2c3e50;
-  display: none; /* Optionnel : Masquer le titre h2 car les boutons disent déjà ce que c'est */
+  display: none; 
 }
 
-/* --- Une ligne (Card) --- */
 .lines {
-  background-color: #fff;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  padding-left: 40px; /* Espace pour la ligne verticale */
+  margin-bottom: 40px;
 }
 
-.lines:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+/* La ligne verticale */
+.lines::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: rgba(255, 183, 94, 0.3);
 }
 
-/* --- Infos principales (Année / Rôle / Entreprise) --- */
+/* Le point (dot) sur la timeline */
+.lines::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 5px; /* Ajusté pour être aligné avec la première ligne de texte */
+  width: 10px;
+  height: 10px;
+  background-color: #f9702c;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(249, 112, 44, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+/* Effet au survol d'une formation */
+.lines:hover::after {
+  background-color: #ffb75e;
+  box-shadow: 0 0 0 6px rgba(255, 183, 94, 0.2);
+}
+
+/* =========================================
+   5. DÉTAILS TEXTE (LIEU / DATE / RÔLE)
+   ========================================= */
 .lieu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-  gap: 10px;
+  margin-bottom: 15px;
 }
 
-.lieu p {
+/* 1er p : L'année / Date */
+.lieu .year {
+  color: #f9702c;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block; /* Force le retour à la ligne si besoin */
+}
+
+/* 2ème p : Le diplôme ou Rôle */
+.lieu .degree, 
+.lieu .role {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 5px 0;
+  display: block;
+}
+
+/* 3ème p : L'école ou Entreprise */
+.lieu .school, 
+.lieu .company {
+  color: #aaa;
+  font-style: italic;
+  font-size: 1rem;
   margin: 0;
 }
 
-.year {
-  font-weight: bold;
-  color: #646cff;
-  font-size: 0.95rem;
-  background: #f0f0ff;
-  padding: 4px 12px;
-  border-radius: 15px;
-}
-
-.role, .degree {
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #333;
-  flex: 1; /* Prend l'espace disponible */
-  margin-left: 15px !important; /* Espacement avec l'année */
-}
-
-.company, .school {
-  font-style: italic;
-  color: #666;
-}
-
-/* --- Description textuelle --- */
-.details {
+/* Description (Formation ou Expérience) */
+.details p {
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 8px;
   margin-top: 10px;
-  color: #555;
-  line-height: 1.5;
-  padding-top: 10px;
-  border-top: 1px dashed #eee;
 }
 
 /* =========================================
-   TAGS & LOGOS TECHNOLOGIES
+   6. TAGS & LOGOS
    ========================================= */
 .exp-tags-container {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 15px;
-  padding-top: 15px;
-  border-top: 1px solid #f0f0f0;
+  padding-left: 0;
 }
 
 .exp-tag {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  background-color: #f7f9fa;
-  border: 1px solid #e1e4e8;
+  gap: 8px; /* Espace entre logo et texte */
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ccc;
+  padding: 6px 12px;
   border-radius: 6px;
-  padding: 5px 10px;
-  font-size: 0.85rem;
-  color: #24292e;
+  font-size: 0.9rem;
   font-weight: 500;
-  transition: background-color 0.2s;
-}
-
-.exp-tag:hover {
-  background-color: #fff;
-  border-color: #646cff;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
 }
 
 .exp-tag-icon {
   width: 18px;
   height: 18px;
   object-fit: contain;
-  margin-right: 8px;
+}
+
+/* Hover effect sur les tags (Violet léger) */
+.exp-tag:hover {
+  background-color: rgba(108, 92, 231, 0.2);
+  border-color: rgba(108, 92, 231, 0.4);
+  color: #a29bfe;
+  transform: translateY(-2px);
 }
 
 /* =========================================
-   ANIMATIONS
-   ========================================= */
-.fade-in {
-  animation: fadeIn 0.4s ease-out forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================================
-   RESPONSIVE (MOBILE)
+   RESPONSIVE MOBILE
    ========================================= */
 @media (max-width: 768px) {
-  .lieu {
-    flex-direction: column;
-    align-items: flex-start;
+  .about {
+    padding: 40px 20px;
   }
-  
-  .role, .degree {
-    margin-left: 0 !important;
-    margin-top: 5px;
-  }
-  
+
   .tabs-container {
-    gap: 10px;
+    gap: 15px;
   }
-  
+
   .tab-btn {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .lieu .degree, 
+  .lieu .role {
+    font-size: 1.2rem;
   }
 }
