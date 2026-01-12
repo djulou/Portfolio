@@ -12,7 +12,7 @@
   },
   "about": {
     "title": "À propos",
-    "description": "Je suis Dorian Julou, étudiant en BUT informatique à Lannion. À l'IUT, je me spécialise mais suis surtout passionné par le développement d'applications (front et back). Sociable et agréable, j'aime travailler en équipe. Le français est ma langue maternelle mais je parle aussi anglais.",
+    "description": "Je suis Dorian Julou, étudiant en <a href='https://www.enseignementsup-recherche.gouv.fr/sites/default/files/annexe-2-licence-professionnelle-bachelor-universitaire-de-technologie-informatique-29016.pdf'>BUT informatique</a> à Lannion. À l'IUT, je me spécialise mais suis surtout passionné par le développement d'applications (front et back). Sociable et agréable, j'aime travailler en équipe. Le français est ma langue maternelle mais je parle aussi anglais.",
     "cvLink": "/files/cv.pdf"
   },
   "experiences": [

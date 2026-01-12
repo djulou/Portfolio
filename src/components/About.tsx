@@ -1,4 +1,4 @@
-import { useState } from "react"; // <--- NE PAS OUBLIER CET IMPORT
+import { useState } from "react";
 import { AboutData, Formation, Experience } from "../data/types";
 import "../styles/About.css";
 
@@ -80,7 +80,9 @@ export default function About({
       {/* 1. DESCRIPTION GÉNÉRALE */}
       <div className="about-description">
         {aboutData.title && <h1>{aboutData.title}</h1>}
-        <p>{aboutData.description}</p>
+        
+        {/* MODIFICATION ICI : Pour que le lien HTML fonctionne */}
+        <p dangerouslySetInnerHTML={{ __html: aboutData.description }}></p>
       </div>
 
       {/* 2. BOUTONS DE NAVIGATION (TABS) */}

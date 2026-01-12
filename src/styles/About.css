@@ -255,3 +255,14 @@
     font-size: 1.2rem;
   }
 }
+
+.about-description p a {
+  color: #f9702c; /* Ton orange */
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.about-description p a:hover {
+  color: #ffb75e; /* Ton jaune/orange clair au survol */
+}
