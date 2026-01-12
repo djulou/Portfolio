@@ -15,6 +15,15 @@
     "description": "Je suis Dorian Julou, étudiant pour un BUT informatique à Lannion. À l'IUT, je me spécialise mais suis surtout passionné par le développement d'applications (front et back)Sociable et agréable, j'aime travailler en équipe. Le français est ma langue maternelle mais je parle aussi anglais.",
     "cvLink": "/files/cv.pdf"
   },
+  "experiences": [
+    {
+      "id": 1,
+      "year": "Mars 2025 - Août 2025",
+      "role": "Stage Développeur Full-Stack",
+      "company": "Groupement de la Cyberdéfense des Armées Comcyber CALID Rennes",
+      "technologies": ["React", "TypeScript", "Linux", "Docker", "Python", "Web", "FastAPI", "Git", "API", "PostgreSQL", "MongoDB", ""]
+    }
+  ],
   "skills": [
     {
       "id": 1,
@@ -191,6 +200,12 @@
       "name": "Canva",
       "image": "/img/canva.webp",
       "category": ["Outils"]
+    },
+    {
+      "id": 24,
+      "name": "FastAPI",
+      "image": "/img/fastapi.webp",
+      "category": ["Outils", "Back-end", "Web"]
     }
   ],
   "formations": [
@@ -223,7 +238,16 @@
         "Conduire",
         "Collaborer"
       ],
-      "technologies": ["Python", "IA", "Big Data", "PostgreSQL", "API", "HTML", "CSS", "JavaScript"],
+      "technologies": [
+        "Python",
+        "IA",
+        "Big Data",
+        "PostgreSQL",
+        "API",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
       "image": [
         "/images/muse1.webp",
         "/images/muse2.webp",

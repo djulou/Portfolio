@@ -123,3 +123,31 @@
   border-radius: 8px;
   margin-top: 10px;
 }
+
+/* Conteneur des tags */
+.exp-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* Espace entre les mots */
+  margin-top: 10px;
+  padding-left: 0; 
+}
+
+/* Le style du badge (similaire aux projets) */
+.exp-tag {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ccc;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+/* Petit effet au survol (optionnel) */
+.exp-tag:hover {
+  background-color: rgba(108, 92, 231, 0.2); /* Violet très léger */
+  border-color: rgba(108, 92, 231, 0.4);
+  color: #a29bfe;
+}

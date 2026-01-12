@@ -32,6 +32,14 @@ export interface Formation {
   description?: string; // Ajouté pour le détail de la formation
 }
 
+export interface Experience {
+  id: number;
+  year: string;      // Ex: "2023 - 2024"
+  role: string;      // Ex: "Développeur Full Stack"
+  company: string;   // Ex: "Entreprise X"
+  technologies: string[]; // Optionnel
+}
+
 export interface Project {
   id: number;
   title: string;
@@ -53,6 +61,7 @@ export interface PortfolioData {
   projects: Project[];
   passions: string[]; // Ajouté
   languages: Language[];
+  experiences: Experience[];
 }
 
 export interface Language {

@@ -26,6 +26,7 @@ import umlLogo from '../../public/img/uml.webp';
 import apacheLogo from "../../public/img/apache.webp";
 import ganttLogo from "../../public/img/gantt.webp";
 import canvaLogo from "../../public/img/canva.webp";
+import fastapiLogo from "../../public/img/fastapi.webp";
 
 interface SkillsProps {
   skillsData: Skill[];
@@ -62,6 +63,7 @@ export default function Skills({ skillsData, languagesData }: SkillsProps) {
     "Apache": apacheLogo,
     "Gantt": ganttLogo,
     "Canva": canvaLogo,
+    "FastAPI": fastapiLogo,
   };
 
   const filteredLanguages = languagesData.filter((lang) => {

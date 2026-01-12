@@ -26,6 +26,7 @@ export default function App() {
 
         <About 
           aboutData={data.about} 
+          experiencesData={data.experiences}
           formationsData={data.formations} 
         />
 
