@@ -1,3 +1,4 @@
+import { useState } from "react"; // <--- NE PAS OUBLIER CET IMPORT
 import { AboutData, Formation, Experience } from "../data/types";
 import "../styles/About.css";
 
@@ -38,6 +39,9 @@ export default function About({
   formationsData,
   experiencesData,
 }: AboutProps) {
+  // State pour gérer l'onglet actif ('formations' ou 'experiences')
+  const [activeTab, setActiveTab] = useState<"formations" | "experiences">("formations");
+
   const languageLogos: { [key: string]: string } = {
     HTML: htmlLogo,
     HTML5: htmlLogo,
@@ -69,68 +73,88 @@ export default function About({
 
   return (
     <section id="apropos" className="about">
-      
-      {/* 1. DESCRIPTION (À PROPOS) */}
+      {/* 1. DESCRIPTION GÉNÉRALE */}
       <div className="about-description">
-        {/* Vérifiez si vous avez un titre ou une image dans aboutData */}
         {aboutData.title && <h1>{aboutData.title}</h1>}
         <p>{aboutData.description}</p>
       </div>
 
-      {/* 2. FORMATIONS (ÉDUCATION) */}
-      <div className="formation">
-        <h1>Formations</h1>
-        {formationsData.map((formation) => (
-          <div key={formation.id} className="lines">
-            <div className="lieu">
-              <p>{formation.year}</p>
-              {/* Adaptez 'degree' et 'school' selon vos types réels */}
-              <p>{formation.degree}</p> 
-              <p>{formation.school}</p>
-            </div>
-            {/* Si les formations ont aussi une description ou des détails */}
-            {formation.description && (
-               <div className="details">
-                 <p>{formation.description}</p>
-               </div>
-            )}
-          </div>
-        ))}
+      {/* 2. BOUTONS DE NAVIGATION (TABS) */}
+      <div className="tabs-container">
+        <button
+          className={`tab-btn ${activeTab === "formations" ? "active" : ""}`}
+          onClick={() => setActiveTab("formations")}
+        >
+          Formations
+        </button>
+        <button
+          className={`tab-btn ${activeTab === "experiences" ? "active" : ""}`}
+          onClick={() => setActiveTab("experiences")}
+        >
+          Expériences
+        </button>
       </div>
 
-      {/* 3. EXPÉRIENCES PRO */}
-      <div className="formation"> {/* Note: Vous utilisez la classe 'formation' ici aussi pour le style */}
-        <h1>Expériences Professionnelles</h1>
-        {experiencesData.map((exp) => (
-          <div key={exp.id} className="lines">
-            <div className="lieu">
-              <p>{exp.year}</p>
-              <p>{exp.role}</p>
-              <p>{exp.company}</p>
-            </div>
-
-            {/* Affichage des logos pour les technologies */}
-            {exp.technologies && exp.technologies.length > 0 && (
-              <div className="exp-tags-container">
-                {exp.technologies.map((techName, index) => {
-                  const logoSrc = languageLogos[techName];
-                  return (
-                    <span key={index} className="exp-tag">
-                      {logoSrc && (
-                        <img
-                          src={logoSrc}
-                          alt={techName}
-                          className="exp-tag-icon"
-                        />
-                      )}
-                      {techName}
-                    </span>
-                  );
-                })}
+      {/* 3. CONTENU (Affichage conditionnel) */}
+      <div className="formation-content">
+        
+        {/* BLOC FORMATIONS */}
+        {activeTab === "formations" && (
+          <div className="formation-list fade-in">
+            <h2>Parcours Scolaire</h2>
+            {formationsData.map((formation) => (
+              <div key={formation.id} className="lines">
+                <div className="lieu">
+                  <p className="year">{formation.year}</p>
+                  <p className="degree">{formation.degree}</p>
+                  <p className="school">{formation.school}</p>
+                </div>
+                {formation.description && (
+                  <div className="details">
+                    <p>{formation.description}</p>
+                  </div>
+                )}
               </div>
-            )}
+            ))}
           </div>
-        ))}
+        )}
+
+        {/* BLOC EXPÉRIENCES */}
+        {activeTab === "experiences" && (
+          <div className="experience-list fade-in">
+            <h2>Expériences Professionnelles</h2>
+            {experiencesData.map((exp) => (
+              <div key={exp.id} className="lines">
+                <div className="lieu">
+                  <p className="year">{exp.year}</p>
+                  <p className="role">{exp.role}</p>
+                  <p className="company">{exp.company}</p>
+                </div>
+
+                {/* Tags Technos avec Logos */}
+                {exp.technologies && exp.technologies.length > 0 && (
+                  <div className="exp-tags-container">
+                    {exp.technologies.map((techName, index) => {
+                      const logoSrc = languageLogos[techName];
+                      return (
+                        <span key={index} className="exp-tag">
+                          {logoSrc && (
+                            <img
+                              src={logoSrc}
+                              alt={techName}
+                              className="exp-tag-icon"
+                            />
+                          )}
+                          {techName}
+                        </span>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
