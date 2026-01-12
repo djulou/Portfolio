@@ -256,13 +256,16 @@
   }
 }
 
+/* Style pour les liens dans la description */
 .about-description p a {
-  color: #f9702c; /* Ton orange */
-  text-decoration: underline;
-  font-weight: bold;
-  transition: color 0.3s;
+  color: #f9702c !important; /* Force la couleur Orange (et empêche le violet) */
+  text-decoration: underline; /* Surlignage simple */
+  text-decoration-color: #f9702c; /* Couleur du trait */
+  text-underline-offset: 4px; /* Un peu d'espace entre le texte et le trait */
+  transition: all 0.3s ease;
 }
 
 .about-description p a:hover {
-  color: #ffb75e; /* Ton jaune/orange clair au survol */
+  color: #ffb75e !important; /* Jaune/Orange clair au survol */
+  text-decoration-color: #ffb75e;
 }
