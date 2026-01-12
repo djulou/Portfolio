@@ -306,7 +306,6 @@ export default function Projects({ data }: ProjectsProps) {
       </div>
 
       {/* BOUTON VOIR PLUS / VOIR MOINS */}
-      {/* S'il reste des projets cachés, on affiche "Voir plus" */}
       {!showAll && filteredProjects.length > PROJECTS_PER_PAGE && (
         <div className="view-more-container">
           <button className="view-more-btn" onClick={() => setShowAll(true)}>
@@ -315,7 +314,6 @@ export default function Projects({ data }: ProjectsProps) {
         </div>
       )}
 
-      {/* Si tout est affiché et qu'il y en a beaucoup, on affiche "Voir moins" */}
       {showAll && filteredProjects.length > PROJECTS_PER_PAGE && (
         <div className="view-more-container">
           <button className="view-less-btn" onClick={() => setShowAll(false)}>
@@ -356,6 +354,7 @@ export default function Projects({ data }: ProjectsProps) {
                   ))}
                 </div>
 
+                {/* MÉTHODE STAR */}
                 <div className="star-container">
                   <div className="star-block">
                     <h4>Situation</h4>
@@ -378,33 +377,12 @@ export default function Projects({ data }: ProjectsProps) {
                   </div>
                 </div>
 
-                {selectedProject.technologies &&
-                  selectedProject.technologies.length > 0 && (
-                    <div className="tech-stack-container">
-                      <h3>Technologies utilisées</h3>
-                      <div className="tech-logos-grid">
-                        {selectedProject.technologies.map((techName, i) => {
-                          const logoSrc = languageLogos[techName];
-                          return (
-                            <div
-                              key={i}
-                              className="tech-logo-item"
-                              title={techName}
-                            >
-                              {logoSrc ? (
-                                <img src={logoSrc} alt={techName} />
-                              ) : null}
-                              <span>{techName}</span>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
+                {/* NOTE : Le bloc technologies a été retiré d'ici */}
               </div>
 
-              {/* --- COLONNE GAUCHE : CARROUSEL & BOUTONS --- */}
+              {/* --- COLONNE GAUCHE : CARROUSEL & BOUTONS & TECHS --- */}
               <div className="detail-left">
+                {/* 1. CARROUSEL */}
                 <div className="carousel-wrapper-page">
                   {selectedProject.image.length > 0 && (
                     <img
@@ -450,7 +428,7 @@ export default function Projects({ data }: ProjectsProps) {
                   )}
                 </div>
 
-                {/* ZONE BOUTONS (LIEN / DOWNLOAD) */}
+                {/* 2. ZONE BOUTONS (LIEN / DOWNLOAD) */}
                 {(selectedProject.link || selectedProject.download) && (
                   <div className="left-action-container">
                     {/* Bouton GitHub / Site */}
@@ -477,6 +455,31 @@ export default function Projects({ data }: ProjectsProps) {
                     )}
                   </div>
                 )}
+
+                {/* 3. TECHNOLOGIES (DÉPLACÉ ICI, SOUS LES BOUTONS) */}
+                {selectedProject.technologies &&
+                  selectedProject.technologies.length > 0 && (
+                    <div className="tech-stack-container">
+                      <h3>Technologies utilisées</h3>
+                      <div className="tech-logos-grid">
+                        {selectedProject.technologies.map((techName, i) => {
+                          const logoSrc = languageLogos[techName];
+                          return (
+                            <div
+                              key={i}
+                              className="tech-logo-item"
+                              title={techName}
+                            >
+                              {logoSrc ? (
+                                <img src={logoSrc} alt={techName} />
+                              ) : null}
+                              <span>{techName}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
               </div>
             </div>
           </div>
