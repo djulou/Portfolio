@@ -257,31 +257,50 @@
 /* =========================================
    8. STYLE DES LIENS (CORRECTION FINALE)
    ========================================= */
-
-/* On cible TOUS les états du lien (link, visited, active) pour forcer l'orange */
 .about-description p a,
-.lieu p a,
 .details p a {
-  color: #ccc !important; /* Force l'orange */
+  color: #f9702c !important; /* Orange */
   text-decoration: underline;
-  text-decoration-color: #ccc;
+  text-decoration-color: #f9702c;
   text-underline-offset: 4px;
   font-weight: bold;
   transition: all 0.3s ease;
 }
 
-/* On force la couleur même si le lien est visité (anti-violet) */
+/* Visité (reste orange) */
 .about-description p a:visited,
-.lieu p a:visited,
 .details p a:visited {
   color: #f9702c !important;
 }
 
-/* Au survol : jaune/orange clair */
+/* Survol (jaune/orange clair) */
 .about-description p a:hover,
-.lieu p a:hover,
 .details p a:hover {
   color: #ffb75e !important;
   text-decoration-color: #ffb75e;
-  cursor: pointer;
+}
+
+
+/* --- B. Liens Titres & Écoles (.degree, .school) (BLANC) --- */
+.lieu .degree a,
+.lieu .school a {
+  color: #ffffff !important; /* BLANC FORCÉ */
+  text-decoration: underline;
+  text-decoration-color: #ffffff; /* Trait blanc */
+  text-underline-offset: 4px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Visité (reste blanc, empêche le violet ou l'orange) */
+.lieu .degree a:visited,
+.lieu .school a:visited {
+  color: #ffffff !important;
+}
+
+/* Survol (devient orange pour montrer qu'on peut cliquer) */
+.lieu .degree a:hover,
+.lieu .school a:hover {
+  color: #ffb75e !important; /* Changement de couleur au survol */
+  text-decoration-color: #ffb75e;
 }
