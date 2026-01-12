@@ -262,9 +262,9 @@
 .about-description p a,
 .lieu p a,
 .details p a {
-  color: #f9702c !important; /* Force l'orange */
+  color: #ccc !important; /* Force l'orange */
   text-decoration: underline;
-  text-decoration-color: #f9702c;
+  text-decoration-color: #ccc;
   text-underline-offset: 4px;
   font-weight: bold;
   transition: all 0.3s ease;
