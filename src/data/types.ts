@@ -40,11 +40,18 @@ export interface Experience {
   technologies: string[]; // Optionnel
 }
 
+export interface StarMethod {
+  situation: string;
+  task: string;
+  action: string;
+  result: string;
+}
+
 export interface Project {
   id: number;
   title: string;
   category: string;
-  description: string;
+  star: StarMethod;
   image: string[];
   link?: string;
   download?: string;

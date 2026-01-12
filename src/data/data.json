@@ -21,7 +21,19 @@
       "year": "Mars 2025 - Août 2025",
       "role": "Stage Développeur Full-Stack",
       "company": "Groupement de la Cyberdéfense des Armées Comcyber CALID Rennes",
-      "technologies": ["React", "TypeScript", "Linux", "Docker", "Python", "Web", "FastAPI", "Git", "API", "PostgreSQL", "MongoDB"]
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Linux",
+        "Docker",
+        "Python",
+        "Web",
+        "FastAPI",
+        "Git",
+        "API",
+        "PostgreSQL",
+        "MongoDB"
+      ]
     }
   ],
   "skills": [
@@ -234,7 +246,12 @@
     {
       "id": 1,
       "title": "Système de Recommandation : MuSE",
-      "description": "Développement d'une solution complète d'intelligence artificielle pour l'industrie musicale. L'objectif est de créer un système de recommandation de musiques performant et une application décisionnelle. Le projet couvre l'intégralité du cycle de la donnée : capture et stockage de données volumineuses, analyse statistique, développement d'algorithmes d'IA, et exposition via une API et un site web sécurisé.",
+      "star": {
+        "situation": "L'industrie musicale génère des volumes massifs de données hétérogènes qu'il est nécessaire de capturer et d'analyser pour personnaliser l'expérience utilisateur.",
+        "task": "Concevoir une architecture 'Full Stack Data' complète : de la collecte de données volumineuses jusqu'à la restitution via une application décisionnelle et un système de recommandation intelligent.",
+        "action": "Développement de scripts Python pour l'analyse statistique et le nettoyage des données. Implémentation d'algorithmes d'IA (clustering) pour la recommandation. Stockage optimisé sous PostgreSQL et exposition des résultats via une API et une interface web sécurisée.",
+        "result": "Livraison d'un système fonctionnel capable de recommander des musiques pertinentes basé sur l'analyse audio et d'afficher des statistiques précises via un tableau de bord interactif."
+      },
       "category": "Universitaire",
       "tags": [
         "Réaliser",

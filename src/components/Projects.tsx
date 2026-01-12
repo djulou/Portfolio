@@ -105,7 +105,7 @@ export default function Projects({ data }: ProjectsProps) {
 
   // --- GESTION DE L'AFFICHAGE (LIMITÉ vs TOUT) ---
   const [showAll, setShowAll] = useState(false);
-  const PROJECTS_PER_PAGE = 9; 
+  const PROJECTS_PER_PAGE = 9;
   const MAX_TAGS_ON_CARD = 8;
 
   // Mapping des chemins d'images (JSON) vers les imports WebP
@@ -212,14 +212,14 @@ export default function Projects({ data }: ProjectsProps) {
   });
 
   // 2. Découpage pour l'affichage (9 premiers ou tout)
-  const displayedProjects = showAll 
-    ? filteredProjects 
+  const displayedProjects = showAll
+    ? filteredProjects
     : filteredProjects.slice(0, PROJECTS_PER_PAGE);
 
   // Réinitialiser "Voir plus" quand on change de filtre
   const handleFilterClick = (category: string) => {
     setActiveFilter(category);
-    setShowAll(false); 
+    setShowAll(false);
   };
 
   const handleNextImage = (e: React.MouseEvent) => {
@@ -255,15 +255,17 @@ export default function Projects({ data }: ProjectsProps) {
 
       {/* BOUTONS FILTRES */}
       <div className="filter-buttons">
-        {["Tous", "Universitaire", "Personnel", "Professionnel"].map((category) => (
-          <button
-            key={category}
-            className={activeFilter === category ? "active" : ""}
-            onClick={() => handleFilterClick(category)}
-          >
-            {category}
-          </button>
-        ))}
+        {["Tous", "Universitaire", "Personnel", "Professionnel"].map(
+          (category) => (
+            <button
+              key={category}
+              className={activeFilter === category ? "active" : ""}
+              onClick={() => handleFilterClick(category)}
+            >
+              {category}
+            </button>
+          )
+        )}
       </div>
 
       {/* GRILLE DES PROJETS */}
@@ -307,10 +309,7 @@ export default function Projects({ data }: ProjectsProps) {
       {/* S'il reste des projets cachés, on affiche "Voir plus" */}
       {!showAll && filteredProjects.length > PROJECTS_PER_PAGE && (
         <div className="view-more-container">
-          <button 
-            className="view-more-btn"
-            onClick={() => setShowAll(true)}
-          >
+          <button className="view-more-btn" onClick={() => setShowAll(true)}>
             Voir plus
           </button>
         </div>
@@ -318,14 +317,11 @@ export default function Projects({ data }: ProjectsProps) {
 
       {/* Si tout est affiché et qu'il y en a beaucoup, on affiche "Voir moins" */}
       {showAll && filteredProjects.length > PROJECTS_PER_PAGE && (
-         <div className="view-more-container">
-         <button 
-           className="view-less-btn"
-           onClick={() => setShowAll(false)}
-         >
-           Voir moins
-         </button>
-       </div>
+        <div className="view-more-container">
+          <button className="view-less-btn" onClick={() => setShowAll(false)}>
+            Voir moins
+          </button>
+        </div>
       )}
 
       {/* MODAL / PAGE DÉTAIL */}
@@ -339,7 +335,6 @@ export default function Projects({ data }: ProjectsProps) {
             </div>
 
             <div className="detail-split">
-              
               {/* --- COLONNE DROITE : TEXTE --- */}
               <div className="detail-right">
                 <div className="detail-header">
@@ -361,8 +356,26 @@ export default function Projects({ data }: ProjectsProps) {
                   ))}
                 </div>
 
-                <div className="detail-description">
-                  <p>{selectedProject.description}</p>
+                <div className="star-container">
+                  <div className="star-block">
+                    <h4>Situation</h4>
+                    <p>{selectedProject.star.situation}</p>
+                  </div>
+
+                  <div className="star-block">
+                    <h4>Tâche</h4>
+                    <p>{selectedProject.star.task}</p>
+                  </div>
+
+                  <div className="star-block">
+                    <h4>Action</h4>
+                    <p>{selectedProject.star.action}</p>
+                  </div>
+
+                  <div className="star-block">
+                    <h4>Résultat</h4>
+                    <p>{selectedProject.star.result}</p>
+                  </div>
                 </div>
 
                 {selectedProject.technologies &&
@@ -440,7 +453,6 @@ export default function Projects({ data }: ProjectsProps) {
                 {/* ZONE BOUTONS (LIEN / DOWNLOAD) */}
                 {(selectedProject.link || selectedProject.download) && (
                   <div className="left-action-container">
-                    
                     {/* Bouton GitHub / Site */}
                     {selectedProject.link && (
                       <a
@@ -466,7 +478,6 @@ export default function Projects({ data }: ProjectsProps) {
                   </div>
                 )}
               </div>
-
             </div>
           </div>
         </div>
