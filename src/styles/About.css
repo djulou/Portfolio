@@ -151,3 +151,36 @@
   border-color: rgba(108, 92, 231, 0.4);
   color: #a29bfe;
 }
+
+/* ... vos styles existants pour .exp-tag ... */
+
+.exp-tag {
+  /* Ajoutez flex pour aligner l'image et le texte */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* Espace entre logo et texte */
+  
+  /* Vos styles existants */
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ccc;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+/* Style de l'icône dans le badge */
+.exp-tag-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* Hover effect (optionnel) */
+.exp-tag:hover {
+  background-color: rgba(108, 92, 231, 0.2);
+  border-color: rgba(108, 92, 231, 0.4);
+  color: #a29bfe;
+}

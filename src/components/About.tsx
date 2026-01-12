@@ -69,10 +69,37 @@ export default function About({
 
   return (
     <section id="apropos" className="about">
-      {/* ... description et formation ... */}
+      
+      {/* 1. DESCRIPTION (À PROPOS) */}
+      <div className="about-description">
+        {/* Vérifiez si vous avez un titre ou une image dans aboutData */}
+        {aboutData.title && <h1>{aboutData.title}</h1>}
+        <p>{aboutData.description}</p>
+      </div>
 
-      {/* EXPÉRIENCES PRO */}
+      {/* 2. FORMATIONS (ÉDUCATION) */}
       <div className="formation">
+        <h1>Formations</h1>
+        {formationsData.map((formation) => (
+          <div key={formation.id} className="lines">
+            <div className="lieu">
+              <p>{formation.year}</p>
+              {/* Adaptez 'degree' et 'school' selon vos types réels */}
+              <p>{formation.degree}</p> 
+              <p>{formation.school}</p>
+            </div>
+            {/* Si les formations ont aussi une description ou des détails */}
+            {formation.description && (
+               <div className="details">
+                 <p>{formation.description}</p>
+               </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* 3. EXPÉRIENCES PRO */}
+      <div className="formation"> {/* Note: Vous utilisez la classe 'formation' ici aussi pour le style */}
         <h1>Expériences Professionnelles</h1>
         {experiencesData.map((exp) => (
           <div key={exp.id} className="lines">
@@ -82,16 +109,13 @@ export default function About({
               <p>{exp.company}</p>
             </div>
 
-            {/* CORRECTION ICI : On utilise le logo */}
+            {/* Affichage des logos pour les technologies */}
             {exp.technologies && exp.technologies.length > 0 && (
               <div className="exp-tags-container">
                 {exp.technologies.map((techName, index) => {
-                  // On cherche l'image associée au nom (ex: "React" -> reactLogo)
                   const logoSrc = languageLogos[techName];
-
                   return (
                     <span key={index} className="exp-tag">
-                      {/* Si le logo existe, on l'affiche */}
                       {logoSrc && (
                         <img
                           src={logoSrc}
@@ -99,7 +123,6 @@ export default function About({
                           className="exp-tag-icon"
                         />
                       )}
-                      {/* Le nom de la techno */}
                       {techName}
                     </span>
                   );
