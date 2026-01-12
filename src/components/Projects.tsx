@@ -90,6 +90,7 @@ import apacheLogo from "../../public/img/apache.webp";
 import csvLogo from "../../public/img/csv.webp";
 import ganttLogo from "../../public/img/gantt.webp";
 import canvaLogo from "../../public/img/canva.webp";
+import fastapiLogo from "../../public/img/fastapi.webp";
 
 interface ProjectsProps {
   data: Project[];
@@ -184,6 +185,7 @@ export default function Projects({ data }: ProjectsProps) {
     CSV: csvLogo,
     Gantt: ganttLogo,
     Canva: canvaLogo,
+    FastAPI: fastapiLogo,
   };
 
   const getStickerClass = (category: string) => {
