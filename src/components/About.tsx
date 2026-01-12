@@ -105,7 +105,7 @@ export default function About({
         {/* BLOC FORMATIONS */}
         {activeTab === "formations" && (
           <div className="formation-list fade-in">
-            <h2>Parcours Scolaire</h2>
+            <h2>Parcours Universitaire</h2>
             {formationsData.map((formation) => (
               <div key={formation.id} className="lines">
                 <div className="lieu">

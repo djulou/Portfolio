@@ -194,7 +194,7 @@ export default function Projects({ data }: ProjectsProps) {
 
   const getStickerClass = (category: string) => {
     switch (category) {
-      case "Scolaire":
+      case "Universitaire":
         return "sticker-school";
       case "Professionnel":
         return "sticker-pro";
@@ -255,7 +255,7 @@ export default function Projects({ data }: ProjectsProps) {
 
       {/* BOUTONS FILTRES */}
       <div className="filter-buttons">
-        {["Tous", "Scolaire", "Personnel", "Professionnel"].map((category) => (
+        {["Tous", "Universitaire", "Personnel", "Professionnel"].map((category) => (
           <button
             key={category}
             className={activeFilter === category ? "active" : ""}
