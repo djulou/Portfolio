@@ -567,22 +567,27 @@
   {
     "image": "/images/sport.webp",
     "title": "Le Sport",
-    "description": "Passionné de sport en général, j'ai pratiqué de nombreux sport collectif comme individuel, du football pendant 8ans en club, de la voile en section sportive au lycée"
+    "description": "Passionné de sport en général, j'ai pratiqué de nombreux sports collectifs comme individuels, du football pendant 8 ans en club, de la voile en section sportive au lycée."
   },
   {
     "image": "/images/hand.webp",
     "title": "Handball",
-    "description": "J'ai joué en compétition pendant plusieurs années. J'aime l'esprit d'équipe et la stratégie de ce sport."
+    "description": "Je joue au handball depuis 5 ans au HB Pélémois, j'apprécie l'esprit d'équipe, le surpassement de soi et l'envie de progresser en équipe."
   },
   {
     "image": "/images/info.webp",
-    "title": "Veille Technologique",
-    "description": "Curieux de nature, je passe beaucoup de temps à tester de nouveaux frameworks et suivre l'actualité IT."
+    "title": "Informatique",
+    "description": "Technophile polyvalent spécialisé en informatique, du hardware au développement. Engagé dans une démarche d'apprentissage continu, je concentre aujourd'hui mon expertise sur les enjeux de la cybersécurité et des technologies d'IA."
   },
   {
     "image": "/images/voiture.webp",
     "title": "Automobile",
-    "description": "Passionné par la mécanique et les belles carrosseries, je suis l'actualité automobile avec grand intérêt."
+    "description": "Depuis tout jeune, je découvre le monde de la mécanique automobile avec mon père, j'ai hérité de sa passion pour la précision et l'ingénierie. Cet univers m'a donné le goût de comprendre le fonctionnement des systèmes, une curiosité que je transpose aujourd'hui avec le même enthousiasme dans le monde de l'informatique."
+  },
+  {
+    "image": "/images/jeuvideo.webp",
+    "title": "Jeux Vidéos",
+    "description": "Compétiteur dans l'âme, adepte des jeux où la précision technique rencontre la profondeur stratégique. J'aime quand chaque seconde demande une réflexion intense et une exécution millimétrée."
   }
 ]
 }

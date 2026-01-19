@@ -255,7 +255,7 @@ export default function Projects({ data }: ProjectsProps) {
 
       {/* BOUTONS FILTRES */}
       <div className="filter-buttons">
-        {["Tous", "Universitaire", "Personnel", "Professionnel"].map(
+        {["Tous", "Universitaire", "Personnel"/*, "Professionnel"*/].map(
           (category) => (
             <button
               key={category}
