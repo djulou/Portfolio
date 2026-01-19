@@ -7,7 +7,7 @@ import sportImg from '../../public/img/sport.webp';
 import handImg from '../../public/img/hand.webp';
 import infoImg from '../../public/img/info.webp';
 import voitureImg from '../../public/img/voiture.webp';
-
+import jeuvideoImg from '../../public/img/jeuvideo.webp';
 
 interface PassionsProps {
   data: PassionItem[]; // On attend maintenant un tableau d'objets
@@ -21,6 +21,7 @@ export default function Passions({ data }: PassionsProps) {
     "/images/hand.webp": handImg,
     "/images/info.webp": infoImg,
     "/images/voiture.webp": voitureImg,
+    "/images/jeuvideo.webp": jeuvideoImg,
   };
 
   const nextSlide = () => {
